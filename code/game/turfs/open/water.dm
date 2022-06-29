@@ -2,9 +2,9 @@
 	gender = PLURAL
 	name = "water"
 	desc = "Shallow water."
-	icon = 'icons/turf/floors.dmi'
-	icon_state = "riverwater_motion"
-	baseturfs = /turf/open/chasm
+	icon = 'icons/turf/floors/common.dmi'
+	icon_state = "water"
+	baseturfs = /turf/open/water
 	slowdown = 1
 	bullet_sizzle = TRUE
 	bullet_bounce_sound = null //needs a splashing sound one day.

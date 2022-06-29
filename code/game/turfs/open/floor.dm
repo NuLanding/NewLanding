@@ -5,7 +5,7 @@
 	name = "floor"
 	icon = 'icons/turf/floors.dmi'
 	base_icon_state = "floor"
-	baseturfs = /turf/open/floor/plating
+	baseturfs = /turf/open/floor/rock
 
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_HARD_BAREFOOT
@@ -110,12 +110,6 @@
 		return
 
 	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_HAND, user, modifiers)
-
-/turf/open/floor/proc/break_tile_to_plating()
-	var/turf/open/floor/plating/T = make_plating()
-	if(!istype(T))
-		return
-	T.break_tile()
 
 /turf/open/floor/proc/break_tile()
 	if(broken)

@@ -8,7 +8,7 @@
 	base_icon_state = "wall"
 	explosion_block = 1
 
-	baseturfs = /turf/open/floor/plating
+	baseturfs = /turf/open/floor/rock
 
 	flags_ricochet = RICOCHET_HARD
 

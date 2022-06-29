@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(minor_mapping)
 
 	for(var/datum/virtual_level/vlevel as anything in SSmapping.virtual_levels_by_trait(ZTRAIT_STATION))
 		for(var/t in vlevel.get_block())
-			if(isfloorturf(t) && !isplatingturf(t))
+			if(isfloorturf(t))
 				suitable += t
 
 	return shuffle(suitable)

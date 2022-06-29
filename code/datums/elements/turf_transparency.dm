@@ -37,7 +37,7 @@
 	our_turf.vis_contents.len = 0
 	if(!below_turf)
 		if(!show_bottom_level(our_turf) && prune_on_fail) //If we cant show whats below, and we prune on fail, change the turf to plating as a fallback
-			our_turf.ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
+			our_turf.ChangeTurf(/turf/open/floor/rock, flags = CHANGETURF_INHERIT_AIR)
 			return FALSE
 
 	var/apply_transparency = TRUE

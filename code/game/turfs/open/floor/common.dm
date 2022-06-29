@@ -31,7 +31,7 @@
 	gender = PLURAL
 	name = "dirt"
 	desc = "Upon closer examination, it's still dirt."
-	icon = 'icons/turf/floors/grass.dmi'
+	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "cracked_dirt"
 	base_icon_state = "cracked_dirt"
 	baseturfs = /turf/open/floor/rock

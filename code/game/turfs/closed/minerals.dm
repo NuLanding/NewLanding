@@ -15,7 +15,7 @@
 	base_icon_state = "smoothrocks"
 	var/smooth_icon = 'icons/turf/smoothrocks.dmi'
 	var/environment_type = "asteroid"
-	var/turf/open/floor/plating/turf_type = /turf/open/floor/rock
+	var/turf/open/floor/turf_type = /turf/open/floor/rock
 	var/obj/item/stack/ore/mineralType = null
 	var/mineralAmt = 3
 	var/last_act = 0

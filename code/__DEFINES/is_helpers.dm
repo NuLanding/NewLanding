@@ -24,8 +24,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isopenturf(A) (istype(A, /turf/open))
 
-#define isindestructiblefloor(A) (istype(A, /turf/open/indestructible))
-
 #define isspaceturf(A) (istype(A, /turf/open/space))
 
 #define isopenspaceturf(A) (istype(A, /turf/open/openspace))
@@ -43,8 +41,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define islava(A) (istype(A, /turf/open/lava))
 
 #define ischasm(A) (istype(A, /turf/open/chasm))
-
-#define isplatingturf(A) (istype(A, /turf/open/floor/plating))
 
 #define iswall(A) (istype(A, /turf/closed/wall))
 
