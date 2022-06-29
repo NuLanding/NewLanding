@@ -1,9 +1,9 @@
 /turf/open/floor/grass
 	name = "grass"
 	desc = "A patch of grass."
-	icon = 'icons/turf/floors/grass.dmi'
-	icon_state = "grass0"
-	base_icon_state = "grass"
+	icon = 'icons/turf/floors/junglegrass.dmi'
+	icon_state = "junglegrass0"
+	base_icon_state = "junglegrass"
 	baseturfs = /turf/open/floor/rock
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS
