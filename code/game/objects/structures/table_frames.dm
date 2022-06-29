@@ -96,11 +96,6 @@
 		var/obj/item/stack/material = I
 		var/toConstruct // stores the table variant
 		var/carpet_type // stores the carpet type used for construction in case of poker tables
-		if(istype(I, /obj/item/stack/sheet/mineral/wood))
-			toConstruct = /obj/structure/table/wood
-		else if(istype(I, /obj/item/stack/tile/carpet))
-			toConstruct = /obj/structure/table/wood/poker
-			carpet_type = I.type
 		if (toConstruct)
 			if(material.get_amount() < 1)
 				to_chat(user, SPAN_WARNING("You need one [material.name] sheet to do this!"))

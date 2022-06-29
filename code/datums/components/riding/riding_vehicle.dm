@@ -163,10 +163,6 @@
 /datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes
 	vehicle_move_delay = 1
 
-/datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes/handle_specials()
-	. = ..()
-	allowed_turf_typecache = typecacheof(/turf/open/floor/plating/asteroid)
-
 /datum/component/riding/vehicle/secway
 	keytype = /obj/item/key/security
 	vehicle_move_delay = 1.75

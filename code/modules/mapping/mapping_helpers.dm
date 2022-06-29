@@ -50,44 +50,6 @@
 		thing.PlaceOnBottom(null, baseturf)
 
 
-
-/obj/effect/baseturf_helper/space
-	name = "space baseturf editor"
-	baseturf = /turf/open/space
-
-/obj/effect/baseturf_helper/asteroid
-	name = "asteroid baseturf editor"
-	baseturf = /turf/open/floor/plating/asteroid
-
-/obj/effect/baseturf_helper/asteroid/airless
-	name = "asteroid airless baseturf editor"
-	baseturf = /turf/open/floor/plating/asteroid
-
-/obj/effect/baseturf_helper/asteroid/basalt
-	name = "asteroid basalt baseturf editor"
-	baseturf = /turf/open/floor/plating/asteroid/basalt
-
-/obj/effect/baseturf_helper/asteroid/snow
-	name = "asteroid snow baseturf editor"
-	baseturf = /turf/open/floor/plating/asteroid
-
-/obj/effect/baseturf_helper/beach/sand
-	name = "beach sand baseturf editor"
-	baseturf = /turf/open/floor/plating/beach/sand
-
-/obj/effect/baseturf_helper/beach/water
-	name = "water baseturf editor"
-	baseturf = /turf/open/floor/plating/beach/water
-
-/obj/effect/baseturf_helper/lava
-	name = "lava baseturf editor"
-	baseturf = /turf/open/lava/smooth
-
-/obj/effect/baseturf_helper/lava_land/surface
-	name = "lavaland baseturf editor"
-	baseturf = /turf/open/lava/smooth
-
-
 /obj/effect/mapping_helpers
 	icon = 'icons/effects/mapping_helpers.dmi'
 	icon_state = ""

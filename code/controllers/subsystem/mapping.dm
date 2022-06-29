@@ -112,10 +112,6 @@ Used by the AI doomsday and the self-destruct nuke.
 		if(!istype(d) || QDELETED(d))
 			nuke_threats -= d
 
-	for(var/N in nuke_tiles)
-		var/turf/open/floor/circuit/C = N
-		C.update_appearance()
-
 /datum/controller/subsystem/mapping/Recover()
 	flags |= SS_NO_INIT
 	initialized = SSmapping.initialized

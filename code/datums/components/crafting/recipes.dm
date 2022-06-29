@@ -301,12 +301,6 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 5, /obj/item/paper = 20)
 	category = CAT_MISC
 
-/datum/crafting_recipe/blackcarpet
-	name = "Black Carpet"
-	reqs = list(/obj/item/stack/tile/carpet = 50, /obj/item/toy/crayon/black = 1)
-	result = /obj/item/stack/tile/carpet/black/fifty
-	category = CAT_MISC
-
 /datum/crafting_recipe/curtain
 	name = "Curtains"
 	reqs = list(/obj/item/stack/sheet/cloth = 4, /obj/item/stack/rods = 1)

@@ -25,20 +25,7 @@
 	desc = "Green and lush."
 	icon_state = "grassclump"
 	bite_consumption_mod = 0.5 // Grazing on grass
-	var/stacktype = /obj/item/stack/tile/grass
-	var/tile_coefficient = 0.02 // 1/50
 	wine_power = 15
-
-/obj/item/food/grown/grass/attack_self(mob/user)
-	to_chat(user, SPAN_NOTICE("You prepare the astroturf."))
-	var/grassAmt = 1 + round(seed.potency * tile_coefficient) // The grass we're holding
-	for(var/obj/item/food/grown/grass/G in user.loc) // The grass on the floor
-		if(G.type != type)
-			continue
-		grassAmt += 1 + round(G.seed.potency * tile_coefficient)
-		qdel(G)
-	new stacktype(user.drop_location(), grassAmt)
-	qdel(src)
 
 //Fairygrass
 /obj/item/seeds/grass/fairy
@@ -60,7 +47,6 @@
 	desc = "Blue, glowing, and smells fainly of mushrooms."
 	icon_state = "fairygrassclump"
 	bite_consumption_mod = 1
-	stacktype = /obj/item/stack/tile/fairygrass
 
 // Carpet
 /obj/item/seeds/grass/carpet
@@ -78,5 +64,4 @@
 	name = "carpet"
 	desc = "The textile industry's dark secret."
 	icon_state = "carpetclump"
-	stacktype = /obj/item/stack/tile/carpet
 	can_distill = FALSE

@@ -24,8 +24,6 @@
 		var/turf/T = object
 		if(isspaceturf(object))
 			T.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-		else if(isplatingturf(object))
-			T.PlaceOnTop(/turf/open/floor/iron, flags = CHANGETURF_INHERIT_AIR)
 		else if(isfloorturf(object))
 			T.PlaceOnTop(/turf/closed/wall)
 		else if(iswallturf(object))

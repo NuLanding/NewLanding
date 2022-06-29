@@ -156,98 +156,10 @@
 	. = ..()
 	if(.)
 		return .
-	if(intact && istype(object, /obj/item/stack/tile))
-		try_replace_tile(object, user, params)
-		return TRUE
 	if(user.combat_mode && istype(object, /obj/item/stack/sheet))
 		var/obj/item/stack/sheet/sheets = object
 		return sheets.on_attack_floor(user, params)
 	return FALSE
 
-/turf/open/floor/crowbar_act(mob/living/user, obj/item/I)
-	if(intact && pry_tile(I, user))
-		return TRUE
-
-/turf/open/floor/proc/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
-	if(T.turf_type == type && T.turf_dir == dir)
-		return
-	var/obj/item/crowbar/CB = user.is_holding_item_of_type(/obj/item/crowbar)
-	if(!CB)
-		return
-	var/turf/open/floor/plating/P = pry_tile(CB, user, TRUE)
-	if(!istype(P))
-		return
-	P.attackby(T, user, params)
-
-/turf/open/floor/proc/pry_tile(obj/item/I, mob/user, silent = FALSE)
-	I.play_tool_sound(src, 80)
-	return remove_tile(user, silent)
-
-/turf/open/floor/proc/remove_tile(mob/user, silent = FALSE, make_tile = TRUE, force_plating)
-	if(broken || burnt)
-		broken = FALSE
-		burnt = FALSE
-		if(user && !silent)
-			to_chat(user, SPAN_NOTICE("You remove the broken plating."))
-	else
-		if(user && !silent)
-			to_chat(user, SPAN_NOTICE("You remove the floor tile."))
-		if(make_tile)
-			spawn_tile()
-	return make_plating(force_plating)
-
-/turf/open/floor/proc/has_tile()
-	return floor_tile
-
-/turf/open/floor/proc/spawn_tile()
-	if(!has_tile())
-		return null
-	return new floor_tile(src)
-
 /turf/open/floor/acid_melt()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-
-/turf/open/floor/proc/try_place_tile(obj/item/C, mob/user, can_reinforce, considered_broken)
-	if(istype(C, /obj/item/stack/rods) && can_reinforce)
-		if(considered_broken)
-			to_chat(user, SPAN_WARNING("Repair the plating first! Use a welding tool to fix the damage."))
-			return
-		var/obj/item/stack/rods/R = C
-		if (R.get_amount() < 2)
-			to_chat(user, SPAN_WARNING("You need two rods to make a reinforced floor!"))
-			return
-		else
-			to_chat(user, SPAN_NOTICE("You begin reinforcing the floor..."))
-			if(do_after(user, 30, target = src))
-				if (R.get_amount() >= 2 && !istype(src, /turf/open/floor/engine))
-					PlaceOnTop(/turf/open/floor/engine, flags = CHANGETURF_INHERIT_AIR)
-					playsound(src, 'sound/items/deconstruct.ogg', 80, TRUE)
-					R.use(2)
-					to_chat(user, SPAN_NOTICE("You reinforce the floor."))
-				return
-	else if(istype(C, /obj/item/stack/tile))
-		if(!considered_broken)
-			for(var/obj/O in src)
-				for(var/M in O.buckled_mobs)
-					to_chat(user, SPAN_WARNING("Someone is buckled to \the [O]! Unbuckle [M] to move \him out of the way."))
-					return
-			var/obj/item/stack/tile/tile = C
-			tile.place_tile(src)
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-		else
-			to_chat(user, SPAN_WARNING("This section is too damaged to support a tile! Use a welding tool to fix the damage."))
-
-/turf/open/floor/material
-	name = "floor"
-	icon_state = "materialfloor"
-	material_flags = MATERIAL_ADD_PREFIX | MATERIAL_COLOR | MATERIAL_AFFECT_STATISTICS
-	floor_tile = /obj/item/stack/tile/material
-
-/turf/open/floor/material/has_tile()
-	return LAZYLEN(custom_materials)
-
-/turf/open/floor/material/spawn_tile()
-	. = ..()
-	if(.)
-		var/obj/item/stack/tile = .
-		tile.set_mats_per_unit(custom_materials, 1)
