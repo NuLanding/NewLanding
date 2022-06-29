@@ -143,6 +143,7 @@
 	var/datum/ai_controller/ai_controller
 	/// Ambience emitter ID this atom is emitting
 	var/ambience
+	var/CanAtmosPass = ATMOS_PASS_YES
 
 /**
  * Called when an atom is created in byond (built in engine proc)

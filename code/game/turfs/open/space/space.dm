@@ -10,7 +10,6 @@
 	dynamic_lighting = DYNAMIC_LIGHTING_DISABLED
 	bullet_bounce_sound = null
 	vis_flags = VIS_INHERIT_ID //when this be added to vis_contents of something it be associated with something on clicking, important for visualisation of turf in openspace and interraction with openspace that show you turf.
-	can_have_catwalk = TRUE
 
 /turf/open/space/basic/New() //Do not convert to Initialize
 	//This is used to optimize the map loader
@@ -82,55 +81,8 @@
 /turf/open/space/handle_slip()
 	return
 
-/turf/open/space/attackby(obj/item/C, mob/user, params)
-	..()
-	if(!CanBuildHere())
-		return
-	if(istype(C, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = C
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
-		if(W)
-			to_chat(user, SPAN_WARNING("There is already a catwalk here!"))
-			return
-		if(L)
-			if(R.use(1))
-				qdel(L)
-				to_chat(user, SPAN_NOTICE("You construct a catwalk."))
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				new/obj/structure/lattice/catwalk(src)
-			else
-				to_chat(user, SPAN_WARNING("You need two rods to build a catwalk!"))
-			return
-		if(R.use(1))
-			to_chat(user, SPAN_NOTICE("You construct a lattice."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-			ReplaceWithLattice()
-		else
-			to_chat(user, SPAN_WARNING("You need one rod to build a lattice."))
-		return
-	if(istype(C, /obj/item/stack/tile/iron))
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(L)
-			var/obj/item/stack/tile/iron/S = C
-			if(S.use(1))
-				qdel(L)
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, SPAN_NOTICE("You build a floor."))
-				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-			else
-				to_chat(user, SPAN_WARNING("You need one floor tile to build a floor!"))
-		else
-			to_chat(user, SPAN_WARNING("The plating is going to need some support! Place metal rods first."))
-
-
 /turf/open/space/MakeSlippery(wet_setting, min_wet_time, wet_time_to_add, max_wet_time, permanent)
 	return
-
-/turf/open/space/can_have_cabling()
-	if(locate(/obj/structure/lattice/catwalk, src))
-		return TRUE
-	return FALSE
 
 /turf/open/space/acid_act(acidpwr, acid_volume)
 	return FALSE

@@ -5,6 +5,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	icon = 'icons/turf/floors.dmi'
 	vis_flags = VIS_INHERIT_ID | VIS_INHERIT_PLANE// Important for interaction with and visualization of openspace.
 	luminosity = 1
+	CanAtmosPass = ATMOS_PASS_NO
 	/// Turf bitflags, see code/__DEFINES/flags.dm
 	var/turf_flags = NONE
 	var/intact = 1
@@ -21,11 +22,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 	var/blocks_air = FALSE
 
-	var/list/image/blueprint_data //for the station blueprints, images of objects eg: pipes
-
 	var/list/explosion_throw_details
 
-	var/requires_activation //add to air processing after initialize?
 	var/changing_turf = FALSE
 
 	var/bullet_bounce_sound = 'sound/weapons/gun/general/mag_bullet_remove.ogg' //sound played when a shell casing is ejected ontop of the turf.
@@ -65,6 +63,8 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/static/list/virtual_z_translation
 	/// List of all the ambiences coming from other atoms on the turf
 	var/list/ambience_list
+	/// Adjacent turfs which air can flow into
+	var/list/atmos_adjacent_turfs
 
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list("x", "y", "z")
@@ -113,9 +113,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	if(!IS_DYNAMIC_LIGHTING(src) && IS_DYNAMIC_LIGHTING(A))
 		add_overlay(/obj/effect/fullbright)
 
-	if(requires_activation)
-		ImmediateCalculateAdjacentTurfs()
-
 	if (light_power && light_range)
 		update_light()
 
@@ -158,9 +155,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 			qdel(A)
 		return
 	visibilityChanged()
-	QDEL_LIST(blueprint_data)
 	flags_1 &= ~INITIALIZED_1
-	requires_activation = FALSE
 	..()
 
 	vis_contents.Cut()
@@ -418,12 +413,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 ////////////////////////////////////////////////////
 
-/turf/proc/can_have_cabling()
-	return TRUE
-
-/turf/proc/can_lay_cable()
-	return can_have_cabling() & !intact
-
 /turf/proc/visibilityChanged()
 	return
 
@@ -450,22 +439,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	underlay_appearance.icon_state = icon_state
 	underlay_appearance.dir = adjacency_dir
 	return TRUE
-
-/turf/proc/add_blueprints(atom/movable/AM)
-	var/image/I = new
-	I.appearance = AM.appearance
-	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
-	I.loc = src
-	I.setDir(AM.dir)
-	I.alpha = 128
-	LAZYADD(blueprint_data, I)
-
-/turf/proc/add_blueprints_preround(atom/movable/AM)
-	if(!SSticker.HasRoundStarted())
-		if(AM.layer == WIRE_LAYER) //wires connect to adjacent positions after its parent init, meaning we need to wait (in this case, until smoothing) to take its image
-			SSicon_smooth.blueprint_queue += AM
-		else
-			add_blueprints(AM)
 
 /turf/proc/is_transition_turf()
 	return

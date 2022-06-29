@@ -7,7 +7,6 @@
 	var/static/list/falling_atoms = list() // Atoms currently falling into chasms
 	var/static/list/forbidden_types = typecacheof(list(
 		/obj/docking_port,
-		/obj/structure/lattice,
 		/obj/projectile,
 		/obj/effect/projectile,
 		/obj/effect/portal,
@@ -36,12 +35,7 @@
 		STOP_PROCESSING(SSobj, src)
 
 /datum/component/chasm/proc/is_safe()
-	//if anything matching this typecache is found in the chasm, we don't drop things
-	var/static/list/chasm_safeties_typecache = typecacheof(list(/obj/structure/lattice/catwalk))
-
-	var/atom/parent = src.parent
-	var/list/found_safeties = typecache_filter_list(parent.contents, chasm_safeties_typecache)
-	return LAZYLEN(found_safeties)
+	return FALSE
 
 /datum/component/chasm/proc/drop_stuff(AM)
 	. = 0

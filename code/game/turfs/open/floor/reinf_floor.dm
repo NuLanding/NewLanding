@@ -60,7 +60,6 @@
 			if(prob(80))
 				if(!length(baseturfs) || !ispath(baseturfs[baseturfs.len-1], /turf/open/floor))
 					ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-					ReplaceWithLattice()
 				else
 					ScrapeAway(2, flags = CHANGETURF_INHERIT_AIR)
 			else if(prob(50))

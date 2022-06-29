@@ -1,5 +1,3 @@
-/atom/var/CanAtmosPass = ATMOS_PASS_YES
-
 /atom/proc/CanAtmosPass(turf/T, vertical = FALSE)
 	switch (CanAtmosPass)
 		if (ATMOS_PASS_PROC)
@@ -8,14 +6,6 @@
 			return !density
 		else
 			return CanAtmosPass
-
-/turf/CanAtmosPass = ATMOS_PASS_NO
-
-/turf/open/CanAtmosPass = ATMOS_PASS_PROC
-
-/turf/open/var/obj/effect/hotspot/active_hotspot
-
-/turf/var/list/atmos_adjacent_turfs
 
 ///Do NOT use this to see if 2 turfs are connected, it mutates state, and we cache that info anyhow.
 ///Use TURFS_CAN_SHARE or TURF_SHARES depending on your usecase

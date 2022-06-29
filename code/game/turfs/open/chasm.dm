@@ -39,32 +39,3 @@
 	underlay_appearance.icon = 'icons/turf/floors.dmi'
 	underlay_appearance.icon_state = "basalt"
 	return TRUE
-
-/turf/open/chasm/attackby(obj/item/C, mob/user, params, area/area_restriction)
-	..()
-	if(istype(C, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = C
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(!L)
-			if(R.use(1))
-				to_chat(user, SPAN_NOTICE("You construct a lattice."))
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				// Create a lattice, without reverting to our baseturf
-				new /obj/structure/lattice(src)
-			else
-				to_chat(user, SPAN_WARNING("You need one rod to build a lattice."))
-			return
-	if(istype(C, /obj/item/stack/tile/iron))
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(L)
-			var/obj/item/stack/tile/iron/S = C
-			if(S.use(1))
-				qdel(L)
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, SPAN_NOTICE("You build a floor."))
-				// Create a floor, which has this chasm underneath it
-				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-			else
-				to_chat(user, SPAN_WARNING("You need one floor tile to build a floor!"))
-		else
-			to_chat(user, SPAN_WARNING("The plating is going to need some support! Place iron rods first."))

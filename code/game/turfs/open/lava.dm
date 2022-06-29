@@ -61,27 +61,8 @@
 	underlay_appearance.icon_state = "basalt"
 	return TRUE
 
-/turf/open/lava/attackby(obj/item/C, mob/user, params)
-	..()
-	if(istype(C, /obj/item/stack/rods/lava))
-		var/obj/item/stack/rods/lava/R = C
-		var/obj/structure/lattice/lava/H = locate(/obj/structure/lattice/lava, src)
-		if(H)
-			to_chat(user, SPAN_WARNING("There is already a lattice here!"))
-			return
-		if(R.use(1))
-			to_chat(user, SPAN_NOTICE("You construct a lattice."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-			new /obj/structure/lattice/lava(locate(x, y, z))
-		else
-			to_chat(user, SPAN_WARNING("You need one rod to build a heatproof lattice."))
-		return
-
 /turf/open/lava/proc/is_safe()
-	//if anything matching this typecache is found in the lava, we don't burn things
-	var/static/list/lava_safeties_typecache = typecacheof(list(/obj/structure/lattice/catwalk, /obj/structure/lattice/lava))
-	var/list/found_safeties = typecache_filter_list(contents, lava_safeties_typecache)
-	return LAZYLEN(found_safeties)
+	return FALSE
 
 
 /turf/open/lava/proc/burn_stuff(AM, delta_time = 1)

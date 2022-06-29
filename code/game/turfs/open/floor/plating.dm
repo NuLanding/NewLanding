@@ -18,8 +18,6 @@
 	clawfootstep = FOOTSTEP_HARD_CLAW
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
-	can_have_catwalk = TRUE
-
 	var/attachment_holes = TRUE
 
 /turf/open/floor/plating/setup_broken_states()
@@ -72,9 +70,6 @@
 	if(istype(I, /obj/item/stack/tile/iron))
 		var/obj/item/stack/tile/iron/P = I
 		if(P.use(1))
-			var/obj/L = locate(/obj/structure/lattice) in src
-			if(L)
-				qdel(L)
 			to_chat(user, SPAN_NOTICE("You reinforce the foamed plating with tiling."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, TRUE)
 			ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)

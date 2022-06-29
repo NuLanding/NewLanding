@@ -1,5 +1,6 @@
 /turf/open
 	plane = FLOOR_PLANE
+	CanAtmosPass = ATMOS_PASS_PROC
 	var/slowdown = 0 //negative for faster, positive for slower
 
 	var/footstep = null
@@ -8,31 +9,10 @@
 	var/heavyfootstep = null
 	/// Reference to the turf fire on the turf
 	var/obj/effect/abstract/turf_fire/turf_fire
-	/// Whether this turf can have catwalk tiles placed on
-	var/can_have_catwalk
+	/// Active hotspot on this turf.
+	var/obj/effect/hotspot/active_hotspot
 	/// Pollution of this turf
 	var/datum/pollution/pollution
-
-/turf/open/attackby(obj/item/item, mob/user, params)
-	if(istype(item, /obj/item/stack/catwalk))
-		if(can_have_catwalk)
-			var/obj/item/stack/catwalk/catitem = item
-			if(locate(/obj/structure/lattice/catwalk, src))
-				return
-			var/cost = 2
-			var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-			if(L)
-				qdel(L)
-				cost = 1
-			if(catitem.use(cost))
-				new catitem.catwalk_type(src)
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, SPAN_NOTICE("You place down the catwalk."))
-			else
-				to_chat(user, SPAN_WARNING("You need two rods to build a catwalk!"))
-			return
-		to_chat(user, SPAN_WARNING("You can't place down a catwalk in this spot!"))
-	return ..()
 
 //direction is direction of travel of A
 /turf/open/zPassIn(atom/movable/A, direction, turf/source)

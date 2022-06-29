@@ -18,7 +18,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 	baseturfs = /turf/open/openspace
 	intact = FALSE //this means wires go on top
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	can_have_catwalk = TRUE
 	var/can_cover_up = TRUE
 	var/can_build_on = TRUE
 
@@ -30,11 +29,6 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 /turf/open/openspace/LateInitialize()
 	. = ..()
 	AddElement(/datum/element/turf_z_transparency, FALSE)
-
-/turf/open/openspace/can_have_cabling()
-	if(locate(/obj/structure/lattice/catwalk, src))
-		return TRUE
-	return FALSE
 
 /turf/open/openspace/zAirIn()
 	return TRUE
@@ -77,46 +71,3 @@ GLOBAL_DATUM_INIT(openspace_backdrop_one_for_all, /atom/movable/openspace_backdr
 
 /turf/open/openspace/proc/CanBuildHere()
 	return can_build_on
-
-/turf/open/openspace/attackby(obj/item/C, mob/user, params)
-	..()
-	if(!CanBuildHere())
-		return
-	if(istype(C, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = C
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		var/obj/structure/lattice/catwalk/W = locate(/obj/structure/lattice/catwalk, src)
-		if(W)
-			to_chat(user, SPAN_WARNING("There is already a catwalk here!"))
-			return
-		if(L)
-			if(R.use(1))
-				qdel(L)
-				to_chat(user, SPAN_NOTICE("You construct a catwalk."))
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				new/obj/structure/lattice/catwalk(src)
-			else
-				to_chat(user, SPAN_WARNING("You need two rods to build a catwalk!"))
-			return
-		if(R.use(1))
-			to_chat(user, SPAN_NOTICE("You construct a lattice."))
-			playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-			ReplaceWithLattice()
-		else
-			to_chat(user, SPAN_WARNING("You need one rod to build a lattice."))
-		return
-	if(istype(C, /obj/item/stack/tile/iron))
-		if(!CanCoverUp())
-			return
-		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
-		if(L)
-			var/obj/item/stack/tile/iron/S = C
-			if(S.use(1))
-				qdel(L)
-				playsound(src, 'sound/weapons/genhit.ogg', 50, TRUE)
-				to_chat(user, SPAN_NOTICE("You build a floor."))
-				PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-			else
-				to_chat(user, SPAN_WARNING("You need one floor tile to build a floor!"))
-		else
-			to_chat(user, SPAN_WARNING("The plating is going to need some support! Place iron rods first."))

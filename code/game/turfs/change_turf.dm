@@ -80,9 +80,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/old_underlying_area = underlying_area
 	var/old_shuttle_roof = shuttle_roof
 
-	var/old_bp = blueprint_data
-	blueprint_data = null
-
 	var/old_virtual_z = virtual_z
 
 	var/list/old_baseturfs = baseturfs
@@ -110,8 +107,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 	if(!(flags & CHANGETURF_DEFER_CHANGE))
 		W.AfterChange(flags, old_type)
-
-	W.blueprint_data = old_bp
 
 	W.virtual_z = old_virtual_z
 
@@ -302,8 +297,3 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		//CALCULATE_ADJACENT_TURFS(src, (!(ispath(oldType, /turf/closed) && istype(src, /turf/open)) ? NORMAL_TURF : MAKE_ACTIVE))
 
 	HandleTurfChange(src)
-
-
-/turf/proc/ReplaceWithLattice()
-	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-	new /obj/structure/lattice(locate(x, y, z))

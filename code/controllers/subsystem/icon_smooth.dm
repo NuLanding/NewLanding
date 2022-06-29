@@ -46,16 +46,6 @@ SUBSYSTEM_DEF(icon_smooth)
 		smoothing_atom.smooth_icon()
 		CHECK_TICK
 
-	queue = blueprint_queue
-	blueprint_queue = list()
-
-	for(var/item in queue)
-		var/atom/movable/movable_item = item
-		if(!isturf(movable_item.loc))
-			continue
-		var/turf/item_loc = movable_item.loc
-		item_loc.add_blueprints(movable_item)
-
 	return ..()
 
 
