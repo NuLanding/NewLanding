@@ -24,8 +24,6 @@
 		var/turf/T = object
 		if(isfloorturf(object))
 			T.PlaceOnTop(/turf/closed/wall)
-		else if(iswallturf(object))
-			T.PlaceOnTop(/turf/closed/wall/r_wall)
 		log_admin("Build Mode: [key_name(c)] built [T] at [AREACOORD(T)]")
 		return
 	else if(right_click)

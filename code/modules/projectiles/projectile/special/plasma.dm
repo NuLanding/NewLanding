@@ -11,17 +11,6 @@
 	muzzle_type = /obj/effect/projectile/muzzle/plasma_cutter
 	impact_type = /obj/effect/projectile/impact/plasma_cutter
 
-/obj/projectile/plasma/on_hit(atom/target)
-	. = ..()
-	if(ismineralturf(target))
-		var/turf/closed/mineral/M = target
-		M.gets_drilled(firer)
-		if(mine_range)
-			mine_range--
-			range++
-		if(range > 0)
-			return BULLET_ACT_FORCE_PIERCE
-
 /obj/projectile/plasma/adv
 	damage = 7
 	range = 5

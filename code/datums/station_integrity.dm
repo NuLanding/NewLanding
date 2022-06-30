@@ -44,14 +44,6 @@
 				else
 					wall += 1
 
-			if(istype(T, /turf/closed/wall/r_wall))
-				var/turf/closed/wall/r_wall/TRW = T
-				if(TRW.intact)
-					r_wall += 2
-				else
-					r_wall += 1
-
-
 			for(var/obj/O in T.contents)
 				if(istype(O, /obj/structure/window))
 					window += 1

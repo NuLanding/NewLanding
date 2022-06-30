@@ -147,13 +147,11 @@
 					//Build a normal wall
 					T.PlaceOnTop(wall_type)
 					var/turf/closed/wall/placed_wall = T
-					placed_wall.set_wall_information(S.material_type, reinforced_material, wall_paint, stripe_paint)
 					transfer_fingerprints_to(placed_wall)
 				else
 					//Build a false wall
 					var/false_wall_type = plating_mat_ref.false_wall_type
 					var/obj/structure/falsewall/false_wall = new false_wall_type(T)
-					false_wall.set_wall_information(S.material_type, reinforced_material, wall_paint, stripe_paint)
 					transfer_fingerprints_to(false_wall)
 				qdel(src)
 
@@ -254,40 +252,3 @@
 	state = GIRDER_REINF
 	reinforced_material = /datum/material/iron
 	girderpasschance = GIRDER_PASSCHANCE_REINFORCED
-
-/obj/structure/girder/bronze
-	name = "wall gear"
-	desc = "A girder made out of sturdy bronze, made to resemble a gear."
-	icon = 'icons/obj/clockwork_objects.dmi'
-	icon_state = "wall_gear"
-	can_displace = FALSE
-
-/obj/structure/girder/bronze/attackby(obj/item/W, mob/living/user, params)
-	add_fingerprint(user)
-	if(W.tool_behaviour == TOOL_WELDER)
-		if(!W.tool_start_check(user, amount = 0))
-			return
-		to_chat(user, SPAN_NOTICE("You start slicing apart [src]..."))
-		if(W.use_tool(src, user, 40, volume=50))
-			to_chat(user, SPAN_NOTICE("You slice apart [src]."))
-			var/obj/item/stack/sheet/bronze/B = new(drop_location(), 2)
-			transfer_fingerprints_to(B)
-			qdel(src)
-
-	else if(istype(W, /obj/item/stack/sheet/bronze))
-		var/obj/item/stack/sheet/bronze/B = W
-		if(B.get_amount() < 2)
-			to_chat(user, SPAN_WARNING("You need at least two bronze sheets to build a bronze wall!"))
-			return
-		user.visible_message(SPAN_NOTICE("[user] begins plating [src] with bronze..."), SPAN_NOTICE("You begin constructing a bronze wall..."))
-		if(do_after(user, 50, target = src))
-			if(B.get_amount() < 2)
-				return
-			user.visible_message(SPAN_NOTICE("[user] plates [src] with bronze!"), SPAN_NOTICE("You construct a bronze wall."))
-			B.use(2)
-			var/turf/T = get_turf(src)
-			T.PlaceOnTop(/turf/closed/wall/mineral/bronze)
-			qdel(src)
-
-	else
-		return ..()

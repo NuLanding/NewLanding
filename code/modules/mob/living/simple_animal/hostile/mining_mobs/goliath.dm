@@ -192,9 +192,6 @@
 			return INITIALIZE_HINT_QDEL
 	if(!QDELETED(new_spawner))
 		spawner = new_spawner
-	if(ismineralturf(loc))
-		var/turf/closed/mineral/M = loc
-		M.gets_drilled()
 	deltimer(timerid)
 	timerid = addtimer(CALLBACK(src, .proc/tripanim), 7, TIMER_STOPPABLE)
 

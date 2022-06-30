@@ -164,22 +164,6 @@ again.
 	name = "tinted reinforced window with grille spawner"
 	spawn_list = list(/obj/structure/grille, /obj/structure/low_wall, /obj/structure/window/reinforced/tinted/fulltile)
 
-//shuttle window
-
-/obj/effect/spawner/structure/window/shuttle
-	name = "shuttle window spawner"
-	icon_state = "swindow_spawner"
-	spawn_list = list(/obj/structure/low_wall/titanium, /obj/structure/window/shuttle)
-
-
-//plastitanium window
-
-/obj/effect/spawner/structure/window/plasma/reinforced/plastitanium
-	name = "plastitanium window spawner"
-	icon_state = "plastitaniumwindow_spawner"
-	spawn_list = list(/obj/structure/low_wall/plastitanium, /obj/structure/window/plasma/reinforced/plastitanium)
-
-
 //ice window
 
 /obj/effect/spawner/structure/window/ice

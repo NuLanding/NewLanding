@@ -14,12 +14,6 @@
 	smoothing_groups = list(SMOOTH_GROUP_LOW_WALL)
 	canSmoothWith = list(SMOOTH_GROUP_LOW_WALL, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTERS_BLASTDOORS)
 	armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
-	/// Material used in construction
-	var/plating_material = /datum/material/iron
-	/// Paint color of our wall
-	var/wall_paint
-	/// Paint colour of our stripe
-	var/stripe_paint
 	/// Typecache of airlocks to apply a neighboring stripe overlay to
 	var/static/list/airlock_typecache
 
@@ -32,31 +26,15 @@
 /obj/structure/low_wall/examine(mob/user)
 	. = ..()
 	. += SPAN_NOTICE("You could <b>weld</b> it down.")
-	if(wall_paint)
-		. += SPAN_NOTICE("It's coated with a <font color=[wall_paint]>layer of paint</font>.")
-	if(stripe_paint)
-		. += SPAN_NOTICE("It has a <font color=[stripe_paint]>painted stripe</font> around its base.")
 
 /obj/structure/low_wall/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/climbable)
-	set_material(plating_material)
-	if(wall_paint)
-		set_wall_paint(wall_paint)
-	if(stripe_paint)
-		set_stripe_paint(stripe_paint)
 	QUEUE_SMOOTH(src)
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
 /obj/structure/low_wall/update_overlays()
 	overlays.Cut()
-	var/datum/material/plating_mat_ref = GET_MATERIAL_REF(plating_material)
-	var/mutable_appearance/smoothed_stripe = mutable_appearance(plating_mat_ref.wall_stripe_icon, icon_state, layer = LOW_WALL_STRIPE_LAYER, appearance_flags = RESET_COLOR)
-	if(stripe_paint)
-		smoothed_stripe.color = stripe_paint
-	else
-		smoothed_stripe.color = color
-	overlays += smoothed_stripe
 
 	if(!airlock_typecache)
 		airlock_typecache = typecacheof(list())
@@ -72,10 +50,7 @@
 				break
 	if(neighbor_stripe)
 		var/mutable_appearance/neighb_stripe_appearace = mutable_appearance('icons/turf/walls/neighbor_stripe.dmi', "[neighbor_stripe]", layer = LOW_WALL_STRIPE_LAYER, appearance_flags = RESET_COLOR)
-		if(stripe_paint)
-			neighb_stripe_appearace.color = stripe_paint
-		else
-			neighb_stripe_appearace.color = color
+		neighb_stripe_appearace.color = color
 		overlays += neighb_stripe_appearace
 	return ..()
 
@@ -110,28 +85,7 @@
 	return ..()
 
 /obj/structure/low_wall/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
-	var/datum/material/plating_mat_ref = GET_MATERIAL_REF(plating_material)
-	new plating_mat_ref.sheet_type(loc, 2)
 	qdel(src)
-
-/obj/structure/low_wall/proc/set_wall_paint(new_paint)
-	wall_paint = new_paint
-	if(wall_paint)
-		color = wall_paint
-	else
-		var/datum/material/plating_mat_ref = GET_MATERIAL_REF(plating_material)
-		color = plating_mat_ref.wall_color
-	update_appearance()
-
-/obj/structure/low_wall/proc/set_stripe_paint(new_paint)
-	stripe_paint = new_paint
-	update_appearance()
-
-/obj/structure/low_wall/proc/set_material(new_material_type)
-	plating_material = new_material_type
-	if(!wall_paint)
-		var/datum/material/plating_mat_ref = GET_MATERIAL_REF(plating_material)
-		color = plating_mat_ref.wall_color
 
 /// Whether the top of the low wall is obstructed by an installed grille or a window
 /obj/structure/low_wall/proc/is_top_obstructed()
@@ -143,11 +97,14 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/low_wall/titanium
-	plating_material = /datum/material/titanium
-
-/obj/structure/low_wall/plastitanium
-	plating_material = /datum/material/alloy/plastitanium
-
 /obj/structure/low_wall/wood
-	plating_material = /datum/material/wood
+	name = "wooden low wall"
+	color = "#533213"
+
+/obj/structure/low_wall/stone
+	name = "stone wall"
+	color = "#5e5e5e"
+
+/obj/structure/low_wall/sandstone
+	name = "sandstone low wall"
+	color = "#525252"

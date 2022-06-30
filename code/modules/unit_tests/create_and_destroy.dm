@@ -66,8 +66,6 @@
 	ignore += typesof(/atom/movable/screen)
 	//Plane master controllers expect to be managed by huds
 	ignore += typesof(/atom/movable/plane_master_controller)
-	//Spews warnings about not causing a change as there is no wall
-	ignore += typesof(/obj/effect/mapping_helpers/paint_wall)
 
 	var/list/cached_contents = spawn_at.contents.Copy()
 

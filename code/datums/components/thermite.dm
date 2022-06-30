@@ -12,13 +12,10 @@
 		)
 
 	var/static/list/immunelist = typecacheof(list(
-		/turf/closed/wall/mineral/diamond,
 		/turf/closed/indestructible,
 		))
 
-	var/static/list/resistlist = typecacheof(
-		/turf/closed/wall/r_wall
-		)
+	var/static/list/resistlist = list()
 
 /datum/component/thermite/Initialize(_amount)
 	if(!istype(parent, /turf) || blacklist[parent.type])

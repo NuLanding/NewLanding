@@ -1,10 +1,9 @@
 /turf/open/floor/grass
 	name = "grass"
 	desc = "A patch of grass."
-	icon = 'icons/turf/floors/junglegrass.dmi'
-	icon_state = "junglegrass0"
-	base_icon_state = "junglegrass"
-	baseturfs = /turf/open/floor/rock
+	icon = 'icons/turf/floors/grass.dmi'
+	icon_state = "grass0"
+	base_icon_state = "grass"
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -34,7 +33,6 @@
 	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "cracked_dirt"
 	base_icon_state = "cracked_dirt"
-	baseturfs = /turf/open/floor/rock
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
@@ -46,7 +44,6 @@
 	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "rock_floor"
 	base_icon_state = "rock_floor"
-	baseturfs = /turf/open/floor/rock
 	color = "#707070"
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_SAND
@@ -60,7 +57,6 @@
 	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "dark_mud"
 	base_icon_state = "dark_mud"
-	baseturfs = /turf/open/floor/rock
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_SAND
 	barefootstep = FOOTSTEP_SAND
@@ -71,7 +67,6 @@
 	gender = PLURAL
 	name = "sand"
 	desc = "It's coarse and gets everywhere."
-	baseturfs = /turf/open/floor/rock
 	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "sand"
 	base_icon_state = "sand"
@@ -89,7 +84,6 @@
 	gender = PLURAL
 	name = "dry seafloor"
 	desc = "Should have stayed hydrated."
-	baseturfs = /turf/open/floor/rock
 	icon = 'icons/turf/floors/common.dmi'
 	icon_state = "dry"
 	base_icon_state = "dry"
@@ -104,6 +98,50 @@
 	icon = 'icons/turf/floors/wasteland.dmi'
 	icon_state = "wasteland"
 	base_icon_state = "wasteland"
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/wood
+	name = "wooden floor"
+	desc = "Stylish dark wood."
+	icon = 'icons/turf/floors/wood.dmi'
+	icon_state = "wood"
+	footstep = FOOTSTEP_WOOD
+	barefootstep = FOOTSTEP_WOOD_BAREFOOT
+	clawfootstep = FOOTSTEP_WOOD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+
+/turf/open/floor/cobblestone
+	name = "cobblestone"
+	icon = 'icons/turf/floors/cobblestone.dmi'
+	icon_state = "cobblestone"
+	base_icon_state = "cobblestone"
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/cobblestone/dark
+	icon_state = "cobblestone_dark"
+
+/turf/open/floor/stone
+	name = "stone floor"
+	icon = 'icons/turf/floors/stone.dmi'
+	icon_state = "stone"
+	base_icon_state = "stone"
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/floor/sandstone
+	name = "sandstone floor"
+	icon = 'icons/turf/floors/stone.dmi'
+	icon_state = "sandstone"
+	base_icon_state = "sandstone"
 	footstep = FOOTSTEP_FLOOR
 	barefootstep = FOOTSTEP_SAND
 	clawfootstep = FOOTSTEP_HARD_CLAW
