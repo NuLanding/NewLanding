@@ -211,6 +211,11 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
+	// This isn't on /datum level because datums don't have Initialize() and their New() doesn't enforce calling parent.
+	if(is_abstract(type))
+		stack_trace("Warning: [src]([type]) initialized as an abstract type!")
+		// Return an INITIALIZE_HINT_QDEL here? I think it's fine with just a warning.
+
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_ATOM_CREATED, src) /// Sends a signal that the new atom `src`, has been created at `loc`
 
