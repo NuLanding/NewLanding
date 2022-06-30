@@ -78,8 +78,25 @@
 /obj/structure/slope/stone/directional/west
 	dir = WEST
 
+/obj/structure/slope/stone_brick
+	name = "stone stairs"
+	icon_state = "stairs"
+	anchored = TRUE
+
+/obj/structure/slope/stone_brick/directional/north
+	dir = NORTH
+
+/obj/structure/slope/stone_brick/directional/south
+	dir = SOUTH
+
+/obj/structure/slope/stone_brick/directional/east
+	dir = EAST
+
+/obj/structure/slope/stone_brick/directional/west
+	dir = WEST
+
 /obj/structure/slope/sandstone
-	name = "sandstone slope"
+	name = "sandstone stairs"
 	icon_state = "stairs"
 	anchored = TRUE
 
