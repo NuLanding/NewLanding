@@ -13,7 +13,7 @@
 /world
 	mob = /mob/dead/new_player
 	turf = /turf/open/floor/rock
-	area = /area/space
+	area = /area/outdoors/jungle
 	view = "15x15"
 	hub = "Exadv1.spacestation13"
 	hub_password = "kMZy3U5jJHSiBQjr"

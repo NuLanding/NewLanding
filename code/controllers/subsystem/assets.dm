@@ -11,7 +11,7 @@ SUBSYSTEM_DEF(assets)
 	switch (CONFIG_GET(string/asset_transport))
 		if ("webroot")
 			newtransporttype = /datum/asset_transport/webroot
-	
+
 	if (newtransporttype == transport.type)
 		return
 
@@ -26,7 +26,6 @@ SUBSYSTEM_DEF(assets)
 	for(var/type in typesof(/datum/asset))
 		if(is_abstract(type))
 			continue
-		var/datum/asset/A = type
 		get_asset_datum(type)
 
 	transport.Initialize(cache)

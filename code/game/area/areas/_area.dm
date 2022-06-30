@@ -53,7 +53,7 @@
 	var/power_light = TRUE
 	var/power_environ = TRUE
 
-	var/has_gravity = FALSE
+	var/has_gravity = STANDARD_GRAVITY
 
 	var/parallax_movedir = 0
 
@@ -343,13 +343,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	if(!weather_icon)
 		icon_state = null
 	return ..()
-
-/**
- * Update the icon of the area (overridden to always be null for space
- */
-/area/space/update_icon_state()
-	SHOULD_CALL_PARENT(FALSE)
-	icon_state = null
 
 /**
  * Call back when an atom enters an area

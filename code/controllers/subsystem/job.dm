@@ -620,7 +620,7 @@ SUBSYSTEM_DEF(job)
 
 /datum/controller/subsystem/job/proc/get_last_resort_spawn_points()
 	//bad mojo
-	var/area/shuttle/arrival/arrivals_area = GLOB.areas_by_type[/area/shuttle/arrival]
+	var/area/arrivals_area = GLOB.areas_by_type[/area/outdoors/jungle]
 	if(arrivals_area)
 		//first check if we can find a chair
 		var/obj/structure/chair/shuttle_chair = locate() in arrivals_area
@@ -636,7 +636,7 @@ SUBSYSTEM_DEF(job)
 			return pick(available_turfs)
 
 	//pick an open spot on arrivals and dump em
-	var/list/arrivals_turfs = shuffle(get_area_turfs(/area/shuttle/arrival))
+	var/list/arrivals_turfs = shuffle(get_area_turfs(/area/outdoors/jungle))
 	if(length(arrivals_turfs))
 		for(var/turf/arrivals_turf in arrivals_turfs)
 			if(!arrivals_turf.is_blocked_turf(TRUE))
@@ -650,7 +650,7 @@ SUBSYSTEM_DEF(job)
 
 ///Lands specified mob at a random spot in the hallways
 /datum/controller/subsystem/job/proc/DropLandAtRandomHallwayPoint(mob/living/living_mob)
-	var/turf/spawn_turf = get_safe_random_station_turf(typesof(/area/hallway))
+	var/turf/spawn_turf = get_safe_random_station_turf(typesof(/area/outdoors/jungle))
 
 	if(!spawn_turf)
 		SendToLateJoin(living_mob)

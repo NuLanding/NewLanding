@@ -68,9 +68,6 @@ GLOBAL_LIST_EMPTY(objectives)
 		return TRUE
 	if(SSticker.force_ending) // Just let them win.
 		return TRUE
-	var/area/current_area = get_area(M.current)
-	if(!current_area || istype(current_area, /area/shuttle/escape/brig)) // Fails if they are in the shuttle brig
-		return FALSE
 	var/turf/current_turf = get_turf(M.current)
 	return current_turf.onCentCom() || current_turf.onSyndieBase()
 
@@ -121,7 +118,6 @@ GLOBAL_LIST_EMPTY(objectives)
 		if(O.late_joiner)
 			try_target_late_joiners = TRUE
 	for(var/datum/mind/possible_target in get_crewmember_minds())
-		var/target_area = get_area(possible_target.current)
 		if(possible_target in owners)
 			continue
 		if(!ishuman(possible_target.current))
@@ -129,8 +125,6 @@ GLOBAL_LIST_EMPTY(objectives)
 		if(possible_target.current.stat == DEAD)
 			continue
 		if(!is_unique_objective(possible_target,dupe_search_range))
-			continue
-		if(!HAS_TRAIT(SSstation, STATION_TRAIT_LATE_ARRIVALS) && istype(target_area, /area/shuttle/arrival))
 			continue
 		if(possible_target in blacklist)
 			continue
