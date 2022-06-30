@@ -101,19 +101,12 @@
 	desc = "A box with the bare essentials of ensuring the survival of you and others."
 	icon_state = "internals"
 	illustration = "emergencytank"
-	var/mask_type = /obj/item/clothing/mask/breath
-	var/medipen_type = /obj/item/reagent_containers/hypospray/medipen
 
 /obj/item/storage/box/survival/PopulateContents()
-	new mask_type(src)
-	if(!isnull(medipen_type))
-		new medipen_type(src)
-
 	new /obj/item/crowbar(src)
 
 // Mining survival box
 /obj/item/storage/box/survival/mining
-	mask_type = /obj/item/clothing/mask/gas/explorer
 
 /obj/item/storage/box/survival/mining/PopulateContents()
 	..()
@@ -129,35 +122,7 @@
 /obj/item/storage/box/survival/syndie //why is this its own thing if it's just the engi box with a syndie mask and medipen? // Good question.
 	name = "extended-capacity survival box"
 	desc = "A box with the bare essentials of ensuring the survival of you and others. This one is labelled to contain an extended-capacity tank."
-	mask_type = /obj/item/clothing/mask/gas/syndicate
-	medipen_type = null
 	illustration = "extendedtank"
-
-// Security survival box
-/obj/item/storage/box/survival/security
-	mask_type = /obj/item/clothing/mask/gas/sechailer
-
-// Medical survival box
-/obj/item/storage/box/survival/medical
-	mask_type = /obj/item/clothing/mask/breath/medical
-
-/obj/item/storage/box/gloves
-	name = "box of latex gloves"
-	desc = "Contains sterile latex gloves."
-	illustration = "latex"
-
-/obj/item/storage/box/gloves/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/clothing/gloves/color/latex(src)
-
-/obj/item/storage/box/masks
-	name = "box of sterile masks"
-	desc = "This box contains sterile medical masks."
-	illustration = "sterile"
-
-/obj/item/storage/box/masks/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/clothing/mask/surgical(src)
 
 /obj/item/storage/box/syringes
 	name = "box of syringes"
@@ -342,15 +307,6 @@
 	for(var/i in 1 to 7)
 		new /obj/item/bodybag(src)
 
-/obj/item/storage/box/rxglasses
-	name = "box of prescription glasses"
-	desc = "This box contains nerd glasses."
-	illustration = "glasses"
-
-/obj/item/storage/box/rxglasses/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/clothing/glasses/regular(src)
-
 /obj/item/storage/box/drinkingglasses
 	name = "box of drinking glasses"
 	desc = "It has a picture of drinking glasses on it."
@@ -500,16 +456,6 @@
 	for(var/i in 1 to 5)
 		new /obj/item/firing_pin(src)
 
-/obj/item/storage/box/lasertagpins
-	name = "box of laser tag firing pins"
-	desc = "A box full of laser tag firing pins, to allow newly-developed firearms to require wearing brightly coloured plastic armor before being able to be used."
-	illustration = "firingpin"
-
-/obj/item/storage/box/lasertagpins/PopulateContents()
-	for(var/i in 1 to 3)
-		new /obj/item/firing_pin/tag/red(src)
-		new /obj/item/firing_pin/tag/blue(src)
-
 /obj/item/storage/box/handcuffs
 	name = "box of spare handcuffs"
 	desc = "A box full of handcuffs."
@@ -529,16 +475,6 @@
 /obj/item/storage/box/zipties/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/restraints/handcuffs/cable/zipties(src)
-
-/obj/item/storage/box/fakesyndiesuit
-	name = "boxed space suit and helmet"
-	desc = "A sleek, sturdy box used to hold replica spacesuits."
-	icon_state = "syndiebox"
-	illustration = "syndiesuit"
-
-/obj/item/storage/box/fakesyndiesuit/PopulateContents()
-	new /obj/item/clothing/head/syndicatefake(src)
-	new /obj/item/clothing/suit/syndicatefake(src)
 
 /obj/item/storage/box/pillbottles
 	name = "box of pill bottles"
@@ -564,67 +500,6 @@
 
 /obj/item/storage/box/snappops/PopulateContents()
 	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/toy/snappop)
-
-/obj/item/storage/box/matches
-	name = "matchbox"
-	desc = "A small box of Almost But Not Quite Plasma Premium Matches."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "matchbox"
-	base_icon_state = "matchbox"
-	inhand_icon_state = "zippo"
-	worn_icon_state = "lighter"
-	w_class = WEIGHT_CLASS_TINY
-	slot_flags = ITEM_SLOT_BELT
-	drop_sound = 'sound/items/handling/matchbox_drop.ogg'
-	pickup_sound =  'sound/items/handling/matchbox_pickup.ogg'
-	custom_price = PAYCHECK_ASSISTANT * 0.4
-	illustration = null
-	var/matches_amount = 10
-
-/obj/item/storage/box/matches/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = matches_amount
-	STR.set_holdable(list(/obj/item/match))
-
-/obj/item/storage/box/matches/PopulateContents()
-	SEND_SIGNAL(src, COMSIG_TRY_STORAGE_FILL_TYPE, /obj/item/match)
-
-/obj/item/storage/box/matches/attackby(obj/item/match/W as obj, mob/user as mob, params)
-	if(istype(W, /obj/item/match))
-		W.matchignite()
-
-/obj/item/storage/box/matches/update_icon_state()
-	. = ..()
-	/// Get a 0-100 non floating number percentage of how filled up the box is and change its state based on that.
-	var/percentage = round((length(contents) / matches_amount * 100))
-	switch(percentage)
-		if(100)
-			icon_state = base_icon_state
-		if(99 to 51)
-			icon_state = "[base_icon_state]_almostfull"
-		if(50 to 1)
-			icon_state = "[base_icon_state]_almostempty"
-		if(0)
-			icon_state = "[base_icon_state]_e"
-
-/obj/item/storage/box/matches/matchbook
-	name = "matchbook"
-	desc = "An elegant box containing a lot of matches."
-	icon_state = "matchbook"
-	base_icon_state = "matchbook"
-	custom_price = PAYCHECK_ASSISTANT * 0.7
-	matches_amount = 20
-
-/obj/item/storage/box/deputy
-	name = "box of deputy armbands"
-	desc = "To be issued to those authorized to act as deputy of security."
-	icon_state = "secbox"
-	illustration = "depband"
-
-/obj/item/storage/box/deputy/PopulateContents()
-	for(var/i in 1 to 7)
-		new /obj/item/clothing/accessory/armband/deputy(src)
 
 /obj/item/storage/box/metalfoam
 	name = "box of metal foam grenades"
@@ -675,9 +550,7 @@
 
 // Clown survival box
 /obj/item/storage/box/hug/survival/PopulateContents()
-	new /obj/item/clothing/mask/breath(src)
 	new /obj/item/reagent_containers/hypospray/medipen(src)
-
 	new /obj/item/crowbar(src)
 
 /obj/item/storage/box/hug/plushes
@@ -792,18 +665,6 @@
 		icon_state = "paperbag_[choice]"
 		inhand_icon_state = "paperbag_[choice]"
 		return FALSE
-	else if(W.get_sharpness())
-		if(!contents.len)
-			if(inhand_icon_state == "paperbag_None")
-				user.show_message(SPAN_NOTICE("You cut eyeholes into [src]."), MSG_VISUAL)
-				new /obj/item/clothing/head/papersack(user.loc)
-				qdel(src)
-				return FALSE
-			else if(inhand_icon_state == "paperbag_SmileyFace")
-				user.show_message(SPAN_NOTICE("You cut eyeholes into [src] and modify the design."), MSG_VISUAL)
-				new /obj/item/clothing/head/papersack/smiley(user.loc)
-				qdel(src)
-				return FALSE
 	return ..()
 
 /**

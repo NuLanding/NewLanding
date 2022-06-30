@@ -158,21 +158,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/pipegun_prime
-	name = "Regal Pipegun"
-	always_available = FALSE
-	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun/prime
-	reqs = list(/obj/item/gun/ballistic/rifle/boltaction/pipegun = 1,
-				/obj/item/food/deadmouse = 1,
-				/datum/reagent/consumable/grey_bull = 20,
-				/obj/item/spear = 1,
-				/obj/item/storage/toolbox= 1)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	tool_paths = list(/obj/item/clothing/gloves/color/yellow, /obj/item/clothing/mask/gas)
-	time = 300 //contemplate for a bit
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/chainsaw
 	name = "Chainsaw"
 	result = /obj/item/chainsaw
@@ -193,28 +178,6 @@
 	time = 40
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/lizardhat
-	name = "Lizard Cloche Hat"
-	result = /obj/item/clothing/head/lizard
-	time = 10
-	reqs = list(/obj/item/organ/tail/lizard = 1)
-	category = CAT_CLOTHING
-
-/datum/crafting_recipe/lizardhat_alternate
-	name = "Lizard Cloche Hat"
-	result = /obj/item/clothing/head/lizard
-	time = 10
-	reqs = list(/obj/item/stack/sheet/animalhide/lizard = 1)
-	category = CAT_CLOTHING
-
-/datum/crafting_recipe/kittyears
-	name = "Kitty Ears"
-	result = /obj/item/clothing/head/kitty/genuine
-	time = 10
-	reqs = list(/obj/item/organ/tail/cat = 1,
-				/obj/item/organ/ears/cat = 1)
-	category = CAT_CLOTHING
 
 /datum/crafting_recipe/mixedbouquet
 	name = "Mixed bouquet"
@@ -302,80 +265,6 @@
 	result = /obj/structure/curtain
 	category = CAT_MISC
 
-/datum/crafting_recipe/extendohand_r
-	name = "Extendo-Hand (Right Arm)"
-	reqs = list(/obj/item/bodypart/r_arm/robot = 1, /obj/item/clothing/gloves/boxing = 1)
-	result = /obj/item/extendohand
-	category = CAT_MISC
-
-/datum/crafting_recipe/extendohand_l
-	name = "Extendo-Hand (Left Arm)"
-	reqs = list(/obj/item/bodypart/l_arm/robot = 1, /obj/item/clothing/gloves/boxing = 1)
-	result = /obj/item/extendohand
-	category = CAT_MISC
-
-/datum/crafting_recipe/bonearmor
-	name = "Bone Armor"
-	result = /obj/item/clothing/suit/armor/bone
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 6)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonetalisman
-	name = "Bone Talisman"
-	result = /obj/item/clothing/accessory/talisman
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				/obj/item/stack/sheet/sinew = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bonecodpiece
-	name = "Skull Codpiece"
-	result = /obj/item/clothing/accessory/skullcodpiece
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				/obj/item/stack/sheet/animalhide/goliath_hide = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/skilt
-	name = "Sinew Kilt"
-	result = /obj/item/clothing/accessory/skilt
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 1,
-				/obj/item/stack/sheet/sinew = 2)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/bracers
-	name = "Bone Bracers"
-	result = /obj/item/clothing/gloves/bracer
-	time = 20
-	reqs = list(/obj/item/stack/sheet/bone = 2,
-				/obj/item/stack/sheet/sinew = 1)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/skullhelm
-	name = "Skull Helmet"
-	result = /obj/item/clothing/head/helmet/skull
-	time = 30
-	reqs = list(/obj/item/stack/sheet/bone = 4)
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/goliathcloak
-	name = "Goliath Cloak"
-	result = /obj/item/clothing/suit/hooded/cloak/goliath
-	time = 50
-	reqs = list(/obj/item/stack/sheet/leather = 2,
-				/obj/item/stack/sheet/sinew = 2,
-				/obj/item/stack/sheet/animalhide/goliath_hide = 2) //it takes 4 goliaths to make 1 cloak if the plates are skinned
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/firebrand
-	name = "Firebrand"
-	result = /obj/item/match/firebrand
-	time = 100 //Long construction time. Making fire is hard work.
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2)
-	category = CAT_PRIMAL
-
 /datum/crafting_recipe/gold_horn
 	name = "Golden Bike Horn"
 	result = /obj/item/bikehorn/golden
@@ -451,27 +340,6 @@
 	result = /obj/structure/headpike/bone
 	category = CAT_PRIMAL
 
-/datum/crafting_recipe/mummy
-	name = "Mummification Bandages (Mask)"
-	result = /obj/item/clothing/mask/mummy
-	time = 10
-	tool_paths = list(/obj/item/nullrod/egyptian)
-	reqs = list(/obj/item/stack/sheet/cloth = 2)
-	category = CAT_CLOTHING
-
-/datum/crafting_recipe/mummy/body
-	name = "Mummification Bandages (Body)"
-	result = /obj/item/clothing/under/costume/mummy
-	reqs = list(/obj/item/stack/sheet/cloth = 5)
-
-/datum/crafting_recipe/chaplain_hood
-	name = "Follower Hoodie"
-	result = /obj/item/clothing/suit/hooded/chaplain_hoodie
-	time = 10
-	tool_paths = list(/obj/item/clothing/suit/hooded/chaplain_hoodie, /obj/item/storage/book/bible)
-	reqs = list(/obj/item/stack/sheet/cloth = 4)
-	category = CAT_CLOTHING
-
 /datum/crafting_recipe/guillotine
 	name = "Guillotine"
 	result = /obj/structure/guillotine
@@ -500,15 +368,6 @@
 	)
 	result = /obj/item/key/lasso
 	category = CAT_PRIMAL
-
-/datum/crafting_recipe/gripperoffbrand
-	name = "Improvised Gripper Gloves"
-	reqs = list(
-		/obj/item/clothing/gloves/fingerless = 1,
-		/obj/item/stack/sticky_tape = 1,
-	)
-	result = /obj/item/clothing/gloves/tackler/offbrand
-	category = CAT_CLOTHING
 
 /datum/crafting_recipe/ipickaxe
 	name = "Improvised Pickaxe"

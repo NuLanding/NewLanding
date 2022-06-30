@@ -43,15 +43,6 @@
 	result = /obj/item/food/jellysandwich/cherry
 	subcategory = CAT_SANDWICH
 
-/datum/crafting_recipe/food/notasandwich
-	name = "Not a sandwich"
-	reqs = list(
-		/obj/item/food/breadslice/plain = 2,
-		/obj/item/clothing/mask/fakemoustache = 1
-	)
-	result = /obj/item/food/notasandwich
-	subcategory = CAT_SANDWICH
-
 /datum/crafting_recipe/food/hotdog
 	name = "Hot dog"
 	reqs = list(

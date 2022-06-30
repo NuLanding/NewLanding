@@ -69,20 +69,9 @@
 
 /obj/effect/spawner/lootdrop/prison_contraband
 	name = "prison contraband loot spawner"
-	loot = list(/obj/item/clothing/mask/cigarette/space_cigarette = 4,
-				/obj/item/clothing/mask/cigarette/robust = 2,
-				/obj/item/clothing/mask/cigarette/carp = 3,
-				/obj/item/clothing/mask/cigarette/uplift = 2,
-				/obj/item/clothing/mask/cigarette/dromedary = 3,
-				/obj/item/clothing/mask/cigarette/robustgold = 1,
-				/obj/item/storage/fancy/cigarettes/cigpack_uplift = 3,
-				/obj/item/storage/fancy/cigarettes = 3,
-				/obj/item/clothing/mask/cigarette/rollie/cannabis = 4,
-				/obj/item/toy/crayon/spraycan = 2,
+	loot = list(/obj/item/toy/crayon/spraycan = 2,
 				/obj/item/restraints/handcuffs/cable/zipties = 1,
 				/obj/item/restraints/handcuffs = 1,
-				/obj/item/lighter = 3,
-				/obj/item/storage/box/matches = 3,
 				/obj/item/reagent_containers/syringe/contraband/space_drugs = 1,
 				/obj/item/reagent_containers/syringe/contraband/krokodil = 1,
 				/obj/item/reagent_containers/syringe/contraband/crank = 1,
@@ -109,7 +98,6 @@
 	name = "gambling valuables spawner"
 	loot = list(
 				/obj/item/gun/ballistic/revolver/russian = 5,
-				/obj/item/clothing/head/ushanka = 3,
 				/obj/item/coin/gold,
 				/obj/item/reagent_containers/food/drinks/bottle/vodka/badminka,
 				)
@@ -120,16 +108,9 @@
 				/obj/item/trash/can = 8,
 				/obj/item/shard = 8,
 				/obj/effect/spawner/lootdrop/botanical_waste = 8,
-				/obj/effect/spawner/lootdrop/cigbutt = 8,
 				/obj/item/reagent_containers/syringe = 5,
 				/obj/item/food/deadmouse = 2,
 				/obj/item/trash/candle = 1)
-
-/obj/effect/spawner/lootdrop/cigbutt
-	name = "cigarette butt spawner"
-	loot = list(/obj/item/cigbutt = 65,
-				/obj/item/cigbutt/roach = 20,
-				/obj/item/cigbutt/cigarbutt = 15)
 
 /obj/effect/spawner/lootdrop/food_packaging
 	name = "food packaging spawner"
@@ -171,15 +152,12 @@
 /obj/effect/spawner/lootdrop/maint_drugs
 	name = "maint drugs spawner"
 	loot = list(/obj/item/reagent_containers/food/drinks/bottle/hooch = 50,
-				/obj/item/clothing/mask/cigarette/rollie/cannabis = 15,
-				/obj/item/clothing/mask/cigarette/rollie/mindbreaker = 5,
 				/obj/item/reagent_containers/syringe = 15,
-				/obj/item/cigbutt/roach = 15)
+				)
 
 /obj/effect/spawner/lootdrop/grille_or_trash
 	name = "maint grille or trash spawner"
 	loot = list(/obj/structure/grille = 5,
-			/obj/item/cigbutt = 1,
 			/obj/item/trash/cheesie = 1,
 			/obj/item/trash/candy = 1,
 			/obj/item/trash/chips = 1,
@@ -271,58 +249,6 @@
 		/obj/item/organ/tail/cat,
 		/obj/item/organ/tail/lizard)
 	lootcount = 5
-
-/obj/effect/spawner/lootdrop/costume
-	name = "random costume spawner"
-
-/obj/effect/spawner/lootdrop/costume/Initialize()
-	loot = list()
-	for(var/path in subtypesof(/obj/effect/spawner/bundle/costume))
-		loot[path] = TRUE
-	. = ..()
-
-// Minor lootdrops follow
-
-/obj/effect/spawner/lootdrop/minor/beret_or_rabbitears
-	name = "beret or rabbit ears spawner"
-	loot = list(
-		/obj/item/clothing/head/beret = 1,
-		/obj/item/clothing/head/rabbitears = 1)
-
-/obj/effect/spawner/lootdrop/minor/bowler_or_that
-	name = "bowler or top hat spawner"
-	loot = list(
-		/obj/item/clothing/head/bowler = 1,
-		/obj/item/clothing/head/that = 1)
-
-/obj/effect/spawner/lootdrop/minor/kittyears_or_rabbitears
-	name = "kitty ears or rabbit ears spawner"
-	loot = list(
-		/obj/item/clothing/head/kitty = 1,
-		/obj/item/clothing/head/rabbitears = 1)
-
-/obj/effect/spawner/lootdrop/minor/pirate_or_bandana
-	name = "pirate hat or bandana spawner"
-	loot = list(
-		/obj/item/clothing/head/pirate = 1,
-		/obj/item/clothing/head/bandana = 1)
-
-/obj/effect/spawner/lootdrop/minor/twentyfive_percent_cyborg_mask
-	name = "25% cyborg mask spawner"
-	loot = list(
-		/obj/item/clothing/mask/gas/cyborg = 25,
-		"" = 75)
-
-// Tech storage circuit board spawners
-
-/obj/effect/spawner/lootdrop/mafia_outfit
-	name = "mafia outfit spawner"
-	loot = list(
-				/obj/effect/spawner/bundle/costume/mafia = 20,
-				/obj/effect/spawner/bundle/costume/mafia/white = 5,
-				/obj/effect/spawner/bundle/costume/mafia/checkered = 2,
-				/obj/effect/spawner/bundle/costume/mafia/beige = 5
-				)
 
 //finds the probabilities of items spawning from a loot spawner's loot pool
 /obj/item/loot_table_maker
@@ -430,29 +356,6 @@
 		/obj/item/stack/sheet/mineral/uranium{amount = 15} = 15,
 		/obj/item/stack/sheet/mineral/plasma{amount = 15} = 15,
 		/obj/item/stack/sheet/mineral/gold{amount = 15} = 15,
-	)
-
-/// A selection of cosmetic syndicate items. Just a couple. No hardsuits or weapons.
-/obj/effect/spawner/lootdrop/space/syndiecosmetic
-	lootcount = 2
-	loot = list(
-		/obj/item/clothing/under/syndicate = 10,
-		/obj/item/clothing/under/syndicate/skirt = 10,
-		/obj/item/clothing/under/syndicate/bloodred = 10,
-		/obj/item/clothing/under/syndicate/bloodred/sleepytime = 5,
-		/obj/item/clothing/under/syndicate/tacticool = 10,
-		/obj/item/clothing/under/syndicate/tacticool/skirt = 10,
-		/obj/item/clothing/under/syndicate/sniper = 10,
-		/obj/item/clothing/under/syndicate/camo = 10,
-		/obj/item/clothing/under/syndicate/soviet = 10,
-		/obj/item/clothing/under/syndicate/combat = 10,
-		/obj/item/clothing/under/syndicate/rus_army = 10,
-		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 7,
-		/obj/item/storage/fancy/cigarettes/cigpack_uplift = 3,
-		/obj/item/storage/fancy/cigarettes/cigpack_candy = 2,
-		/obj/item/storage/fancy/cigarettes/cigpack_robust = 2,
-		/obj/item/storage/fancy/cigarettes/cigpack_carp = 3,
-		/obj/item/storage/fancy/cigarettes/cigpack_midori = 1
 	)
 
 /obj/effect/spawner/lootdrop/decorative_material
@@ -586,8 +489,6 @@
 		/obj/effect/spawner/lootdrop/scanner = 1,
 		/obj/effect/spawner/lootdrop/tool = 1,
 		/obj/item/storage/belt/utility = 1,
-		/obj/item/clothing/gloves/color/yellow = 1,
-		/obj/item/clothing/gloves/color/fyellow = 1,
 	)
 
 /obj/effect/spawner/lootdrop/tech_supply/five
@@ -661,11 +562,6 @@
 		/obj/item/storage/pill_bottle/stimulant = 1,
 		/obj/item/toy/cards/deck/syndicate = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/absinthe = 1,
-		/obj/item/clothing/under/syndicate/tacticool = 1,
-		/obj/item/storage/fancy/cigarettes/cigpack_syndicate = 1,
-		/obj/item/storage/fancy/cigarettes/cigpack_shadyjims = 1,
-		/obj/item/clothing/mask/gas/syndicate = 1,
-		/obj/item/clothing/neck/necklace/dope = 1,
 	)
 
 /obj/effect/spawner/lootdrop/alcohol_bottle
@@ -704,15 +600,6 @@
 	loot = list(
 		/obj/item/switchblade = 1,
 		/obj/item/kitchen/knife/combat/survival = 1
-	)
-
-/obj/effect/spawner/lootdrop/tactical_gear
-	name = "tactical gear spawner"
-	loot = list(
-		/obj/item/clothing/glasses/night = 1,
-		/obj/item/clothing/gloves/tackler/combat/insulated = 1,
-		/obj/item/clothing/suit/armor/riot = 1,
-		/obj/item/clothing/head/helmet/riot = 1
 	)
 
 /obj/effect/spawner/lootdrop/grenade
@@ -756,86 +643,7 @@
 		/obj/effect/spawner/lootdrop/tech_supply/five = 1,
 		/obj/effect/spawner/lootdrop/space/material = 1,
 		/obj/effect/spawner/lootdrop/melee_weapon = 1,
-		/obj/effect/spawner/lootdrop/tactical_gear = 1,
 		/obj/effect/spawner/lootdrop/grenade = 1
-	)
-
-/obj/effect/spawner/lootdrop/eyewear
-	name = "eyewear spawner"
-	loot = list(
-		/obj/item/clothing/glasses/meson = 1,
-		/obj/item/clothing/glasses/science = 1,
-		/obj/item/clothing/glasses/welding = 1,
-		/obj/item/clothing/glasses/hud/health = 1,
-		/obj/item/clothing/glasses/sunglasses = 1
-	)
-
-/obj/effect/spawner/lootdrop/clothes
-	name = "clothes spawner"
-	loot = list(
-		/obj/item/clothing/under/color/random = 1,
-		/obj/item/clothing/under/color/grey = 1,
-		/obj/item/clothing/under/misc/overalls = 1,
-		/obj/item/clothing/under/misc/assistantformal = 1,
-		/obj/item/clothing/under/suit/black = 1,
-		/obj/item/clothing/under/suit/black/skirt = 1,
-		/obj/item/clothing/under/suit/white = 1,
-		/obj/item/clothing/under/suit/white/skirt = 1,
-		/obj/item/clothing/under/suit/beige,
-		/obj/item/clothing/under/pants/classicjeans = 1,
-		/obj/item/clothing/under/pants/blackjeans = 1,
-		/obj/item/clothing/under/pants/khaki = 1,
-		/obj/item/clothing/under/pants/camo = 1,
-		/obj/item/clothing/under/rank/civilian/bartender = 1,
-		/obj/item/clothing/under/rank/civilian/bartender/skirt = 1
-	)
-
-/obj/effect/spawner/lootdrop/headgear
-	name = "headgear spawner"
-	loot = list(
-		/obj/item/clothing/head/welding = 1,
-		/obj/item/clothing/head/ushanka = 1,
-		/obj/item/clothing/head/soft/grey = 1,
-		/obj/item/clothing/head/soft/black = 1,
-		/obj/item/clothing/head/chefhat = 1,
-		/obj/item/clothing/head/beret = 1,
-		/obj/item/clothing/head/beret/black = 1,
-		/obj/item/clothing/head/fedora/curator = 1,
-		/obj/item/clothing/head/helmet/old = 1,
-		/obj/item/clothing/head/bandana = 1
-	)
-
-/obj/effect/spawner/lootdrop/gloves
-	name = "gloves spawner"
-	loot = list(
-		/obj/item/clothing/gloves/color/black = 3,
-		/obj/item/clothing/gloves/color/fyellow = 3,
-		/obj/item/clothing/gloves/color/yellow = 1,
-		/obj/item/clothing/gloves/color/grey = 3,
-		/obj/item/clothing/gloves/fingerless = 3,
-		/obj/item/clothing/gloves/color/light_brown = 3,
-		/obj/item/clothing/gloves/color/brown = 3
-	)
-
-/obj/effect/spawner/lootdrop/shoes
-	name = "shoes spawner"
-	loot = list(
-		/obj/item/clothing/shoes/sneakers/black = 1,
-		/obj/item/clothing/shoes/sneakers/brown = 1,
-		/obj/item/clothing/shoes/sneakers/blue = 1,
-		/obj/item/clothing/shoes/jackboots = 1
-	)
-
-/obj/effect/spawner/lootdrop/suit
-	name = "suit spawner"
-	loot = list(
-		/obj/item/clothing/suit/toggle/labcoat = 1,
-		/obj/item/clothing/suit/pirate = 1,
-		/obj/item/clothing/suit/poncho = 1,
-		/obj/item/clothing/suit/jacket/letterman = 1,
-		/obj/item/clothing/suit/toggle/chef = 1,
-		/obj/item/clothing/suit/hooded/wintercoat = 1,
-		/obj/item/clothing/suit/hooded/wintercoat/aformal = 1
 	)
 
 /obj/effect/spawner/lootdrop/cash

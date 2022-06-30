@@ -9,12 +9,6 @@
 		. = ..()
 
 /mob/living/carbon/human/GetVoice()
-	if(istype(wear_mask, /obj/item/clothing/mask/infiltrator))
-		var/obj/item/clothing/mask/infiltrator/V = wear_mask
-		if(V.voice_unknown)
-			return ("Unknown")
-		else
-			return real_name
 	if(GetSpecialVoice())
 		return GetSpecialVoice()
 	return real_name

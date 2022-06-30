@@ -118,27 +118,6 @@
 	. = ..()
 	countEggs()
 
-//Bunny Suit
-/obj/item/clothing/head/bunnyhead
-	name = "Easter Bunny Head"
-	icon_state = "bunnyhead"
-	inhand_icon_state = "bunnyhead"
-	desc = "Considerably more cute than 'Frank'."
-	slowdown = -0.3
-	clothing_flags = THICKMATERIAL | SNUG_FIT
-	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
-	fitted_bodytypes = BODYTYPE_VOX
-
-/obj/item/clothing/suit/bunnysuit
-	name = "Easter Bunny Suit"
-	desc = "Hop Hop Hop!"
-	icon_state = "bunnysuit"
-	inhand_icon_state = "bunnysuit"
-	slowdown = -0.3
-	clothing_flags = THICKMATERIAL
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
-
 //Bunny bag!
 /obj/item/storage/backpack/satchel/bunnysatchel
 	name = "Easter Bunny Satchel"
@@ -159,9 +138,7 @@
 	icon_state = "egg-[eggcolor]"
 
 /obj/item/food/egg/proc/dispensePrize(turf/where)
-	var/prize_list = list(/obj/item/clothing/head/bunnyhead,
-		/obj/item/clothing/suit/bunnysuit,
-		/obj/item/storage/backpack/satchel/bunnysatchel,
+	var/prize_list = list(/obj/item/storage/backpack/satchel/bunnysatchel,
 		/obj/item/food/grown/carrot,
 		/obj/item/toy/balloon,
 		/obj/item/toy/gun,
@@ -175,7 +152,6 @@
 		/obj/item/toy/plush/carpplushie,
 		/obj/item/toy/redbutton,
 		/obj/item/toy/windup_toolbox,
-		/obj/item/clothing/head/collectable/rabbitears
 		) + subtypesof(/obj/item/toy/mecha)
 	var/won = pick(prize_list)
 	new won(where)

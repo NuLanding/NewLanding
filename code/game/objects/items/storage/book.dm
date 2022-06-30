@@ -71,19 +71,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 	icon_state = GLOB.biblestates[bible_index]
 	inhand_icon_state = GLOB.bibleitemstates[bible_index]
 
-	switch(icon_state)
-		if("honk1")
-			user.dna.add_mutation(CLOWNMUT)
-			user.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/clown_hat(user), ITEM_SLOT_MASK)
-		if("honk2")
-			user.dna.add_mutation(CLOWNMUT)
-			user.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/clown_hat(user), ITEM_SLOT_MASK)
-		if("insuls")
-			var/obj/item/clothing/gloves/color/fyellow/insuls = new
-			insuls.name = "insuls"
-			insuls.desc = "A mere copy of the true insuls."
-			insuls.siemens_coefficient = 0.99999
-			user.equip_to_slot(insuls, ITEM_SLOT_GLOVES)
 	GLOB.bible_icon_state = icon_state
 	GLOB.bible_inhand_icon_state = inhand_icon_state
 	SSblackbox.record_feedback("text", "religion_book", 1, "[choice]")
@@ -168,7 +155,7 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			smack = FALSE
 		else if(iscarbon(M))
 			var/mob/living/carbon/C = M
-			if(!istype(C.head, /obj/item/clothing/head/helmet))
+			if(!istype(C.head, /obj/item/clothing/head))
 				C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5, 60)
 				to_chat(C, SPAN_DANGER("You feel dumber."))
 
@@ -203,17 +190,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			B.name = name
 			B.icon_state = icon_state
 			B.inhand_icon_state = inhand_icon_state
-	else if(istype(A, /obj/item/nullrod/scythe/talking))
-		var/obj/item/nullrod/scythe/talking/sword = A
-		to_chat(user, SPAN_NOTICE("You begin to exorcise [sword]..."))
-		playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
-		if(do_after(user, 40, target = sword))
-			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
-			sword.possessed = FALSE //allows the chaplain (or someone else) to reroll a new spirit for their sword
-			sword.name = initial(sword.name)
-			REMOVE_TRAIT(sword, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT) //in case the "sword" is a possessed dummy
-			user.visible_message(SPAN_NOTICE("[user] exorcises [sword]!"), \
-								SPAN_NOTICE("You successfully exorcise [sword]!"))
 
 /obj/item/storage/book/bible/booze
 	desc = "To be applied to the head repeatedly."

@@ -94,10 +94,8 @@
 		var/atom/throw_target = get_edge_target_turf(rider, pick(GLOB.cardinals))
 		unbuckle_mob(rider)
 		rider.throw_at(throw_target, 3, 2)
-		var/head_slot = rider.get_item_by_slot(ITEM_SLOT_HEAD)
-		if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/hardhat)))
-			rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
-			rider.updatehealth()
+		rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
+		rider.updatehealth()
 		visible_message(SPAN_DANGER("[src] crashes into [A], sending [rider] flying!"))
 		rider.Paralyze(80)
 	else
@@ -241,52 +239,3 @@
 		unbuckle_mob(skatergirl)
 	qdel(src)
 	return TRUE
-
-//Wheelys
-/obj/vehicle/ridden/scooter/skateboard/wheelys
-	name = "Wheely-Heels"
-	desc = "Uses patented retractable wheel technology. Never sacrifice speed for style - not that this provides much of either."
-	icon_state = null
-	density = FALSE
-	instability = 12
-	///Stores the shoes associated with the vehicle
-	var/obj/item/clothing/shoes/wheelys/shoes = null
-	///Name of the wheels, for visible messages
-	var/wheel_name = "wheels"
-	///Component typepath to attach in [/obj/vehicle/ridden/scooter/skateboard/wheelys/proc/make_ridable()]
-	var/component_type = /datum/component/riding/vehicle/scooter/skateboard/wheelys
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/make_ridable()
-	AddElement(/datum/element/ridable, component_type)
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/post_unbuckle_mob(mob/living/M)
-	if(!has_buckled_mobs())
-		to_chat(M, SPAN_NOTICE("You pop the [wheel_name] back into place."))
-		moveToNullspace()
-		shoes.toggle_wheels(FALSE)
-	return ..()
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/pick_up_board(mob/living/carbon/Skater)
-	return
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/post_buckle_mob(mob/living/M)
-	to_chat(M, SPAN_NOTICE("You pop out the [wheel_name]."))
-	shoes.toggle_wheels(TRUE)
-	return ..()
-
-///Sets the shoes that the vehicle is associated with, called when the shoes are initialized
-/obj/vehicle/ridden/scooter/skateboard/wheelys/proc/link_shoes(newshoes)
-	shoes = newshoes
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/rollerskates
-	name = "roller skates"
-	desc = "An EightO brand pair of roller skates. Vintage, yet functional!"
-	instability = 8
-	component_type = /datum/component/riding/vehicle/scooter/skateboard/wheelys/rollerskates
-
-/obj/vehicle/ridden/scooter/skateboard/wheelys/skishoes
-	name = "ski shoes"
-	desc = "Uses patented retractable wheel technology. Never sacrifice speed for style - not that this provides much of either."
-	instability = 8
-	wheel_name = "skis"
-	component_type = /datum/component/riding/vehicle/scooter/skateboard/wheelys/skishoes

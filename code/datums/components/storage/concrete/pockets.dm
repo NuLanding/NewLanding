@@ -25,7 +25,7 @@
 /datum/component/storage/concrete/pockets/small/fedora/Initialize()
 	. = ..()
 	var/static/list/exception_cache = typecacheof(list(
-		/obj/item/katana, /obj/item/toy/katana, /obj/item/nullrod/claymore/katana,
+		/obj/item/katana, /obj/item/toy/katana,
 		/obj/item/gun/ballistic/automatic/tommygun
 		))
 	exception_hold = exception_cache
@@ -94,8 +94,7 @@
 		/obj/item/toy/crayon,
 		/obj/item/lipstick,
 		/obj/item/flashlight/pen,
-		/obj/item/clothing/mask/cigarette)
-		)
+		))
 
 /datum/component/storage/concrete/pockets/pocketprotector/real_location()
 	// if the component is reparented to a jumpsuit, the items still go in the protector

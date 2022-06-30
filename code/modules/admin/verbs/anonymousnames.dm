@@ -189,50 +189,20 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 /obj/item/storage/box/wizard_kit
 	name = "Generic Wizard Cosplay Kit"
 
-/obj/item/storage/box/wizard_kit/PopulateContents()
-	new /obj/item/clothing/head/wizard(src)
-	new /obj/item/clothing/suit/wizrobe(src)
-	new /obj/item/clothing/shoes/sandal(src)
-
 /obj/item/storage/box/wizard_kit/red
 	name = "Evocation Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/red/PopulateContents()
-	new /obj/item/clothing/head/wizard/red(src)
-	new /obj/item/clothing/suit/wizrobe/red(src)
-	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/yellow
 	name = "Translocation Wizard Cosplay Kit"
 
-/obj/item/storage/box/wizard_kit/yellow/PopulateContents()
-	new /obj/item/clothing/head/wizard/yellow(src)
-	new /obj/item/clothing/suit/wizrobe/yellow(src)
-	new /obj/item/clothing/shoes/sandal(src)
-
 /obj/item/storage/box/wizard_kit/magusred
 	name = "Conjuration Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/yellow/PopulateContents()
-	new /obj/item/clothing/head/wizard/magus(src)
-	new /obj/item/clothing/suit/wizrobe/magusred(src)
-	new /obj/item/clothing/shoes/sandal(src)
 
 /obj/item/storage/box/wizard_kit/magusblue
 	name = "Transmutation Wizard Cosplay Kit"
 
-/obj/item/storage/box/wizard_kit/yellow/PopulateContents()
-	new /obj/item/clothing/head/wizard/magus(src)
-	new /obj/item/clothing/suit/wizrobe/magusblue(src)
-	new /obj/item/clothing/shoes/sandal(src)
-
 /obj/item/storage/box/wizard_kit/black
 	name = "Necromancy Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/black/PopulateContents()
-	new /obj/item/clothing/head/wizard/black(src)
-	new /obj/item/clothing/suit/wizrobe/black(src)
-	new /obj/item/clothing/shoes/sandal(src)
 
 /datum/anonymous_theme/spider_clan
 	name = "Spider Clan"

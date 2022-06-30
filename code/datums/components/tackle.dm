@@ -299,14 +299,6 @@
 	if(HAS_TRAIT(sacker, TRAIT_GIANT))
 		attack_mod += 2
 
-	if(ishuman(target))
-		var/mob/living/carbon/human/S = sacker
-
-		var/suit_slot = S.get_item_by_slot(ITEM_SLOT_OCLOTHING)
-		if(suit_slot && (istype(suit_slot,/obj/item/clothing/suit/armor/riot))) // tackling in riot armor is more effective, but tiring
-			attack_mod += 2
-			sacker.adjustStaminaLoss(20)
-
 	var/r = rand(-3, 3) - defense_mod + attack_mod + skill_mod
 	return r
 
@@ -346,15 +338,6 @@
 	var/oopsie_mod = 0
 	var/danger_zone = (speed - 1) * 13 // for every extra speed we have over 1, take away 13 of the safest chance
 	danger_zone = max(min(danger_zone, 100), 1)
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/S = user
-		var/head_slot = S.get_item_by_slot(ITEM_SLOT_HEAD)
-		var/suit_slot = S.get_item_by_slot(ITEM_SLOT_OCLOTHING)
-		if(head_slot && (istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/hardhat)))
-			oopsie_mod -= 6
-		if(suit_slot && (istype(suit_slot,/obj/item/clothing/suit/armor/riot)))
-			oopsie_mod -= 6
 
 	if(HAS_TRAIT(user, TRAIT_CLUMSY))
 		oopsie_mod += 6 //honk!

@@ -5,8 +5,6 @@
 
 	// Types we ignore, put in abstract types that make the CI complain here
 	var/list/ignored_types = list(
-		/obj/item/clothing/head/hooded/cloakhood,
-		/obj/item/clothing/head/hooded,
 		/obj/item/clothing/head
 		)
 

@@ -40,13 +40,11 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 		/obj/item/reagent_containers/food/drinks/drinkingglass = 1,
 		/obj/item/coin/silver = 1,
 		/obj/effect/decal/cleanable/ash = 1,
-		/obj/item/cigbutt = 1,
 		/obj/item/camera = 1,
 		/obj/item/camera_film = 1,
 		/obj/item/food/urinalcake = 1,
 
 		/obj/item/rack_parts = 1,
-		/obj/item/clothing/mask/breath = 1,
 		/obj/item/shard = 1,
 
 		/obj/item/toy/eightball = 1,
@@ -75,19 +73,9 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		) = 1,
 
 	list(//equipment
-		/obj/item/clothing/mask/gas = 1,
 		/obj/item/storage/backpack = 1,
-		/obj/item/clothing/shoes/sneakers/black = 1,
-		/obj/item/clothing/suit/hazardvest = 1,
-		/obj/item/clothing/suit/toggle/labcoat = 1,
-		/obj/item/clothing/under/color/grey = 1,
-		/obj/item/clothing/gloves/color/fyellow = 1,
-		/obj/effect/spawner/lootdrop/gloves = 1,
 		/obj/item/storage/wallet/random = 1,
-		/obj/item/clothing/glasses/science = 1,
-		/obj/item/clothing/glasses/meson = 1,
 		/obj/item/storage/belt/fannypack = 1,
-		/obj/item/clothing/gloves/color/black = 1,
 		) = 1,
 
 	list(//construction and crafting
@@ -101,9 +89,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		) = 1,
 
 	list(//medical and chemicals
-		/obj/item/storage/fancy/cigarettes/dromedaryco = 1,
 		/obj/item/grenade/chem_grenade/cleaner = 1,
-		/obj/item/storage/box/matches = 1,
 		/obj/item/reagent_containers/syringe = 1,
 		/obj/item/reagent_containers/glass/beaker = 1,
 		/obj/item/reagent_containers/rag = 1,
@@ -126,7 +112,6 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		//light sources
 		/obj/item/flashlight = 1,
 		/obj/effect/spawner/lootdrop/glowstick = 1,
-		/obj/item/clothing/head/hardhat/red = 1,
 		/obj/item/flashlight/flare = 1,
 		) = 1,
 	))
@@ -147,17 +132,8 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		) = 8,
 
 	list(//equipment
-		/obj/item/clothing/head/welding = 1,
-		/obj/item/clothing/glasses/welding = 1,
-		/obj/item/clothing/glasses/hud/health = 1,
-		/obj/item/clothing/glasses/hud/diagnostic = 1,
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 1,
-		/obj/item/clothing/suit/armor/vest/old  = 1,
-		/obj/item/clothing/head/helmet/old = 1,
-		/obj/item/clothing/mask/muzzle = 1,
-		/obj/item/clothing/ears/earmuffs = 1,
-		/obj/item/clothing/gloves/tackler/offbrand = 1,
 		) = 8,
 
 	list(//construction and crafting
@@ -208,7 +184,6 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 
 	list(//fakeout items, keep this list at low relative weight
 		/obj/item/dice/d20 = 1, //To balance out the stealth die of fates in oddities
-		/obj/item/clothing/shoes/jackboots = 1,
 		) = 1,
 ))
 
@@ -226,14 +201,8 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		) = 1,
 
 	list(//equipment
-		/obj/item/clothing/glasses/hud/security = 1,
-		/obj/item/clothing/glasses/sunglasses = 1,
 		/obj/item/storage/belt/security = 1,
 		/obj/item/storage/belt/military/assault = 1,
-		/obj/item/clothing/gloves/color/yellow = 1,
-		/obj/item/clothing/gloves/color/black = 1,
-		/obj/item/clothing/gloves/tackler/combat = 1,
-		/obj/item/clothing/head/helmet/justice = 1,
 		) = 1,
 
 	list(//paint
@@ -262,7 +231,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		) = 1,
 
 	list(//misc
-		/obj/item/book/granter/crafting_recipe/pipegun_prime = 1,
 		) = 1,
 
 ))
@@ -272,7 +240,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
 		/obj/item/spear/grey_tide = 1,
 		/obj/item/shadowcloak = 1,
-		/obj/item/clothing/shoes/jackboots/fast = 1
 	))
 
 //Maintenance loot spawner pools
@@ -293,7 +260,6 @@ GLOBAL_LIST_INIT(maintenance_loot, list(
 	))
 
 GLOBAL_LIST_INIT(ratking_trash, list(//Garbage: used by the regal rat mob when spawning garbage.
-			/obj/item/cigbutt,
 			/obj/item/trash/cheesie,
 			/obj/item/trash/candy,
 			/obj/item/trash/chips,

@@ -209,55 +209,6 @@
 	new chosen_box(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/item/choice_beacon/hero
-	name = "heroic beacon"
-	desc = "To summon heroes from the past to protect the future."
-
-/obj/item/choice_beacon/hero/generate_display_names()
-	var/static/list/hero_item_list
-	if(!hero_item_list)
-		hero_item_list = list()
-		var/list/templist = typesof(/obj/item/storage/box/hero) //we have to convert type = name to name = type, how lovely!
-		for(var/V in templist)
-			var/atom/A = V
-			hero_item_list[initial(A.name)] = A
-	return hero_item_list
-
-/obj/item/choice_beacon/hero/spawn_option(obj/choice,mob/living/M)
-	new choice(get_turf(M))
-	to_chat(M, SPAN_HEAR("You hear something crackle from the beacon for a moment before a voice speaks. \"Please stand by for a message from Sophronia Broadcasting. Message as follows: <b>Please enjoy your Sophronia Broadcasting's 'History Comes Alive branded' Costume Set, exactly as shown in the hit show!</b> Message ends.\""))
-
-
-/obj/item/storage/box/hero
-	name = "Courageous Tomb Raider - 1940's."
-	desc = "This legendary figure of still dubious historical accuracy is thought to have been a world-famous archeologist who embarked on countless adventures in far away lands, along with his trademark whip and fedora hat."
-
-/obj/item/storage/box/hero/PopulateContents()
-	new /obj/item/clothing/head/fedora/curator(src)
-	new /obj/item/clothing/suit/curator(src)
-	new /obj/item/clothing/under/rank/civilian/curator/treasure_hunter(src)
-	new /obj/item/clothing/shoes/workboots/mining(src)
-	new /obj/item/melee/curator_whip(src)
-
-/obj/item/storage/box/hero/scottish
-	name = "Braveheart, the Scottish rebel - 1300's."
-	desc = "Seemingly a legendary figure in the battle for Scottish independence, this historical figure is closely associated with blue facepaint, big swords, strange man skirts, and his ever enduring catchphrase: 'FREEDOM!!'"
-
-/obj/item/storage/box/hero/scottish/PopulateContents()
-	new /obj/item/clothing/under/costume/kilt(src)
-	new /obj/item/claymore/weak/ceremonial(src)
-	new /obj/item/toy/crayon/spraycan(src)
-	new /obj/item/clothing/shoes/sandal(src)
-
-/obj/item/storage/box/hero/carphunter
-	name = "Carp Hunter, Wildlife Expert - 2506."
-	desc = "Despite his nickname, this wildlife expert was mainly known as a passionate environmentalist and conservationist, often coming in contact with dangerous wildlife to teach about the beauty of nature."
-
-/obj/item/storage/box/hero/carphunter/PopulateContents()
-	new /obj/item/clothing/mask/gas/carp(src)
-	new /obj/item/kitchen/knife/hunting(src)
-	new /obj/item/storage/box/papersack/meat(src)
-
 /obj/item/choice_beacon/augments
 	name = "augment beacon"
 	desc = "Summons augmentations. Can be used 3 times!"

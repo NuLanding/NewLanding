@@ -84,7 +84,6 @@
 	if(attached_accessory && slot != ITEM_SLOT_HANDS && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		attached_accessory.on_uniform_equip(src, user)
-		H.fan_hud_set_fandom()
 		if(attached_accessory.above_suit)
 			H.update_inv_wear_suit()
 
@@ -99,7 +98,6 @@
 		attached_accessory.on_uniform_dropped(src, user)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
-			H.fan_hud_set_fandom()
 			if(attached_accessory.above_suit)
 				H.update_inv_wear_suit()
 	..()
@@ -151,7 +149,6 @@
 	var/mob/living/carbon/human/holder = loc
 	holder.update_inv_w_uniform()
 	holder.update_inv_wear_suit()
-	holder.fan_hud_set_fandom()
 
 /obj/item/clothing/under/proc/remove_accessory(mob/user)
 	. = FALSE
@@ -178,7 +175,6 @@
 	var/mob/living/carbon/human/holder = loc
 	holder.update_inv_w_uniform()
 	holder.update_inv_wear_suit()
-	holder.fan_hud_set_fandom()
 
 
 /obj/item/clothing/under/examine(mob/user)
@@ -300,9 +296,6 @@
 						body_parts_covered &= part
 	return adjusted
 
-/obj/item/clothing/under/rank
-	dying_key = DYE_REGISTRY_UNDER
-
 /obj/item/clothing/under/proc/dump_attachment()
 	if(!attached_accessory)
 		return
@@ -316,7 +309,3 @@
 	attached_accessory = null
 	accessory_overlay = null
 	update_appearance()
-
-/obj/item/clothing/under/rank/obj_destruction(damage_flag)
-	dump_attachment()
-	return ..()

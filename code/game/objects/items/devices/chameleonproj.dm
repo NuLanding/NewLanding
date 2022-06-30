@@ -17,11 +17,6 @@
 	var/obj/effect/dummy/chameleon/active_dummy = null
 	var/saved_appearance = null
 
-/obj/item/chameleon/Initialize()
-	. = ..()
-	var/obj/item/cigbutt/butt = /obj/item/cigbutt
-	saved_appearance = initial(butt.appearance)
-
 /obj/item/chameleon/dropped()
 	..()
 	disrupt()

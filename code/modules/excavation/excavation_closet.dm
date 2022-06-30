@@ -11,4 +11,3 @@
 	new /obj/item/excavation_depth_scanner(src)
 	new /obj/item/pickaxe(src)
 	new /obj/item/flashlight(src)
-	new /obj/item/clothing/glasses/meson(src)

@@ -61,13 +61,6 @@ GLOBAL_VAR(command_name)
 		name = ""
 
 	// Prefix
-	var/holiday_name = pick(SSgamemode.holidays)
-	if(holiday_name)
-		var/datum/holiday/holiday = SSgamemode.holidays[holiday_name]
-		if(istype(holiday, /datum/holiday/friday_thirteenth))
-			random = 13
-		name = holiday.getStationPrefix()
-		//get normal name
 	if(!name)
 		name = pick(GLOB.station_names)
 	if(name)

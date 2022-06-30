@@ -204,7 +204,6 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 GLOBAL_LIST_INIT(gold_recipes, list ( \
 	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
 	new/datum/stack_recipe("blank plaque", /obj/item/plaque, 1), \
-	new/datum/stack_recipe("Simple Crown", /obj/item/clothing/head/crown, 5), \
 	))
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
@@ -423,11 +422,7 @@ GLOBAL_LIST_INIT(adamantine_recipes, list())
 	amount = 10
 
 //Metal Hydrogen
-GLOBAL_LIST_INIT(metalhydrogen_recipes, list(
-	new /datum/stack_recipe("ancient armor", /obj/item/clothing/suit/armor/elder_atmosian, req_amount = 8, res_amount = 1),
-	new /datum/stack_recipe("ancient helmet", /obj/item/clothing/head/helmet/elder_atmosian, req_amount = 5, res_amount = 1),
-	new /datum/stack_recipe("metallic hydrogen axe", /obj/item/fireaxe/metal_h2_axe, req_amount = 15, res_amount = 1),
-	))
+GLOBAL_LIST_INIT(metalhydrogen_recipes, list())
 
 /obj/item/stack/sheet/mineral/metal_hydrogen
 	name = "metal hydrogen"

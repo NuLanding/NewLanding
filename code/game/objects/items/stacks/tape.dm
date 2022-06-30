@@ -32,12 +32,6 @@
 
 	if(do_after(user, 30, target=I))
 		use(1)
-		if(istype(I, /obj/item/clothing/gloves/fingerless))
-			var/obj/item/clothing/gloves/tackler/offbrand/O = new /obj/item/clothing/gloves/tackler/offbrand
-			to_chat(user, SPAN_NOTICE("You turn [I] into [O] with [src]."))
-			QDEL_NULL(I)
-			user.put_in_hands(O)
-			return
 
 		if(I.embedding && I.embedding == conferred_embed)
 			to_chat(user, SPAN_WARNING("[I] is already coated in [src]!"))

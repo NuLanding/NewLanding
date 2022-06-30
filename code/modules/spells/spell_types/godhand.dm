@@ -73,13 +73,6 @@
 		if(part)
 			part.dismember()
 		return ..()
-	var/obj/item/clothing/suit/hooded/bloated_human/suit = target.get_item_by_slot(ITEM_SLOT_OCLOTHING)
-	if(istype(suit))
-		target.visible_message(SPAN_DANGER("[target]'s [suit] explodes off of them into a puddle of gore!"))
-		target.dropItemToGround(suit)
-		qdel(suit)
-		new /obj/effect/gibspawner(target.loc)
-		return ..()
 	target.gib()
 	return ..()
 

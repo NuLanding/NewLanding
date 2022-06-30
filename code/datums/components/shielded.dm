@@ -145,13 +145,6 @@
 	if(current_charges <= 0)
 		owner.visible_message(SPAN_WARNING("[owner]'s shield overloads!"))
 
-/datum/component/shielded/proc/check_recharge_rune(datum/source, obj/item/wizard_armour_charge/recharge_rune, mob/living/user)
+/datum/component/shielded/proc/check_recharge_rune(datum/source, obj/item/thing, mob/living/user)
 	SIGNAL_HANDLER
-
-	if(!istype(recharge_rune))
-		return
-	. = COMPONENT_NO_AFTERATTACK
-
-	current_charges += recharge_rune.restored_charges
-	to_chat(user, SPAN_NOTICE("You charge \the [parent]. It can now absorb [current_charges] hits."))
-	qdel(recharge_rune)
+	return

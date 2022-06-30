@@ -36,7 +36,6 @@
 	///Can this cat catch special mice?
 	var/inept_hunter = FALSE
 	gold_core_spawnable = FRIENDLY_SPAWN
-	collar_type = "cat"
 	can_be_held = TRUE
 	held_state = "cat2"
 	///In the case 'melee_damage_upper' is somehow raised above 0
@@ -71,7 +70,6 @@
 	icon_state = "breadcat"
 	icon_living = "breadcat"
 	icon_dead = "breadcat_dead"
-	collar_type = null
 	held_state = "breadcat"
 	butcher_results = list(/obj/item/food/meat/slab = 2, /obj/item/organ/ears/cat = 1, /obj/item/organ/tail/cat = 1, /obj/item/food/breadslice/plain = 1)
 
@@ -85,7 +83,6 @@
 	icon_state = "original"
 	icon_living = "original"
 	icon_dead = "original_dead"
-	collar_type = null
 	unique_pet = TRUE
 	held_state = "original"
 
@@ -100,7 +97,6 @@
 	density = FALSE
 	pass_flags = PASSMOB
 	mob_size = MOB_SIZE_SMALL
-	collar_type = "kitten"
 
 //RUNTIME IS ALIVE! SQUEEEEEEEE~
 /mob/living/simple_animal/pet/cat/runtime
@@ -195,10 +191,8 @@
 		return
 	if (resting)
 		icon_state = "[icon_living]_rest"
-		collar_type = "[initial(collar_type)]_rest"
 	else
 		icon_state = "[icon_living]"
-		collar_type = "[initial(collar_type)]"
 	regenerate_icons()
 
 
@@ -211,7 +205,6 @@
 			manual_emote(pick("sits down.", "crouches on its hind legs.", "looks alert."))
 			set_resting(TRUE)
 			icon_state = "[icon_living]_sit"
-			collar_type = "[initial(collar_type)]_sit"
 		else if(DT_PROB(0.5, delta_time))
 			if (resting)
 				manual_emote(pick("gets up and meows.", "walks around.", "stops resting."))

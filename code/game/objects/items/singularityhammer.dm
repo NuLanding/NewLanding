@@ -61,10 +61,6 @@
 				step_towards(A,pull)
 			else if(ishuman(X))
 				var/mob/living/carbon/human/H = X
-				if(istype(H.shoes, /obj/item/clothing/shoes/magboots))
-					var/obj/item/clothing/shoes/magboots/M = H.shoes
-					if(M.magpulse)
-						continue
 				H.apply_effect(20, EFFECT_PARALYZE, 0)
 				step_towards(H,pull)
 				step_towards(H,pull)

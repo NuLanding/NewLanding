@@ -57,7 +57,6 @@
 		/obj/item/t_scanner,
 		/obj/item/geiger_counter,
 		/obj/item/extinguisher/mini,
-		/obj/item/clothing/gloves,
 		/obj/item/holosign_creator/atmos,
 		/obj/item/holosign_creator/engineering,
 		/obj/item/forcefield_projector,
@@ -141,19 +140,13 @@
 		/obj/item/reagent_containers/pill,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/medigel,
-		/obj/item/lighter,
-		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/flashlight/pen,
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/clothing/gloves,
 		/obj/item/lazarus_injector,
 		/obj/item/bikehorn/rubberducky,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/mask/breath,
-		/obj/item/clothing/mask/breath/medical,
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
@@ -164,11 +157,8 @@
 		/obj/item/hemostat,
 		/obj/item/blood_filter,
 		/obj/item/geiger_counter,
-		/obj/item/clothing/neck/stethoscope,
 		/obj/item/stamp,
-		/obj/item/clothing/glasses,
 		/obj/item/wrench/medical,
-		/obj/item/clothing/mask/muzzle,
 		/obj/item/reagent_containers/blood,
 		/obj/item/gun/syringe/syndicate,
 		/obj/item/implantcase,
@@ -209,14 +199,12 @@
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
-		/obj/item/clothing/glasses,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_box,
 		/obj/item/food/donut,
 		/obj/item/kitchen/knife/combat,
 		/obj/item/flashlight/seclite,
 		/obj/item/melee/classic_baton/telescopic,
-		/obj/item/clothing/gloves,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/holosign_creator/security
 		))
@@ -264,7 +252,6 @@
 		/obj/item/multitool,
 		/obj/item/flashlight,
 		/obj/item/extinguisher/mini,
-		/obj/item/clothing/gloves,
 		/obj/item/resonator,
 		/obj/item/mining_scanner,
 		/obj/item/pickaxe,
@@ -272,8 +259,6 @@
 		/obj/item/stack/sheet/animalhide,
 		/obj/item/stack/sheet/sinew,
 		/obj/item/stack/sheet/bone,
-		/obj/item/lighter,
-		/obj/item/storage/fancy/cigarettes,
 		/obj/item/reagent_containers/food/drinks/bottle,
 		/obj/item/stack/medical,
 		/obj/item/kitchen/knife,
@@ -325,9 +310,7 @@
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	STR.max_items = 1
-	STR.set_holdable(list(
-		/obj/item/clothing/mask/luchador
-		))
+	STR.set_holdable(list())
 
 /obj/item/storage/belt/cummerbund
 	name = "cummerbund"
@@ -432,7 +415,6 @@
 	STR.set_holdable(list(
 		/obj/item/grenade,
 		/obj/item/screwdriver,
-		/obj/item/lighter,
 		/obj/item/multitool,
 		/obj/item/reagent_containers/food/drinks/bottle/molotov,
 		/obj/item/grenade/c4,
@@ -475,7 +457,6 @@
 		/obj/item/holosign_creator,
 		/obj/item/forcefield_projector,
 		/obj/item/key/janitor,
-		/obj/item/clothing/gloves,
 		/obj/item/melee/flyswatter,
 		/obj/item/paint_remover,
 		/obj/item/pushbroom

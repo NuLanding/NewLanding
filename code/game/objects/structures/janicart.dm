@@ -68,13 +68,6 @@
 			update_appearance()
 		else
 			to_chat(user, fail_msg)
-	else if(istype(I, /obj/item/clothing/suit/caution))
-		if(signs < max_signs)
-			put_in_cart(I, user)
-			signs++
-			update_appearance()
-		else
-			to_chat(user, SPAN_WARNING("[src] can't hold any more signs!"))
 	else if(mybag)
 		mybag.attackby(I, user)
 	else if(I.tool_behaviour == TOOL_CROWBAR)
@@ -100,9 +93,6 @@
 		items += list("Broom" = image(icon = mybroom.icon, icon_state = mybroom.icon_state))
 	if(myspray)
 		items += list("Spray bottle" = image(icon = myspray.icon, icon_state = myspray.icon_state))
-	var/obj/item/clothing/suit/caution/sign = locate() in src
-	if(sign)
-		items += list("Sign" = image(icon = sign.icon, icon_state = sign.icon_state))
 
 	if(!length(items))
 		return
@@ -135,12 +125,6 @@
 			user.put_in_hands(myspray)
 			to_chat(user, SPAN_NOTICE("You take [myspray] from [src]."))
 			myspray = null
-		if("Sign")
-			if(signs <= 0)
-				return
-			user.put_in_hands(sign)
-			to_chat(user, SPAN_NOTICE("You take \a [sign] from [src]."))
-			signs--
 		else
 			return
 

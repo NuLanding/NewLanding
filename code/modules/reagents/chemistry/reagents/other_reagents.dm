@@ -1484,14 +1484,6 @@
 		return
 	exposed_turf.MakeDry(ALL, TRUE, reac_volume * 5 SECONDS) //50 deciseconds per unit
 
-/datum/reagent/drying_agent/expose_obj(obj/exposed_obj, reac_volume)
-	. = ..()
-	if(exposed_obj.type != /obj/item/clothing/shoes/galoshes)
-		return
-	var/t_loc = get_turf(exposed_obj)
-	qdel(exposed_obj)
-	new /obj/item/clothing/shoes/galoshes/dry(t_loc)
-
 // Virology virus food chems.
 
 /datum/reagent/toxin/mutagen/mutagenvirusfood

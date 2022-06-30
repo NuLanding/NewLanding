@@ -76,17 +76,9 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 		/obj/item/instrument/violin,
 		/obj/item/instrument/guitar,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/clothing/neck/tie/horrible,
-		/obj/item/clothing/suit/jacket/leather,
-		/obj/item/clothing/suit/jacket/leather/overcoat,
-		/obj/item/clothing/suit/poncho,
-		/obj/item/clothing/suit/poncho/green,
-		/obj/item/clothing/suit/poncho/red,
-		/obj/item/clothing/suit/snowman,
-		/obj/item/clothing/head/snowman,
 		/obj/item/stack/sheet/mineral/coal)
 
-	gift_type_list += subtypesof(/obj/item/clothing/head/collectable)
+	gift_type_list += list()
 	gift_type_list += subtypesof(/obj/item/toy) - (((typesof(/obj/item/toy/cards) - /obj/item/toy/cards/deck) + /obj/item/toy/figure + /obj/item/toy/ammo)) //All toys, except for abstract types and syndicate cards.
 
 	var/gift_type = pick(gift_type_list)

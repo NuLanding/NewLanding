@@ -13,13 +13,6 @@
 	else
 		new /obj/item/storage/backpack/satchel(src)
 
-/obj/structure/closet/secure_closet/personal/patient
-	name = "patient's closet"
-
-/obj/structure/closet/secure_closet/personal/patient/PopulateContents()
-	new /obj/item/clothing/under/color/white( src )
-	new /obj/item/clothing/shoes/sneakers/white( src )
-
 /obj/structure/closet/secure_closet/personal/cabinet
 	icon_state = "cabinet"
 	resistance_flags = FLAMMABLE

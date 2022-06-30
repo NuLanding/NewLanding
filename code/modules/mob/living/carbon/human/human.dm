@@ -61,8 +61,6 @@
 	sec_hud_set_ID()
 	sec_hud_set_implants()
 	sec_hud_set_security_status()
-	//...fan gear
-	fan_hud_set_fandom()
 	//...and display them.
 	add_to_all_human_data_huds()
 
@@ -271,14 +269,10 @@
 				return   //Non-fluff: This allows sec to set people to arrest as they get disarmed or beaten
 			// Checks the user has security clearence before allowing them to change arrest status via hud, comment out to enable all access
 			var/allowed_access = null
-			var/obj/item/clothing/glasses/hud/security/G = H.glasses
-			if(istype(G) && (G.obj_flags & EMAGGED))
-				allowed_access = "@%&ERROR_%$*"
-			else //Implant and standard glasses check access
-				if(H.wear_id)
-					var/list/access = H.wear_id.GetAccess()
-					if(ACCESS_SECURITY in access)
-						allowed_access = H.get_authentification_name()
+			if(H.wear_id)
+				var/list/access = H.wear_id.GetAccess()
+				if(ACCESS_SECURITY in access)
+					allowed_access = H.get_authentification_name()
 
 			if(!allowed_access)
 				to_chat(H, SPAN_WARNING("ERROR: Invalid access."))

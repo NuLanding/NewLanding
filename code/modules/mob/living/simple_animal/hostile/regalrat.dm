@@ -11,7 +11,7 @@
 	health = 70
 	see_in_dark = 5
 	obj_damage = 10
-	butcher_results = list(/obj/item/clothing/head/crown = 1,)
+	butcher_results = list()
 	response_help_continuous = "glares at"
 	response_help_simple = "glare at"
 	response_disarm_continuous = "skoffs at"

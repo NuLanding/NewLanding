@@ -26,15 +26,6 @@
 	juice_results = list(/datum/reagent/consumable/pumpkinjuice = 0)
 	wine_power = 20
 
-/obj/item/food/grown/pumpkin/attackby(obj/item/W as obj, mob/user as mob, params)
-	if(W.get_sharpness())
-		user.show_message(SPAN_NOTICE("You carve a face into [src]!"), MSG_VISUAL)
-		new /obj/item/clothing/head/hardhat/pumpkinhead(user.loc)
-		qdel(src)
-		return
-	else
-		return ..()
-
 // Blumpkin
 /obj/item/seeds/pumpkin/blumpkin
 	name = "pack of blumpkin seeds"

@@ -59,38 +59,6 @@
 	lose_text = SPAN_DANGER("You feel isolated from others.")
 	medical_record_text = "Patient is highly perceptive of and sensitive to social cues, or may possibly have ESP. Further testing needed."
 
-/datum/quirk/item_quirk/fan_clown
-	name = "Clown Fan"
-	desc = "You enjoy clown antics and get a mood boost from wearing your clown pin."
-	value = 2
-	mob_trait = TRAIT_FAN_CLOWN
-	gain_text = SPAN_NOTICE("You are a big fan of clowns.")
-	lose_text = SPAN_DANGER("The clown doesn't seem so great.")
-	medical_record_text = "Patient reports being a big fan of clowns."
-
-/datum/quirk/item_quirk/fan_clown/add_unique()
-	give_item_to_holder(/obj/item/clothing/accessory/fan_clown_pin, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
-/datum/quirk/item_quirk/fan_clown/add()
-	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
-	fan.add_hud_to(quirk_holder)
-
-/datum/quirk/item_quirk/fan_mime
-	name = "Mime Fan"
-	desc = "You enjoy mime antics and get a mood boost from wearing your mime pin."
-	value = 2
-	mob_trait = TRAIT_FAN_MIME
-	gain_text = SPAN_NOTICE("You are a big fan of the Mime.")
-	lose_text = SPAN_DANGER("The mime doesn't seem so great.")
-	medical_record_text = "Patient reports being a big fan of mimes."
-
-/datum/quirk/item_quirk/fan_mime/add_unique()
-	give_item_to_holder(/obj/item/clothing/accessory/fan_mime_pin, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
-/datum/quirk/item_quirk/fan_mime/add()
-	var/datum/atom_hud/fan = GLOB.huds[DATA_HUD_FAN]
-	fan.add_hud_to(quirk_holder)
-
 /datum/quirk/freerunning
 	name = "Freerunning"
 	desc = "You're great at quick moves! You can climb tables more quickly and take no damage from short falls."
@@ -187,7 +155,6 @@
 
 /datum/quirk/item_quirk/spiritual/add_unique()
 	give_item_to_holder(/obj/item/storage/fancy/candle_box, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-	give_item_to_holder(/obj/item/storage/box/matches, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
 
 /datum/quirk/item_quirk/tagger
 	name = "Tagger"

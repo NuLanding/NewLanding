@@ -40,15 +40,13 @@
 					/mob/living/simple_animal/hostile/cockroach = 25,
 					/obj/effect/decal/cleanable/garbage = 20,
 					/obj/effect/decal/cleanable/vomit/old = 15,
-					/obj/effect/spawner/lootdrop/cigbutt = 10)
+					)
 
 ///This spawner will scatter water related items around a moist site.
 /obj/effect/spawner/scatter/moisture
 	max_spawns = 2
 	radius = 1
-	loot_table = list(/obj/item/clothing/head/cone = 35,
-					/obj/item/clothing/suit/caution = 15,
-					/mob/living/simple_animal/hostile/retaliate/frog = 10,
+	loot_table = list(/mob/living/simple_animal/hostile/retaliate/frog = 10,
 					/obj/item/reagent_containers/rag = 10,
 					/obj/item/reagent_containers/glass/bucket = 10,
 					/obj/effect/decal/cleanable/blood/old = 10,

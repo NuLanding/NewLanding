@@ -78,19 +78,13 @@
 		/obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/medigel,
 		/obj/item/reagent_containers/spray,
-		/obj/item/lighter,
-		/obj/item/storage/fancy/cigarettes,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
 		/obj/item/flashlight/pen,
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/clothing/gloves,
 		/obj/item/lazarus_injector,
 		/obj/item/bikehorn/rubberducky,
-		/obj/item/clothing/mask/surgical,
-		/obj/item/clothing/mask/breath,
-		/obj/item/clothing/mask/breath/medical,
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
@@ -102,11 +96,8 @@
 		/obj/item/blood_filter,
 		/obj/item/shears,
 		/obj/item/geiger_counter,
-		/obj/item/clothing/neck/stethoscope,
 		/obj/item/stamp,
-		/obj/item/clothing/glasses,
 		/obj/item/wrench/medical,
-		/obj/item/clothing/mask/muzzle,
 		/obj/item/reagent_containers/blood,
 		/obj/item/gun/syringe/syndicate,
 		/obj/item/implantcase,
@@ -292,7 +283,6 @@
 	new /obj/item/reagent_containers/pill/patch/libital(src)
 	new /obj/item/reagent_containers/pill/patch/aiuri(src)
 	new /obj/item/reagent_containers/pill/patch/aiuri(src)
-	new /obj/item/clothing/glasses/hud/health/night(src)
 
 /*
  * Pill Bottles

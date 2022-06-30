@@ -68,23 +68,6 @@
 	if (H.blood_volume > (BLOOD_VOLUME_SAFE - 25)) // just barely survivable without treatment
 		H.blood_volume -= 0.275 * delta_time
 
-/datum/quirk/item_quirk/blindness
-	name = "Blind"
-	desc = "You are completely blind, nothing can counteract this."
-	value = -16
-	gain_text = SPAN_DANGER("You can't see anything.")
-	lose_text = SPAN_NOTICE("You miraculously gain back your vision.")
-	medical_record_text = "Patient has permanent blindness."
-
-/datum/quirk/item_quirk/blindness/add_unique()
-	give_item_to_holder(/obj/item/clothing/glasses/blindfold/white, list(LOCATION_EYES = ITEM_SLOT_EYES, LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
-/datum/quirk/item_quirk/blindness/add()
-	quirk_holder.become_blind(QUIRK_TRAIT)
-
-/datum/quirk/item_quirk/blindness/remove()
-	quirk_holder.cure_blind(QUIRK_TRAIT)
-
 	/* A couple of brain tumor stats for anyone curious / looking at this quirk for balancing:
 	 * - It takes less 16 minute 40 seconds to die from brain death due to a brain tumor.
 	 * - It takes 1 minutes 40 seconds to take 10% (20 organ damage) brain damage.
@@ -165,7 +148,7 @@
 
 	// If we didn't find an heirloom somehow, throw them a generic one
 	if(!heirloom_type)
-		heirloom_type = pick(/obj/item/toy/cards/deck, /obj/item/lighter, /obj/item/dice/d20)
+		heirloom_type = pick(/obj/item/toy/cards/deck, /obj/item/dice/d20)
 
 	var/obj/new_heirloom = new heirloom_type(get_turf(human_holder))
 	heirloom = WEAKREF(new_heirloom)
@@ -255,23 +238,6 @@
 	gain_text = SPAN_NOTICE("Just the thought of drinking alcohol makes your head spin.")
 	lose_text = SPAN_DANGER("You're no longer severely affected by alcohol.")
 	medical_record_text = "Patient demonstrates a low tolerance for alcohol. (Wimp)"
-
-/datum/quirk/item_quirk/nearsighted
-	name = "Nearsighted"
-	desc = "You are nearsighted without prescription glasses, but spawn with a pair."
-	value = -4
-	gain_text = SPAN_DANGER("Things far away from you start looking blurry.")
-	lose_text = SPAN_NOTICE("You start seeing faraway things normally again.")
-	medical_record_text = "Patient requires prescription glasses in order to counteract nearsightedness."
-
-/datum/quirk/item_quirk/nearsighted/add_unique()
-	give_item_to_holder(/obj/item/clothing/glasses/regular, list(LOCATION_EYES = ITEM_SLOT_EYES, LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
-/datum/quirk/item_quirk/nearsighted/add()
-	quirk_holder.become_nearsighted(QUIRK_TRAIT)
-
-/datum/quirk/item_quirk/nearsighted/remove()
-	quirk_holder.cure_nearsighted(QUIRK_TRAIT)
 
 /datum/quirk/nyctophobia
 	name = "Nyctophobia"
@@ -614,41 +580,6 @@
 			for(var/addiction in reagent_instance.addiction_types)
 				human_holder.mind.add_addiction_points(addiction, 1000) ///Max that shit out
 
-/datum/quirk/item_quirk/junkie/smoker
-	name = "Smoker"
-	desc = "Sometimes you just really want a smoke. Probably not great for your lungs."
-	value = -4
-	gain_text = SPAN_DANGER("You could really go for a smoke right about now.")
-	medical_record_text = "Patient is a current smoker."
-	reagent_type = /datum/reagent/drug/nicotine
-	accessory_type = /obj/item/lighter/greyscale
-	drug_flavour_text = "Make sure you get your favorite brand when you run out."
-
-/datum/quirk/item_quirk/junkie/smoker/New()
-	drug_container_type = pick(/obj/item/storage/fancy/cigarettes,
-		/obj/item/storage/fancy/cigarettes/cigpack_midori,
-		/obj/item/storage/fancy/cigarettes/cigpack_uplift,
-		/obj/item/storage/fancy/cigarettes/cigpack_robust,
-		/obj/item/storage/fancy/cigarettes/cigpack_robustgold,
-		/obj/item/storage/fancy/cigarettes/cigpack_carp)
-
-	return ..()
-
-/datum/quirk/item_quirk/junkie/smoker/post_add()
-	. = ..()
-	quirk_holder.mind.store_memory("Your favorite cigarette packets are [initial(drug_container_type.name)]s.")
-
-/datum/quirk/item_quirk/junkie/smoker/process(delta_time)
-	. = ..()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/mask_item = human_holder.get_item_by_slot(ITEM_SLOT_MASK)
-	if (istype(mask_item, /obj/item/clothing/mask/cigarette))
-		var/obj/item/storage/fancy/cigarettes/cigarettes = drug_container_type
-		if(istype(mask_item, initial(cigarettes.spawn_type)))
-			SEND_SIGNAL(quirk_holder, COMSIG_CLEAR_MOOD_EVENT, "wrong_cigs")
-			return
-		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "wrong_cigs", /datum/mood_event/wrong_brand)
-
 /datum/quirk/unstable
 	name = "Unstable"
 	desc = "Due to past troubles, you are unable to recover your sanity if you lose it. Be very careful managing your mood!"
@@ -657,93 +588,6 @@
 	gain_text = SPAN_DANGER("There's a lot on your mind right now.")
 	lose_text = SPAN_NOTICE("Your mind finally feels calm.")
 	medical_record_text = "Patient's mind is in a vulnerable state, and cannot recover from traumatic events."
-
-/datum/quirk/item_quirk/allergic
-	name = "Medicine Allergy"
-	desc = "Ever since you were a kid, you've been allergic to certain chemicals..."
-	value = -4
-	gain_text = SPAN_DANGER("You feel your immune system shift lightly.")
-	lose_text = SPAN_NOTICE("You feel your immune system phase back into perfect shape.")
-	medical_record_text = "Patient's immune system responds undesirably to certain chemicals."
-	processing_quirk = TRUE
-	var/list/allergies = list()
-	var/list/blacklist = list(
-		/datum/reagent/medicine/c2,
-		/datum/reagent/medicine/epinephrine,
-		/datum/reagent/medicine/adminordrazine,
-		/datum/reagent/medicine/omnizine/godblood,
-		/datum/reagent/medicine/cordiolis_hepatico,
-		/datum/reagent/medicine/synaphydramine,
-		/datum/reagent/medicine/diphenhydramine,
-		/datum/reagent/medicine/insulin,
-		/datum/reagent/medicine/spaceacillin,
-		/datum/reagent/medicine/salglu_solution,
-		/datum/reagent/medicine/coagulant,
-	)
-	var/allergy_string
-
-/datum/quirk/item_quirk/allergic/add_unique()
-	var/list/chem_list = subtypesof(/datum/reagent/medicine) - blacklist
-	var/list/allergy_chem_names = list()
-	for(var/i in 0 to 5)
-		var/datum/reagent/medicine/chem_type = pick_n_take(chem_list)
-		allergies += chem_type
-		allergy_chem_names += initial(chem_type.name)
-
-	allergy_string = allergy_chem_names.Join(", ")
-	name = "Extreme [allergy_string] Allergies"
-	medical_record_text = "Patient's immune system responds violently to [allergy_string]"
-
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/clothing/accessory/allergy_dogtag/dogtag = new(get_turf(human_holder))
-	dogtag.display = allergy_string
-
-	give_item_to_holder(dogtag, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS), flavour_text = "Make sure medical staff can see this...")
-
-/datum/quirk/item_quirk/allergic/post_add()
-	quirk_holder.mind.store_memory("You are allergic to [allergy_string]")
-	to_chat(quirk_holder, SPAN_BOLDNOTICE("You are allergic to [allergy_string], make sure not to consume any of these!"))
-
-/datum/quirk/item_quirk/allergic/process(delta_time)
-	if(!iscarbon(quirk_holder))
-		return
-
-	if(IS_IN_STASIS(quirk_holder))
-		return
-
-	var/mob/living/carbon/carbon_quirk_holder = quirk_holder
-	for(var/allergy in allergies)
-		var/datum/reagent/instantiated_med = carbon_quirk_holder.reagents.has_reagent(allergy)
-		if(!instantiated_med)
-			continue
-		//Just halts the progression, I'd suggest you run to medbay asap to get it fixed
-		if(carbon_quirk_holder.reagents.has_reagent(/datum/reagent/medicine/epinephrine))
-			instantiated_med.reagent_removal_skip_list |= ALLERGIC_REMOVAL_SKIP
-			return //intentionally stops the entire proc so we avoid the organ damage after the loop
-		instantiated_med.reagent_removal_skip_list -= ALLERGIC_REMOVAL_SKIP
-		carbon_quirk_holder.adjustToxLoss(3 * delta_time)
-		carbon_quirk_holder.reagents.add_reagent(/datum/reagent/toxin/histamine, 3 * delta_time)
-		if(DT_PROB(10, delta_time))
-			carbon_quirk_holder.vomit()
-			carbon_quirk_holder.adjustOrganLoss(pick(ORGAN_SLOT_BRAIN,ORGAN_SLOT_APPENDIX,ORGAN_SLOT_LUNGS,ORGAN_SLOT_HEART,ORGAN_SLOT_LIVER,ORGAN_SLOT_STOMACH),10)
-
-/datum/quirk/item_quirk/allergic/extreme
-	name = "Extreme Medicine Allergy"
-	desc = "Ever since you were born, you've been extremely allergic to certain chemicals..."
-	value = -6
-	gain_text = SPAN_DANGER("You feel your immune system shift.")
-	medical_record_text = "Patient's immune system responds violently to certain chemicals."
-	blacklist = list(
-		/datum/reagent/medicine/c2,
-		/datum/reagent/medicine/epinephrine,
-		/datum/reagent/medicine/adminordrazine,
-		/datum/reagent/medicine/omnizine/godblood,
-		/datum/reagent/medicine/cordiolis_hepatico,
-		/datum/reagent/medicine/synaphydramine,
-		/datum/reagent/medicine/diphenhydramine,
-		/datum/reagent/medicine/insulin,
-		/datum/reagent/medicine/salglu_solution,
-	)
 
 /datum/quirk/bad_touch
 	name = "Bad Touch"
