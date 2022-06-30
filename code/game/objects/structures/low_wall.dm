@@ -107,4 +107,4 @@
 
 /obj/structure/low_wall/sandstone
 	name = "sandstone low wall"
-	color = "#525252"
+	color = "#c4b982"
