@@ -1,6 +1,6 @@
 /obj/item/clothing/suit
-	icon = 'icons/obj/clothing/suits.dmi'
-	worn_icon = 'icons/mob/clothing/suit.dmi'
+	icon = 'icons/obj/clothing/suit/suit.dmi'
+	worn_icon = 'icons/mob/clothing/suit/suit.dmi'
 	name = "suit"
 	var/fire_resist = T0C+100
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
@@ -15,7 +15,6 @@
 	var/togglename = null
 	var/suittoggled = FALSE
 	limb_integrity = 0 // disabled for most exo-suits
-	large_worn_icon = 'icons/mob/clothing/wide_suits.dmi'
 
 
 /obj/item/clothing/suit/worn_overlays(mutable_appearance/standing, isinhands = FALSE, file2use, bodytype = BODYTYPE_HUMANOID)

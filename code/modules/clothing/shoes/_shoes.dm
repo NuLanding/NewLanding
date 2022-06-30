@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'icons/obj/clothing/shoes.dmi'
-	worn_icon = 'icons/mob/clothing/feet.dmi'
+	icon = 'icons/obj/clothing/feet/feet.dmi'
+	worn_icon = 'icons/mob/clothing/feet/feet.dmi'
 	desc = "Comfortable-looking shoes."
 	gender = PLURAL //Carn: for grammarically correct text-parsing
 	fitted_bodytypes = BODYTYPE_DIGITIGRADE

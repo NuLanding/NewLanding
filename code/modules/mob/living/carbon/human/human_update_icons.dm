@@ -109,25 +109,25 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)
 				client.screen += w_uniform
 		update_observer_view(w_uniform,1)
-	
+
 		if(wear_suit && (wear_suit.flags_inv & HIDEJUMPSUIT))
 			return
-	
+
 		var/target_overlay = w_uniform.worn_icon_state || w_uniform.icon_state
-	
+
 		var/mutable_appearance/uniform_overlay
-	
+
 		var/female_alpha_mask = NO_FEMALE_UNIFORM
-	
+
 		if(istype(w_uniform, /obj/item/clothing/under))
 			var/obj/item/clothing/under/under = w_uniform
 			if(body_type == FEMALE)
 				female_alpha_mask = under.fitted
 			if(under.adjusted == ALT_STYLE)
 				target_overlay = "[target_overlay]_d"
-	
+
 		uniform_overlay = w_uniform.build_worn_icon(default_layer = UNIFORM_LAYER, override_state = target_overlay, isinhands = FALSE, femaleuniform = female_alpha_mask, wearer = src, slot = ITEM_SLOT_ICLOTHING)
-	
+
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
 	apply_overlay(UNIFORM_LAYER)
@@ -189,7 +189,7 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)
 				client.screen += gloves
 		update_observer_view(gloves,1)
-		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/clothing/hands.dmi', wearer = src, slot = ITEM_SLOT_GLOVES)
+		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/clothing/hands/hands.dmi', wearer = src, slot = ITEM_SLOT_GLOVES)
 		gloves_overlay = overlays_standing[GLOVES_LAYER]
 	overlays_standing[GLOVES_LAYER] = gloves_overlay
 	apply_overlay(GLOVES_LAYER)
@@ -212,7 +212,7 @@ There are several things that need to be remembered:
 				client.screen += glasses //Either way, add the item to the HUD
 		update_observer_view(glasses,1)
 		if(!(head && (head.flags_inv & HIDEEYES)) && !(wear_mask && (wear_mask.flags_inv & HIDEEYES)))
-			overlays_standing[GLASSES_LAYER] = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/clothing/eyes.dmi', wearer = src, slot = ITEM_SLOT_EYES)
+			overlays_standing[GLASSES_LAYER] = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/clothing/eyes/eyes.dmi', wearer = src, slot = ITEM_SLOT_EYES)
 
 		var/mutable_appearance/glasses_overlay = overlays_standing[GLASSES_LAYER]
 		if(glasses_overlay)
@@ -236,7 +236,7 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown) //if the inventory is open
 				client.screen += ears //add it to the client's screen
 		update_observer_view(ears,1)
-		overlays_standing[EARS_LAYER] = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi', wearer = src, slot = ITEM_SLOT_EARS)
+		overlays_standing[EARS_LAYER] = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears/ears.dmi', wearer = src, slot = ITEM_SLOT_EARS)
 		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
 		overlays_standing[EARS_LAYER] = ears_overlay
 	apply_overlay(EARS_LAYER)
@@ -264,7 +264,7 @@ There are several things that need to be remembered:
 				client.screen += shoes //add it to client's screen
 		update_observer_view(shoes,1)
 
-		overlays_standing[SHOES_LAYER] = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi', wearer = src, slot = ITEM_SLOT_FEET)
+		overlays_standing[SHOES_LAYER] = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/clothing/feet/feet.dmi', wearer = src, slot = ITEM_SLOT_FEET)
 		var/mutable_appearance/shoes_overlay = overlays_standing[SHOES_LAYER]
 		overlays_standing[SHOES_LAYER] = shoes_overlay
 
@@ -326,8 +326,8 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)
 				client.screen += wear_suit
 		update_observer_view(wear_suit,1)
-	
-		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/clothing/suit.dmi', wearer = src, slot = ITEM_SLOT_OCLOTHING)
+
+		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/clothing/suit/suit.dmi', wearer = src, slot = ITEM_SLOT_OCLOTHING)
 		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
 		overlays_standing[SUIT_LAYER] = suit_overlay
 

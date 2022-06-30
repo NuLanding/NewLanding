@@ -116,7 +116,7 @@
 
 	if(wear_mask)
 		if(!(ITEM_SLOT_MASK in check_obscured_slots()))
-			overlays_standing[FACEMASK_LAYER] = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask.dmi', wearer = src, slot = ITEM_SLOT_MASK)
+			overlays_standing[FACEMASK_LAYER] = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = 'icons/mob/clothing/mask/mask.dmi', wearer = src, slot = ITEM_SLOT_MASK)
 		update_hud_wear_mask(wear_mask)
 
 	apply_overlay(FACEMASK_LAYER)
@@ -130,7 +130,7 @@
 
 	if(wear_neck)
 		if(!(check_obscured_slots() & ITEM_SLOT_NECK))
-			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = 'icons/mob/clothing/neck.dmi', wearer = src, slot = ITEM_SLOT_NECK)
+			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = 'icons/mob/clothing/neck/neck.dmi', wearer = src, slot = ITEM_SLOT_NECK)
 		update_hud_neck(wear_neck)
 
 	apply_overlay(NECK_LAYER)
@@ -143,7 +143,7 @@
 		inv.update_appearance()
 
 	if(back)
-		overlays_standing[BACK_LAYER] = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back.dmi', wearer = src, slot = ITEM_SLOT_BACK)
+		overlays_standing[BACK_LAYER] = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = 'icons/mob/clothing/back/back.dmi', wearer = src, slot = ITEM_SLOT_BACK)
 		update_hud_back(back)
 
 	apply_overlay(BACK_LAYER)
@@ -159,7 +159,7 @@
 		inv.update_appearance()
 
 	if(head)
-		overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head.dmi', wearer = src, slot = ITEM_SLOT_HEAD)
+		overlays_standing[HEAD_LAYER] = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = 'icons/mob/clothing/head/head.dmi', wearer = src, slot = ITEM_SLOT_HEAD)
 		update_hud_head(head)
 
 	apply_overlay(HEAD_LAYER)

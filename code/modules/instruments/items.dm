@@ -72,52 +72,6 @@
 	. = ..()
 	song.allowed_instrument_ids = SSinstruments.synthesizer_instrument_ids
 
-/obj/item/instrument/piano_synth/headphones
-	name = "headphones"
-	desc = "Unce unce unce unce. Boop!"
-	icon = 'icons/obj/clothing/accessories.dmi'
-	lefthand_file = 'icons/mob/inhands/clothing_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/clothing_righthand.dmi'
-	icon_state = "headphones"
-	inhand_icon_state = "headphones"
-	slot_flags = ITEM_SLOT_EARS | ITEM_SLOT_HEAD
-	force = 0
-	w_class = WEIGHT_CLASS_SMALL
-	custom_price = PAYCHECK_ASSISTANT * 2.5
-	instrument_range = 1
-
-/obj/item/instrument/piano_synth/headphones/ComponentInitialize()
-	. = ..()
-	AddElement(/datum/element/update_icon_updates_onmob)
-	RegisterSignal(src, COMSIG_SONG_START, .proc/start_playing)
-	RegisterSignal(src, COMSIG_SONG_END, .proc/stop_playing)
-
-/**
- * Called by a component signal when our song starts playing.
- */
-/obj/item/instrument/piano_synth/headphones/proc/start_playing()
-	SIGNAL_HANDLER
-	icon_state = "[initial(icon_state)]_on"
-	update_appearance()
-
-/**
- * Called by a component signal when our song stops playing.
- */
-/obj/item/instrument/piano_synth/headphones/proc/stop_playing()
-	SIGNAL_HANDLER
-	icon_state = "[initial(icon_state)]"
-	update_appearance()
-
-/obj/item/instrument/piano_synth/headphones/spacepods
-	name = "\improper Nanotrasen space pods"
-	desc = "Flex your money, AND ignore what everyone else says, all at once!"
-	icon_state = "spacepods"
-	inhand_icon_state = "spacepods"
-	slot_flags = ITEM_SLOT_EARS
-	strip_delay = 100 //air pods don't fall out
-	instrument_range = 0 //you're paying for quality here
-	custom_premium_price = PAYCHECK_ASSISTANT * 36 //Save up 5 shifts worth of pay just to lose it down a drainpipe on the sidewalk
-
 /obj/item/instrument/banjo
 	name = "banjo"
 	desc = "A 'Mura' brand banjo. It's pretty much just a drum with a neck and strings."
@@ -262,7 +216,6 @@
 							/obj/item/instrument/trombone,
 							/obj/item/instrument/recorder,
 							/obj/item/instrument/harmonica,
-							/obj/item/instrument/piano_synth/headphones
 							)
 		for(var/V in templist)
 			var/atom/A = V

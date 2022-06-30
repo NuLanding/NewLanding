@@ -1,7 +1,7 @@
 /obj/item/clothing/under
 	name = "under"
-	icon = 'icons/obj/clothing/under/default.dmi'
-	worn_icon = 'icons/mob/clothing/under/default.dmi'
+	icon = 'icons/obj/clothing/under/under.dmi'
+	worn_icon = 'icons/mob/clothing/under/under.dmi'
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	permeability_coefficient = 0.9
 	slot_flags = ITEM_SLOT_ICLOTHING
@@ -138,7 +138,7 @@
 		to_chat(user, SPAN_NOTICE("You attach [accessory] to [src]."))
 
 	var/accessory_color = attached_accessory.icon_state
-	accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
+	accessory_overlay = mutable_appearance('icons/mob/clothing/accessory/accessory.dmi', "[accessory_color]")
 	accessory_overlay.alpha = attached_accessory.alpha
 	accessory_overlay.color = attached_accessory.color
 

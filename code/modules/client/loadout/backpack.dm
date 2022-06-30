@@ -114,27 +114,6 @@
 /datum/loadout_item/backpack/toy/plushborb
 	path = /obj/item/toy/plush/borbplushie
 
-/datum/loadout_item/backpack/toy/tennis
-	path = /obj/item/toy/tennis
-
-/datum/loadout_item/backpack/toy/tennisred
-	path = /obj/item/toy/tennis/red
-
-/datum/loadout_item/backpack/toy/tennisyellow
-	path = /obj/item/toy/tennis/yellow
-
-/datum/loadout_item/backpack/toy/tennisgreen
-	path = /obj/item/toy/tennis/green
-
-/datum/loadout_item/backpack/toy/tenniscyan
-	path = /obj/item/toy/tennis/cyan
-
-/datum/loadout_item/backpack/toy/tennisblue
-	path = /obj/item/toy/tennis/blue
-
-/datum/loadout_item/backpack/toy/tennispurple
-	path = /obj/item/toy/tennis/purple
-
 /datum/loadout_item/backpack/toy/toykatana
 	path = /obj/item/toy/katana
 	cost = 3

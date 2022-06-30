@@ -239,7 +239,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 
 GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
 		/obj/item/spear/grey_tide = 1,
-		/obj/item/shadowcloak = 1,
 	))
 
 //Maintenance loot spawner pools

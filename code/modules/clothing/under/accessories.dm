@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory //Ties moved to neck slot items, but as there are still things like medals and armbands, this accessory system is being kept as-is
 	name = "Accessory"
 	desc = "Something has gone wrong!"
-	icon = 'icons/obj/clothing/accessories.dmi'
+	icon = 'icons/obj/clothing/accessory/accessory.dmi'
 	icon_state = "plasma"
 	inhand_icon_state = "" //no inhands
 	slot_flags = 0
