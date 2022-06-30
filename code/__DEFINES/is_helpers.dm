@@ -55,30 +55,13 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define ishuman(A) (istype(A, /mob/living/carbon/human))
 
 //Human sub-species
-#define isabductor(A) (is_species(A, /datum/species/abductor))
-#define isgolem(A) (is_species(A, /datum/species/golem))
 #define islizard(A) (is_species(A, /datum/species/lizard))
-#define ispodperson(A) (is_species(A, /datum/species/pod))
-#define isflyperson(A) (is_species(A, /datum/species/fly))
-#define isjellyperson(A) (is_species(A, /datum/species/jelly))
-#define isslimeperson(A) (is_species(A, /datum/species/jelly/slime))
-#define isluminescent(A) (is_species(A, /datum/species/jelly/luminescent))
-#define iszombie(A) (is_species(A, /datum/species/zombie))
-#define isskeleton(A) (is_species(A, /datum/species/skeleton))
-#define ismoth(A) (is_species(A, /datum/species/moth))
 #define ishumanbasic(A) (is_species(A, /datum/species/human))
-#define isfelinid(A) (is_species(A, /datum/species/human/felinid))
-#define isvampire(A) (is_species(A,/datum/species/vampire))
-#define isdullahan(A) (is_species(A, /datum/species/dullahan))
 #define ismonkey(A) (is_species(A, /datum/species/monkey))
-
-#define issynthliz(A) (is_species(A,/datum/species/synthliz))
-#define isvox(A) (is_species(A,/datum/species/vox))
-#define isipc(A) (is_species(A,/datum/species/ipc))
 #define ismammal(A) (is_species(A,/datum/species/mammal))
-#define ispodweak(A) (is_species(A,/datum/species/pod/podweak))
-#define isxenohybrid(A) (is_species(A,/datum/species/xeno))
-#define isroundstartslime(A) (is_species(A,/datum/species/jelly/roundstartslime))
+#define isakula(A) (is_species(A,/datum/species/akula))
+#define isvulpkanin(A) (is_species(A,/datum/species/vulpkanin))
+#define istajaran(A) (is_species(A,/datum/species/tajaran))
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))

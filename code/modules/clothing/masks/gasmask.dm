@@ -85,7 +85,6 @@
 	resistance_flags = FLAMMABLE
 	actions_types = list(/datum/action/item_action/adjust)
 	dog_fashion = /datum/dog_fashion/head/clown
-	species_exception = list(/datum/species/golem/bananium)
 	var/list/clownmask_designs = list()
 
 /obj/item/clothing/mask/gas/clown_hat/Initialize(mapload)
@@ -130,7 +129,6 @@
 	inhand_icon_state = "sexyclown"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-	species_exception = list(/datum/species/golem/bananium)
 
 /obj/item/clothing/mask/gas/mime
 	name = "mime mask"
@@ -142,7 +140,6 @@
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
 	actions_types = list(/datum/action/item_action/adjust)
-	species_exception = list(/datum/species/golem)
 	var/list/mimemask_designs = list()
 
 /obj/item/clothing/mask/gas/mime/Initialize(mapload)
@@ -195,7 +192,6 @@
 	inhand_icon_state = "sexymime"
 	flags_cover = MASKCOVERSEYES
 	resistance_flags = FLAMMABLE
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/mask/gas/cyborg
 	name = "cyborg visor"
@@ -227,7 +223,6 @@
 	max_integrity = 100
 	actions_types = list(/datum/action/item_action/adjust)
 	dog_fashion = null
-	species_exception = list(/datum/species/golem/wood)
 	var/list/tikimask_designs = list()
 
 /obj/item/clothing/mask/gas/tiki_mask/Initialize(mapload)

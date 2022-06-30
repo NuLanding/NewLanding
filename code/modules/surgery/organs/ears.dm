@@ -57,49 +57,11 @@
 	damage = max(damage + (ddmg*damage_multiplier), 0)
 	deaf = max(deaf + (ddeaf*damage_multiplier), 0)
 
-/obj/item/organ/ears/invincible
-	damage_multiplier = 0
-
 /obj/item/organ/ears/cat
 	name = "cat ears"
 	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "kitty"
 	damage_multiplier = 2
-
-/obj/item/organ/ears/penguin
-	name = "penguin ears"
-	desc = "The source of a penguin's happy feet."
-
-/obj/item/organ/ears/penguin/Insert(mob/living/carbon/human/ear_owner, special = 0, drop_if_replaced = TRUE)
-	. = ..()
-	if(istype(ear_owner))
-		to_chat(ear_owner, SPAN_NOTICE("You suddenly feel like you've lost your balance."))
-		ear_owner.AddElement(/datum/element/waddling)
-
-/obj/item/organ/ears/penguin/Remove(mob/living/carbon/human/ear_owner,  special = 0)
-	. = ..()
-	if(istype(ear_owner))
-		to_chat(ear_owner, SPAN_NOTICE("Your sense of balance comes back to you."))
-		ear_owner.RemoveElement(/datum/element/waddling)
-
-/obj/item/organ/ears/bronze
-	name = "tin ears"
-	desc = "The robust ears of a bronze golem. "
-	damage_multiplier = 0.1 //STRONK
-	bang_protect = 1 //Fear me weaklings.
-
-/obj/item/organ/ears/cybernetic
-	name = "cybernetic ears"
-	icon_state = "ears-c"
-	desc = "A basic cybernetic organ designed to mimic the operation of ears."
-	damage_multiplier = 0.9
-	organ_flags = ORGAN_SYNTHETIC
-
-/obj/item/organ/ears/cybernetic/upgraded
-	name = "upgraded cybernetic ears"
-	icon_state = "ears-c-u"
-	desc = "An advanced cybernetic ear, surpassing the performance of organic ears."
-	damage_multiplier = 0.5
 
 /obj/item/organ/ears/cybernetic/emp_act(severity)
 	. = ..()

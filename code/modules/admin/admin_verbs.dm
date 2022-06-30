@@ -88,8 +88,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/forceEvent,
 	/client/proc/admin_change_sec_level,
 	/client/proc/run_weather,
-	/client/proc/mass_zombie_infection,
-	/client/proc/mass_zombie_cure,
 	/client/proc/show_tip,
 	/client/proc/smite,
 	/client/proc/spawn_pollution

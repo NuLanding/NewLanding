@@ -57,7 +57,6 @@
 		new /obj/item/phylactery(marked_item, M.mind)
 
 		to_chat(M, SPAN_USERDANGER("With a hideous feeling of emptiness you watch in horrified fascination as skin sloughs off bone! Blood boils, nerves disintegrate, eyes boil in their sockets! As your organs crumble to dust in your fleshless chest you come to terms with your choice. You're a lich!"))
-		M.set_species(/datum/species/skeleton)
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			H.dropItemToGround(H.w_uniform)
@@ -130,7 +129,6 @@
 	lich.real_name = mind.name
 	mind.transfer_to(lich)
 	mind.grab_ghost(force=TRUE)
-	lich.hardset_dna(null,null,null,lich.real_name,null, new /datum/species/skeleton)
 	to_chat(lich, SPAN_WARNING("Your bones clatter and shudder as you are pulled back into this world!"))
 	var/turf/body_turf = get_turf(old_body)
 	lich.Paralyze(200 + 200*resurrections)

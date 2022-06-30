@@ -7,7 +7,6 @@
 	can_adjust = FALSE
 	icon = 'icons/obj/clothing/under/shorts_pants.dmi'
 	worn_icon = 'icons/mob/clothing/under/shorts_pants.dmi'
-	species_exception = list(/datum/species/golem)
 	worn_template_bodytypes = BODYTYPE_TESHARI
 	greyscale_config_worn_template = /datum/greyscale_config/worn_template_shorts
 	worn_template_greyscale_color = "#AAAAAA"

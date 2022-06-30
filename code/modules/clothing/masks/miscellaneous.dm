@@ -62,7 +62,6 @@
 	icon_state = "fake-moustache"
 	w_class = WEIGHT_CLASS_TINY
 	flags_inv = HIDEFACE
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/mask/fakemoustache/italian
 	name = "italian moustache"
@@ -107,7 +106,6 @@
 	slot_flags = ITEM_SLOT_MASK
 	adjusted_flags = ITEM_SLOT_HEAD
 	icon_state = "bandbotany"
-	species_exception = list(/datum/species/golem)
 	worn_icon = 'icons/mob/clothing/mask/bandana.dmi'
 
 /obj/item/clothing/mask/bandana/attack_self(mob/user)

@@ -183,26 +183,6 @@
 
 	SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "bad_hair_day", /datum/mood_event/bald)
 
-/datum/quirk/item_quirk/tongue_tied
-	name = "Tongue Tied"
-	desc = "Due to a past incident, your ability to communicate has been relegated to your hands."
-	value = 0
-	medical_record_text = "During physical examination, patient's tongue was found to be uniquely damaged."
-
-/datum/quirk/item_quirk/tongue_tied/add_unique()
-	var/mob/living/carbon/human/human_holder = quirk_holder
-	var/obj/item/organ/tongue/old_tongue = human_holder.getorganslot(ORGAN_SLOT_TONGUE)
-	old_tongue.Remove(human_holder)
-	qdel(old_tongue)
-
-	var/obj/item/organ/tongue/tied/new_tongue = new(get_turf(human_holder))
-	new_tongue.Insert(human_holder)
-
-	give_item_to_holder(/obj/item/clothing/gloves/radio, list(LOCATION_GLOVES = ITEM_SLOT_GLOVES, LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
-/datum/quirk/item_quirk/tongue_tied/post_add()
-	to_chat(quirk_holder, SPAN_BOLDANNOUNCE("Because you speak with your hands, having them full hinders your ability to communicate!"))
-
 /datum/quirk/item_quirk/photographer
 	name = "Photographer"
 	desc = "You carry your camera and personal photo album everywhere you go, and your scrapbooks are legendary among your coworkers."

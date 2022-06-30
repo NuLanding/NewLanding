@@ -72,8 +72,6 @@
 		return FALSE
 
 /datum/emote/living/cough/get_sound(mob/living/user)
-	if(isvox(user))
-		return 'sound/voice/voxcough.ogg'
 	if(iscarbon(user))
 		if(user.gender == MALE)
 			return pick(
@@ -270,8 +268,6 @@
 	mob_type_allowed_typecache = list(/mob/living/carbon)
 
 /datum/emote/living/laugh/get_sound(mob/living/user)
-	if(ismoth(user))
-		return 'sound/voice/mothlaugh.ogg'
 	if(iscarbon(user))
 		if(user.gender == MALE)
 			return pick(
@@ -445,8 +441,6 @@
 	vary = TRUE
 
 /datum/emote/living/sneeze/get_sound(mob/living/user)
-	if(isvox(user))
-		return 'sound/voice/voxsneeze.ogg'
 	if(iscarbon(user))
 		if(user.gender == MALE)
 			return 'sound/voice/male_sneeze.ogg'

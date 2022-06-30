@@ -54,7 +54,6 @@
 	icon_state = "pirate"
 	inhand_icon_state = "pirate"
 	allowed = list(/obj/item/melee/transforming/energy/sword/pirate, /obj/item/clothing/glasses/eyepatch, /obj/item/reagent_containers/food/drinks/bottle/rum)
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = BODYTYPE_DIGITIGRADE
 
 /obj/item/clothing/suit/pirate/armored
@@ -109,7 +108,6 @@
 	icon_state = "overalls"
 	inhand_icon_state = "overalls"
 	body_parts_covered = CHEST|GROIN|LEGS
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/apron/purple_bartender
 	name = "purple bartender apron"
@@ -208,7 +206,6 @@
 	desc = "Your classic, non-racist poncho."
 	icon_state = "classicponcho"
 	inhand_icon_state = "classicponcho"
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/poncho/green
@@ -325,7 +322,6 @@
 	allowed = list()
 	actions_types = list(/datum/action/item_action/toggle_human_head)
 	hoodtype = /obj/item/clothing/head/hooded/human_head
-	species_exception = list(/datum/species/golem) //Finally, flesh
 
 
 /obj/item/clothing/head/hooded/human_head
@@ -374,7 +370,6 @@
 	desc = "A worn out, curiously comfortable t-shirt with a picture of Ian. You wouldn't go so far as to say it feels like being hugged when you wear it, but it's pretty close. Good for sleeping in."
 	icon_state = "ianshirt"
 	inhand_icon_state = "ianshirt"
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/nerdshirt
@@ -382,7 +377,6 @@
 	desc = "A baggy shirt with vintage game character Phanic the Weasel. Why would anyone wear this?"
 	icon_state = "nerdshirt"
 	inhand_icon_state = "nerdshirt"
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/vapeshirt //wearing this is asking to get beat.
@@ -408,7 +402,6 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/jacket/leather
@@ -419,7 +412,6 @@
 	resistance_flags = NONE
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	allowed = list(/obj/item/flashlight, /obj/item/toy, /obj/item/storage/fancy/cigarettes, /obj/item/lighter, /obj/item/gun/ballistic/automatic/pistol, /obj/item/gun/ballistic/revolver, /obj/item/gun/ballistic/revolver/detective)
-	species_exception = list(/datum/species/golem/bone) //bad to the bone
 	worn_template_greyscale_color = "#2B2B2B"
 
 /obj/item/clothing/suit/jacket/leather/overcoat
@@ -437,7 +429,6 @@
 	icon_state = "pufferjacket"
 	inhand_icon_state = "hostrench"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 50, RAD = 0, FIRE = 0, ACID = 0)
-	species_exception = list(/datum/species/golem/bone)
 
 /obj/item/clothing/suit/jacket/puffer/vest
 	name = "puffer vest"
@@ -461,29 +452,24 @@
 	desc = "A classic brown letterman jacket. Looks pretty hot and heavy."
 	icon_state = "letterman"
 	inhand_icon_state = "letterman"
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_red
 	name = "red letterman jacket"
 	desc = "A letterman jacket in a sick red color. Radical."
 	icon_state = "letterman_red"
 	inhand_icon_state = "letterman_red"
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_syndie
 	name = "blood-red letterman jacket"
 	desc = "Oddly, this jacket seems to have a large S on the back..."
 	icon_state = "letterman_s"
 	inhand_icon_state = "letterman_s"
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/jacket/letterman_nanotrasen
 	name = "blue letterman jacket"
 	desc = "A blue letterman jacket with a proud Nanotrasen N on the back. The tag says that it was made in Space China."
 	icon_state = "letterman_n"
 	inhand_icon_state = "letterman_n"
-	species_exception = list(/datum/species/golem)
-
 /obj/item/clothing/suit/dracula
 	name = "dracula coat"
 	desc = "Looks like this belongs in a very old movie set."
@@ -532,7 +518,6 @@
 	attack_verb_continuous = list("warns", "cautions", "smashes")
 	attack_verb_simple = list("warn", "caution", "smash")
 	armor = list(MELEE = 5, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 0, ACID = 0)
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/changshan_red
@@ -633,7 +618,6 @@
 	flags_inv = HIDEGLOVES|HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	alternate_worn_layer = UNDER_HEAD_LAYER
 	fitted_bodytypes = NONE
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/suit/ghost_sheet/spooky
 	name = "spooky ghost"
@@ -684,7 +668,6 @@
 	desc = "A cool shirt for chilling on the beach."
 	icon_state = "hawaiian_blue"
 	inhand_icon_state = "hawaiian_blue"
-	species_exception = list(/datum/species/golem)
 	fitted_bodytypes = NONE
 
 /obj/item/clothing/suit/yakuza

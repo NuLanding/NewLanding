@@ -56,14 +56,6 @@
 	if(prob(20))
 		trapped = HOWLING_GHOST
 		return
-	else
-		var/mob/living/carbon/human/H = new(loc)
-		H.makeSkeleton()
-		H.health = 1e5
-		insert(H)
-		trapped_mob = H
-		trapped = SPOOKY_SKELETON
-		return
 
 /obj/structure/closet/proc/trigger_spooky_trap()
 	if(!trapped)

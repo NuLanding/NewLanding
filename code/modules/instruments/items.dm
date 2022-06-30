@@ -170,42 +170,12 @@
 	allowed_instrument_ids = "crtrumpet"
 	inhand_icon_state = "trumpet"
 
-/obj/item/instrument/trumpet/spectral
-	name = "spectral trumpet"
-	desc = "Things are about to get spooky!"
-	icon_state = "spectral_trumpet"
-	inhand_icon_state = "spectral_trumpet"
-	force = 0
-	attack_verb_continuous = list("plays", "jazzes", "trumpets", "mourns", "doots", "spooks")
-	attack_verb_simple = list("play", "jazz", "trumpet", "mourn", "doot", "spook")
-
-/obj/item/instrument/trumpet/spectral/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spooky)
-
-/obj/item/instrument/trumpet/spectral/attack(mob/living/carbon/C, mob/user)
-	playsound (src, 'sound/runtime/instruments/trombone/En4.mid', 100,1,-1)
-	..()
-
 /obj/item/instrument/saxophone
 	name = "saxophone"
 	desc = "This soothing sound will be sure to leave your audience in tears."
 	icon_state = "saxophone"
 	allowed_instrument_ids = "saxophone"
 	inhand_icon_state = "saxophone"
-
-/obj/item/instrument/saxophone/spectral
-	name = "spectral saxophone"
-	desc = "This spooky sound will be sure to leave mortals in bones."
-	icon_state = "saxophone"
-	inhand_icon_state = "saxophone"
-	force = 0
-	attack_verb_continuous = list("plays", "jazzes", "saxxes", "mourns", "doots", "spooks")
-	attack_verb_simple = list("play", "jazz", "sax", "mourn", "doot", "spook")
-
-/obj/item/instrument/saxophone/spectral/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spooky)
 
 /obj/item/instrument/saxophone/spectral/attack(mob/living/carbon/C, mob/user)
 	playsound (src, 'sound/runtime/instruments/saxophone/En4.mid', 100,1,-1)
@@ -217,19 +187,6 @@
 	icon_state = "trombone"
 	allowed_instrument_ids = list("crtrombone", "crbrass", "trombone")
 	inhand_icon_state = "trombone"
-
-/obj/item/instrument/trombone/spectral
-	name = "spectral trombone"
-	desc = "A skeleton's favorite instrument. Apply directly on the mortals."
-	icon_state = "trombone"
-	inhand_icon_state = "trombone"
-	force = 0
-	attack_verb_continuous = list("plays", "jazzes", "trombones", "mourns", "doots", "spooks")
-	attack_verb_simple = list("play", "jazz", "trombone", "mourn", "doot", "spook")
-
-/obj/item/instrument/trombone/spectral/Initialize()
-	. = ..()
-	AddComponent(/datum/component/spooky)
 
 /obj/item/instrument/trombone/spectral/attack(mob/living/carbon/C, mob/user)
 	playsound (src, 'sound/runtime/instruments/trombone/Cn4.mid', 100,1,-1)

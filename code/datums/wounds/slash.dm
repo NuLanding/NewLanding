@@ -158,39 +158,6 @@
 	else if(istype(I, /obj/item/stack/medical/suture))
 		suture(I, user)
 
-/datum/wound/slash/try_handling(mob/living/carbon/human/user)
-	if(user.pulling != victim || user.zone_selected != limb.body_zone || !isfelinid(user) || !victim.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))
-		return FALSE
-	if(DOING_INTERACTION_WITH_TARGET(user, victim))
-		to_chat(user, SPAN_WARNING("You're already interacting with [victim]!"))
-		return
-	if(user.is_mouth_covered())
-		to_chat(user, SPAN_WARNING("Your mouth is covered, you can't lick [victim]'s wounds!"))
-		return
-	if(!user.getorganslot(ORGAN_SLOT_TONGUE))
-		to_chat(user, SPAN_WARNING("You can't lick wounds without a tongue!")) // f in chat
-		return
-
-	lick_wounds(user)
-	return TRUE
-
-/// if a felinid is licking this cut to reduce bleeding
-/datum/wound/slash/proc/lick_wounds(mob/living/carbon/human/user)
-
-	user.visible_message(SPAN_NOTICE("[user] begins licking the wounds on [victim]'s [limb.name]."), SPAN_NOTICE("You begin licking the wounds on [victim]'s [limb.name]..."), ignored_mobs=victim)
-	to_chat(victim, "<span class='notice'>[user] begins to lick the wounds on your [limb.name].</span")
-	if(!do_after(user, base_treat_time, target=victim, extra_checks = CALLBACK(src, .proc/still_exists)))
-		return
-
-	user.visible_message(SPAN_NOTICE("[user] licks the wounds on [victim]'s [limb.name]."), SPAN_NOTICE("You lick some of the wounds on [victim]'s [limb.name]"), ignored_mobs=victim)
-	to_chat(victim, "<span class='green'>[user] licks the wounds on your [limb.name]!</span")
-	blood_flow -= 0.5
-
-	if(blood_flow > minimum_flow)
-		try_handling(user)
-	else if(demotes_to)
-		to_chat(user, SPAN_GREEN("You successfully lower the severity of [victim]'s cuts."))
-
 /datum/wound/slash/on_xadone(power)
 	. = ..()
 	blood_flow -= 0.03 * power // i think it's like a minimum of 3 power, so .09 blood_flow reduction per tick is pretty good for 0 effort

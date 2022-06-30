@@ -90,11 +90,7 @@
 		return
 	if(target.mob_size > max_occupant_weight)
 		if(ishuman(target))
-			var/mob/living/carbon/human/H = target
-			if(isfelinid(H))
-				to_chat(user, SPAN_WARNING("You'd need a lot of catnip and treats, plus maybe a laser pointer, for that to work."))
-			else
-				to_chat(user, SPAN_WARNING("Humans, generally, do not fit into pet carriers."))
+			to_chat(user, SPAN_WARNING("Humans, generally, do not fit into pet carriers."))
 		else
 			to_chat(user, SPAN_WARNING("You get the feeling [target] isn't meant for a [name]."))
 		return

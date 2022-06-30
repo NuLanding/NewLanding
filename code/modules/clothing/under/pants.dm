@@ -6,7 +6,6 @@
 	custom_price = PAYCHECK_EASY
 	icon = 'icons/obj/clothing/under/shorts_pants.dmi'
 	worn_icon = 'icons/mob/clothing/under/shorts_pants.dmi'
-	species_exception = list(/datum/species/golem)
 	worn_template_bodytypes = BODYTYPE_TESHARI
 	greyscale_config_worn_template = /datum/greyscale_config/worn_template_pants
 	worn_template_greyscale_color = "#AAAAAA"

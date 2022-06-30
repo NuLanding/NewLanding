@@ -150,19 +150,13 @@
 
 /obj/structure/spawner/nether/examine(mob/user)
 	. = ..()
-	if(isskeleton(user) || iszombie(user))
-		. += "A direct link to another dimension full of creatures very happy to see you. [SPAN_NICEGREEN("You can see your house from here!")]"
-	else
-		. += "A direct link to another dimension full of creatures not very happy to see you. [SPAN_WARNING("Entering the link would be a very bad idea.")]"
+	. += "A direct link to another dimension full of creatures not very happy to see you. [SPAN_WARNING("Entering the link would be a very bad idea.")]"
 
 /obj/structure/spawner/nether/attack_hand(mob/user, list/modifiers)
 	. = ..()
-	if(isskeleton(user) || iszombie(user))
-		to_chat(user, SPAN_NOTICE("You don't feel like going home yet..."))
-	else
-		user.visible_message(SPAN_WARNING("[user] is violently pulled into the link!"), \
-							SPAN_USERDANGER("Touching the portal, you are quickly pulled through into a world of unimaginable horror!"))
-		contents.Add(user)
+	user.visible_message(SPAN_WARNING("[user] is violently pulled into the link!"), \
+						SPAN_USERDANGER("Touching the portal, you are quickly pulled through into a world of unimaginable horror!"))
+	contents.Add(user)
 
 /obj/structure/spawner/nether/process(delta_time)
 	for(var/mob/living/M in contents)

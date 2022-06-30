@@ -421,11 +421,6 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/garlic/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	if(isvampire(M)) //incapacitating but not lethal. Unfortunately, vampires cannot vomit.
-		if(DT_PROB(min(current_cycle/2, 12.5), delta_time))
-			to_chat(M, SPAN_DANGER("You can't get the scent of garlic out of your nose! You can barely think..."))
-			M.Paralyze(10)
-			M.Jitter(10)
 	..()
 
 /datum/reagent/consumable/sprinkles
@@ -895,9 +890,6 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/peanut_butter/on_mob_life(mob/living/carbon/M, delta_time, times_fired) //ET loves peanut butter
-	if(isabductor(M))
-		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "ET_pieces", /datum/mood_event/et_pieces, name)
-		M.set_drugginess(15 * REM * delta_time)
 	..()
 
 /datum/reagent/consumable/vinegar

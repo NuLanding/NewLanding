@@ -29,7 +29,6 @@
 	desc = "<i>'HONK!'</i>"
 	icon_state = "clown"
 	inhand_icon_state = "clown"
-	species_exception = list(/datum/species/golem/bananium)
 	fitted = FEMALE_UNIFORM_TOP
 	can_adjust = FALSE
 	fitted_bodytypes = NONE

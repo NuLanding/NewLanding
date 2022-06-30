@@ -45,7 +45,6 @@
 	equip_delay_other = 50
 	permeability_coefficient = 0.9
 	can_be_tied = FALSE
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/shoes/sneakers/marisa
 	desc = "A pair of magic black shoes."
@@ -106,7 +105,6 @@
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes/clown
 	var/enabled_waddle = TRUE
 	lace_time = 20 SECONDS // how the hell do these laces even work??
-	species_exception = list(/datum/species/golem/bananium)
 
 /obj/item/clothing/shoes/clown_shoes/Initialize()
 	. = ..()
@@ -191,7 +189,6 @@
 	equip_delay_other = 40
 	pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes
 	lace_time = 8 SECONDS
-	species_exception = list(/datum/species/golem/uranium)
 	worn_template_greyscale_color = "#BD903D"
 
 /obj/item/clothing/shoes/workboots/mining
@@ -537,7 +534,6 @@
 	name = "grilling sandals"
 	icon_state = "cookflops"
 	can_be_tied = FALSE
-	species_exception = list(/datum/species/golem)
 
 /obj/item/clothing/shoes/yakuza
 	name = "tojo clan shoes"

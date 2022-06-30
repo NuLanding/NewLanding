@@ -41,8 +41,6 @@
 	ignore += typesof(/obj/effect/hallucination)
 	//These want fried food to take on the shape of, we can't pass that in
 	ignore += typesof(/obj/item/food/deepfryholder)
-	//Can't pass in a thing to glow
-	ignore += typesof(/obj/effect/abstract/eye_lighting)
 	//It wants a lot more context then we have
 	ignore += typesof(/obj/effect/buildmode_line)
 	//We don't have a pod

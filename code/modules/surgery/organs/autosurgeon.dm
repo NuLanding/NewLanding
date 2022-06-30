@@ -93,12 +93,6 @@
 	uses = 1
 	starting_organ = /obj/item/organ/cyberimp/eyes/hud/medical
 
-/obj/item/autosurgeon/organ/syndicate/thermal_eyes
-	starting_organ = /obj/item/organ/eyes/robotic/thermals
-
-/obj/item/autosurgeon/organ/syndicate/xray_eyes
-	starting_organ = /obj/item/organ/eyes/robotic/xray
-
 /obj/item/autosurgeon/organ/syndicate/anti_stun
 	starting_organ = /obj/item/organ/cyberimp/brain/anti_stun
 

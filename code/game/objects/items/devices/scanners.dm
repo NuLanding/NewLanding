@@ -119,10 +119,6 @@ GENE SCANNER
 				\n[SPAN_INFO("Body temperature: ???")]")
 		return
 
-	if(ispodperson(M)&& !advanced)
-		to_chat(user, "<span class='info'>[M]'s biologal structure is too complex for the health analyzer.")
-		return
-
 	user.visible_message(SPAN_NOTICE("[user] analyzes [M]'s vitals."), \
 						SPAN_NOTICE("You analyze [M]'s vitals."))
 

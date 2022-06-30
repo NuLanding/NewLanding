@@ -32,16 +32,6 @@
 	icon_state = "salt_pile"
 	var/safepasses = 3 //how many times can this salt pile be passed before dissipating
 
-/obj/effect/decal/cleanable/food/salt/CanAllowThrough(atom/movable/AM, turf/target)
-	. = ..()
-	if(is_species(AM, /datum/species/snail))
-		return FALSE
-
-/obj/effect/decal/cleanable/food/salt/Bumped(atom/movable/AM)
-	. = ..()
-	if(is_species(AM, /datum/species/snail))
-		to_chat(AM, SPAN_DANGER("Your path is obstructed by [SPAN_PHOBIA("salt")]."))
-
 /obj/effect/decal/cleanable/food/salt/on_entered(datum/source, atom/movable/AM)
 	. = ..()
 	if(!isliving(AM))

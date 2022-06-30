@@ -265,19 +265,9 @@
 /obj/effect/spawner/lootdrop/memeorgans
 	name = "meme organ spawner"
 	loot = list(
-		/obj/item/organ/ears/penguin,
 		/obj/item/organ/ears/cat,
-		/obj/item/organ/eyes/moth,
-		/obj/item/organ/eyes/snail,
-		/obj/item/organ/tongue/bone,
-		/obj/item/organ/tongue/fly,
-		/obj/item/organ/tongue/snail,
 		/obj/item/organ/tongue/lizard,
-		/obj/item/organ/tongue/robot,
-		/obj/item/organ/tongue/zombie,
 		/obj/item/organ/appendix,
-		/obj/item/organ/liver/fly,
-		/obj/item/organ/lungs/plasmaman,
 		/obj/item/organ/tail/cat,
 		/obj/item/organ/tail/lizard)
 	lootcount = 5
