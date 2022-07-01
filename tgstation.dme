@@ -1442,7 +1442,7 @@
 #include "code\modules\jobs\departments\departments.dm"
 #include "code\modules\jobs\job_listing\_job_listing.dm"
 #include "code\modules\jobs\job_types\_job.dm"
-#include "code\modules\jobs\job_types\assistant.dm"
+#include "code\modules\jobs\job_types\common.dm"
 #include "code\modules\jobs\job_types\unassigned.dm"
 #include "code\modules\jobs\job_types\antagonists\abductor_agent.dm"
 #include "code\modules\jobs\job_types\antagonists\abductor_scientist.dm"

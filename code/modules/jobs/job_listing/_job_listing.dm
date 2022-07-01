@@ -86,8 +86,36 @@
 	return joinable_departments_by_type[department_type]
 
 /datum/job_listing/settlers
-	name = "Settlers"
+	name = "Settler's Establishment"
 	desc = "Buncha settlers."
 	jobs = list(
-		/datum/job/assistant,
+		/datum/job/crafstman,
+		)
+
+/datum/job_listing/port
+	name = "The Crown's Port"
+	desc = "Buncha colonials."
+	jobs = list(
+		/datum/job/deckguard,
+		)
+
+/datum/job_listing/pirate
+	name = "Pirate Stronghold"
+	desc = "Buncha pirates."
+	jobs = list(
+		/datum/job/pirate,
+		)
+
+/datum/job_listing/native
+	name = "Aztec Temples"
+	desc = "Buncha god worshippers."
+	jobs = list(
+		/datum/job/shaman,
+		)
+
+/datum/job_listing/undefined
+	name = "Various"
+	desc = "People who dont belong."
+	jobs = list(
+		/datum/job/adventurer,
 		)

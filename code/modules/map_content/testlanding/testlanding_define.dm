@@ -10,3 +10,10 @@
 	allow_custom_shuttles = TRUE
 
 	job_changes = list()
+	job_listings = list(
+		/datum/job_listing/settlers,
+		/datum/job_listing/port,
+		/datum/job_listing/pirate,
+		/datum/job_listing/native,
+		/datum/job_listing/undefined
+		)
