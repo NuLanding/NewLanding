@@ -241,6 +241,13 @@ Used by the AI doomsday and the self-destruct nuke.
 	// ensure we have space_level datums for compiled-in maps
 	InitializeDefaultZLevels()
 
+	//load jobs
+	if(!length(config.job_listings))
+		stack_trace("Map config has no job listings")
+	else
+		for(var/listing_type in config.job_listings)
+			SSjob.create_listing(listing_type)
+
 	// load the station
 	INIT_ANNOUNCE("Loading [config.map_name]...")
 	var/picked_rock_color = CHECK_AND_PICK_OR_NULL(config.rock_color)

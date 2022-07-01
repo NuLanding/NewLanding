@@ -1,8 +1,3 @@
-//used for holding information about unique properties of maps
-//feed it json files that match the datum layout
-//defaults to box
-//  -Cyberboss
-
 /datum/map_config
 	// Metadata
 	var/config_filename
@@ -21,10 +16,6 @@
 
 	var/allow_custom_shuttles = TRUE
 	var/shuttles = list()
-
-	var/job_faction = FACTION_STATION
-
-	var/overflow_job = /datum/job/assistant
 
 	/// Dictionary of job sub-typepath to template changes dictionary
 	var/job_changes = list()
@@ -52,6 +43,8 @@
 	var/map_margin = 5
 
 	var/list/banned_event_tags = list()
+	/// List of job listing types to initialize for this config
+	var/list/job_listings = list(/datum/job_listing/settlers)
 
 /datum/map_config/New()
 	//Make sure that all levels in station have the default station traits, unless they're overriden

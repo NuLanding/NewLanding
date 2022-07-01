@@ -5,7 +5,7 @@
 // You do not need to raise this if you are adding new values that have sane defaults.
 // Only raise this value when changing the meaning/format/name/layout of an existing value
 // where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 41
+#define SAVEFILE_VERSION_MAX 42
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -96,6 +96,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 /datum/preferences/proc/update_character(current_version, savefile/S)
 	if(current_version < 41)
 		migrate_loadout(S)
+	if(current_version < 42)
+		job_preferences = list()
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()
@@ -518,10 +520,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	persistent_scars = sanitize_integer(persistent_scars)
 
 	joblessrole = sanitize_integer(joblessrole, 1, 3, initial(joblessrole))
-	//Validate job prefs
-	for(var/j in job_preferences)
-		if(job_preferences[j] != JP_LOW && job_preferences[j] != JP_MEDIUM && job_preferences[j] != JP_HIGH)
-			job_preferences -= j
 
 	all_quirks = SANITIZE_LIST(all_quirks)
 	validate_quirks()

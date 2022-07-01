@@ -33,228 +33,26 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 
 /obj/effect/landmark/start/Initialize()
 	. = ..()
-	GLOB.start_landmarks_list += src
+	SSjob.main_jobs.start_landmarks_list += src
 	if(jobspawn_override)
-		LAZYADDASSOCLIST(GLOB.jobspawn_overrides, name, src)
+		LAZYADDASSOCLIST(SSjob.main_jobs.jobspawn_overrides, name, src)
 	if(name != "start")
 		tag = "start*[name]"
 
 /obj/effect/landmark/start/Destroy()
-	GLOB.start_landmarks_list -= src
+	SSjob.main_jobs.start_landmarks_list -= src
 	if(jobspawn_override)
-		LAZYREMOVEASSOC(GLOB.jobspawn_overrides, name, src)
+		LAZYREMOVEASSOC(SSjob.main_jobs.jobspawn_overrides, name, src)
 	return ..()
-
-// START LANDMARKS FOLLOW. Don't change the names unless
-// you are refactoring shitty landmark code.
-/obj/effect/landmark/start/assistant
-	name = "Assistant"
-	icon_state = "Assistant" //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
-
-/obj/effect/landmark/start/assistant/override
-	jobspawn_override = TRUE
-	delete_after_roundstart = FALSE
-
-/obj/effect/landmark/start/prisoner
-	name = "Prisoner"
-	icon_state = "Prisoner"
-
-/obj/effect/landmark/start/janitor
-	name = "Janitor"
-	icon_state = "Janitor"
-
-/obj/effect/landmark/start/cargo_technician
-	name = "Cargo Technician"
-	icon_state = "Cargo Technician"
-
-/obj/effect/landmark/start/bartender
-	name = "Bartender"
-	icon_state = "Bartender"
-
-/obj/effect/landmark/start/clown
-	name = "Clown"
-	icon_state = "Clown"
-
-/obj/effect/landmark/start/mime
-	name = "Mime"
-	icon_state = "Mime"
-
-/obj/effect/landmark/start/quartermaster
-	name = "Quartermaster"
-	icon_state = "Quartermaster"
-
-/obj/effect/landmark/start/atmospheric_technician
-	name = "Atmospheric Technician"
-	icon_state = "Atmospheric Technician"
-
-/obj/effect/landmark/start/cook
-	name = "Cook"
-	icon_state = "Cook"
-
-/obj/effect/landmark/start/shaft_miner
-	name = "Shaft Miner"
-	icon_state = "Shaft Miner"
-
-/obj/effect/landmark/start/security_officer
-	name = "Security Officer"
-	icon_state = "Security Officer"
-
-/obj/effect/landmark/start/botanist
-	name = "Botanist"
-	icon_state = "Botanist"
-
-/obj/effect/landmark/start/head_of_security
-	name = "Head of Security"
-	icon_state = "Head of Security"
-
-/obj/effect/landmark/start/captain
-	name = "Captain"
-	icon_state = "Captain"
-
-/obj/effect/landmark/start/detective
-	name = "Detective"
-	icon_state = "Detective"
-
-/obj/effect/landmark/start/warden
-	name = "Warden"
-	icon_state = "Warden"
-
-/obj/effect/landmark/start/chief_engineer
-	name = "Chief Engineer"
-	icon_state = "Chief Engineer"
-
-/obj/effect/landmark/start/head_of_personnel
-	name = "Head of Personnel"
-	icon_state = "Head of Personnel"
-
-/obj/effect/landmark/start/librarian
-	name = "Curator"
-	icon_state = "Curator"
-
-/obj/effect/landmark/start/lawyer
-	name = "Lawyer"
-	icon_state = "Lawyer"
-
-/obj/effect/landmark/start/station_engineer
-	name = "Station Engineer"
-	icon_state = "Station Engineer"
-
-/obj/effect/landmark/start/medical_doctor
-	name = "Medical Doctor"
-	icon_state = "Medical Doctor"
-
-/obj/effect/landmark/start/paramedic
-	name = "Paramedic"
-	icon_state = "Paramedic"
-
-/obj/effect/landmark/start/scientist
-	name = "Scientist"
-	icon_state = "Scientist"
-
-/obj/effect/landmark/start/chemist
-	name = "Chemist"
-	icon_state = "Chemist"
-
-/obj/effect/landmark/start/roboticist
-	name = "Roboticist"
-	icon_state = "Roboticist"
-
-/obj/effect/landmark/start/research_director
-	name = "Research Director"
-	icon_state = "Research Director"
-
-/obj/effect/landmark/start/geneticist
-	name = "Geneticist"
-	icon_state = "Geneticist"
-
-/obj/effect/landmark/start/chief_medical_officer
-	name = "Chief Medical Officer"
-	icon_state = "Chief Medical Officer"
-
-/obj/effect/landmark/start/virologist
-	name = "Virologist"
-	icon_state = "Virologist"
-
-/obj/effect/landmark/start/psychologist
-	name = "Psychologist"
-	icon_state = "Psychologist"
-
-/obj/effect/landmark/start/chaplain
-	name = "Chaplain"
-	icon_state = "Chaplain"
-
-//Department Security spawns
-
-/obj/effect/landmark/start/depsec
-	name = "department_sec"
-	icon_state = "Security Officer"
-	/// What department this spawner is for
-	var/department
-
-/obj/effect/landmark/start/depsec/New()
-	..()
-	LAZYADDASSOCLIST(GLOB.department_security_spawns, department, src)
-
-/obj/effect/landmark/start/depsec/Destroy()
-	LAZYREMOVEASSOC(GLOB.department_security_spawns, department, src)
-	return ..()
-
-/obj/effect/landmark/start/depsec/supply
-	name = "supply_sec"
-	department = SEC_DEPT_SUPPLY
-
-/obj/effect/landmark/start/depsec/medical
-	name = "medical_sec"
-	department = SEC_DEPT_MEDICAL
-
-/obj/effect/landmark/start/depsec/engineering
-	name = "engineering_sec"
-	department = SEC_DEPT_ENGINEERING
-
-/obj/effect/landmark/start/depsec/science
-	name = "science_sec"
-	department = SEC_DEPT_SCIENCE
-
-//Antagonist spawns
-
-/obj/effect/landmark/start/wizard
-	name = "wizard"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "wiznerd_spawn"
-
-/obj/effect/landmark/start/wizard/Initialize()
-	..()
-	GLOB.wizardstart += loc
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/landmark/start/nukeop
-	name = "nukeop"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "snukeop_spawn"
-
-/obj/effect/landmark/start/nukeop/Initialize()
-	..()
-	GLOB.nukeop_start += loc
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/landmark/start/nukeop_leader
-	name = "nukeop leader"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "snukeop_leader_spawn"
-
-/obj/effect/landmark/start/nukeop_leader/Initialize()
-	..()
-	GLOB.nukeop_leader_start += loc
-	return INITIALIZE_HINT_QDEL
 
 // Must be immediate because players will
 // join before SSatom initializes everything.
-INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
+INITIALIZE_IMMEDIATE(/obj/effect/landmark/new_player)
 
-/obj/effect/landmark/start/new_player
+/obj/effect/landmark/new_player
 	name = "New Player"
 
-/obj/effect/landmark/start/new_player/Initialize()
+/obj/effect/landmark/new_player/Initialize()
 	..()
 	GLOB.newplayer_start += loc
 	return INITIALIZE_HINT_QDEL
@@ -264,7 +62,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 
 /obj/effect/landmark/latejoin/Initialize(mapload)
 	..()
-	SSjob.latejoin_trackers += loc
+	SSjob.main_jobs.latejoin_trackers += loc
 	return INITIALIZE_HINT_QDEL
 
 //space carps, magicarps, lone ops, slaughter demons, possibly revenants spawn here
