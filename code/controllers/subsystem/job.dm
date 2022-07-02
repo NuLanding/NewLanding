@@ -5,8 +5,6 @@ SUBSYSTEM_DEF(job)
 
 	/// List of all jobs.
 	var/list/datum/job/all_occupations = list()
-	/// Dictionary of all jobs, keys are titles.
-	var/list/name_occupations = list()
 	/// Dictionary of all jobs, keys are types.
 	var/list/datum/job/type_occupations = list()
 	/// The main job listing of the game. This is gonna be the first station/ship/ruin's that is loaded.
@@ -29,9 +27,6 @@ SUBSYSTEM_DEF(job)
 	var/list/prioritized_jobs = list()
 
 	var/list/level_order = list(JP_HIGH,JP_MEDIUM,JP_LOW)
-
-	/// Lazylist of mob:occupation_string pairs.
-	var/list/dynamic_forced_occupations
 
 	/// A list of all jobs associated with the station. These jobs also have various icons associated with them including sechud and card trims.
 	var/list/station_jobs
@@ -67,7 +62,6 @@ SUBSYSTEM_DEF(job)
 	return ..()
 
 /datum/controller/subsystem/job/proc/SetupOccupations()
-	name_occupations = list()
 	type_occupations = list()
 	var/list/all_jobs = subtypesof(/datum/job)
 	if(!length(all_jobs))
@@ -87,7 +81,6 @@ SUBSYSTEM_DEF(job)
 			testing("Removed [job.type] due to map config")
 			continue
 		new_all_occupations += job
-		name_occupations[job.title] = job
 		type_occupations[job_type] = job
 
 	sortTim(new_all_occupations, /proc/cmp_job_display_asc)
@@ -100,12 +93,6 @@ SUBSYSTEM_DEF(job)
 	experience_jobs_map = new_experience_jobs_map
 
 	return TRUE
-
-
-/datum/controller/subsystem/job/proc/GetJob(rank)
-	if(!length(all_occupations))
-		SetupOccupations()
-	return name_occupations[rank]
 
 /datum/controller/subsystem/job/proc/GetJobType(jobtype)
 	if(!length(all_occupations))
@@ -137,13 +124,10 @@ SUBSYSTEM_DEF(job)
 	return TRUE
 
 
-/datum/controller/subsystem/job/proc/FreeRole(rank)
-	if(!rank)
-		return
-	JobDebug("Freeing role: [rank]")
-	var/datum/job/job = GetJob(rank)
+/datum/controller/subsystem/job/proc/FreeRole(datum/job/job)
 	if(!job)
 		return FALSE
+	JobDebug("Freeing role: [job.title]")
 	job.current_positions = max(0, job.current_positions - 1)
 
 /datum/controller/subsystem/job/proc/FindOccupationCandidates(datum/job/job, level, job_listing_type, flag)
@@ -251,10 +235,6 @@ SUBSYSTEM_DEF(job)
 	unassigned = shuffle(unassigned)
 
 	HandleFeedbackGathering()
-
-	// Dynamic has picked a ruleset that requires enforcing some jobs before others.
-	JobDebug("DO, Assigning Priority Positions: [length(dynamic_forced_occupations)]")
-	assign_priority_positions()
 
 	var/list/all_unassigned = unassigned
 	var/list/unassigned_by_listing_type = list()
@@ -389,7 +369,7 @@ SUBSYSTEM_DEF(job)
 		if(CONFIG_GET(flag/auto_deadmin_players) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))
 			player_client.holder.auto_deadmin()
 		else
-			handle_auto_deadmin_roles(player_client, job.title)
+			handle_auto_deadmin_roles(player_client, job)
 
 	if(player_client)
 		to_chat(player_client, "<span class='infoplain'><b>As the [job.title] you answer directly to [job.supervisors]. Special circumstances may change this.</b></span>")
@@ -413,10 +393,9 @@ SUBSYSTEM_DEF(job)
 	job.after_spawn(equipping, player_client)
 
 
-/datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
+/datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, datum/job/job)
 	if(!C?.holder)
 		return TRUE
-	var/datum/job/job = GetJob(rank)
 
 	var/timegate_expired = FALSE
 	// allow only forcing deadminning in the first X seconds of the round if auto_deadmin_timegate is set in config
@@ -498,7 +477,7 @@ SUBSYSTEM_DEF(job)
 		INVOKE_ASYNC(src, .proc/RecoverJob, job)
 
 /datum/controller/subsystem/job/proc/RecoverJob(datum/job/J)
-	var/datum/job/newjob = GetJob(J.title)
+	var/datum/job/newjob = GetJobType(J.type)
 	if (!istype(newjob))
 		return
 	newjob.total_positions = J.total_positions
@@ -616,11 +595,6 @@ SUBSYSTEM_DEF(job)
 
 	centcom_jobs = list("Central Command","VIP Guest","Custodian","Thunderdome Overseer","CentCom Official","Medical Officer","Research Officer", \
 		"Special Ops Officer","Admiral","CentCom Commander","CentCom Bartender","Private Security Force")
-
-/// Blindly assigns the required roles to every player in the dynamic_forced_occupations list.
-/datum/controller/subsystem/job/proc/assign_priority_positions()
-	for(var/mob/new_player in dynamic_forced_occupations)
-		AssignRole(new_player, GetJob(dynamic_forced_occupations[new_player]))
 
 /datum/controller/subsystem/job/proc/create_listing(listing_type)
 	if(type_job_listings[listing_type])

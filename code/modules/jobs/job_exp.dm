@@ -96,7 +96,8 @@ GLOBAL_PROTECT(exp_to_update)
 		play_records[exp_read.item[1]] = text2num(exp_read.item[2])
 	qdel(exp_read)
 
-	for(var/rtype in SSjob.name_occupations)
+	for(var/datum/job/job as anything in SSjob.all_occupations)
+		var/rtype = job.title
 		if(!play_records[rtype])
 			play_records[rtype] = 0
 	for(var/rtype in GLOB.exp_specialmap)

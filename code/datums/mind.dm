@@ -312,16 +312,6 @@
 			return
 		A.admin_remove(usr)
 
-	if (href_list["role_edit"])
-		var/new_role = input("Select new role", "Assigned role", assigned_role.title) as null|anything in sortList(SSjob.station_jobs)
-		if(isnull(new_role))
-			return
-		var/datum/job/new_job = SSjob.GetJob(new_role)
-		if (!new_job)
-			to_chat(usr, SPAN_WARNING("Job not found."))
-			return
-		set_assigned_role(new_job)
-
 	else if (href_list["memory_edit"])
 		var/new_memo = stripped_multiline_input(usr, "Write new memory", "Memory", memory, MAX_MESSAGE_LEN)
 		if (isnull(new_memo))

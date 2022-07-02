@@ -39,7 +39,8 @@
 	data["jobPlaytimes"] = list()
 	data["specialPlaytimes"] = list()
 
-	for (var/job_name in SSjob.name_occupations)
+	for(var/datum/job/job as anything in SSjob.all_occupations)
+		var/job_name = job.title
 		var/playtime = play_records[job_name] ? text2num(play_records[job_name]) : 0
 		data["jobPlaytimes"][job_name] = playtime
 
