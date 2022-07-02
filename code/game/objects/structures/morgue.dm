@@ -344,13 +344,9 @@ GLOBAL_LIST_EMPTY(crematoriums)
 /obj/structure/tray/MouseDrop_T(atom/movable/O as mob|obj, mob/user)
 	if(!ismovable(O) || O.anchored || !Adjacent(user) || !user.Adjacent(O) || O.loc == user)
 		return
-	if(!ismob(O))
-		if(!istype(O, /obj/structure/closet/body_bag))
-			return
-	else
-		var/mob/M = O
-		if(M.buckled)
-			return
+	var/mob/M = O
+	if(M.buckled)
+		return
 	if(!ismob(user) || user.incapacitated())
 		return
 	if(isliving(user))

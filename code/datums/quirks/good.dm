@@ -95,18 +95,6 @@
 	lose_text = SPAN_DANGER("You start tromping around like a barbarian.")
 	medical_record_text = "Patient's dexterity belies a strong capacity for stealth."
 
-/datum/quirk/item_quirk/musician
-	name = "Musician"
-	desc = "You can tune handheld musical instruments to play melodies that clear certain negative effects and soothe the soul."
-	value = 2
-	mob_trait = TRAIT_MUSICIAN
-	gain_text = SPAN_NOTICE("You know everything about musical instruments.")
-	lose_text = SPAN_DANGER("You forget how musical instruments work.")
-	medical_record_text = "Patient brain scans show a highly-developed auditory pathway."
-
-/datum/quirk/item_quirk/musician/add_unique()
-	give_item_to_holder(/obj/item/choice_beacon/music, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
 /datum/quirk/night_vision
 	name = "Night Vision"
 	desc = "You can see slightly more clearly in full darkness than most people."

@@ -33,8 +33,6 @@
 	var/turf/closet_turf = get_turf(closet)
 
 	if(!closet.opened)
-		if(closet.locked)
-			closet.togglelock(scooby, silent = TRUE)
 		if(!closet.open(scooby))
 			// No message if unable to open, since this is on Bump, spammy potential
 			return
@@ -51,8 +49,6 @@
 		if(closet.horizontal)
 			scooby.set_resting(FALSE, silent = TRUE)
 		return
-
-	closet.togglelock(scooby, silent = TRUE)
 
 	if(closet.horizontal)
 		scooby.set_resting(FALSE, silent = TRUE)

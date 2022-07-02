@@ -106,26 +106,6 @@
 			smoke.set_up(0, t)
 			smoke.start()
 
-/obj/projectile/magic/door
-	name = "bolt of door creation"
-	icon_state = "energy"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
-	var/list/door_types = list(/obj/structure/mineral_door/wood, /obj/structure/mineral_door/iron, /obj/structure/mineral_door/silver, /obj/structure/mineral_door/gold, /obj/structure/mineral_door/uranium, /obj/structure/mineral_door/sandstone, /obj/structure/mineral_door/transparent/plasma, /obj/structure/mineral_door/transparent/diamond)
-
-/obj/projectile/magic/door/on_hit(atom/target)
-	. = ..()
-	var/turf/T = get_turf(target)
-	if(isclosedturf(T) && !isindestructiblewall(T))
-		CreateDoor(T)
-
-/obj/projectile/magic/door/proc/CreateDoor(turf/T)
-	var/door_type = pick(door_types)
-	var/obj/structure/mineral_door/D = new door_type(T)
-	T.ChangeTurf(/turf/open/floor/grass, flags = CHANGETURF_INHERIT_AIR)
-	D.Open()
-
 /obj/projectile/magic/animate
 	name = "bolt of animation"
 	icon_state = "red_1"
@@ -176,84 +156,6 @@
 			qdel(src)
 			return BULLET_ACT_BLOCK
 	. = ..()
-
-
-/obj/projectile/magic/locker
-	name = "locker bolt"
-	icon_state = "locker"
-	nodamage = TRUE
-	flag = MAGIC
-	var/weld = TRUE
-	var/created = FALSE //prevents creation of more then one locker if it has multiple hits
-	var/locker_suck = TRUE
-	var/obj/structure/closet/decay/locker_temp_instance
-
-/obj/projectile/magic/locker/Initialize()
-	. = ..()
-	locker_temp_instance = new(src)
-
-/obj/projectile/magic/locker/prehit_pierce(atom/A)
-	. = ..()
-	if(isliving(A) && locker_suck)
-		var/mob/living/M = A
-		if(M.anti_magic_check()) // no this doesn't check if ..() returned to phase through do I care no it's magic ain't gotta explain shit
-			M.visible_message(SPAN_WARNING("[src] vanishes on contact with [A]!"))
-			return PROJECTILE_DELETE_WITHOUT_HITTING
-		if(!locker_temp_instance.insertion_allowed(M))
-			return
-		M.forceMove(src)
-		return PROJECTILE_PIERCE_PHASE
-
-/obj/projectile/magic/locker/on_hit(target)
-	if(created)
-		return ..()
-	if(LAZYLEN(contents))
-		for(var/atom/movable/AM in contents)
-			locker_temp_instance.insert(AM)
-		locker_temp_instance.welded = weld
-		locker_temp_instance.update_appearance()
-	created = TRUE
-	return ..()
-
-/obj/projectile/magic/locker/Destroy()
-	locker_suck = FALSE
-	RemoveElement(/datum/element/connect_loc, projectile_connections) //We do this manually so the forcemoves don't "hit" us. This behavior is kinda dumb, someone refactor this
-	for(var/atom/movable/AM in contents)
-		AM.forceMove(get_turf(src))
-	. = ..()
-
-/obj/structure/closet/decay
-	breakout_time = 600
-	icon_welded = null
-	icon_state = "cursed"
-	var/weakened_icon = "decursed"
-	var/auto_destroy = TRUE
-
-/obj/structure/closet/decay/Initialize()
-	. = ..()
-	if(auto_destroy)
-		addtimer(CALLBACK(src, .proc/bust_open), 5 MINUTES)
-
-/obj/structure/closet/decay/after_weld(weld_state)
-	if(weld_state)
-		unmagify()
-
-///Fade away into nothing
-/obj/structure/closet/decay/proc/decay()
-	animate(src, alpha = 0, time = 30)
-	addtimer(CALLBACK(GLOBAL_PROC, .proc/qdel, src), 30)
-
-/obj/structure/closet/decay/open(mob/living/user, force = FALSE)
-	. = ..()
-	if(.)
-		unmagify()
-
-///Give it the lesser magic icon and tell it to delete itself
-/obj/structure/closet/decay/proc/unmagify()
-	icon_state = weakened_icon
-	update_appearance()
-
-	addtimer(CALLBACK(src, .proc/decay), 15 SECONDS)
 
 /obj/projectile/magic/flying
 	name = "bolt of flying"

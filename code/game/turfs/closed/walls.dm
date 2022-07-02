@@ -15,7 +15,7 @@
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_WALLS)
-	canSmoothWith = list(SMOOTH_GROUP_SHUTTERS_BLASTDOORS, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_LOW_WALL)
+	canSmoothWith = list(SMOOTH_GROUP_WALLS, SMOOTH_GROUP_DOORS, SMOOTH_GROUP_WINDOW_FULLTILE, SMOOTH_GROUP_LOW_WALL)
 
 	var/list/dent_decals
 
@@ -34,7 +34,8 @@
 			/obj/structure/window/shuttle,
 			/obj/structure/window/plasma/reinforced/fulltile,
 			/obj/structure/window/plasma/fulltile,
-			/obj/structure/low_wall
+			/obj/structure/low_wall,
+			/obj/structure/door
 			))
 	for(var/cardinal in GLOB.cardinals)
 		var/turf/step_turf = get_step(src, cardinal)

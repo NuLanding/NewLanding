@@ -1,36 +1,6 @@
 #define PARTY_COOLDOWN_LENGTH_MIN 6 MINUTES
 #define PARTY_COOLDOWN_LENGTH_MAX 12 MINUTES
 
-
-/datum/station_trait/lucky_winner
-	name = "Lucky winner"
-	trait_type = STATION_TRAIT_POSITIVE
-	weight = 1
-	show_in_report = TRUE
-	report_message = "Your station has won the grand prize of the annual station charity event. Free snacks will be delivered to the bar every now and then."
-	trait_processes = TRUE
-	COOLDOWN_DECLARE(party_cooldown)
-
-/datum/station_trait/lucky_winner/on_round_start()
-	. = ..()
-	COOLDOWN_START(src, party_cooldown, rand(PARTY_COOLDOWN_LENGTH_MIN, PARTY_COOLDOWN_LENGTH_MAX))
-
-/datum/station_trait/lucky_winner/process(delta_time)
-	if(!COOLDOWN_FINISHED(src, party_cooldown))
-		return
-
-	COOLDOWN_START(src, party_cooldown, rand(PARTY_COOLDOWN_LENGTH_MIN, PARTY_COOLDOWN_LENGTH_MAX))
-
-	var/area/area_to_spawn_in = pick(GLOB.bar_areas)
-	var/turf/T = pick(area_to_spawn_in.contents)
-
-	var/obj/structure/closet/supplypod/centcompod/toLaunch = new()
-	var/obj/item/pizzabox/pizza_to_spawn = pick(list(/obj/item/pizzabox/margherita, /obj/item/pizzabox/mushroom, /obj/item/pizzabox/meat, /obj/item/pizzabox/vegetable, /obj/item/pizzabox/pineapple))
-	new pizza_to_spawn(toLaunch)
-	for(var/i in 1 to 6)
-		new /obj/item/reagent_containers/food/drinks/beer(toLaunch)
-	new /obj/effect/pod_landingzone(T, toLaunch)
-
 /datum/station_trait/premium_internals_box
 	name = "Premium internals boxes"
 	trait_type = STATION_TRAIT_POSITIVE

@@ -24,7 +24,6 @@ Mineral Sheets
  */
 
 GLOBAL_LIST_INIT(sandstone_recipes, list ( \
-	new/datum/stack_recipe("sandstone door", /obj/structure/mineral_door/sandstone, 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("fireplace", /obj/structure/fireplace, 15, time = 60, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("Breakdown into sand", /obj/item/stack/ore/glass, 1, one_per_turf = FALSE, on_floor = TRUE) \
 	))
@@ -104,9 +103,7 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/diamond
 	material_type = /datum/material/diamond
 
-GLOBAL_LIST_INIT(diamond_recipes, list ( \
-	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1), \
-	))
+GLOBAL_LIST_INIT(diamond_recipes, list ())
 
 /obj/item/stack/sheet/mineral/diamond/get_main_recipes()
 	. = ..()
@@ -128,9 +125,7 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/uranium
 	material_type = /datum/material/uranium
 
-GLOBAL_LIST_INIT(uranium_recipes, list ( \
-	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1), \
-	))
+GLOBAL_LIST_INIT(uranium_recipes, list ())
 
 /obj/item/stack/sheet/mineral/uranium/get_main_recipes()
 	. = ..()
@@ -160,9 +155,7 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	user.visible_message(SPAN_SUICIDE("[user] begins licking \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return TOXLOSS//dont you kids know that stuff is toxic?
 
-GLOBAL_LIST_INIT(plasma_recipes, list ( \
-	new/datum/stack_recipe("plasma door", /obj/structure/mineral_door/transparent/plasma, 10, one_per_turf = 1, on_floor = 1), \
-	))
+GLOBAL_LIST_INIT(plasma_recipes, list ())
 
 /obj/item/stack/sheet/mineral/plasma/get_main_recipes()
 	. = ..()
@@ -201,10 +194,7 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/gold
 	material_type = /datum/material/gold
 
-GLOBAL_LIST_INIT(gold_recipes, list ( \
-	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1), \
-	new/datum/stack_recipe("blank plaque", /obj/item/plaque, 1), \
-	))
+GLOBAL_LIST_INIT(gold_recipes, list ())
 
 /obj/item/stack/sheet/mineral/gold/get_main_recipes()
 	. = ..()
@@ -225,9 +215,7 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/mineral/silver
 	material_type = /datum/material/silver
 
-GLOBAL_LIST_INIT(silver_recipes, list ( \
-	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1), \
-	))
+GLOBAL_LIST_INIT(silver_recipes, list ())
 
 /obj/item/stack/sheet/mineral/silver/get_main_recipes()
 	. = ..()

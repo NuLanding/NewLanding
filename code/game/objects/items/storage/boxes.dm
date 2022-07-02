@@ -297,16 +297,6 @@
 		/obj/item/implanter = 1)
 	generate_items_inside(items_inside,src)
 
-/obj/item/storage/box/bodybags
-	name = "body bags"
-	desc = "The label indicates that it contains body bags."
-	illustration = "bodybags"
-
-/obj/item/storage/box/bodybags/PopulateContents()
-	..()
-	for(var/i in 1 to 7)
-		new /obj/item/bodybag(src)
-
 /obj/item/storage/box/drinkingglasses
 	name = "box of drinking glasses"
 	desc = "It has a picture of drinking glasses on it."

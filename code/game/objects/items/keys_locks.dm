@@ -70,6 +70,66 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// ID of the keys that will unlock us
 	var/key_id = 0
+	/// Whether this lock is locked.
+	var/locked = FALSE
+	/// The atom this lock is installed to.
+	var/atom/movable/installed
+
+/obj/item/lock/Destroy()
+	if(installed)
+		installed.handle_atom_del(src)
+		installed = null
+	return ..()
+
+/obj/item/lock/proc/attempt_lockpick(mob/living/user, obj/item/lockpick/pick)
+	if(!locked)
+		to_chat(user, SPAN_WARNING("\The [src] is unlocked!"))
+		return FALSE
+	user.visible_message(SPAN_NOTICE("[user] begins lockpicking \the [src]."), SPAN_NOTICE("You begin lockpicking \the [src]."))
+	user.changeNext_move(CLICK_CD_MELEE)
+	playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+	if(do_after(user, LOCKPICK_TIME, target = installed))
+		if(QDELETED(src) || !locked)
+			return
+		if(prob(LOCKPICK_BREAK_CHANCE))
+			to_chat(user, SPAN_WARNING("\The [pick] breaks!"))
+			qdel(pick)
+			return
+		if(prob(LOCKPICK_SUCCESS_CHANCE))
+			var/atom/name_atom = installed ? installed : src
+			to_chat(user, SPAN_NOTICE("You unlock \the [name_atom]!"))
+			locked = FALSE
+		else
+			to_chat(user, SPAN_WARNING("You fail to unlock \the [src]!"))
+		playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+	return TRUE
+
+/obj/item/lock/proc/attempt_key_toggle(mob/living/user, obj/item/key/key)
+	if(key.key_id != key_id)
+		to_chat(user, SPAN_WARNING("\The [key] does not fit \the [src]!"))
+		return TRUE
+	set_locked_state(!locked)
+	playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+	var/atom/name_atom = installed ? installed : src
+	if(locked)
+		to_chat(user, SPAN_NOTICE("You lock \the [name_atom]."))
+	else
+		to_chat(user, SPAN_NOTICE("You unlock \the [name_atom]."))
+	return TRUE
+
+/obj/item/lock/proc/set_locked_state(new_state)
+	locked = new_state
+
+/obj/item/lock/attackby(obj/item/item, mob/user, params)
+	if(istype(item, /obj/item/lockpick))
+		var/obj/item/lockpick/lockpick_item = item
+		attempt_lockpick(user, lockpick_item)
+		return
+	if(istype(item, /obj/item/key))
+		var/obj/item/key/key_item = item
+		attempt_key_toggle(user, key_item)
+		return
+	return ..()
 
 /obj/item/lock/Initialize(mapload, new_id)
 	. = ..()

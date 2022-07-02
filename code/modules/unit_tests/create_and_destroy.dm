@@ -43,9 +43,6 @@
 	ignore += typesof(/obj/item/food/deepfryholder)
 	//It wants a lot more context then we have
 	ignore += typesof(/obj/effect/buildmode_line)
-	//We don't have a pod
-	ignore += typesof(/obj/effect/pod_landingzone_effect)
-	ignore += typesof(/obj/effect/pod_landingzone)
 	//There's no shapeshift to hold
 	ignore += typesof(/obj/shapeshift_holder)
 	//No tauma to pass in

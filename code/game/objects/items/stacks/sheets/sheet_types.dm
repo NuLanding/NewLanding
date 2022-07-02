@@ -80,7 +80,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	null, \
 	new/datum/stack_recipe("extinguisher cabinet frame", /obj/item/wallframe/extinguisher_cabinet, 2), \
 	null, \
-	new/datum/stack_recipe("iron door", /obj/structure/mineral_door/iron, 20, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("voting box", /obj/structure/votebox, 15, time = 50), \
 	new/datum/stack_recipe("pestle", /obj/item/pestle, 1, time = 50), \
 	null, \
@@ -131,23 +130,7 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 /*
  * Plasteel
  */
-GLOBAL_LIST_INIT(plasteel_recipes, list ( \
-	new /datum/stack_recipe_list("crates & carts", list( \
-		new/datum/stack_recipe("grey crate", /obj/structure/closet/crate, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("medical crate", /obj/structure/closet/crate/medical, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("freezer crate", /obj/structure/closet/crate/freezer, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("internals crate", /obj/structure/closet/crate/internals, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("hydroponics crate", /obj/structure/closet/crate/hydroponics, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("radiation crate", /obj/structure/closet/crate/radiation, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("engineering crate", /obj/structure/closet/crate/engineering, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("science crate", /obj/structure/closet/crate/science, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("trash cart", /obj/structure/closet/crate/trashcart, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-		new/datum/stack_recipe("laundry cart", /obj/structure/closet/crate/trashcart/laundry, 2, time = 15, one_per_turf = 1, on_floor = 1), \
-	)), \
-))
-
-/obj/structure/closet/crate/trashcart/laundry
-/obj/structure/closet/crate/trashcart
+GLOBAL_LIST_INIT(plasteel_recipes, list ())
 
 /obj/item/stack/sheet/plasteel
 	name = "plasteel"
@@ -187,7 +170,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("wooden chair", /obj/structure/chair/wood/, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("winged wooden chair", /obj/structure/chair/wood/wings, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("wooden barricade", /obj/structure/barricade/wooden, 5, time = 50, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("wooden door", /obj/structure/mineral_door/wood, 10, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("coffin", /obj/structure/closet/crate/coffin, 5, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("book case", /obj/structure/bookcase, 4, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("sauna oven", /obj/structure/sauna_oven, SAUNA_OVEN_WOOD_COST, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
@@ -200,7 +182,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	new/datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wooden, 3, time = 10),\
 	new/datum/stack_recipe("rake", /obj/item/cultivator/rake, 5, time = 10),\
 	new/datum/stack_recipe("ore box", /obj/structure/ore_box, 4, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
-	new/datum/stack_recipe("wooden crate", /obj/structure/closet/crate/wooden, 6, time = 50, one_per_turf = TRUE, on_floor = TRUE),\
 	new/datum/stack_recipe("baseball bat", /obj/item/melee/baseball_bat, 5, time = 15),\
 	new/datum/stack_recipe("loom", /obj/structure/loom, 10, time = 15, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("mortar", /obj/item/reagent_containers/glass/mortar, 3), \
@@ -363,7 +344,6 @@ GLOBAL_LIST_INIT(durathread_recipes, list())
  */
 GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 	new/datum/stack_recipe("box", /obj/item/storage/box), \
-	new/datum/stack_recipe("large box", /obj/structure/closet/cardboard, 4, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("cardboard cutout", /obj/item/cardboard_cutout, 5), \
 	null, \
 
@@ -395,7 +375,6 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 		new /datum/stack_recipe("pillbottle box", /obj/item/storage/box/pillbottles), \
 		new /datum/stack_recipe("beaker box", /obj/item/storage/box/beakers), \
 		new /datum/stack_recipe("syringe box", /obj/item/storage/box/syringes), \
-		new /datum/stack_recipe("body bag box", /obj/item/storage/box/bodybags), \
 		new /datum/stack_recipe("medipen box", /obj/item/storage/box/medipens), \
 		null, \
 
@@ -548,8 +527,8 @@ GLOBAL_LIST_INIT(plastic_recipes, list())
 	. += GLOB.plastic_recipes
 
 GLOBAL_LIST_INIT(paperframe_recipes, list(
-new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperframe, 2, one_per_turf = TRUE, on_floor = TRUE, time = 10), \
-new /datum/stack_recipe("paper frame door", /obj/structure/mineral_door/paperframe, 3, time = 10 SECONDS, one_per_turf = TRUE, on_floor = TRUE, time = 10 )))
+new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperframe, 2, one_per_turf = TRUE, on_floor = TRUE, time = 10)
+))
 
 /obj/item/stack/sheet/paperframes
 	name = "paper frames"

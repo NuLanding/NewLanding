@@ -20,5 +20,6 @@
 	return
 
 /obj/effect/proc_holder/spell/aoe_turf/knock/proc/open_closet(obj/structure/closet/C)
-	C.locked = FALSE
+	if(C.lock)
+		C.lock.set_locked_state(FALSE)
 	C.open()

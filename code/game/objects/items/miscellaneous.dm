@@ -1,65 +1,3 @@
-/obj/item/choice_beacon
-	name = "choice beacon"
-	desc = "Hey, why are you viewing this?!! Please let CentCom know about this odd occurrence."
-	icon = 'icons/obj/device.dmi'
-	icon_state = "gangtool-blue"
-	inhand_icon_state = "radio"
-	var/uses = 1
-
-/obj/item/choice_beacon/attack_self(mob/user)
-	if(canUseBeacon(user))
-		generate_options(user)
-
-/obj/item/choice_beacon/proc/generate_display_names() // return the list that will be used in the choice selection. entries should be in (type.name = type) fashion. see choice_beacon/hero for how this is done.
-	return list()
-
-/obj/item/choice_beacon/proc/canUseBeacon(mob/living/user)
-	if(user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-		return TRUE
-	else
-		playsound(src, 'sound/machines/buzz-sigh.ogg', 40, TRUE)
-		return FALSE
-
-/obj/item/choice_beacon/proc/generate_options(mob/living/M)
-	var/list/display_names = generate_display_names()
-	if(!display_names.len)
-		return
-	var/choice = input(M,"Which item would you like to order?","Select an Item") as null|anything in sortList(display_names)
-	if(!choice || !M.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
-		return
-
-	spawn_option(display_names[choice],M)
-	uses--
-	if(!uses)
-		qdel(src)
-	else
-		to_chat(M, SPAN_NOTICE("[uses] use[uses > 1 ? "s" : ""] remaining on the [src]."))
-
-/obj/item/choice_beacon/proc/spawn_option(obj/choice,mob/living/M)
-	podspawn(list(
-		"target" = get_turf(src),
-		"style" = STYLE_BLUESPACE,
-		"spawn" = choice,
-	))
-	var/msg = "<span class=danger>After making your selection, you notice a strange target on the ground. It might be best to step back!</span>"
-	to_chat(M, msg)
-
-/obj/item/choice_beacon/ingredient
-	name = "ingredient delivery beacon"
-	desc = "Summon a box of ingredients to help you get started cooking."
-	icon_state = "gangtool-white"
-
-/obj/item/choice_beacon/ingredient/generate_display_names()
-	var/list/ingredients = list()
-	for(var/V in subtypesof(/obj/item/storage/box/ingredients))
-		var/obj/item/storage/box/ingredients/A = V
-		ingredients[initial(A.theme_name)] = A
-	return ingredients
-
-/obj/item/choice_beacon/ingredient/spawn_option(obj/choice,mob/living/M)
-	new choice(get_turf(M))
-	to_chat(M, SPAN_HEAR("You hear something crackle from the beacon for a moment before a voice speaks. \"Please stand by for a message from Sophronia Broadcasting. Message as follows: <b>Please enjoy your Sophronia Broadcasting's 'Plasteel Chef' Ingredients Box, exactly as shown in the hit show!</b> Message ends.\""))
-
 /obj/item/storage/box/ingredients //This box is for the randomly chosen version the chef used to spawn with, it shouldn't actually exist.
 	name = "ingredients box"
 	illustration = "fruit"
@@ -208,29 +146,6 @@
 	var/chosen_box = pick(subtypesof(/obj/item/storage/box/ingredients) - /obj/item/storage/box/ingredients/random)
 	new chosen_box(loc)
 	return INITIALIZE_HINT_QDEL
-
-/obj/item/choice_beacon/augments
-	name = "augment beacon"
-	desc = "Summons augmentations. Can be used 3 times!"
-	uses = 3
-
-/obj/item/choice_beacon/augments/generate_display_names()
-	var/static/list/augment_list
-	if(!augment_list)
-		augment_list = list()
-		var/list/templist = list(
-		/obj/item/organ/cyberimp/brain/anti_drop,
-		/obj/item/organ/cyberimp/arm/surgery,
-		/obj/item/organ/cyberimp/chest/thrusters,
-		) //cyberimplants range from a nice bonus to fucking broken bullshit so no subtypesof
-		for(var/V in templist)
-			var/atom/A = V
-			augment_list[initial(A.name)] = A
-	return augment_list
-
-/obj/item/choice_beacon/augments/spawn_option(obj/choice,mob/living/M)
-	new choice(get_turf(M))
-	to_chat(M, SPAN_HEAR("You hear something crackle from the beacon for a moment before a voice speaks. \"Please stand by for a message from S.E.L.F. Message as follows: <b>Item request received. Your package has been transported, use the autosurgeon supplied to apply the upgrade.</b> Message ends.\""))
 
 /obj/item/skub
 	desc = "It's skub."

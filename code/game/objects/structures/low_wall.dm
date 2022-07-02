@@ -12,7 +12,7 @@
 	max_integrity = 150
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_LOW_WALL)
-	canSmoothWith = list(SMOOTH_GROUP_LOW_WALL, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_AIRLOCK, SMOOTH_GROUP_SHUTTERS_BLASTDOORS)
+	canSmoothWith = list(SMOOTH_GROUP_LOW_WALL, SMOOTH_GROUP_WALLS, SMOOTH_GROUP_DOORS)
 	armor = list(MELEE = 20, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, RAD = 100, FIRE = 80, ACID = 100)
 	/// Typecache of airlocks to apply a neighboring stripe overlay to
 	var/static/list/airlock_typecache
@@ -37,7 +37,7 @@
 	overlays.Cut()
 
 	if(!airlock_typecache)
-		airlock_typecache = typecacheof(list())
+		airlock_typecache = typecacheof(list(/obj/structure/door))
 	var/neighbor_stripe = NONE
 	for(var/cardinal in GLOB.cardinals)
 		var/turf/step_turf = get_step(src, cardinal)

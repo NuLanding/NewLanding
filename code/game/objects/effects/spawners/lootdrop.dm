@@ -501,9 +501,6 @@
 	loot = list(
 		/obj/effect/spawner/lootdrop/medicine/five = 1,
 		/obj/effect/spawner/lootdrop/medkit = 1,
-		/obj/item/bodybag = 1,
-		/obj/structure/closet/crate/freezer/blood = 1,
-		/obj/structure/closet/crate/freezer/surplus_limbs = 1,
 		/obj/item/storage/backpack/duffelbag/med/surgery = 1,
 		/obj/item/storage/organbox = 1
 	)

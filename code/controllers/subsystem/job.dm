@@ -528,18 +528,6 @@ SUBSYSTEM_DEF(job)
 	stack_trace("Unable to find last resort spawn point.")
 	return GET_ERROR_ROOM
 
-
-///Lands specified mob at a random spot in the hallways
-/datum/controller/subsystem/job/proc/DropLandAtRandomHallwayPoint(mob/living/living_mob)
-	var/turf/spawn_turf = get_safe_random_station_turf(typesof(/area/outdoors/jungle))
-
-	if(!spawn_turf)
-		SendToLateJoin(living_mob)
-	else
-		var/obj/structure/closet/supplypod/centcompod/toLaunch = new()
-		living_mob.forceMove(toLaunch)
-		new /obj/effect/pod_landingzone(spawn_turf, toLaunch)
-
 ///////////////////////////////////
 //Keeps track of all living heads//
 ///////////////////////////////////

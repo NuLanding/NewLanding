@@ -236,3 +236,28 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	icon_cache[url] = I
 	query_in_progress = FALSE
 	return I
+
+/obj/effect/mapping_helpers/lock
+	name = "Lock placer"
+	late = TRUE
+	icon_state = "lock"
+	var/key_id
+
+/obj/effect/mapping_helpers/lock/LateInitialize()
+	. = ..()
+	var/turf/my_turf = get_turf(src)
+	if(!key_id)
+		key_id = 1
+	var/obj/item/lock/lock = new(my_turf, key_id)
+	var/obj/structure/closet/closet = locate() in my_turf
+	if(closet && closet.can_have_lock)
+		closet.install_lock(lock)
+		qdel(src)
+		return
+	var/obj/structure/door/door = locate() in my_turf
+	if(door && door.can_have_lock)
+		door.install_lock(lock)
+		qdel(src)
+		return
+	qdel(lock)
+	qdel(src)

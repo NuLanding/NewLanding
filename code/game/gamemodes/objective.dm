@@ -68,8 +68,7 @@ GLOBAL_LIST_EMPTY(objectives)
 		return TRUE
 	if(SSticker.force_ending) // Just let them win.
 		return TRUE
-	var/turf/current_turf = get_turf(M.current)
-	return current_turf.onCentCom() || current_turf.onSyndieBase()
+	return TRUE
 
 /datum/objective/proc/check_completion()
 	return completed
