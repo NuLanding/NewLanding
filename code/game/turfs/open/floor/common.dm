@@ -2,7 +2,7 @@
 	name = "grass"
 	desc = "A patch of grass."
 	icon = 'icons/turf/floors/grass.dmi'
-	icon_state = "grass0"
+	icon_state = "grass-0"
 	base_icon_state = "grass"
 	bullet_bounce_sound = null
 	footstep = FOOTSTEP_GRASS

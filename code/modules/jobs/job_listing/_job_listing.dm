@@ -14,11 +14,11 @@
 	/// List of all the job types that should be initialzied for this listing
 	var/list/jobs = list()
 	/// Landmarks for latejoining
-	var/list/latejoin_trackers = list()
+	var/list/latejoin_landmarks = list()
 	/// Landmarks for starting points
-	var/list/start_landmarks_list = list()
-	/// Landmarks for starting points
-	var/list/jobspawn_overrides = list()
+	var/list/start_landmarks = list()
+	var/list/job_start_landmarks = list()
+	var/list/job_latejoin_landmarks = list()
 	/// Whether the job listing will be started and its occupations divided on the start of the round
 	var/setup_on_roundstart = TRUE
 

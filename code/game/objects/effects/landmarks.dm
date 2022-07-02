@@ -23,27 +23,101 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = "x"
 	anchored = TRUE
 	layer = MOB_LAYER
-	var/jobspawn_override = FALSE
-	var/delete_after_roundstart = TRUE
-	var/used = FALSE
-
-/obj/effect/landmark/start/proc/after_round_start()
-	if(delete_after_roundstart)
-		qdel(src)
+	/// Whether this landmark is a fallback spawn spot.
+	var/fallback = FALSE
+	/// Whether the landmark is a roundstart spawn spot.
+	var/roundstart = FALSE
+	/// Whether the landmark is a latejoin spawn spot. A landmark can be both roundstart and latejoin
+	var/latejoin = FALSE
+	/// Whether someone spawned from this landmark on roundstart.
+	var/spawned_roundstart = FALSE
+	/// The next time someone can spawn from this landmark on latejoin.
+	var/next_latejoin_spawn = 0
+	/// The job listing this landmark belongs to. This is required with the exception of the fallback spawner.
+	var/job_listing_type
+	/// The job type this landmark belongs to. A listing is required to make job specific spawns
+	var/job_type
 
 /obj/effect/landmark/start/Initialize()
 	. = ..()
-	SSjob.main_jobs.start_landmarks_list += src
-	if(jobspawn_override)
-		LAZYADDASSOCLIST(SSjob.main_jobs.jobspawn_overrides, name, src)
 	if(name != "start")
 		tag = "start*[name]"
+	
+	if(fallback)
+		SSjob.fallback_landmarks += src
+	if(job_listing_type)
+		var/datum/job_listing/listing = SSjob.type_job_listings[job_listing_type]
+		if(!listing)
+			stack_trace("Missing job listing for a landmark. Listing: [job_listing_type]")
+			return
+		if(job_type)
+			if(roundstart)
+				if(!listing.job_start_landmarks[job_type])
+					listing.job_start_landmarks[job_type] = list()
+				listing.job_start_landmarks[job_type] += src
+			if(latejoin)
+				if(!listing.job_latejoin_landmarks[job_type])
+					listing.job_latejoin_landmarks[job_type] = list()
+				listing.job_latejoin_landmarks[job_type] += src
+		else
+			if(roundstart)
+				listing.start_landmarks += src
+			if(latejoin)
+				listing.latejoin_landmarks += src
+
 
 /obj/effect/landmark/start/Destroy()
-	SSjob.main_jobs.start_landmarks_list -= src
-	if(jobspawn_override)
-		LAZYREMOVEASSOC(SSjob.main_jobs.jobspawn_overrides, name, src)
+	if(fallback)
+		SSjob.fallback_landmarks -= src
+	if(job_listing_type)
+		var/datum/job_listing/listing = SSjob.type_job_listings[job_listing_type]
+		if(!listing)
+			stack_trace("Missing job listing for a landmark. Listing: [job_listing_type]")
+			return ..()
+		if(job_type)
+			if(roundstart)
+				listing.job_start_landmarks[job_type] -= src
+				if(!length(listing.job_start_landmarks[job_type]))
+					listing.job_start_landmarks -= job_type
+			if(latejoin)
+				listing.job_latejoin_landmarks[job_type] -= src
+				if(!length(listing.job_latejoin_landmarks[job_type]))
+					listing.job_latejoin_landmarks -= job_type
+		else
+			if(roundstart)
+				listing.start_landmarks -= src
+			if(latejoin)
+				listing.latejoin_landmarks -= src
 	return ..()
+
+/obj/effect/landmark/start/fallback
+	fallback = TRUE
+
+/obj/effect/landmark/start/settlers
+	job_listing_type = /datum/job_listing/settlers
+	roundstart = TRUE
+	latejoin = TRUE
+
+/obj/effect/landmark/start/port
+	job_listing_type = /datum/job_listing/port
+	roundstart = TRUE
+	latejoin = TRUE
+
+/obj/effect/landmark/start/pirate
+	job_listing_type = /datum/job_listing/pirate
+	roundstart = TRUE
+	latejoin = TRUE
+
+/obj/effect/landmark/start/native
+	job_listing_type = /datum/job_listing/native
+	roundstart = TRUE
+	latejoin = TRUE
+
+/obj/effect/landmark/start/undefined
+	job_listing_type = /datum/job_listing/undefined
+	roundstart = TRUE
+	latejoin = TRUE
+
 
 // Must be immediate because players will
 // join before SSatom initializes everything.
@@ -54,16 +128,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/new_player)
 
 /obj/effect/landmark/new_player/Initialize()
 	..()
-	GLOB.newplayer_start += loc
-	return INITIALIZE_HINT_QDEL
-
-/obj/effect/landmark/latejoin
-	name = "JoinLate"
-
-/obj/effect/landmark/latejoin/Initialize(mapload)
-	..()
-	SSjob.main_jobs.latejoin_trackers += loc
-	return INITIALIZE_HINT_QDEL
+	GLOB.newplayer_start += src
 
 //space carps, magicarps, lone ops, slaughter demons, possibly revenants spawn here
 /obj/effect/landmark/carpspawn

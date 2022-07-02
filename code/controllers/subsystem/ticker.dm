@@ -246,7 +246,6 @@ SUBSYSTEM_DEF(ticker)
 		toggle_ooc(FALSE) // Turn it off
 
 	CHECK_TICK
-	SSjob.main_jobs.start_landmarks_list = shuffle(SSjob.main_jobs.start_landmarks_list) //Shuffle the order of spawn points so they dont always predictably spawn bottom-up and right-to-left
 	create_characters() //Create player characters
 	collect_minds()
 	equip_characters()
@@ -291,13 +290,6 @@ SUBSYSTEM_DEF(ticker)
 	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]" : ""] has started[allmins.len ? ".":" with no active admins online!"]")
 	setup_done = TRUE
 
-	for(var/i in SSjob.main_jobs.start_landmarks_list)
-		var/obj/effect/landmark/start/S = i
-		if(istype(S)) //we can not runtime here. not in this important of a proc.
-			S.after_round_start()
-		else
-			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
-
 	// handle persistence stuff that requires ckeys, in this case temporal scarring
 	for(var/i in GLOB.player_list)
 		if(!ishuman(i))
@@ -330,7 +322,9 @@ SUBSYSTEM_DEF(ticker)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY && player.mind)
 			GLOB.joined_player_list += player.ckey
-			var/atom/destination = player.mind.assigned_role.get_roundstart_spawn_point()
+			var/atom/destination = player.mind.assigned_role.get_spawn_point(roundstart = TRUE)
+			if(!destination)
+				destination = SSjob.get_last_resort_spawn_point()
 			if(!destination) // Failed to fetch a proper roundstart location, won't be going anywhere.
 				player.new_player_panel()
 				continue

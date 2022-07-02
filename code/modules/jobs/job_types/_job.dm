@@ -214,36 +214,39 @@
 
 
 /// Returns an atom where the mob should spawn in.
-/datum/job/proc/get_roundstart_spawn_point()
-	if(length(job_listing.jobspawn_overrides[title]))
-		return pick(job_listing.jobspawn_overrides[title])
-	var/obj/effect/landmark/start/spawn_point = get_default_roundstart_spawn_point()
-	if(!spawn_point) //if there isn't a spawnpoint send them to latejoin, if there's no latejoin go yell at your mapper
-		return get_latejoin_spawn_point()
-	return spawn_point
+/datum/job/proc/get_spawn_point(roundstart = TRUE)
+	if(!job_listing)
+		CRASH("Tried to get a spawn point of a job that has no job listing. Job: [type].")
+	if(roundstart)
+		if(length(job_listing.job_start_landmarks[type]))
+			return evaluated_start_landmark(job_listing.job_start_landmarks[type], roundstart)
+		if(length(job_listing.start_landmarks))
+			return evaluated_start_landmark(job_listing.start_landmarks, roundstart)
+	else
+		if(length(job_listing.job_latejoin_landmarks[type]))
+			return evaluated_start_landmark(job_listing.job_latejoin_landmarks[type], roundstart)
+		if(length(job_listing.latejoin_landmarks))
+			return evaluated_start_landmark(job_listing.latejoin_landmarks, roundstart)
 
+#define LATEJOIN_SPAWN_COOLDOWN 3 MINUTES
 
-/// Handles finding and picking a valid roundstart effect landmark spawn point, in case no uncommon different spawning events occur.
-/datum/job/proc/get_default_roundstart_spawn_point()
-	for(var/obj/effect/landmark/start/spawn_point as anything in job_listing.start_landmarks_list)
-		if(spawn_point.name != title)
-			continue
-		. = spawn_point
-		if(spawn_point.used) //so we can revert to spawning them on top of eachother if something goes wrong
-			continue
-		spawn_point.used = TRUE
-		break
-	if(!.)
-		log_world("Couldn't find a round start spawn point for [title]")
+/// Returns a landmark while respecting things like roundstart positions, latejoin cooldowns etc.
+/datum/job/proc/evaluated_start_landmark(list/landmark_list, roundstart)
+	for(var/obj/effect/landmark/start/mark as anything in shuffle(landmark_list))
+		// Set the landmark in case all of them fail, we want to use one regardless of cooldown / being taken
+		. = mark
+		if(roundstart)
+			if(mark.spawned_roundstart)
+				continue
+			mark.spawned_roundstart = TRUE
+			return mark
+		else
+			if(mark.next_latejoin_spawn > world.time)
+				continue
+			mark.next_latejoin_spawn = world.time + LATEJOIN_SPAWN_COOLDOWN
+			return mark
 
-
-/// Finds a valid latejoin spawn point, checking for events and special conditions.
-/datum/job/proc/get_latejoin_spawn_point()
-	if(length(job_listing.jobspawn_overrides[title])) //We're doing something special today.
-		return pick(job_listing.jobspawn_overrides[title])
-	if(length(job_listing.latejoin_trackers))
-		return pick(job_listing.latejoin_trackers)
-	return SSjob.get_last_resort_spawn_points()
+#undef LATEJOIN_SPAWN_COOLDOWN
 
 /// Spawns the mob to be played as, taking into account preferences and the desired spawn point.
 /datum/job/proc/get_spawn_mob(client/player_client, atom/spawn_point)

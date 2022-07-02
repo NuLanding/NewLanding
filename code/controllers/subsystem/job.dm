@@ -17,6 +17,8 @@ SUBSYSTEM_DEF(job)
 	var/list/job_listings = list()
 	/// Assec List of all job listings in the game. Type to instance
 	var/list/type_job_listings = list()
+	/// List of all fallback landmarks to spawn players in, in case they miss any of the listing/job specific ones.
+	var/list/fallback_landmarks = list()
 
 	/// Dictionary of jobs indexed by the experience type they grant.
 	var/list/experience_jobs_map = list()
@@ -323,7 +325,8 @@ SUBSYSTEM_DEF(job)
 						continue
 	
 					// If the player wants that job on this level, then try give it to him.
-					if(player.client.prefs.job_preferences[job_listing.type][job.type] == level)
+					var/list/job_prefs_list = player.client.prefs.job_preferences[job_listing.type]
+					if(job_prefs_list && job_prefs_list[job.type] == level)
 						// If the job isn't filled
 						if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
 							JobDebug("DO pass, Player: [player], Level:[level], Job:[job.title]")
@@ -506,30 +509,19 @@ SUBSYSTEM_DEF(job)
 	// By default, just place the mob on the same turf as the marker or whatever.
 	M.forceMove(get_turf(src))
 
-/obj/structure/chair/JoinPlayerHere(mob/M, buckle)
-	// Placing a mob in a chair will attempt to buckle it, or else fall back to default.
-	if (buckle && isliving(M) && buckle_mob(M, FALSE, FALSE))
-		return
-	..()
-
 /datum/controller/subsystem/job/proc/SendToLateJoin(mob/M, buckle = TRUE)
 	var/atom/destination
-	if(M.mind && !is_unassigned_job(M.mind.assigned_role) && length(SSjob.main_jobs.jobspawn_overrides[M.mind.assigned_role.title])) //We're doing something special today.
-		destination = pick(SSjob.main_jobs.jobspawn_overrides[M.mind.assigned_role.title])
-		destination.JoinPlayerHere(M, FALSE)
-		return TRUE
-
-	if(main_jobs.latejoin_trackers.len)
-		destination = pick(main_jobs.latejoin_trackers)
-		destination.JoinPlayerHere(M, buckle)
-		return TRUE
-
-	destination = get_last_resort_spawn_points()
+	if(M.mind && M.mind.assigned_role)
+		destination = M.mind.assigned_role.get_spawn_point(roundstart = FALSE)
+	if(!destination)
+		destination = get_last_resort_spawn_point()
 	destination.JoinPlayerHere(M, buckle)
 
 
-/datum/controller/subsystem/job/proc/get_last_resort_spawn_points()
+/datum/controller/subsystem/job/proc/get_last_resort_spawn_point()
 	//bad mojo
+	if(length(fallback_landmarks))
+		return pick(fallback_landmarks)
 	var/area/arrivals_area = GLOB.areas_by_type[/area/outdoors/jungle]
 	if(arrivals_area)
 		//first check if we can find a chair

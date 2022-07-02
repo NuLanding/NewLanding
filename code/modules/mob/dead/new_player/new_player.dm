@@ -352,7 +352,7 @@
 	SSjob.AssignRole(src, job, TRUE)
 
 	mind.late_joiner = TRUE
-	var/atom/destination = mind.assigned_role.get_latejoin_spawn_point()
+	var/atom/destination = mind.assigned_role.get_spawn_point(roundstart = FALSE)
 	if(!destination)
 		CRASH("Failed to find a latejoin spawn point.")
 	var/mob/living/character = create_character(destination)

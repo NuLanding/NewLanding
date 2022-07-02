@@ -42,7 +42,7 @@
 	underground = TRUE
 
 /area/indoors
-	icon_state = "mining"
+	icon_state = "purple"
 	flags_1 = NONE
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | CAVES_ALLOWED | FLORA_ALLOWED | MOB_SPAWN_ALLOWED | MEGAFAUNA_SPAWN_ALLOWED | NO_ALERTS
 	main_ambience = AMBIENCE_AWAY
