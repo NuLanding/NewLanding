@@ -131,10 +131,9 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 	ComponentInitialize()
 
-	return INITIALIZE_HINT_NORMAL
-
-/turf/proc/Initalize_Atmos(times_fired)
 	ImmediateCalculateAdjacentTurfs()
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/Destroy(force)
 	. = QDEL_HINT_IWILLGC
