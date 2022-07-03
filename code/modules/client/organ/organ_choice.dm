@@ -14,6 +14,10 @@
 	var/list/sprite_accessories
 	/// The default sprite accessory from `sprite_accessories`.
 	var/default_accessory
+	/// Whether to randomize the accessory from the pool for a new entry.
+	var/randomize_accessory = TRUE
+	/// Whether to call the `randomize_choices()` proc after creating a new entry.
+	var/randomize_choices = TRUE
 	/// Whether this organ choice allows to customize colors of sprite accessories.
 	var/allows_accessory_color_customization = TRUE
 
@@ -30,7 +34,12 @@
 	entry.organ_customizer_type = customizer_type
 	entry.organ_choice_type = type
 	if(sprite_accessories)
-		set_accessory_type(prefs, default_accessory, entry)
+		var/acc_type_to_set = default_accessory
+		if(randomize_choices)
+			acc_type_to_set = pick(sprite_accessories)
+		set_accessory_type(prefs, acc_type_to_set, entry)
+	if(randomize_choices)
+		randomize_choices(prefs, entry)
 	return entry
 
 /datum/organ_choice/proc/imprint_organ_dna(datum/organ_dna/organ_dna, datum/organ_entry/entry, datum/preferences/prefs)
@@ -171,3 +180,7 @@
 		return
 	var/datum/sprite_accessory/accessory = SPRITE_ACCESSORY(entry.accessory_type)
 	entry.accessory_colors = accessory.get_default_colors(color_key_source_list_from_prefs(prefs))
+
+/datum/organ_choice/proc/randomize_choices(datum/preferences/prefs, datum/organ_entry/entry)
+	return
+

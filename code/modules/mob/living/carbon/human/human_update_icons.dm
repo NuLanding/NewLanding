@@ -448,7 +448,7 @@ generate/load female uniform sprites matching all previously decided variables
 	var/datum/species/species = wearer ? wearer.dna.species : null
 
 	var/real_bodytype = wearer ? species.bodytype : BODYTYPE_HUMANOID
-	var/bodytype = wearer ? species.get_bodytype(slot, src) : BODYTYPE_HUMANOID
+	var/bodytype = wearer ? species.get_bodytype(wearer, slot, src) : BODYTYPE_HUMANOID
 	var/perc_bodytype = bodytype
 	var/wear_template = FALSE
 	if(!(fitted_bodytypes & bodytype))

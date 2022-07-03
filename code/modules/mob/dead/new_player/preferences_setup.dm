@@ -22,6 +22,8 @@
 	for(var/key in new_features)
 		features[key] = new_features[key]
 	body_markings = pref_species.get_random_body_markings(features)
+	organ_entries = list()
+	validate_organ_entries()
 	needs_update = TRUE
 
 /datum/preferences/proc/random_species()

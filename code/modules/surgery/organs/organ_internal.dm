@@ -52,11 +52,16 @@
 	var/bodypart_emissive_blocker = TRUE
 	/// Type of organ DNA that this organ will create.
 	var/organ_dna_type = /datum/organ_dna
+	/// Whether the organ will run its `randomize_appearance()` proc on Initialization.
+	var/randomize_appearance = TRUE
 
 /obj/item/organ/Initialize()
 	. = ..()
 	if(accessory_type)
 		set_accessory_type(accessory_type)
+	if(randomize_appearance)
+		randomize_appearance()
+		update_appearance()
 	if(organ_flags & ORGAN_EDIBLE)
 		AddComponent(/datum/component/edible,\
 			initial_reagents = food_reagents,\
@@ -385,4 +390,7 @@
 		organ_dna.accessory_colors = accessory_colors
 
 /obj/item/organ/proc/update_accessory_colors()
+	return
+
+/obj/item/organ/proc/randomize_appearance()
 	return

@@ -41,6 +41,13 @@
 	var/heterochromia = FALSE
 	var/second_color = "#FFFFFF"
 
+/obj/item/organ/eyes/randomize_appearance()
+	eye_color = pick(EYE_COLORS_LIST)
+	if(prob(5))
+		heterochromia = TRUE
+		second_color = pick(EYE_COLORS_LIST)
+	update_accessory_colors()
+
 /obj/item/organ/eyes/update_accessory_colors()
 	var/list/colors_list = list()
 	colors_list += eye_color

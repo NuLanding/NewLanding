@@ -11,6 +11,15 @@
 	var/hair_dye_gradient = /datum/hair_gradient/none
 	var/hair_dye_color = "#FFFFFF"
 
+/obj/item/organ/hair/randomize_appearance()
+	hair_color = pick(HAIR_COLOR_LIST)
+	update_accessory_colors()
+
+/obj/item/organ/hair/is_visible_on_owner()
+	if(owner.head && (owner.head.flags_inv & HIDEHAIR) || (owner.wear_mask && (owner.wear_mask.flags_inv & HIDEHAIR)))
+		return FALSE
+	return TRUE
+
 /obj/item/organ/hair/bodypart_overlays(mutable_appearance/standing)
 	add_gradient_overlay(standing, natural_gradient, natural_color)
 	add_gradient_overlay(standing, hair_dye_gradient, hair_dye_color)
@@ -42,7 +51,15 @@
 	accessory_type = /datum/sprite_accessory/hair/head/bob
 	slot = ORGAN_SLOT_HAIR
 
+/obj/item/organ/hair/head/randomize_appearance()
+	accessory_type = pick(RANDOM_HAIR_STYLES)
+	..()
+
 /obj/item/organ/hair/facial
 	name = "facial hair"
 	accessory_type = /datum/sprite_accessory/hair/facial/gt
 	slot = ORGAN_SLOT_FACIAL_HAIR
+
+/obj/item/organ/hair/facial/randomize_appearance()
+	accessory_type = pick(RANDOM_FACEHAIR_STYLES)
+	..()

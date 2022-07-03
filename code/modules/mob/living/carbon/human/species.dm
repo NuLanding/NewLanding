@@ -641,7 +641,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 		if(!excused)
 			return FALSE
 
-	var/perceived_bodytype = get_bodytype(slot, I)
+	var/perceived_bodytype = get_bodytype(H, slot, I)
 
 	if(!excused && !(I.allowed_bodytypes & perceived_bodytype))
 		if(!disable_warning)
@@ -1810,23 +1810,16 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return
 
 //Gets the bodytype of the species. This can be mutable to digitigrade or taur if fitting slot and conditions are met.
-/datum/species/proc/get_bodytype(item_slot = NONE, obj/item/checked_item_for)
+/datum/species/proc/get_bodytype(mob/living/carbon/human/human, item_slot = NONE, obj/item/checked_item_for)
 	if(!item_slot)
 		return bodytype
 	var/perceived_bodytype = bodytype
 	if((item_slot == ITEM_SLOT_BELT || item_slot == ITEM_SLOT_FEET || item_slot == ITEM_SLOT_OCLOTHING || item_slot == ITEM_SLOT_ICLOTHING) && (DIGITIGRADE in species_traits))
 		perceived_bodytype = BODYTYPE_DIGITIGRADE
-	/*
-	if((item_slot == ITEM_SLOT_HEAD || item_slot == ITEM_SLOT_MASK) && mutant_bodyparts["snout"])
-		var/datum/sprite_accessory/snouts/snout_accessory = GLOB.sprite_accessories["snout"][mutant_bodyparts["snout"][MUTANT_INDEX_NAME]]
-		if(snout_accessory.use_muzzled_sprites)
+	
+	if((item_slot == ITEM_SLOT_HEAD || item_slot == ITEM_SLOT_MASK))
+		var/obj/item/organ/snout/snout = human.getorganslot(ORGAN_SLOT_SNOUT)
+		if(snout && snout.use_muzzled_sprites)
 			perceived_bodytype = BODYTYPE_DIGITIGRADE
-	if((item_slot == ITEM_SLOT_OCLOTHING || item_slot == ITEM_SLOT_ICLOTHING) && mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/taur_accessory = GLOB.sprite_accessories["taur"][mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		///Special check of applying a style 2 taur bodytype because taurs are spagheti
-		if(checked_item_for && !(checked_item_for.allowed_bodytypes & taur_accessory.taur_mode) && (checked_item_for.allowed_bodytypes & taur_accessory.alt_taur_mode))
-			perceived_bodytype = taur_accessory.alt_taur_mode
-		else
-			perceived_bodytype = taur_accessory.taur_mode
-	*/
+
 	return perceived_bodytype

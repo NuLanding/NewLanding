@@ -6,6 +6,11 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_HEAD_FEATURE
 
+/obj/item/organ/head_feature/is_visible_on_owner()
+	if(owner.head && (owner.head.flags_inv & HIDEHAIR) || (owner.wear_mask && (owner.wear_mask.flags_inv & HIDEHAIR)))
+		return FALSE
+	return TRUE
+
 /obj/item/organ/head_feature/skrell_hair
 	name = "skrell hair"
 

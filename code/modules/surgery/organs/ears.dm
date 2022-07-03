@@ -58,17 +58,30 @@
 	damage = max(damage + (ddmg*damage_multiplier), 0)
 	deaf = max(deaf + (ddeaf*damage_multiplier), 0)
 
+/obj/item/organ/ears/is_visible_on_owner()
+	if(owner.head && (owner.head.flags_inv & HIDEEARS) || (owner.wear_mask && (owner.wear_mask.flags_inv & HIDEEARS)))
+		return FALSE
+	return TRUE
+
 /obj/item/organ/ears/mammal
 	name = "mammal ears"
+	accessory_type = /datum/sprite_accessory/ears/fox
+	accessory_colors = "#FFAA00#FFDD44"
 
 /obj/item/organ/ears/vulpkanin
 	name = "vulpkanin ears"
+	accessory_type = /datum/sprite_accessory/ears/fox
+	accessory_colors = "#FFAA00#FFDD44"
 
 /obj/item/organ/ears/tajaran
 	name = "tajaran ears"
+	accessory_type = /datum/sprite_accessory/ears/cat_big
+	accessory_colors = "#BBAA88#AAAA99"
 
 /obj/item/organ/ears/cat
 	name = "felinid ears"
 
 /obj/item/organ/ears/akula
 	name = "akula ears"
+	accessory_type = /datum/sprite_accessory/ears/sergal
+	accessory_colors = "#668899#BBCCDD"

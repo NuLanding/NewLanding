@@ -15,6 +15,15 @@
 	///Whether the owner of wings has flight thanks to the wings
 	var/granted_flight
 
+/obj/item/organ/wings/is_visible_on_owner()
+	var/mob/living/carbon/human/human_owner = owner
+	if(human_owner.wear_suit)
+		if(human_owner.try_hide_mutant_parts)
+			return FALSE
+		if(human_owner.wear_suit.flags_inv & HIDEJUMPSUIT)
+			return FALSE
+	return TRUE
+
 //TODO: Well you know what this flight stuff is a bit complicated and hardcoded, this is enough for now
 
 /obj/item/organ/wings/moth

@@ -6,6 +6,11 @@
 	zone = BODY_ZONE_HEAD
 	slot = ORGAN_SLOT_ANTENNAS
 
+/obj/item/organ/antennas/is_visible_on_owner()
+	if(owner.head && (owner.head.flags_inv & HIDEHAIR) || (owner.wear_mask && (owner.wear_mask.flags_inv & HIDEHAIR)))
+		return FALSE
+	return TRUE
+
 /obj/item/organ/antennas/moth
 	name = "moth antennas"
 

@@ -12,6 +12,10 @@
 	allows_accessory_color_customization = FALSE //Customized through eye color
 	var/allows_heterochromia = TRUE
 
+/datum/organ_choice/eyes/randomize_choices(datum/preferences/prefs, datum/organ_entry/entry)
+	var/datum/organ_entry/eyes/eyes_entry = entry
+	eyes_entry.eye_color = pick(EYE_COLORS_LIST)
+
 /datum/organ_choice/eyes/validate_entry(datum/preferences/prefs, datum/organ_entry/entry)
 	..()
 	var/datum/organ_entry/eyes/eyes_entry = entry

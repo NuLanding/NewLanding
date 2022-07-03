@@ -9,6 +9,10 @@
 	var/allows_natural_gradient = TRUE
 	var/allows_dye_gradient = TRUE
 
+/datum/organ_choice/hair/randomize_choices(datum/preferences/prefs, datum/organ_entry/entry)
+	var/datum/organ_entry/hair/hair_entry = entry
+	hair_entry.hair_color = pick(HAIR_COLOR_LIST)
+
 /datum/organ_choice/hair/customize_organ(obj/item/organ/organ, datum/organ_entry/entry)
 	..()
 	var/obj/item/organ/hair/hair_organ = organ
