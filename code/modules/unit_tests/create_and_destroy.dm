@@ -25,6 +25,8 @@
 		/obj/structure/projected_forcefield,
 		//Deepfrying logic manages this
 		/obj/item/food/deepfryholder,
+		//Isn't meant to be deleted
+		/obj/effect/landmark/new_player,
 	)
 	//This turf existing is an error in and of itself
 	ignore += typesof(/turf/baseturf_skipover)
