@@ -48,15 +48,6 @@ There are several things that need to be remembered:
 
 */
 
-//HAIR OVERLAY
-/mob/living/carbon/human/update_hair()
-	dna.species.handle_hair(src)
-
-//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts()
-	dna.species.handle_mutant_bodyparts(src)
-
-
 /mob/living/carbon/human/update_body()
 	dna.species.handle_body(src)
 	..()
@@ -72,7 +63,6 @@ There are several things that need to be remembered:
 	if(!..())
 		icon_render_key = null //invalidate bodyparts cache
 		update_body()
-		update_hair()
 		update_inv_w_uniform()
 		update_inv_wear_id()
 		update_inv_gloves()
@@ -131,7 +121,7 @@ There are several things that need to be remembered:
 		overlays_standing[UNIFORM_LAYER] = uniform_overlay
 
 	apply_overlay(UNIFORM_LAYER)
-	update_mutant_bodyparts()
+	update_body()
 
 
 /mob/living/carbon/human/update_inv_wear_id()
@@ -245,11 +235,6 @@ There are several things that need to be remembered:
 /mob/living/carbon/human/update_inv_shoes()
 	remove_overlay(SHOES_LAYER)
 
-	if(dna.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
-			return
-
 	if(num_legs<2)
 		return
 
@@ -291,7 +276,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_inv_head()
 	..()
-	update_mutant_bodyparts()
+	update_body()
 
 /mob/living/carbon/human/update_inv_belt()
 	remove_overlay(BELT_LAYER)
@@ -331,8 +316,7 @@ There are several things that need to be remembered:
 		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
 		overlays_standing[SUIT_LAYER] = suit_overlay
 
-	update_hair()
-	update_mutant_bodyparts()
+	update_body()
 
 	apply_overlay(SUIT_LAYER)
 
@@ -362,7 +346,7 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_inv_wear_mask()
 	..()
-	update_mutant_bodyparts() //e.g. upgate needed because mask now hides lizard snout
+	update_body() //e.g. upgate needed because mask now hides lizard snout
 
 /mob/living/carbon/human/update_inv_legcuffed()
 	remove_overlay(LEGCUFF_LAYER)
@@ -510,11 +494,6 @@ generate/load female uniform sprites matching all previously decided variables
 
 	var/mutable_appearance/standing
 	var/taur_alpha_mask
-	//If we're a taur, and what we're wearing will not get a taur variant
-	if(bodytype & BODYTYPE_TAUR_ALL && !(perc_bodytype & BODYTYPE_TAUR_ALL) && slot == ITEM_SLOT_ICLOTHING)
-		var/datum/sprite_accessory/taur/taur_sprite = GLOB.sprite_accessories["taur"][species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(body_parts_covered & LEGS) //If we cover legs, apply the taur alpha mask
-			taur_alpha_mask = taur_sprite.alpha_mask_type
 
 	if(femaleuniform || taur_alpha_mask)
 		standing = wear_alpha_masked_version(t_state, file2use, layer2use, femaleuniform, taur_alpha_mask, greyscale_colors) //should layer2use be in sync with the adjusted value below? needs testing - shiz
@@ -618,9 +597,6 @@ generate/load female uniform sprites matching all previously decided variables
 
 /mob/living/carbon/human/load_limb_from_cache()
 	..()
-	update_hair()
-
-
 
 /mob/living/carbon/human/proc/update_observer_view(obj/item/I, inventory)
 	if(observers?.len)
@@ -665,23 +641,6 @@ generate/load female uniform sprites matching all previously decided variables
 				lip_overlay.pixel_y += dna.species.offset_features[OFFSET_FACE][2]
 			add_overlay(lip_overlay)
 
-		// eyes
-		if(!(NOEYESPRITES in dna.species.species_traits))
-			var/obj/item/organ/eyes/E = getorganslot(ORGAN_SLOT_EYES)
-			var/mutable_appearance/eye_overlay
-			if(!E)
-				eye_overlay = mutable_appearance('icons/mob/sprite_accessory/human_face.dmi', "eyes_missing", -BODY_LAYER)
-			else
-				eye_overlay = mutable_appearance('icons/mob/sprite_accessory/human_face.dmi', E.eye_icon_state, -BODY_LAYER)
-			if((EYECOLOR in dna.species.species_traits) && E)
-				eye_overlay.color = "#" + eye_color
-			if(dna.species.offset_features && (OFFSET_FACE in dna.species.offset_features))
-				eye_overlay.pixel_x += dna.species.offset_features[OFFSET_FACE][1]
-				eye_overlay.pixel_y += dna.species.offset_features[OFFSET_FACE][2]
-			add_overlay(eye_overlay)
-
-	dna.species.handle_hair(src)
-
 	update_inv_head()
 	update_inv_wear_mask()
 
@@ -689,10 +648,10 @@ generate/load female uniform sprites matching all previously decided variables
 //If icon cache exists what ends up happening is that people customizing their characters will be creating hundreds of caches as they customize markings, eating memory 4nr
 /mob/living/carbon/human/update_body_parts()
 	//CHECK FOR UPDATE
-	var/oldkey = icon_render_key
-	icon_render_key = generate_icon_render_key()
-	if(oldkey == icon_render_key)
-		return
+	//var/oldkey = icon_render_key
+	//icon_render_key = generate_icon_render_key()
+	//if(oldkey == icon_render_key)
+	//	return
 
 	remove_overlay(BODYPARTS_LAYER)
 
@@ -701,10 +660,6 @@ generate/load female uniform sprites matching all previously decided variables
 		BP.update_limb()
 
 	var/is_taur = FALSE
-	if(dna?.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
-			is_taur = TRUE
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()

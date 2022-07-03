@@ -48,9 +48,6 @@
 		BT.owner = owner
 		BT.on_gain()
 
-	//Update the body's icon so it doesnt appear debrained anymore
-	C.update_hair()
-
 /obj/item/organ/brain/Remove(mob/living/carbon/C, special = 0, no_id_transfer = FALSE)
 	. = ..()
 
@@ -61,7 +58,6 @@
 
 	if((!gc_destroyed || (owner && !owner.gc_destroyed)) && !no_id_transfer)
 		transfer_identity(C)
-	C.update_hair()
 
 /obj/item/organ/brain/proc/transfer_identity(mob/living/L)
 	name = "[L.name]'s brain"

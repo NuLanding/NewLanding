@@ -261,20 +261,12 @@
 		SEND_SIGNAL(src, COMSIG_CARBON_UNEQUIP_SHOECOVER, I, force, newloc, no_move, invdrop, silent)
 
 /mob/living/carbon/human/wear_mask_update(obj/item/I, toggle_off = 1)
-	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || (initial(I.flags_inv) & (HIDEHAIR|HIDEFACIALHAIR)))
-		update_hair()
 	if(I.flags_inv & HIDEEYES)
 		update_inv_glasses()
 	sec_hud_set_security_status()
 	..()
 
 /mob/living/carbon/human/head_update(obj/item/I, forced)
-	if((I.flags_inv & (HIDEHAIR|HIDEFACIALHAIR)) || forced)
-		update_hair()
-	else
-		var/obj/item/clothing/C = I
-		if(istype(C) && C.dynamic_hair_suffix)
-			update_hair()
 	if(I.flags_inv & HIDEEYES || forced)
 		update_inv_glasses()
 	if(I.flags_inv & HIDEEARS || forced)

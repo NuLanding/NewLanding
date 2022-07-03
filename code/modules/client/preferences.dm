@@ -68,20 +68,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/real_name //our character's name
 	var/gender = MALE //gender of character (well duh)
 	var/age = 30 //age of character
-	var/underwear = "Nude" //underwear type
-	var/underwear_color = "FFF" //underwear color
-	var/undershirt = "Nude" //undershirt type
-	var/undershirt_color = "FFF" //undershirt color
-	var/socks = "Nude" //socks type
-	var/socks_color = "FFF" //socks color
 	var/backpack = DBACKPACK //backpack type
 	var/jumpsuit_style = PREF_SUIT //suit/skirt
-	var/hairstyle = "Bald" //Hair type
-	var/hair_color = "000" //Hair color
-	var/facial_hairstyle = "Shaved" //Face hair type
-	var/facial_hair_color = "000" //Facial hair color
 	var/skin_tone = "caucasian1" //Skin color
-	var/eye_color = "000" //Eye color
 	var/datum/species/pref_species
 	//Has to include all information that extra organs from mutant bodyparts would need.
 	var/list/features = MANDATORY_FEATURE_LIST
@@ -157,7 +146,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Will the person see accessories not meant for their species to choose from
 	var/mismatched_customization = FALSE
 	var/allow_advanced_colors = FALSE
-	var/list/list/mutant_bodyparts = list()
 	var/list/list/body_markings = list()
 
 	var/character_settings_tab = 0
@@ -224,6 +212,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/perceived_skills = list()
 	/// Which job listing would the client want to be started in on roundstart
 	var/chosen_job_listing_start
+	/// List of all organ entires.
+	var/list/organ_entries = list()
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -313,6 +303,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<a href='?_src_=prefs;preference=character_tab;tab=4' [character_settings_tab == 4 ? "class='linkOn'" : ""]>Loadout</a>" //If you change the index of this tab, change all the logic regarding tab
 			dat += "<a href='?_src_=prefs;preference=character_tab;tab=5' [character_settings_tab == 5 ? "class='linkOn'" : ""]>Augmentation</a>"
 			dat += "<a href='?_src_=prefs;preference=character_tab;tab=6' [character_settings_tab == 6 ? "class='linkOn'" : ""]>Attributes</a>"
+			dat += "<a href='?_src_=prefs;preference=character_tab;tab=7' [character_settings_tab == 7 ? "class='linkOn'" : ""]>Organs</a>"
 			dat += "</center>"
 
 			dat += "<HR>"
@@ -486,74 +477,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<h3>Tertiary Color</h3>"
 					dat += "<a href='?_src_=prefs;preference=mutant_color3;task=input'><span class='color_holder_box' style='background-color:#[features["mcolor3"]]'></span></a><BR>"
 
-					if((EYECOLOR in pref_species.species_traits) && !(NOEYESPRITES in pref_species.species_traits))
-
-						/*if(!use_skintones)
-							dat += APPEARANCE_CATEGORY_COLUMN*/
-
-						dat += "<h3>Eye Color</h3>"
-						dat += "<a href='?_src_=prefs;preference=eyes;task=input'><span class='color_holder_box' style='background-color:#[eye_color]'></span></a>"
-
-						dat += "<br></td>"
-					else if(use_skintones)
-						dat += "</td>"
-
-					if(HAIR in pref_species.species_traits)
-
-						dat += APPEARANCE_CATEGORY_COLUMN
-
-						dat += "<h3>Hairstyle</h3>"
-
-						dat += "<a href='?_src_=prefs;preference=previous_hairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_hairstyle;task=input'>&gt;</a>"
-						dat += "<a href='?_src_=prefs;preference=hairstyle;task=input'>[hairstyle]</a>"
-
-						dat += "<br> <a href='?_src_=prefs;preference=hair;task=input'><span class='color_holder_box' style='background-color:#[hair_color]'></span></a>"
-
-						dat += "<BR><h3>Facial Hairstyle</h3>"
-
-						dat += "<a href='?_src_=prefs;preference=previous_facehairstyle;task=input'>&lt;</a> <a href='?_src_=prefs;preference=next_facehairstyle;task=input'>&gt;</a>"
-						dat += "<a href='?_src_=prefs;preference=facial_hairstyle;task=input'>[facial_hairstyle]</a>"
-
-						dat += "<br> <a href='?_src_=prefs;preference=facial;task=input'><span class='color_holder_box' style='background-color:#[facial_hair_color]'></span></a>"
-						dat += "<br></td>"
-
-					//Mutant stuff
-					var/mutant_category = 0
-
-					var/list/generic_cache = GLOB.generic_accessories
-					for(var/key in mutant_bodyparts)
-						if(!generic_cache[key]) //This means that we have a mutant bodypart that shouldnt be bundled here (genitals)
-							continue
-						if(!mutant_category)
-							dat += APPEARANCE_CATEGORY_COLUMN
-
-						dat += "<h3>[generic_cache[key]]</h3>"
-
-						dat += print_bodypart_change_line(key)
-
-						dat += "<BR>"
-
-						mutant_category++
-						if(mutant_category >= MAX_MUTANT_ROWS)
-							dat += "</td>"
-							mutant_category = 0
-
-					if(mutant_category)
-						dat += "</td>"
-						mutant_category = 0
 					dat += "</tr></table>"
 
 					dat += "<table width='100%'><tr><td width='24%' valign='top'>"
-
-					dat += "<BR><b>Underwear:</b><BR><a href ='?_src_=prefs;preference=underwear;task=input'>[underwear]</a>"
-
-					dat += "<a href='?_src_=prefs;preference=underwear_color;task=input'><span class='color_holder_box' style='background-color:#[underwear_color]'></span></a>"
-
-					dat += "<BR><b>Undershirt:</b><BR><a href ='?_src_=prefs;preference=undershirt;task=input'>[undershirt]</a>"
-					dat += "<a href='?_src_=prefs;preference=undershirt_color;task=input'><span class='color_holder_box' style='background-color:#[undershirt_color]'></span></a>"
-
-					dat += "<br><b>Socks:</b><BR><a href ='?_src_=prefs;preference=socks;task=input'>[socks]</a>"
-					dat += "<a href='?_src_=prefs;preference=socks_color;task=input'><span class='color_holder_box' style='background-color:#[socks_color]'></span></a>"
 
 					dat += "<br><b>Jumpsuit Style:</b><BR><a href ='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a>"
 
@@ -566,51 +492,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "<br><b>Uplink Spawn Location:</b><BR><a href ='?_src_=prefs;preference=uplink_loc;task=input'>[uplink_spawn_loc]</a><BR></td>"
 					if (user.client.get_exp_living(TRUE) >= PLAYTIME_VETERAN)
 						dat += "<br><b>Don The Ultimate Gamer Cloak?:</b><BR><a href ='?_src_=prefs;preference=playtime_reward_cloak'>[(playtime_reward_cloak) ? "Enabled" : "Disabled"]</a><BR></td>"
-
-
-					if(pref_species.can_have_genitals)
-						dat += APPEARANCE_CATEGORY_COLUMN
-						dat += "<a href='?_src_=prefs;preference=change_arousal_preview;task=input'>Change arousal preview</a>"
-						dat += "<h3>Penis</h3>"
-						var/penis_name = mutant_bodyparts["penis"][MUTANT_INDEX_NAME]
-						dat += print_bodypart_change_line("penis")
-						if(penis_name != "None")
-							dat += "<br><b>Length: </b> <a href='?_src_=prefs;key=["penis"];preference=penis_size;task=change_genitals'>[features["penis_size"]]</a> inches."
-							dat += "<br><b>Girth: </b> <a href='?_src_=prefs;key=["penis"];preference=penis_girth;task=change_genitals'>[features["penis_girth"]]</a> inches circumference"
-							dat += "<br><b>Sheath: </b> <a href='?_src_=prefs;key=["penis"];preference=penis_sheath;task=change_genitals'>[features["penis_sheath"]]</a>"
-
-						dat += "<h3>Testicles</h3>"
-						var/balls_name = mutant_bodyparts["testicles"][MUTANT_INDEX_NAME]
-						dat += print_bodypart_change_line("testicles")
-						if(balls_name != "None")
-							var/named_size = balls_size_to_description(features["balls_size"])
-							dat += "<br><b>Size: </b> <a href='?_src_=prefs;key=["testicles"];preference=balls_size;task=change_genitals'>[named_size]</a>"
-
-						if(mutant_bodyparts["taur"])
-							var/datum/sprite_accessory/taur/TSP = GLOB.sprite_accessories["taur"][mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-							if(TSP.factual && !(TSP.taur_mode & BODYTYPE_TAUR_SNAKE))
-								var/text_string = (features["penis_taur_mode"]) ? "Yes" : "No"
-								dat += "<br><b>Taur Mode: </b> <a href='?_src_=prefs;key=["penis"];preference=penis_taur_mode;task=change_genitals'>[text_string]</a>"
-						dat += "</td>"
-						dat += "</td>"
-
-						dat += APPEARANCE_CATEGORY_COLUMN
-						dat += "<b>Uses skintones: </b> <a href='?_src_=prefs;preference=uses_skintones;task=input'>[(features["uses_skintones"]) ? "Yes" : "No"]</a>"
-						dat += "<h3>Vagina</h3>"
-						dat += print_bodypart_change_line("vagina")
-						dat += "</td>"
-
-						dat += APPEARANCE_CATEGORY_COLUMN
-						dat += "<BR>"
-						dat += "<h3>Breasts</h3>"
-						var/breasts_name = mutant_bodyparts["breasts"][MUTANT_INDEX_NAME]
-						dat += print_bodypart_change_line("breasts")
-						if(breasts_name != "None")
-							var/named_size = breasts_size_to_cup(features["breasts_size"])
-							var/named_lactation = (features["breasts_lactation"]) ? "Yes" : "No"
-							dat += "<br><b>Size: </b> <a href='?_src_=prefs;key=["breasts"];preference=breasts_size;task=change_genitals'>[named_size]</a>"
-							dat += "<br><b>Can Lactate: </b> <a href='?_src_=prefs;key=["breasts"];preference=breasts_lactation;task=change_genitals'>[named_lactation]</a>"
-						dat += "</td>"
 
 					dat += "</tr></table>"
 				if(2) //Markings
@@ -893,6 +774,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 				if(6) //Attributes
 					dat += print_attributes_page()
+				if(7) //Organs
+					dat += print_organs_page()
 
 		if (1) // Game Preferences
 			dat += "<table><tr><td width='340px' height='300px' valign='top'>"
@@ -1628,6 +1511,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			var/item_path = text2path(href_list["item"])
 			change_loadout_item(item_path)
 
+		if("change_organ")
+			handle_organ_topic(usr, href_list)
+
 		if("change_marking")
 			needs_update = TRUE
 			switch(href_list["preference"])
@@ -1742,83 +1628,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						body_markings[zone] -= changing_name
 						body_markings[zone].Insert(held_index, desired_marking)
 						body_markings[zone][desired_marking] = marking_content
-		if("change_genitals")
-			needs_update = TRUE
-			switch(href_list["preference"])
-				if("breasts_size")
-					var/new_size = input(user, "Choose your character's breasts size:", "Character Preference") as null|anything in GLOB.preference_breast_sizes
-					if(new_size)
-						features["breasts_size"] = breasts_cup_to_size(new_size)
-				if("breasts_lactation")
-					features["breasts_lactation"] = !features["breasts_lactation"]
-				if("penis_taur_mode")
-					features["penis_taur_mode"] = !features["penis_taur_mode"]
-				if("penis_size")
-					var/new_length = input(user, "Choose your penis length:\n([PENIS_MIN_LENGTH]-[PENIS_MAX_LENGTH] in inches)", "Character Preference") as num|null
-					if(new_length)
-						features["penis_size"] = clamp(round(new_length, 1), PENIS_MIN_LENGTH, PENIS_MAX_LENGTH)
-						if(features["penis_girth"] >= new_length)
-							features["penis_girth"] = new_length - 1
-				if("penis_sheath")
-					var/new_sheath = input(user, "Choose your penis sheath", "Character Preference") as null|anything in SHEATH_MODES
-					if(new_sheath)
-						features["penis_sheath"] = new_sheath
-				if("penis_girth")
-					var/max_girth = PENIS_MAX_GIRTH
-					if(features["penis_size"] >= max_girth)
-						max_girth = features["penis_size"]
-					var/new_girth = input(user, "Choose your penis girth:\n(1-[max_girth] (based on length) in inches)", "Character Preference") as num|null
-					if(new_girth)
-						features["penis_girth"] = clamp(round(new_girth, 1), 1, max_girth)
-				if("balls_size")
-					var/new_size = input(user, "Choose your character's balls size:", "Character Preference") as null|anything in GLOB.preference_balls_sizes
-					if(new_size)
-						features["balls_size"] = balls_description_to_size(new_size)
-		if("change_bodypart")
-			needs_update = TRUE
-			switch(href_list["preference"])
-				if("change_name")
-					var/key = href_list["key"]
-					if(!mutant_bodyparts[key])
-						return
-					var/new_name
-					if(mismatched_customization)
-						new_name = input(user, "Choose your character's [key]:", "Character Preference") as null|anything in accessory_list_of_key_for_species(key, pref_species, TRUE, parent.ckey)
-					else
-						new_name = input(user, "Choose your character's [key]:", "Character Preference") as null|anything in accessory_list_of_key_for_species(key, pref_species, FALSE, parent.ckey)
-					if(new_name && mutant_bodyparts[key])
-						mutant_bodyparts[key][MUTANT_INDEX_NAME] = new_name
-						validate_color_keys_for_part(key)
-						if(!allow_advanced_colors)
-							var/datum/sprite_accessory/SA = GLOB.sprite_accessories[key][new_name]
-							mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-				if("change_color")
-					var/key = href_list["key"]
-					if(!mutant_bodyparts[key])
-						return
-					var/list/colorlist = mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
-					var/index = text2num(href_list["color_index"])
-					if(colorlist.len < index)
-						return
-					var/new_color = input(user, "Choose your character's [key] color:", "Character Preference","#[colorlist[index]]") as color|null
-					if(new_color && new_color != "#000000")
-						colorlist[index] = sanitize_hexcolor(new_color, 6)
-				if("reset_color")
-					var/key = href_list["key"]
-					if(!mutant_bodyparts[key])
-						return
-					var/datum/sprite_accessory/SA = GLOB.sprite_accessories[key][mutant_bodyparts[key][MUTANT_INDEX_NAME]]
-					mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST] = SA.get_default_color(features, pref_species)
-				if("reset_all_colors")
-					var/action = tgui_alert(
-						user,
-						"Are you sure you want to reset all colors?",
-						null,
-						list("Yes", "No")
-					)
-					if(action == "Yes")
-						reset_colors()
-
 		if("random")
 			needs_update = TRUE
 			switch(href_list["preference"])
@@ -1826,24 +1635,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					real_name = pref_species.random_name(gender,1)
 				if("age")
 					age = rand(AGE_MIN, AGE_MAX)
-				if("hair")
-					hair_color = random_short_color()
-				if("hairstyle")
-					hairstyle = random_hairstyle(gender, pref_species)
-				if("facial")
-					facial_hair_color = random_short_color()
-				if("facial_hairstyle")
-					facial_hairstyle = random_facial_hairstyle(gender, pref_species)
-				if("underwear")
-					underwear = random_underwear(gender, pref_species)
-				if("underwear_color")
-					underwear_color = random_short_color()
-				if("undershirt")
-					undershirt = random_undershirt(gender, pref_species)
-				if("socks")
-					socks = random_socks(pref_species)
-				if(BODY_ZONE_PRECISE_EYES)
-					eye_color = random_eye_color()
 				if("s_tone")
 					set_skin_tone(random_skin_tone())
 				if("species")
@@ -2066,88 +1857,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						arousal_preview = gen_arous_trans[new_arousal]
 						needs_update = TRUE
 
-				if("hair")
-					needs_update = TRUE
-					var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference","#"+hair_color) as color|null
-					if(new_hair)
-						hair_color = sanitize_hexcolor(new_hair)
-
-				if("hairstyle")
-					needs_update = TRUE
-					var/new_hairstyle = input(user, "Choose your character's hairstyle:", "Character Preference")  as null|anything in hairstyle_list_for_species(pref_species, null, mismatched_customization)
-					if(new_hairstyle)
-						hairstyle = new_hairstyle
-
-				if("next_hairstyle")
-					next_hairstyle()
-					needs_update = TRUE
-
-				if("previous_hairstyle")
-					prev_hairstyle()
-					needs_update = TRUE
-
-				if("facial")
-					needs_update = TRUE
-					var/new_facial = input(user, "Choose your character's facial-hair colour:", "Character Preference","#"+facial_hair_color) as color|null
-					if(new_facial)
-						facial_hair_color = sanitize_hexcolor(new_facial)
-
-				if("facial_hairstyle")
-					needs_update = TRUE
-					var/new_facial_hairstyle = input(user, "Choose your character's facial-hairstyle:", "Character Preference")  as null|anything in facial_hairstyle_list_for_species(pref_species, null, mismatched_customization)
-					if(new_facial_hairstyle)
-						facial_hairstyle = new_facial_hairstyle
-
-				if("next_facehairstyle")
-					next_face_hairstyle()
-					needs_update = TRUE
-
-				if("previous_facehairstyle")
-					prev_face_hairstyle()
-					needs_update = TRUE
-
-				if("underwear")
-					var/new_underwear = input(user, "Choose your character's underwear:", "Character Preference")  as null|anything in underwear_list_for_species(pref_species, null, mismatched_customization)
-					if(new_underwear)
-						underwear = new_underwear
-
-				if("underwear_color")
-					needs_update = TRUE
-					var/new_underwear_color = input(user, "Choose your character's underwear color:", "Character Preference","#"+underwear_color) as color|null
-					if(new_underwear_color)
-						underwear_color = sanitize_hexcolor(new_underwear_color)
-
-				if("undershirt_color")
-					needs_update = TRUE
-					var/new_undershirt_color = input(user, "Choose your character's undershirt color:", "Character Preference","#"+undershirt_color) as color|null
-					if(new_undershirt_color)
-						undershirt_color = sanitize_hexcolor(new_undershirt_color)
-
-				if("socks_color")
-					needs_update = TRUE
-					var/new_socks_color = input(user, "Choose your character's socks color:", "Character Preference","#"+socks_color) as color|null
-					if(new_socks_color)
-						socks_color = sanitize_hexcolor(new_socks_color)
-
-				if("undershirt")
-					needs_update = TRUE
-					var/new_undershirt = input(user, "Choose your character's undershirt:", "Character Preference") as null|anything in undershirt_list_for_species(pref_species, null, mismatched_customization)
-					if(new_undershirt)
-						undershirt = new_undershirt
-
-				if("socks")
-					needs_update = TRUE
-					var/new_socks
-					new_socks = input(user, "Choose your character's socks:", "Character Preference") as null|anything in socks_list_for_species(pref_species, mismatched_customization)
-					if(new_socks)
-						socks = new_socks
-
-				if("eyes")
-					needs_update = TRUE
-					var/new_eyes = input(user, "Choose your character's eye colour:", "Character Preference","#"+eye_color) as color|null
-					if(new_eyes)
-						eye_color = sanitize_hexcolor(new_eyes)
-
 				if("show_body_size")
 					needs_update = TRUE
 					show_body_size = !show_body_size
@@ -2207,68 +1916,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							features["mcolor3"] = sanitize_hexcolor(new_mutantcolor, 6)
 						if(!allow_advanced_colors)
 							reset_colors()
-
-
-				/*if("tail_lizard")
-					var/new_tail
-					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_lizard
-					if(new_tail)
-						features["tail_lizard"] = new_tail
-				if("tail_human")
-					var/new_tail
-					new_tail = input(user, "Choose your character's tail:", "Character Preference") as null|anything in GLOB.tails_list_human
-					if(new_tail)
-						features["tail_human"] = new_tail
-				if("snout")
-					var/new_snout
-					new_snout = input(user, "Choose your character's snout:", "Character Preference") as null|anything in GLOB.snouts_list
-					if(new_snout)
-						features["snout"] = new_snout
-				if("horns")
-					var/new_horns
-					new_horns = input(user, "Choose your character's horns:", "Character Preference") as null|anything in GLOB.horns_list
-					if(new_horns)
-						features["horns"] = new_horns
-				if("ears")
-					var/new_ears
-					new_ears = input(user, "Choose your character's ears:", "Character Preference") as null|anything in GLOB.ears_list
-					if(new_ears)
-						features["ears"] = new_ears
-				if("wings")
-					var/new_wings
-					new_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.r_wings_list
-					if(new_wings)
-						features["wings"] = new_wings
-				if("frills")
-					var/new_frills
-					new_frills = input(user, "Choose your character's frills:", "Character Preference") as null|anything in GLOB.frills_list
-					if(new_frills)
-						features["frills"] = new_frills
-				if("spines")
-					var/new_spines
-					new_spines = input(user, "Choose your character's spines:", "Character Preference") as null|anything in GLOB.spines_list
-					if(new_spines)
-						features["spines"] = new_spines
-				if("body_markings")
-					var/new_body_markings
-					new_body_markings = input(user, "Choose your character's body markings:", "Character Preference") as null|anything in GLOB.body_markings_list
-					if(new_body_markings)
-						features["body_markings"] = new_body_markings
-				if("legs")
-					var/new_legs
-					new_legs = input(user, "Choose your character's legs:", "Character Preference") as null|anything in GLOB.legs_list
-					if(new_legs)
-						features["legs"] = new_legs
-				if("moth_wings")
-					var/new_moth_wings
-					new_moth_wings = input(user, "Choose your character's wings:", "Character Preference") as null|anything in GLOB.moth_wings_list
-					if(new_moth_wings)
-						features["moth_wings"] = new_moth_wings
-				if("moth_markings")
-					var/new_moth_markings
-					new_moth_markings = input(user, "Choose your character's markings:", "Character Preference") as null|anything in GLOB.moth_markings_list
-					if(new_moth_markings)
-						features["moth_markings"] = new_moth_markings*/
 
 				if("s_tone")
 					needs_update = TRUE
@@ -2411,11 +2058,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/pickedGender = input(user, "Choose your gender.", "Character Preference", gender) as null|anything in friendlyGenders
 					if(pickedGender && friendlyGenders[pickedGender] != gender)
 						gender = friendlyGenders[pickedGender]
-						//underwear = random_underwear(gender)
-						//undershirt = random_undershirt(gender)
-						//socks = random_socks()
-						//facial_hairstyle = random_facial_hairstyle(gender)
-						//hairstyle = random_hairstyle(gender) //TODO: this is just a bandaid. Remove those restrictions later
+
 				if("body_type")
 					needs_update = TRUE
 					if(body_type == MALE)
@@ -2775,23 +2418,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	else
 		character.body_type = body_type
 
-	character.eye_color = eye_color
-	var/obj/item/organ/eyes/organ_eyes = character.getorgan(/obj/item/organ/eyes)
-	if(organ_eyes)
-		if(!initial(organ_eyes.eye_color))
-			organ_eyes.eye_color = eye_color
-		organ_eyes.old_eye_color = eye_color
-	character.hair_color = hair_color
-	character.facial_hair_color = facial_hair_color
 	character.skin_tone = skin_tone
-	character.hairstyle = hairstyle
-	character.facial_hairstyle = facial_hairstyle
-	character.underwear = underwear
-	character.underwear_color = underwear_color
-	character.undershirt = undershirt
-	character.undershirt_color = undershirt_color
-	character.socks = socks
-	character.socks_color = socks_color
 
 	character.backpack = backpack
 
@@ -2806,13 +2433,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		character.dna.features["body_size"] = BODY_SIZE_NORMAL
 		character.dna.update_body_size()
 
-	if(character_setup)
-		for(var/organ_key in list(ORGAN_SLOT_VAGINA, ORGAN_SLOT_PENIS, ORGAN_SLOT_BREASTS))
-			var/obj/item/organ/genital/gent = character.getorganslot(organ_key)
-			if(gent)
-				gent.aroused = arousal_preview
-				gent.update_sprite_suffix()
-
 	if(length(augments))
 		for(var/key in augments)
 			var/datum/augment_item/aug = GLOB.augment_items[augments[key]]
@@ -2823,7 +2443,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	if(icon_updates)
 		character.update_body()
-		character.update_hair()
 		character.update_body_parts()
 
 /datum/preferences/proc/get_default_name(name_id)
@@ -2864,26 +2483,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			return
 		else
 			custom_names[name_id] = sanitized_name
-
-/datum/preferences/proc/print_bodypart_change_line(key)
-	var/acc_name = mutant_bodyparts[key][MUTANT_INDEX_NAME]
-	var/shown_colors = 0
-	var/datum/sprite_accessory/SA = GLOB.sprite_accessories[key][acc_name]
-	var/dat = ""
-	if(SA.color_src == USE_MATRIXED_COLORS)
-		shown_colors = 3
-	else if (SA.color_src == USE_ONE_COLOR)
-		shown_colors = 1
-	if((allow_advanced_colors || SA.always_color_customizable) && shown_colors)
-		dat += "<a href='?_src_=prefs;key=[key];preference=reset_color;task=change_bodypart'>R</a>"
-	dat += "<a href='?_src_=prefs;key=[key];preference=change_name;task=change_bodypart'>[acc_name]</a>"
-	if(allow_advanced_colors || SA.always_color_customizable)
-		if(shown_colors)
-			dat += "<BR>"
-			var/list/colorlist = mutant_bodyparts[key][MUTANT_INDEX_COLOR_LIST]
-			for(var/i in 1 to shown_colors)
-				dat += " <a href='?_src_=prefs;key=[key];color_index=[i];preference=change_color;task=change_bodypart'><span class='color_holder_box' style='background-color:["#[colorlist[i]]"]'></span></a>"
-	return dat
 
 /datum/preferences/proc/set_skin_tone(new_skin_tone)
 	skin_tone = new_skin_tone
@@ -3094,58 +2693,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
 	popup.open(FALSE)
-
-/datum/preferences/proc/get_hairstyle_cache(datum/species/species, mismatched)
-	var/cache_key = mismatched ? ALL_BODYTYPES : species.bodytype
-	if(!GLOB.hairstyle_cache["[cache_key]"])
-		GLOB.hairstyle_cache["[cache_key]"] = hairstyle_list_for_species(species, null, mismatched)
-	return GLOB.hairstyle_cache["[cache_key]"]
-
-/datum/preferences/proc/get_face_hairstyle_cache(datum/species/species, mismatched)
-	var/cache_key = mismatched ? ALL_BODYTYPES : species.bodytype
-	if(!GLOB.face_hairstyle_cache["[cache_key]"])
-		GLOB.face_hairstyle_cache["[cache_key]"] = facial_hairstyle_list_for_species(species, null, mismatched)
-	return GLOB.face_hairstyle_cache["[cache_key]"]
-
-/datum/preferences/proc/next_hairstyle()
-	var/list/our_list = get_hairstyle_cache(pref_species, mismatched_customization)
-	var/index = our_list.Find(hairstyle)
-	if(!index)
-		return
-	if(our_list.len == index)
-		hairstyle = our_list[1]
-	else
-		hairstyle = our_list[index+1]
-
-/datum/preferences/proc/prev_hairstyle()
-	var/list/our_list = get_hairstyle_cache(pref_species, mismatched_customization)
-	var/index = our_list.Find(hairstyle)
-	if(!index)
-		return
-	if(index == 1)
-		hairstyle = our_list[our_list.len]
-	else
-		hairstyle = our_list[index-1]
-
-/datum/preferences/proc/next_face_hairstyle()
-	var/list/our_list = get_face_hairstyle_cache(pref_species, mismatched_customization)
-	var/index = our_list.Find(facial_hairstyle)
-	if(!index)
-		return
-	if(our_list.len == index)
-		facial_hairstyle = our_list[1]
-	else
-		facial_hairstyle = our_list[index+1]
-
-/datum/preferences/proc/prev_face_hairstyle()
-	var/list/our_list = get_face_hairstyle_cache(pref_species, mismatched_customization)
-	var/index = our_list.Find(facial_hairstyle)
-	if(!index)
-		return
-	if(index == 1)
-		facial_hairstyle = our_list[our_list.len]
-	else
-		facial_hairstyle = our_list[index-1]
 
 /datum/preferences/proc/SetupChosenJobListing()
 	if(chosen_job_listing_start)

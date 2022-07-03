@@ -19,12 +19,16 @@
 	high_threshold_cleared = SPAN_INFO("Your vision functions passably once more.")
 	low_threshold_cleared = SPAN_INFO("Your vision is cleared of any ailment.")
 
+	visible_organ = TRUE
+	accessory_type = /datum/sprite_accessory/eyes/humanoid
+	accessory_colors = "#FFFFFF#FFFFFF"
+	organ_dna_type = /datum/organ_dna/eyes
+
 	var/sight_flags = 0
 	/// changes how the eyes overlay is applied, makes it apply over the lighting layer
 	var/overlay_ignore_lighting = FALSE
 	var/see_in_dark = 2
 	var/tint = 0
-	var/eye_color = "" //set to a hex code to override a mob's eye color
 	var/eye_icon_state = "eyes"
 	var/old_eye_color = "fff"
 	var/flash_protect = FLASH_PROTECTION_NONE
@@ -33,16 +37,30 @@
 	var/no_glasses
 	var/damaged = FALSE //damaged indicates that our eyes are undergoing some level of negative effect
 
+	var/eye_color = "#FFFFFF"
+	var/heterochromia = FALSE
+	var/second_color = "#FFFFFF"
+
+/obj/item/organ/eyes/update_accessory_colors()
+	var/list/colors_list = list()
+	colors_list += eye_color
+	if(heterochromia)
+		colors_list += second_color
+	else
+		colors_list += eye_color
+	accessory_colors = color_list_to_string(colors_list)
+
+/obj/item/organ/eyes/imprint_organ_dna(datum/organ_dna/organ_dna)
+	. = ..()
+	var/datum/organ_dna/eyes/eyes_dna = organ_dna
+	eyes_dna.eye_color = eye_color
+	eyes_dna.heterochromia = heterochromia
+	eyes_dna.second_color = second_color
+
 /obj/item/organ/eyes/Insert(mob/living/carbon/eye_owner, special = FALSE, drop_if_replaced = FALSE, initialising)
 	. = ..()
 	if(ishuman(eye_owner))
 		var/mob/living/carbon/human/human_owner = eye_owner
-		old_eye_color = human_owner.eye_color
-		if(eye_color)
-			human_owner.eye_color = eye_color
-			human_owner.regenerate_icons()
-		else
-			eye_color = human_owner.eye_color
 		if(HAS_TRAIT(human_owner, TRAIT_NIGHT_VISION) && !lighting_alpha)
 			lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 	eye_owner.update_tint()
@@ -53,12 +71,6 @@
 /obj/item/organ/eyes/proc/refresh()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/affected_human = owner
-		old_eye_color = affected_human.eye_color
-		if(eye_color)
-			affected_human.eye_color = eye_color
-			affected_human.regenerate_icons()
-		else
-			eye_color = affected_human.eye_color
 		if(HAS_TRAIT(affected_human, TRAIT_NIGHT_VISION) && !lighting_alpha)
 			lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 	owner.update_tint()
@@ -72,7 +84,6 @@
 	..()
 	if(ishuman(eye_owner) && eye_color)
 		var/mob/living/carbon/human/human_owner = eye_owner
-		human_owner.eye_color = old_eye_color
 		human_owner.regenerate_icons()
 	eye_owner.cure_blind(EYE_DAMAGE)
 	eye_owner.cure_nearsighted(EYE_DAMAGE)

@@ -1017,16 +1017,6 @@
 	taste_description = "jelly"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/medicine/regen_jelly/expose_mob(mob/living/exposed_mob, reac_volume)
-	. = ..()
-	if(!ishuman(exposed_mob) || (reac_volume < 0.5))
-		return
-
-	var/mob/living/carbon/human/exposed_human = exposed_mob
-	exposed_human.hair_color = "C2F"
-	exposed_human.facial_hair_color = "C2F"
-	exposed_human.update_hair()
-
 /datum/reagent/medicine/regen_jelly/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
 	M.adjustBruteLoss(-1.5 * REM * delta_time, 0)
 	M.adjustFireLoss(-1.5 * REM * delta_time, 0)
@@ -1386,14 +1376,6 @@
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, -0.25 * REM * delta_time)
 	M.adjustBruteLoss(-0.35 * REM * delta_time, 0)
 	return TRUE
-
-/datum/reagent/medicine/polypyr/expose_mob(mob/living/carbon/human/exposed_human, methods=TOUCH, reac_volume)
-	. = ..()
-	if(!(methods & (TOUCH|VAPOR)) || !ishuman(exposed_human) || (reac_volume < 0.5))
-		return
-	exposed_human.hair_color = "92f"
-	exposed_human.facial_hair_color = "92f"
-	exposed_human.update_hair()
 
 /datum/reagent/medicine/polypyr/overdose_process(mob/living/M, delta_time, times_fired)
 	M.adjustOrganLoss(ORGAN_SLOT_LUNGS, 0.5 * REM * delta_time)

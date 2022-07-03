@@ -37,20 +37,6 @@
 #define MUTANT_INDEX_NAME		"name"
 #define MUTANT_INDEX_COLOR_LIST	"color"
 
-//The color list that is passed to color matrixed things when a person is husked
-#define HUSK_COLOR_LIST list(list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0, 0, 0, 1))
-
-//Defines for an accessory to be randomed
-#define ACC_RANDOM		"random"
-
-//organ slots
-#define ORGAN_SLOT_PENIS "penis"
-#define ORGAN_SLOT_VAGINA "vagina"
-#define ORGAN_SLOT_TESTICLES "testicles"
-#define ORGAN_SLOT_BREASTS "breasts"
-
-#define ORGAN_SLOT_WINGS "wings"
-
 #define MAXIMUM_MARKINGS_PER_LIMB 3
 
 #define PREVIEW_PREF_JOB "Job"

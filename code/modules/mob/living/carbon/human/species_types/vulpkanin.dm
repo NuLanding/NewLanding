@@ -5,8 +5,6 @@
 	default_color = "444"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,HAS_FLESH,HAS_BONE,HAIR)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	mutant_bodyparts = list()
-	default_mutant_bodyparts = list("tail" = ACC_RANDOM, "snout" = ACC_RANDOM, "ears" = ACC_RANDOM, "legs" = "Normal Legs")
 	attack_verb = "slash"
 	attack_sound = 'sound/weapons/slash.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
@@ -14,6 +12,28 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	limbs_icon = 'icons/mob/species/mammal_parts_greyscale.dmi'
 	limbs_id = "mammal"
+	organs = list(
+		ORGAN_SLOT_HAIR = /obj/item/organ/hair/head,
+		ORGAN_SLOT_FACIAL_HAIR = /obj/item/organ/hair/facial,
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EARS = /obj/item/organ/ears/vulpkanin,
+		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_TAIL = /obj/item/organ/tail/vulpkanin,
+		ORGAN_SLOT_SNOUT = /obj/item/organ/snout/vulpkanin,
+		)
+	organ_customizers = list(
+		/datum/organ_customizer/eyes/humanoid,
+		/datum/organ_customizer/hair/head/humanoid,
+		/datum/organ_customizer/hair/facial/humanoid,
+		/datum/organ_customizer/tail/vulpkanin,
+		/datum/organ_customizer/snout/vulpkanin,
+		)
 
 /datum/species/vulpkanin/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

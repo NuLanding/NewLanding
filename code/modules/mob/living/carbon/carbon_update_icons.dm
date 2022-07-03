@@ -227,10 +227,10 @@
 
 /mob/living/carbon/proc/update_body_parts()
 	//CHECK FOR UPDATE
-	var/oldkey = icon_render_key
-	icon_render_key = generate_icon_render_key()
-	if(oldkey == icon_render_key)
-		return
+	//var/oldkey = icon_render_key
+	//icon_render_key = generate_icon_render_key()
+	//if(oldkey == icon_render_key)
+	//	return
 
 	remove_overlay(BODYPARTS_LAYER)
 
@@ -244,10 +244,6 @@
 		return
 
 	var/is_taur = FALSE
-	if(dna?.species.mutant_bodyparts["taur"])
-		var/datum/sprite_accessory/taur/S = GLOB.sprite_accessories["taur"][dna.species.mutant_bodyparts["taur"][MUTANT_INDEX_NAME]]
-		if(S.hide_legs)
-			is_taur = TRUE
 
 	//GENERATE NEW LIMBS
 	var/list/new_limbs = list()
@@ -295,10 +291,6 @@
 
 	if(HAS_TRAIT(src, TRAIT_HUSK))
 		. += "-husk"
-
-	if(dna?.species.mutant_bodyparts["taur"])
-		. += "-taur"
-
 
 //change the mob's icon to the one matching its key
 /mob/living/carbon/proc/load_limb_from_cache()

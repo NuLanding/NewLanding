@@ -6,7 +6,6 @@
 	attack_effect = ATTACK_EFFECT_BITE
 	attack_sound = 'sound/weapons/bite.ogg'
 	miss_sound = 'sound/weapons/bite.ogg'
-	default_mutant_bodyparts = list("tail" = "Monkey")
 	skinned_type = /obj/item/stack/sheet/animalhide/monkey
 	meat = /obj/item/food/meat/slab/monkey
 	knife_butcher_results = list(/obj/item/food/meat/slab/monkey = 5, /obj/item/stack/sheet/animalhide/monkey = 1)
@@ -62,10 +61,6 @@
 	. = ..()
 	H.pass_flags |= PASSTABLE
 	H.butcher_results = knife_butcher_results
-	if(!H.dna.features["tail_monkey"] || H.dna.features["tail_monkey"] == "None")
-		H.dna.features["tail_monkey"] = "Monkey"
-		handle_mutant_bodyparts(H)
-
 	H.dna.add_mutation(RACEMUT, MUT_NORMAL)
 	H.dna.activate_mutation(RACEMUT)
 
@@ -110,7 +105,3 @@
 		source.gorillize()
 		return
 
-/datum/species/monkey/check_roundstart_eligible()
-	if(SSgamemode.holidays && SSgamemode.holidays[MONKEYDAY])
-		return TRUE
-	return ..()

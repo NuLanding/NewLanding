@@ -26,14 +26,6 @@
 
 	//Limb appearance info:
 	var/real_name = "" //Replacement name
-	//Hair colour and style
-	var/hair_color = "000"
-	var/hairstyle = "Bald"
-	var/hair_alpha = 255
-	//Facial hair colour and style
-	var/facial_hair_color = "000"
-	var/facial_hairstyle = "Shaved"
-	//Eye Colouring
 
 	var/lip_style
 	var/lip_color = "white"
@@ -138,49 +130,12 @@
 	real_name = head_owner.real_name
 	if(HAS_TRAIT(head_owner, TRAIT_HUSK))
 		real_name = "Unknown"
-		hairstyle = "Bald"
-		facial_hairstyle = "Shaved"
 		lip_style = null
 		stored_lipstick_trait = null
 
 	else if(!animal_origin)
 		var/mob/living/carbon/human/human_head_owner = head_owner
 		var/datum/species/owner_species = human_head_owner.dna.species
-
-		//Facial hair
-		if(human_head_owner.facial_hairstyle && (FACEHAIR in owner_species.species_traits))
-			facial_hairstyle = human_head_owner.facial_hairstyle
-			if(owner_species.hair_color)
-				if(owner_species.hair_color == "mutcolor")
-					facial_hair_color = human_head_owner.dna.features["mcolor"]
-				else if(hair_color == "fixedmutcolor")
-					facial_hair_color = "#[owner_species.fixed_mut_color]"
-				else
-					facial_hair_color = owner_species.hair_color
-			else
-				facial_hair_color = human_head_owner.facial_hair_color
-			hair_alpha = owner_species.hair_alpha
-		else
-			facial_hairstyle = "Shaved"
-			facial_hair_color = "000"
-			hair_alpha = 255
-		//Hair
-		if(human_head_owner.hairstyle && (HAIR in owner_species.species_traits))
-			hairstyle = human_head_owner.hairstyle
-			if(owner_species.hair_color)
-				if(owner_species.hair_color == "mutcolor")
-					hair_color = human_head_owner.dna.features["mcolor"]
-				else if(hair_color == "fixedmutcolor")
-					hair_color = "#[owner_species.fixed_mut_color]"
-				else
-					hair_color = owner_species.hair_color
-			else
-				hair_color = human_head_owner.hair_color
-			hair_alpha = owner_species.hair_alpha
-		else
-			hairstyle = "Bald"
-			hair_color = "000"
-			hair_alpha = initial(hair_alpha)
 		// lipstick
 		if(human_head_owner.lip_style && (LIPS in owner_species.species_traits))
 			lip_style = human_head_owner.lip_style
@@ -191,7 +146,7 @@
 	..()
 
 /obj/item/bodypart/head/update_icon_dropped()
-	var/list/standing = get_limb_icon(1)
+	var/list/standing = get_limb_icon(TRUE)
 	if(!standing.len)
 		icon_state = initial(icon_state)//no overlays found, we default back to initial icon.
 		return
@@ -206,14 +161,6 @@
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
 
 		if(status != BODYPART_ROBOTIC) //having a robotic head hides certain features.
-			//facial hair
-			if(facial_hairstyle)
-				var/datum/sprite_accessory/sprite = GLOB.facial_hairstyles_list[facial_hairstyle]
-				if(sprite.icon_state)
-					var/image/facial_overlay = image(sprite.icon, "[sprite.icon_state]", -HAIR_LAYER, SOUTH)
-					facial_overlay.color = "#" + facial_hair_color
-					facial_overlay.alpha = hair_alpha
-					. += facial_overlay
 
 			//Applies the debrained overlay if there is no brain
 			if(!brain)
@@ -228,13 +175,6 @@
 					debrain_overlay.icon = 'icons/mob/sprite_accessory/human_face.dmi'
 					debrain_overlay.icon_state = "debrained"
 				. += debrain_overlay
-			else
-				var/datum/sprite_accessory/sprite2 = GLOB.hairstyles_list[hairstyle]
-				if(sprite2.icon_state)
-					var/image/hair_overlay = image(sprite2.icon, "[sprite2.icon_state]", -HAIR_LAYER, SOUTH)
-					hair_overlay.color = "#" + hair_color
-					hair_overlay.alpha = hair_alpha
-					. += hair_overlay
 
 
 		// lipstick
@@ -242,15 +182,6 @@
 			var/image/lips_overlay = image('icons/mob/sprite_accessory/human_face.dmi', "lips_[lip_style]", -BODY_LAYER, SOUTH)
 			lips_overlay.color = lip_color
 			. += lips_overlay
-
-		// eyes
-		var/image/eyes_overlay = image('icons/mob/sprite_accessory/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
-		. += eyes_overlay
-		if(eyes)
-			eyes_overlay.icon_state = eyes.eye_icon_state
-
-			if(eyes.eye_color)
-				eyes_overlay.color = "#" + eyes.eye_color
 
 /obj/item/bodypart/head/monkey
 	icon = 'icons/mob/animal_parts.dmi'

@@ -218,10 +218,6 @@
 
 ///copies over clothing preferences like underwear to another human
 /mob/living/carbon/human/proc/copy_clothing_prefs(mob/living/carbon/human/destination)
-	destination.underwear = underwear
-	destination.underwear_color = underwear_color
-	destination.undershirt = undershirt
-	destination.socks = socks
 	destination.jumpsuit_style = jumpsuit_style
 
 
@@ -242,34 +238,11 @@
 		real_name = new_name
 	if(randomise_flags & RANDOMIZE_AGE)
 		age = rand(AGE_MIN, AGE_MAX)
-	if(randomise_flags & RANDOMIZE_UNDERWEAR)
-		underwear = random_underwear(gender)
-	if(randomise_flags & RANDOMIZE_UNDERWEAR_COLOR)
-		underwear_color = random_short_color()
-	if(randomise_flags & RANDOMIZE_UNDERSHIRT)
-		undershirt = random_undershirt(gender)
-	if(randomise_flags & RANDOMIZE_SOCKS)
-		socks = random_socks()
 	if(randomise_flags & RANDOMIZE_BACKPACK)
 		backpack = random_backpack()
 	if(randomise_flags & RANDOMIZE_JUMPSUIT_STYLE)
 		jumpsuit_style = pick(GLOB.jumpsuitlist)
-	if(randomise_flags & RANDOMIZE_HAIRSTYLE)
-		hairstyle = random_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIRSTYLE)
-		facial_hairstyle = random_facial_hairstyle(gender)
-	if(randomise_flags & RANDOMIZE_HAIR_COLOR)
-		hair_color = random_short_color()
-	if(randomise_flags & RANDOMIZE_FACIAL_HAIR_COLOR)
-		facial_hair_color = random_short_color()
 	if(randomise_flags & RANDOMIZE_SKIN_TONE)
 		skin_tone = random_skin_tone()
-	if(randomise_flags & RANDOMIZE_EYE_COLOR)
-		eye_color = random_eye_color()
-		var/obj/item/organ/eyes/organ_eyes = getorgan(/obj/item/organ/eyes)
-		if(organ_eyes)
-			if(!initial(organ_eyes.eye_color))
-				organ_eyes.eye_color = eye_color
-			organ_eyes.old_eye_color = eye_color
 	if(randomise_flags & RANDOMIZE_FEATURES)
 		dna.features = random_features()
