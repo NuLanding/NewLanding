@@ -15,6 +15,29 @@
 	scream_sounds = list(
 		NEUTER = 'sound/voice/cat_scream.ogg'
 	)
+	organs = list(
+		ORGAN_SLOT_HAIR = /obj/item/organ/hair/head,
+		ORGAN_SLOT_FACIAL_HAIR = /obj/item/organ/hair/facial,
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EARS = /obj/item/organ/ears/tajaran,
+		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_TAIL = /obj/item/organ/tail/tajaran,
+		ORGAN_SLOT_SNOUT = /obj/item/organ/snout/tajaran,
+		)
+	organ_customizers = list(
+		/datum/organ_customizer/eyes/humanoid,
+		/datum/organ_customizer/hair/head/humanoid,
+		/datum/organ_customizer/hair/facial/humanoid,
+		/datum/organ_customizer/tail/tajaran,
+		/datum/organ_customizer/snout/tajaran,
+		/datum/organ_customizer/ears/tajaran,
+		)
 
 /datum/species/tajaran/get_random_features()
 	var/list/returned = MANDATORY_FEATURE_LIST

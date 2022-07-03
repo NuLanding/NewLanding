@@ -37,6 +37,8 @@
 		)
 
 /datum/organ_customizer/neck_feature/mammal_fluff
+	default_missing_organ = TRUE
+	allows_missing_organ = TRUE
 	organ_choices = list(
 		/datum/organ_choice/neck_feature/mammal_fluff,
 		/datum/organ_choice/neck_feature/moth_fluff,

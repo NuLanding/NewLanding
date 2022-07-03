@@ -69,3 +69,6 @@
 
 /obj/item/organ/ears/cat
 	name = "felinid ears"
+
+/obj/item/organ/ears/akula
+	name = "akula ears"

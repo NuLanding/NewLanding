@@ -51,3 +51,6 @@
 
 /obj/item/organ/tail/xeno
 	name = "xeno tail"
+
+/obj/item/organ/tail/akula
+	name = "akula tail"

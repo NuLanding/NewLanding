@@ -9,6 +9,8 @@
 	organ_slot = ORGAN_SLOT_WINGS
 
 /datum/organ_customizer/wings/mammal
+	default_missing_organ = TRUE
+	allows_missing_organ = TRUE
 	organ_choices = list(/datum/organ_choice/wings/mammal)
 
 /datum/organ_choice/wings/mammal

@@ -33,6 +33,7 @@
 		/datum/organ_customizer/hair/facial/humanoid,
 		/datum/organ_customizer/tail/vulpkanin,
 		/datum/organ_customizer/snout/vulpkanin,
+		/datum/organ_customizer/ears/vulpkanin,
 		)
 
 /datum/species/vulpkanin/get_random_features()

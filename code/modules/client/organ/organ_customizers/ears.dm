@@ -8,6 +8,10 @@
 	organ_slot = ORGAN_SLOT_EARS
 	abstract_type = /datum/organ_choice/ears
 
+/datum/organ_choice/ears/humanoid
+	name = "Humanoid Ears"
+	organ_type = /obj/item/organ/ears
+
 /datum/organ_customizer/ears/vulpkanin
 	organ_choices = list(/datum/organ_choice/ears/vulpkanin)
 
@@ -35,6 +39,16 @@
 	organ_type = /obj/item/organ/ears/cat
 	sprite_accessories = list(/datum/sprite_accessory/ears/cat)
 
+/datum/organ_customizer/ears/akula
+	organ_choices = list(/datum/organ_choice/ears/akula)
+
+/datum/organ_choice/ears/akula
+	name = "Akula Ears"
+	organ_type = /obj/item/organ/ears/akula
+	sprite_accessories = list(
+		/datum/sprite_accessory/ears/sergal,
+		)
+
 /datum/organ_customizer/ears/mammal
 	organ_choices = list(/datum/organ_choice/ears/mammal)
 
@@ -42,6 +56,7 @@
 	name = "Mammal Ears"
 	organ_type = /obj/item/organ/ears/mammal
 	sprite_accessories = list(
+		/datum/sprite_accessory/none,
 		/datum/sprite_accessory/ears/cat,
 		/datum/sprite_accessory/ears/axolotl,
 		/datum/sprite_accessory/ears/bat,

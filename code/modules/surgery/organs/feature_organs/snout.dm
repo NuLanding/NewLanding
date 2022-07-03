@@ -24,5 +24,8 @@
 /obj/item/organ/snout/tajaran
 	name = "tajaran snout"
 
+/obj/item/organ/snout/akula
+	name = "akula snout"
+
 /obj/item/organ/snout/synth
 	name = "synthetic snout"

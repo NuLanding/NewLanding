@@ -81,7 +81,16 @@
 /datum/organ_customizer/tail/cat
 	organ_choices = list(/datum/organ_choice/tail/cat)
 
+/datum/organ_choice/tail/akula
+	name = "Akula Tail"
+	organ_type = /obj/item/organ/tail/akula
+	sprite_accessories = list(/datum/sprite_accessory/tail/shark)
+
+/datum/organ_customizer/tail/akula
+	organ_choices = list(/datum/organ_choice/tail/akula)
+
 /datum/organ_customizer/tail/mammal
+	allows_missing_organ = TRUE
 	organ_choices = list(
 		/datum/organ_choice/tail/mammal,
 		/datum/organ_choice/tail/lizard,

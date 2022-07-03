@@ -36,6 +36,30 @@
 
 	cultures = list(CULTURES_EXOTIC, CULTURES_LIZARD, CULTURES_HUMAN)
 	learnable_languages = list(/datum/language/common, /datum/language/draconic)
+	organs = list(
+		ORGAN_SLOT_BRAIN = /obj/item/organ/brain,
+		ORGAN_SLOT_HEART = /obj/item/organ/heart,
+		ORGAN_SLOT_LUNGS = /obj/item/organ/lungs,
+		ORGAN_SLOT_EYES = /obj/item/organ/eyes,
+		ORGAN_SLOT_EARS = /obj/item/organ/ears,
+		ORGAN_SLOT_TONGUE = /obj/item/organ/tongue,
+		ORGAN_SLOT_LIVER = /obj/item/organ/liver,
+		ORGAN_SLOT_STOMACH = /obj/item/organ/stomach,
+		ORGAN_SLOT_APPENDIX = /obj/item/organ/appendix,
+		ORGAN_SLOT_TAIL = /obj/item/organ/tail/lizard,
+		ORGAN_SLOT_TAIL_FEATURE = /obj/item/organ/tail_feature/lizard_spines,
+		ORGAN_SLOT_SNOUT = /obj/item/organ/snout/lizard,
+		ORGAN_SLOT_HORNS = /obj/item/organ/horns/humanoid,
+		ORGAN_SLOT_FRILLS = /obj/item/organ/frills/humanoid,
+		)
+	organ_customizers = list(
+		/datum/organ_customizer/eyes/humanoid,
+		/datum/organ_customizer/tail/lizard,
+		/datum/organ_customizer/tail_feature/lizard_spines,
+		/datum/organ_customizer/snout/lizard,
+		/datum/organ_customizer/horns/humanoid,
+		/datum/organ_customizer/frills/humanoid,
+		)
 
 /// Lizards are cold blooded and do not stabilize body temperature naturally
 /datum/species/lizard/body_temperature_core(mob/living/carbon/human/humi, delta_time, times_fired)

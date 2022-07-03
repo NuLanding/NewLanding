@@ -78,6 +78,14 @@
 		/datum/sprite_accessory/snout/synthliz/over,
 		)
 
+/datum/organ_customizer/snout/akula
+	organ_choices = list(/datum/organ_choice/snout/akula)
+
+/datum/organ_choice/snout/akula
+	name = "Shark Snout"
+	organ_type = /obj/item/organ/snout/akula
+	sprite_accessories = list(/datum/sprite_accessory/snout/hshark)
+
 /datum/organ_customizer/snout/mammal
 	allows_missing_organ = TRUE
 	organ_choices = list(
