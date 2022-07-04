@@ -132,20 +132,14 @@
 /obj/item/storage/bag/ore/proc/Pickup_ores(mob/living/user)
 	SIGNAL_HANDLER
 	var/show_message = FALSE
-	var/obj/structure/ore_box/box
 	var/turf/tile = user.loc
 	if (!isturf(tile))
 		return
-	if (istype(user.pulling, /obj/structure/ore_box))
-		box = user.pulling
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	if(STR)
 		for(var/A in tile)
 			if (!is_type_in_typecache(A, STR.can_hold))
 				continue
-			if (box)
-				user.transferItemToLoc(A, box)
-				show_message = TRUE
 			else if(SEND_SIGNAL(src, COMSIG_TRY_STORAGE_INSERT, A, user, TRUE))
 				show_message = TRUE
 			else
@@ -155,12 +149,8 @@
 					continue
 	if(show_message)
 		playsound(user, "rustle", 50, TRUE)
-		if (box)
-			user.visible_message(SPAN_NOTICE("[user] offloads the ores beneath [user.p_them()] into [box]."), \
-			SPAN_NOTICE("You offload the ores beneath you into your [box]."))
-		else
-			user.visible_message(SPAN_NOTICE("[user] scoops up the ores beneath [user.p_them()]."), \
-				SPAN_NOTICE("You scoop up the ores beneath you with your [name]."))
+		user.visible_message(SPAN_NOTICE("[user] scoops up the ores beneath [user.p_them()]."), \
+			SPAN_NOTICE("You scoop up the ores beneath you with your [name]."))
 	spam_protection = FALSE
 
 /obj/item/storage/bag/ore/holding //miners, your messiah has arrived
