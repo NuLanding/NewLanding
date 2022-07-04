@@ -70,27 +70,3 @@
 	cooldown_min = 200 //100 deciseconds reduction per rank
 
 	action_icon_state = "gib"
-
-/obj/effect/proc_holder/spell/targeted/touch/flesh_to_stone
-	name = "Flesh to Stone"
-	desc = "This spell charges your hand with the power to turn victims into inert statues for a long period of time."
-	hand_path = /obj/item/melee/touch_attack/fleshtostone
-
-	school = SCHOOL_TRANSMUTATION
-	charge_max = 600
-	clothes_req = TRUE
-	cooldown_min = 200 //100 deciseconds reduction per rank
-
-	action_icon_state = "statue"
-	sound = 'sound/magic/fleshtostone.ogg'
-
-/obj/effect/proc_holder/spell/targeted/touch/duffelbag
-	name = "Bestow Cursed Duffel Bag"
-	desc = "A spell that summons a duffel bag demon on the target, slowing them down and slowly eating them."
-	hand_path = /obj/item/melee/touch_attack/duffelbag
-	action_icon_state = "duffelbag_curse"
-
-	school = SCHOOL_CONJURATION
-	charge_max = 60
-	clothes_req = FALSE
-	cooldown_min = 20

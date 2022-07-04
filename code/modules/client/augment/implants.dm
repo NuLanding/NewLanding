@@ -30,8 +30,3 @@
 //MOUTH IMPLANTS
 /datum/augment_item/implant/mouth
 	slot = AUGMENT_SLOT_MOUTH_IMPLANT
-
-/datum/augment_item/implant/mouth/breathing_tube
-	name = "Breathing Tube"
-	cost = 2
-	path = /obj/item/organ/cyberimp/mouth/breathing_tube

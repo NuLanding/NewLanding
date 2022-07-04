@@ -147,18 +147,6 @@
 			SPAN_NOTICE("You scoop up the ores beneath you with your [name]."))
 	spam_protection = FALSE
 
-/obj/item/storage/bag/ore/holding //miners, your messiah has arrived
-	name = "mining satchel of holding"
-	desc = "A revolution in convenience, this satchel allows for huge amounts of ore storage. It's been outfitted with anti-malfunction safety measures."
-	icon_state = "satchel_bspace"
-
-/obj/item/storage/bag/ore/holding/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/concrete/stack/STR = GetComponent(/datum/component/storage/concrete/stack)
-	STR.max_items = INFINITY
-	STR.max_combined_w_class = INFINITY
-	STR.max_combined_stack_amount = INFINITY
-
 // -----------------------------
 //          Plant bag
 // -----------------------------
@@ -329,87 +317,3 @@
 	icon = 'icons/obj/food/containers.dmi'
 	icon_state = "foodtray"
 	desc = "A cheap metal tray to pile today's meal onto."
-
-/*
- * Chemistry bag
- */
-
-/obj/item/storage/bag/chemistry
-	name = "chemistry bag"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "bag"
-	worn_icon_state = "chembag"
-	desc = "A bag for storing pills, patches, and bottles."
-	resistance_flags = FLAMMABLE
-
-/obj/item/storage/bag/chemistry/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 200
-	STR.max_items = 50
-	STR.insert_preposition = "in"
-	STR.set_holdable(list(
-		/obj/item/reagent_containers/pill,
-		/obj/item/reagent_containers/glass/beaker,
-		/obj/item/reagent_containers/glass/bottle,
-		/obj/item/reagent_containers/food/drinks/waterbottle,
-		/obj/item/reagent_containers/medigel,
-		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/chem_pack
-		))
-
-/*
- *  Biowaste bag (mostly for xenobiologists)
- */
-
-/obj/item/storage/bag/bio
-	name = "bio bag"
-	icon = 'icons/obj/chemical.dmi'
-	icon_state = "biobag"
-	worn_icon_state = "biobag"
-	desc = "A bag for the safe transportation and disposal of biowaste and other biological materials."
-	resistance_flags = FLAMMABLE
-
-/obj/item/storage/bag/bio/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 200
-	STR.max_items = 25
-	STR.insert_preposition = "in"
-	STR.set_holdable(list(
-		/obj/item/reagent_containers/syringe,
-		/obj/item/reagent_containers/dropper,
-		/obj/item/reagent_containers/glass/beaker,
-		/obj/item/reagent_containers/glass/bottle,
-		/obj/item/reagent_containers/blood,
-		/obj/item/reagent_containers/hypospray/medipen,
-		/obj/item/food/deadmouse,
-		/obj/item/food/monkeycube,
-		/obj/item/organ,
-		/obj/item/bodypart
-		))
-
-/*
- *  Construction bag (for engineering, holds stock parts and electronics)
- */
-
-/obj/item/storage/bag/construction
-	name = "construction bag"
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "construction_bag"
-	worn_icon_state = "construction_bag"
-	desc = "A bag for storing small construction components."
-	resistance_flags = FLAMMABLE
-
-/obj/item/storage/bag/construction/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_combined_w_class = 100
-	STR.max_items = 50
-	STR.max_w_class = WEIGHT_CLASS_SMALL
-	STR.insert_preposition = "in"
-	STR.set_holdable(list(
-		/obj/item/stack/ore/bluespace_crystal,
-		/obj/item/reagent_containers/glass/beaker,
-		))

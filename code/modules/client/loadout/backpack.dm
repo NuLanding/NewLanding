@@ -38,9 +38,6 @@
 /datum/loadout_item/backpack/fragrance/nectarine
 	path = /obj/item/perfume/nectarine
 
-/datum/loadout_item/backpack/wallet
-	path = /obj/item/storage/wallet
-
 /datum/loadout_item/backpack/flask
 	path = /obj/item/reagent_containers/food/drinks/flask
 	cost = 2
@@ -64,10 +61,7 @@
 	subcategory = LOADOUT_SUBCATEGORY_BACKPACK_TOYS
 
 /datum/loadout_item/backpack/toy/dice
-	path = /obj/item/storage/pill_bottle/dice
-
-/datum/loadout_item/backpack/toy/deathroll_dice
-	path = /obj/item/deathroll_dice
+	path = /obj/item/storage/dice
 
 /datum/loadout_item/backpack/toy/eightball
 	path = /obj/item/toy/eightball

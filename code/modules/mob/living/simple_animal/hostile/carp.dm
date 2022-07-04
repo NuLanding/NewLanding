@@ -22,7 +22,6 @@
 	maxHealth = 25
 	health = 25
 	search_objects = 1
-	wanted_objects = list(/obj/item/storage/cans)
 	harm_intent_damage = 8
 	obj_damage = 50
 	melee_damage_lower = 20
@@ -95,21 +94,6 @@
 	. = ..()
 	if(.)
 		update_icon()
-
-/mob/living/simple_animal/hostile/carp/proc/chomp_plastic()
-	var/obj/item/storage/cans/tasty_plastic = locate(/obj/item/storage/cans) in view(1, src)
-	if(tasty_plastic && Adjacent(tasty_plastic))
-		visible_message(SPAN_NOTICE("[src] gets its head stuck in [tasty_plastic], and gets cut breaking free from it!"), SPAN_NOTICE("You try to avoid [tasty_plastic], but it looks so... delicious... Ow! It cuts the inside of your mouth!"))
-
-		new /obj/effect/decal/cleanable/plastic(loc)
-
-		adjustBruteLoss(5)
-		qdel(tasty_plastic)
-
-/mob/living/simple_animal/hostile/carp/Life(delta_time = SSMOBS_DT, times_fired)
-	. = ..()
-	if(stat == CONSCIOUS)
-		chomp_plastic()
 
 /mob/living/simple_animal/hostile/carp/proc/tamed(mob/living/tamer)
 	can_buckle = TRUE

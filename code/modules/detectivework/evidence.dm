@@ -87,11 +87,3 @@
 		to_chat(user, SPAN_NOTICE("[src] is empty."))
 		icon_state = "evidenceobj"
 	return
-
-/obj/item/storage/box/evidence
-	name = "evidence bag box"
-	desc = "A box claiming to contain evidence bags."
-
-/obj/item/storage/box/evidence/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/evidencebag(src)

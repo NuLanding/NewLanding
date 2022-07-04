@@ -160,50 +160,6 @@ GLOBAL_DATUM(current_anonymous_theme, /datum/anonymous_theme)
 	var/phonetic = pick(GLOB.phonetic_alphabet)
 	return "Employee [is_ai ? "Core" : "Assistant"] [verbs] [phonetic]"
 
-/datum/anonymous_theme/wizards
-	name = "Wizard Academy"
-	extras_prompt = "Give everyone random robes too?"
-
-/datum/anonymous_theme/wizards/player_extras(mob/living/player)
-	var/random_path = pick(
-		/obj/item/storage/box/wizard_kit,
-		/obj/item/storage/box/wizard_kit/red,
-		/obj/item/storage/box/wizard_kit/yellow,
-		/obj/item/storage/box/wizard_kit/magusred,
-		/obj/item/storage/box/wizard_kit/magusblue,
-		/obj/item/storage/box/wizard_kit/black\
-	)
-	player.put_in_hands(new random_path())
-
-/datum/anonymous_theme/wizards/announce_to_all_players()
-	priority_announce("Your station has been caught by a Wizard Federation Memetic Hazard. You are not y0urself, and yo% a2E 34!NOT4--- Welcome to the Academy, apprentices!", "Memetic Hazard", SSstation.announcer.get_rand_alert_sound())
-
-/datum/anonymous_theme/wizards/anonymous_name(mob/target)
-	var/wizard_name_first = pick(GLOB.wizard_first)
-	var/wizard_name_second = pick(GLOB.wizard_second)
-	return "[wizard_name_first] [wizard_name_second]"
-
-/datum/anonymous_theme/wizards/anonymous_ai_name(is_ai = FALSE)
-	return "Crystallized Knowledge [is_ai ? "Nexus" : "Sliver"] +[rand(1,99)]" //Could two people roll the same number? Yeah, probably. Do I CARE? Nawww
-
-/obj/item/storage/box/wizard_kit
-	name = "Generic Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/red
-	name = "Evocation Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/yellow
-	name = "Translocation Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/magusred
-	name = "Conjuration Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/magusblue
-	name = "Transmutation Wizard Cosplay Kit"
-
-/obj/item/storage/box/wizard_kit/black
-	name = "Necromancy Wizard Cosplay Kit"
-
 /datum/anonymous_theme/spider_clan
 	name = "Spider Clan"
 

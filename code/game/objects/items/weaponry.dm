@@ -85,6 +85,17 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	user.visible_message(SPAN_SUICIDE("[user] is falling on [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return(BRUTELOSS)
 
+/obj/item/claymore/weak
+	desc = "This one is rusted."
+	force = 30
+	armour_penetration = 15
+
+/obj/item/claymore/weak/ceremonial
+	desc = "A rusted claymore, once at the heart of a powerful scottish clan struck down and oppressed by tyrants, it has been passed down the ages as a symbol of defiance."
+	force = 15
+	block_chance = 30
+	armour_penetration = 5
+
 //statistically similar to e-cutlasses
 /obj/item/claymore/cutlass
 	name = "cutlass"
@@ -290,44 +301,6 @@ for further reading, please see: https://github.com/tgstation/tgstation/pull/301
 	custom_materials = list(/datum/material/iron=50)
 	attack_verb_continuous = list("bludgeons", "whacks", "disciplines", "thrashes")
 	attack_verb_simple = list("bludgeon", "whack", "discipline", "thrash")
-
-/obj/item/staff
-	name = "wizard staff"
-	desc = "Apparently a staff used by the wizard."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "staff"
-	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
-	force = 3
-	throwforce = 5
-	throw_speed = 2
-	throw_range = 5
-	w_class = WEIGHT_CLASS_SMALL
-	armour_penetration = 100
-	attack_verb_continuous = list("bludgeons", "whacks", "disciplines")
-	attack_verb_simple = list("bludgeon", "whack", "discipline")
-	resistance_flags = FLAMMABLE
-
-/obj/item/staff/broom
-	name = "broom"
-	desc = "Used for sweeping, and flying into the night while cackling. Black cat not included."
-	icon = 'icons/obj/wizard.dmi'
-	icon_state = "broom"
-	resistance_flags = FLAMMABLE
-
-/obj/item/staff/stick
-	name = "stick"
-	desc = "A great tool to drag someone else's drinks across the bar."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "cane"
-	inhand_icon_state = "stick"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	force = 3
-	throwforce = 5
-	throw_speed = 2
-	throw_range = 5
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/ectoplasm
 	name = "ectoplasm"

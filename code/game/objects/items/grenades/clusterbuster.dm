@@ -130,10 +130,6 @@
 	name = "Invasion of the Space Carps"
 	payload = /obj/item/grenade/spawnergrenade/spesscarp
 
-/obj/item/grenade/clusterbuster/soap
-	name = "Slipocalypse"
-	payload = /obj/item/grenade/spawnergrenade/syndiesoap
-
 /obj/item/grenade/clusterbuster/clf3
 	name = "WELCOME TO HELL"
 	payload = /obj/item/grenade/chem_grenade/clf3

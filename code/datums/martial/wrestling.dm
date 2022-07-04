@@ -461,19 +461,3 @@ If you make a derivative work from this code, you must include this notification
 	D.Stun(rand(60,100))
 	log_combat(A, D, "cinched")
 	return 1
-
-/obj/item/storage/belt/champion/wrestling
-	name = "Wrestling Belt"
-	var/datum/martial_art/wrestling/style = new
-
-/obj/item/storage/belt/champion/wrestling/equipped(mob/user, slot)
-	. = ..()
-	if(slot == ITEM_SLOT_BELT)
-		style.teach(user, TRUE)
-	return
-
-/obj/item/storage/belt/champion/wrestling/dropped(mob/user)
-	. = ..()
-	if(user.get_item_by_slot(ITEM_SLOT_BELT) == src)
-		style.remove(user)
-	return

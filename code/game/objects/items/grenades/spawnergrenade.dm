@@ -30,7 +30,3 @@
 	name = "carp delivery grenade"
 	spawner_type = /mob/living/simple_animal/hostile/carp
 	deliveryamt = 5
-
-/obj/item/grenade/spawnergrenade/syndiesoap
-	name = "Mister Scrubby"
-	spawner_type = /obj/item/soap/syndie

@@ -52,10 +52,7 @@
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(if_no_id = "Unknown")
-	var/obj/item/storage/wallet/wallet = wear_id
 	var/obj/item/card/id/id = wear_id
-	if(istype(wallet))
-		id = wallet.front_id
 	if(istype(id))
 		. = id.registered_name
 	if(!.)

@@ -1,7 +1,7 @@
 /**
  * Udder component; for farm animals to generate milk.
  *
- * Used for cows, goats, gutlunches. neat!
+ * Used for cows, goats. neat!
  */
 /datum/component/udder
 	///abstract item for managing reagents (further down in this file)
@@ -87,7 +87,7 @@
  * # initial_conditions
  *
  * Proc called on creation separate from the reagent datum creation to allow for signalled milk generation instead of processing milk generation
- * also useful for changing initial amounts in reagent holder (cows start with milk, gutlunches start empty)
+ * also useful for changing initial amounts in reagent holder (cows start with milk)
  */
 /obj/item/udder/proc/initial_conditions()
 	reagents.add_reagent(/datum/reagent/consumable/milk, 20)
@@ -118,47 +118,3 @@
 		user.visible_message(SPAN_NOTICE("[user] milks [src] using \the [milk_holder]."), SPAN_NOTICE("You milk [src] using \the [milk_holder]."))
 	else
 		to_chat(user, SPAN_WARNING("The udder is dry. Wait a bit longer..."))
-
-/**
- * # gutlunch udder subtype
- *
- * Used by gutlunches, and generates healing reagents instead of milk on eating gibs instead of a process. Starts empty!
- * Female gutlunches (ahem, guthens if you will) make babies when their udder is full under processing, instead of milk generation
- */
-/obj/item/udder/gutlunch
-	name = "nutrient sac"
-
-/obj/item/udder/gutlunch/initial_conditions()
-	if(!udder_mob)
-		return
-	if(udder_mob.gender == FEMALE)
-		START_PROCESSING(SSobj, src)
-	RegisterSignal(udder_mob, COMSIG_HOSTILE_PRE_ATTACKINGTARGET, .proc/on_mob_attacking)
-
-/obj/item/udder/gutlunch/process(delta_time)
-	var/mob/living/simple_animal/hostile/asteroid/gutlunch/gutlunch = udder_mob
-	if(reagents.total_volume != reagents.maximum_volume)
-		return
-	if(gutlunch.make_babies())
-		reagents.clear_reagents()
-		//usually this would be a callback but this is a specifically gutlunch feature so fuck it, gutlunch specific proccall
-		gutlunch.regenerate_icons(reagents.total_volume, reagents.maximum_volume)
-
-///signal called on parent attacking an atom
-/obj/item/udder/proc/on_mob_attacking(mob/living/simple_animal/hostile/gutlunch, atom/target)
-	if(is_type_in_typecache(target, gutlunch.wanted_objects)) //we eats
-		generate()
-		gutlunch.visible_message(SPAN_NOTICE("[src] slurps up [target]."))
-		qdel(target)
-	return COMPONENT_HOSTILE_NO_ATTACK //there is no longer a target to attack
-
-/obj/item/udder/gutlunch/generate()
-	var/made_something = FALSE
-	if(prob(60))
-		reagents.add_reagent(/datum/reagent/consumable/cream, rand(2, 5))
-		made_something = TRUE
-	if(prob(45))
-		reagents.add_reagent(/datum/reagent/medicine/salglu_solution, rand(2,5))
-		made_something = TRUE
-	if(made_something && on_generate_callback)
-		on_generate_callback.Invoke(reagents.total_volume, reagents.maximum_volume)

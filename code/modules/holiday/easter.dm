@@ -96,35 +96,6 @@
 	maxbodytemp = 1500
 	unsuitable_atmos_damage = 0
 
-//Easter Baskets
-/obj/item/storage/basket/easter
-	name = "Easter Basket"
-
-/obj/item/storage/basket/easter/Initialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.set_holdable(list(/obj/item/food/egg, /obj/item/food/chocolateegg, /obj/item/food/boiledegg))
-
-/obj/item/storage/basket/easter/proc/countEggs()
-	cut_overlays()
-	add_overlay("basket-grass")
-	add_overlay("basket-egg[min(contents.len, 5)]")
-
-/obj/item/storage/basket/easter/Exited(atom/movable/gone, direction)
-	. = ..()
-	countEggs()
-
-/obj/item/storage/basket/easter/Entered(atom/movable/arrived, direction)
-	. = ..()
-	countEggs()
-
-//Bunny bag!
-/obj/item/storage/backpack/satchel/bunnysatchel
-	name = "Easter Bunny Satchel"
-	desc = "Good for your eyes."
-	icon_state = "satchel_carrot"
-	inhand_icon_state = "satchel_carrot"
-
 //Egg prizes and egg spawns!
 /obj/item/food/egg
 	var/containsPrize = FALSE
@@ -138,7 +109,7 @@
 	icon_state = "egg-[eggcolor]"
 
 /obj/item/food/egg/proc/dispensePrize(turf/where)
-	var/prize_list = list(/obj/item/storage/backpack/satchel/bunnysatchel,
+	var/prize_list = list(
 		/obj/item/food/grown/carrot,
 		/obj/item/toy/gun,
 		/obj/item/toy/sword,

@@ -118,8 +118,6 @@
 		update_label()
 		update_icon()
 
-	RegisterSignal(src, COMSIG_ATOM_UPDATED_ICON, .proc/update_in_wallet)
-
 /obj/item/card/id/get_id_examine_strings(mob/user)
 	. = ..()
 	. += list("[icon2html(get_cached_flat_icon(), user, extra_classes = "bigicon")]")
@@ -443,16 +441,6 @@
 /obj/item/card/id/RemoveID()
 	return src
 
-/// Called on COMSIG_ATOM_UPDATED_ICON. Updates the visuals of the wallet this card is in.
-/obj/item/card/id/proc/update_in_wallet()
-	SIGNAL_HANDLER
-
-	if(istype(loc, /obj/item/storage/wallet))
-		var/obj/item/storage/wallet/powergaming = loc
-		if(powergaming.front_id == src)
-			powergaming.update_label()
-			powergaming.update_appearance()
-
 /// Updates the name based on the card's vars and state.
 /obj/item/card/id/proc/update_label()
 	var/name_string = registered_name ? "[registered_name]'s ID Card" : initial(name)
@@ -576,13 +564,6 @@
 
 /obj/item/card/id/advanced/Moved(atom/OldLoc, Dir)
 	. = ..()
-
-	if(istype(OldLoc, /obj/item/storage/wallet))
-		UnregisterSignal(OldLoc, list(COMSIG_ITEM_EQUIPPED, COMSIG_ITEM_DROPPED))
-
-	if(istype(OldLoc, /obj/item/storage/wallet))
-		RegisterSignal(loc, COMSIG_ITEM_EQUIPPED, .proc/update_intern_status)
-		RegisterSignal(loc, COMSIG_ITEM_DROPPED, .proc/remove_intern_status)
 
 /obj/item/card/id/advanced/update_overlays()
 	. = ..()
