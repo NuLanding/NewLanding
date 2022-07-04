@@ -278,8 +278,6 @@
 	var/cost = 1
 	if(paint_mode == PAINT_LARGE_HORIZONTAL)
 		cost = 5
-	if(istype(target, /obj/item/canvas))
-		cost = 0
 	if(ishuman(user))
 		if (istagger)
 			cost *= 0.5

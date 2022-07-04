@@ -878,12 +878,8 @@
 
 /obj/docking_port/mobile/proc/count_engines()
 	. = 0
-	for(var/thing in shuttle_areas)
-		var/area/shuttle/areaInstance = thing
-		for(var/obj/structure/shuttle/engine/E in areaInstance.contents)
-			if(!QDELETED(E))
-				engine_list += WEAKREF(E)
-				. += E.engine_power
+	// since engines dont exist now we just add some power
+	. += 100
 
 // Double initial engines to get to 0.5 minimum
 // Lose all initial engines to get to 2

@@ -875,12 +875,3 @@
 		/obj/item/stack/wrapping_paper/small=1
 		)
 	generate_items_inside(items_inside,src)
-
-/obj/item/storage/box/tail_pin
-	name = "pin the tail on the corgi supplies"
-	desc = "For ages 10 and up. ...Why is this even on a space station? Aren't you a little old for babby games?" //Intentional typo.
-
-/obj/item/storage/box/tail_pin/PopulateContents()
-	for(var/i in 1 to 3)
-		new /obj/item/poster/tail_board(src)
-		new /obj/item/tail_pin(src)

@@ -14,9 +14,7 @@ SUBSYSTEM_DEF(persistence)
 	var/list/blocked_maps = list()
 	var/list/saved_trophies = list()
 	var/list/picture_logging_information = list()
-	var/list/obj/structure/sign/picture_frame/photo_frames
 	var/list/obj/item/storage/photo_album/photo_albums
-	var/list/obj/structure/sign/painting/painting_frames = list()
 	var/list/paintings = list()
 
 /datum/controller/subsystem/persistence/Initialize()
@@ -25,7 +23,6 @@ SUBSYSTEM_DEF(persistence)
 	LoadRecentMaps()
 	LoadPhotoPersistence()
 	LoadRandomizedRecipes()
-	LoadPaintings()
 	load_custom_outfits()
 	return ..()
 
@@ -106,7 +103,6 @@ SUBSYSTEM_DEF(persistence)
 	CollectMaps()
 	SavePhotoPersistence() //THIS IS PERSISTENCE, NOT THE LOGGING PORTION.
 	SaveRandomizedRecipes()
-	SavePaintings()
 	SaveScars()
 	save_custom_outfits()
 
@@ -122,7 +118,6 @@ SUBSYSTEM_DEF(persistence)
 
 /datum/controller/subsystem/persistence/proc/LoadPhotoPersistence()
 	var/album_path = file("data/photo_albums.json")
-	var/frame_path = file("data/photo_frames.json")
 	if(fexists(album_path))
 		var/list/json = json_decode(file2text(album_path))
 		if(json.len)
@@ -133,21 +128,10 @@ SUBSYSTEM_DEF(persistence)
 				if(json[A.persistence_id])
 					A.populate_from_id_list(json[A.persistence_id])
 
-	if(fexists(frame_path))
-		var/list/json = json_decode(file2text(frame_path))
-		if(json.len)
-			for(var/i in photo_frames)
-				var/obj/structure/sign/picture_frame/PF = i
-				if(!PF.persistence_id)
-					continue
-				if(json[PF.persistence_id])
-					PF.load_from_id(json[PF.persistence_id])
 
 /datum/controller/subsystem/persistence/proc/SavePhotoPersistence()
 	var/album_path = file("data/photo_albums.json")
-	var/frame_path = file("data/photo_frames.json")
 
-	var/list/frame_json = list()
 	var/list/album_json = list()
 
 	if(fexists(album_path))
@@ -164,20 +148,6 @@ SUBSYSTEM_DEF(persistence)
 	album_json = json_encode(album_json)
 
 	WRITE_FILE(album_path, album_json)
-
-	if(fexists(frame_path))
-		frame_json = json_decode(file2text(frame_path))
-		fdel(frame_path)
-
-	for(var/i in photo_frames)
-		var/obj/structure/sign/picture_frame/F = i
-		if(!istype(F) || !F.persistence_id)
-			continue
-		frame_json[F.persistence_id] = F.get_photo_id()
-
-	frame_json = json_encode(frame_json)
-
-	WRITE_FILE(frame_path, frame_json)
 
 /datum/controller/subsystem/persistence/proc/CollectChiselMessages()
 	var/json_file = file("data/npc_saves/ChiselMessages[SSmapping.config.map_name].json")
@@ -272,22 +242,6 @@ SUBSYSTEM_DEF(persistence)
 
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(file_data))
-
-/datum/controller/subsystem/persistence/proc/LoadPaintings()
-	var/json_file = file("data/paintings.json")
-	if(fexists(json_file))
-		paintings = json_decode(file2text(json_file))
-
-	for(var/obj/structure/sign/painting/P in painting_frames)
-		P.load_persistent()
-
-/datum/controller/subsystem/persistence/proc/SavePaintings()
-	for(var/obj/structure/sign/painting/P in painting_frames)
-		P.save_persistent()
-
-	var/json_file = file("data/paintings.json")
-	fdel(json_file)
-	WRITE_FILE(json_file, json_encode(paintings))
 
 /datum/controller/subsystem/persistence/proc/SaveScars()
 	for(var/i in GLOB.joined_player_list)

@@ -33,8 +33,6 @@
 	ignore += typesof(/turf/baseturf_bottom)
 	//Needs special input, let's be nice
 	ignore += typesof(/obj/effect/abstract/proximity_checker)
-	//Very finiky, blacklisting to make things easier
-	ignore += typesof(/obj/item/poster/wanted)
 	//We can't pass a mind into this
 	ignore += typesof(/obj/item/phylactery)
 	//This expects a seed, we can't pass it

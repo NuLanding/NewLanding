@@ -371,9 +371,7 @@
 	lootcount = 1
 	loot = list(
 	/obj/effect/spawner/lootdrop/decorative_material = 25,
-	/obj/item/sign = 10,
 	/obj/item/flashlight/lamp/green = 10,
-	/obj/item/plaque = 5,
 	/obj/item/flashlight/lantern/jade = 5,
 	/obj/item/phone = 5,
 	/obj/item/flashlight/lamp/bananalamp = 3
@@ -547,7 +545,6 @@
 	loot = list(
 		/obj/item/gun/ballistic/automatic/pistol = 1,
 		/obj/item/switchblade = 3,
-		/obj/item/poster/random_contraband = 1,
 		/obj/item/food/grown/cannabis = 1,
 		/obj/item/food/grown/cannabis/rainbow = 1,
 		/obj/item/food/grown/cannabis/white = 1,
