@@ -39,7 +39,6 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 		/obj/effect/decal/cleanable/ash = 1,
 		/obj/item/camera = 1,
 		/obj/item/camera_film = 1,
-		/obj/item/food/urinalcake = 1,
 
 		/obj/item/rack_parts = 1,
 		/obj/item/shard = 1,
@@ -118,7 +117,6 @@ GLOBAL_LIST_INIT(uncommon_loot, list(//uncommon: useful items
 		/obj/item/weldingtool/largetank = 1,
 		/obj/item/multitool = 1,
 		/obj/item/hatchet = 1,
-		/obj/item/roller = 1,
 		/obj/item/restraints/legcuffs/bola = 1,
 		/obj/item/restraints/handcuffs/cable = 1,
 		/obj/item/spear = 1,

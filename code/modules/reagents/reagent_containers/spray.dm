@@ -27,8 +27,6 @@
 
 /obj/item/reagent_containers/spray/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	. = ..()
-	if(istype(target, /obj/structure/sink) || istype(target, /obj/structure/janitorialcart))
-		return
 
 	if((target.is_drainable() && !target.is_refillable()) && (get_dist(src, target) <= 1) && can_fill_from_container)
 		if(!target.reagents.total_volume)

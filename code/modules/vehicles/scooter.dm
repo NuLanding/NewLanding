@@ -107,7 +107,7 @@
 ///Moves the vehicle forward and if it lands on a table, repeats
 /obj/vehicle/ridden/scooter/skateboard/proc/grind()
 	step(src, dir)
-	if(!has_buckled_mobs() || !(locate(/obj/structure/table) in loc.contents) && !(locate(/obj/structure/fluff/tram_rail) in loc.contents))
+	if(!has_buckled_mobs() || !(locate(/obj/structure/table) in loc.contents))
 		obj_flags = CAN_BE_HIT
 		grinding = FALSE
 		icon_state = "[initial(icon_state)]"

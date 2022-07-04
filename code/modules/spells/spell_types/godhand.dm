@@ -100,7 +100,6 @@
 		..()
 		return
 	M.Stun(40)
-	M.petrify()
 	return ..()
 
 

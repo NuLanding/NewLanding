@@ -302,11 +302,6 @@
 	mood_change = -4
 	timeout = 60 SECONDS
 
-/datum/mood_event/aquarium_negative
-	description = "<span class='warning'>All the fish are dead...</span>\n"
-	mood_change = -3
-	timeout = 90 SECONDS
-
 /datum/mood_event/tail_lost
 	description = "<span class='boldwarning'>My tail!! Why?!</span>\n"
 	mood_change = -8

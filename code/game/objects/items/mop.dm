@@ -44,7 +44,7 @@
 
 	var/turf/T = get_turf(A)
 
-	if(istype(A, /obj/item/reagent_containers/glass/bucket) || istype(A, /obj/structure/janitorialcart))
+	if(istype(A, /obj/item/reagent_containers/glass/bucket))
 		return
 
 	if(T)
@@ -59,16 +59,6 @@
 		return
 	else
 		return ..()
-
-
-/obj/item/mop/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J)
-	if(insertable)
-		J.put_in_cart(src, user)
-		J.mymop=src
-		J.update_appearance()
-	else
-		to_chat(user, SPAN_WARNING("You are unable to fit your [name] into the [J.name]."))
-		return
 
 /obj/item/mop/advanced
 	desc = "The most advanced tool in a custodian's arsenal, complete with a condenser for self-wetting! Just think of all the viscera you will clean up with this!"

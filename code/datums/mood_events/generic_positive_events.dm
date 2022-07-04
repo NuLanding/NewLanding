@@ -225,11 +225,6 @@
 	mood_change = 4
 	timeout = 90 SECONDS
 
-/datum/mood_event/aquarium_positive
-	description = "<span class='nicegreen'>Watching fish in an aquarium is calming.</span>\n"
-	mood_change = 3
-	timeout = 90 SECONDS
-
 /datum/mood_event/gondola
 	description = "<span class='nicegreen'>I feel at peace and feel no need to make any sudden or rash actions.</span>\n"
 	mood_change = 6

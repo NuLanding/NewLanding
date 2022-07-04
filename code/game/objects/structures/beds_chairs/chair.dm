@@ -187,21 +187,6 @@
 /obj/structure/chair/comfy/shuttle/GetArmrest()
 	return mutable_appearance('icons/obj/chairs.dmi', "shuttle_chair_armrest")
 
-/obj/structure/chair/office
-	anchored = FALSE
-	buildstackamount = 5
-	item_chair = null
-	icon_state = "officechair_dark"
-
-
-/obj/structure/chair/office/Moved()
-	. = ..()
-	if(has_gravity())
-		playsound(src, 'sound/effects/roll.ogg', 100, TRUE)
-
-/obj/structure/chair/office/light
-	icon_state = "officechair_white"
-
 //Stool
 
 /obj/structure/chair/stool

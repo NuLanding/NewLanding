@@ -84,7 +84,6 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/lazarus_injector,
-		/obj/item/bikehorn/rubberducky,
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
@@ -104,7 +103,6 @@
 		/obj/item/implant,
 		/obj/item/implanter,
 		/obj/item/pinpointer/crew,
-		/obj/item/holosign_creator/medical,
 		/obj/item/stack/sticky_tape //surgical tape
 		))
 
@@ -589,12 +587,6 @@
 		if(units)
 			to_chat(user, SPAN_NOTICE("You transfer [units] units of the solution to [src]."))
 			return
-	if(istype(I, /obj/item/plunger))
-		to_chat(user, SPAN_NOTICE("You start furiously plunging [name]."))
-		if(do_after(user, 10, target = src))
-			to_chat(user, SPAN_NOTICE("You finish plunging the [name]."))
-			reagents.clear_reagents()
-		return
 	return ..()
 
 /obj/item/storage/organbox/suicide_act(mob/living/carbon/user)

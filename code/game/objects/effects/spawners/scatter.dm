@@ -46,8 +46,9 @@
 /obj/effect/spawner/scatter/moisture
 	max_spawns = 2
 	radius = 1
-	loot_table = list(/mob/living/simple_animal/hostile/retaliate/frog = 10,
-					/obj/item/reagent_containers/rag = 10,
-					/obj/item/reagent_containers/glass/bucket = 10,
-					/obj/effect/decal/cleanable/blood/old = 10,
-					/obj/structure/mopbucket = 10)
+	loot_table = list(
+		/mob/living/simple_animal/hostile/retaliate/frog = 10,
+		/obj/item/reagent_containers/rag = 10,
+		/obj/item/reagent_containers/glass/bucket = 10,
+		/obj/effect/decal/cleanable/blood/old = 10,
+		)

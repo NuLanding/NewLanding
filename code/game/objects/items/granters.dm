@@ -182,7 +182,6 @@
 	..()
 	to_chat(user,SPAN_WARNING("You suddenly feel very solid!"))
 	user.Stun(40, ignore_canstun = TRUE)
-	user.petrify(60)
 
 /obj/item/book/granter/spell/knock
 	spell = /obj/effect/proc_holder/spell/aoe_turf/knock

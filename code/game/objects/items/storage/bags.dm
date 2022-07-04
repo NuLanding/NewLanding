@@ -68,15 +68,6 @@
 			icon_state = "[initial(icon_state)]"
 	return ..()
 
-/obj/item/storage/bag/trash/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J)
-	if(insertable)
-		J.put_in_cart(src, user)
-		J.mybag=src
-		J.update_appearance()
-	else
-		to_chat(user, SPAN_WARNING("You are unable to fit your [name] into the [J.name]."))
-		return
-
 /obj/item/storage/bag/trash/filled
 
 /obj/item/storage/bag/trash/filled/PopulateContents()

@@ -86,14 +86,3 @@
 	if (i > 1)
 		playsound(loc, 'sound/weapons/thudswoosh.ogg', 30, TRUE, -1)
 
-/**
- * Attempts to insert the push broom into a janicart
- *
- * Arguments:
- * * user - The user of the push broom
- * * J - The janicart to insert into
- */
-/obj/item/pushbroom/proc/janicart_insert(mob/user, obj/structure/janitorialcart/J) //bless you whoever fixes this copypasta
-	J.put_in_cart(src, user)
-	J.mybroom=src
-	J.update_appearance()

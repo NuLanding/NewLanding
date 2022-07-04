@@ -57,9 +57,6 @@
 		/obj/item/t_scanner,
 		/obj/item/geiger_counter,
 		/obj/item/extinguisher/mini,
-		/obj/item/holosign_creator/atmos,
-		/obj/item/holosign_creator/engineering,
-		/obj/item/plunger,
 		))
 
 /obj/item/storage/belt/utility/chief
@@ -90,7 +87,6 @@
 	new /obj/item/crowbar/power(src)
 	new /obj/item/weldingtool/experimental(src)
 	new /obj/item/multitool(src)
-	new /obj/item/holosign_creator/atmos(src)
 	new /obj/item/extinguisher/mini(src)
 
 /obj/item/storage/belt/utility/full/engi/PopulateContents()
@@ -145,7 +141,6 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/lazarus_injector,
-		/obj/item/bikehorn/rubberducky,
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/scalpel,
 		/obj/item/circular_saw,
@@ -164,8 +159,6 @@
 		/obj/item/implant,
 		/obj/item/implanter,
 		/obj/item/pinpointer/crew,
-		/obj/item/holosign_creator/medical,
-		/obj/item/plunger,
 		/obj/item/reagent_containers/spray,
 		/obj/item/shears,
 		/obj/item/stack/sticky_tape //surgical tape
@@ -205,7 +198,6 @@
 		/obj/item/flashlight/seclite,
 		/obj/item/melee/classic_baton/telescopic,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/holosign_creator/security
 		))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -453,7 +445,6 @@
 		/obj/item/flashlight,
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
-		/obj/item/holosign_creator,
 		/obj/item/key/janitor,
 		/obj/item/melee/flyswatter,
 		/obj/item/paint_remover,
@@ -463,7 +454,6 @@
 /obj/item/storage/belt/janitor/full/PopulateContents()
 	new /obj/item/reagent_containers/spray/cleaner(src)
 	new /obj/item/soap/nanotrasen(src)
-	new /obj/item/holosign_creator(src)
 	new /obj/item/melee/flyswatter(src)
 
 /obj/item/storage/belt/bandolier
