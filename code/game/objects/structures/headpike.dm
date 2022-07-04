@@ -5,13 +5,8 @@
 	icon_state = "headpike"
 	density = FALSE
 	anchored = TRUE
-	var/bonespear = FALSE
 	var/obj/item/spear/spear
 	var/obj/item/bodypart/head/victim
-
-/obj/structure/headpike/bone //for bone spears
-	icon_state = "headpike-bone"
-	bonespear = TRUE
 
 /obj/structure/headpike/Initialize(mapload)
 	. = ..()
@@ -29,9 +24,7 @@
 	if(!victim) //likely a mapspawned one
 		victim = new(src)
 		victim.real_name = random_unique_name(prob(50))
-	spear = locate(bonespear ? /obj/item/spear/bonespear : /obj/item/spear) in parts_list
-	if(!spear)
-		spear = bonespear ? new/obj/item/spear/bonespear(src) : new/obj/item/spear(src)
+	spear = locate(/obj/item/spear) in parts_list
 	update_appearance()
 	return ..()
 

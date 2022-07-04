@@ -8,7 +8,7 @@
 	var/stage = GRENADE_EMPTY
 	var/list/obj/item/reagent_containers/glass/beakers = list()
 	var/list/allowed_containers = list(/obj/item/reagent_containers/glass/beaker, /obj/item/reagent_containers/glass/bottle)
-	var/list/banned_containers = list(/obj/item/reagent_containers/glass/beaker/bluespace) //Containers to exclude from specific grenade subtypes
+	var/list/banned_containers = list() //Containers to exclude from specific grenade subtypes
 	var/affected_area = 3
 	var/ignition_temp = 10 // The amount of heat added to the reagents when this grenade goes off.
 	var/threatscale = 1 // Used by advanced grenades to make them slightly more worthy.
@@ -373,27 +373,6 @@
 	beakers += B1
 	beakers += B2
 
-
-/obj/item/grenade/chem_grenade/facid
-	name = "acid grenade"
-	desc = "Used for melting armoured opponents."
-	stage = GRENADE_READY
-
-/obj/item/grenade/chem_grenade/facid/Initialize()
-	. = ..()
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
-
-	B1.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 290)
-	B1.reagents.add_reagent(/datum/reagent/potassium, 10)
-	B2.reagents.add_reagent(/datum/reagent/phosphorus, 10)
-	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 10)
-	B2.reagents.add_reagent(/datum/reagent/toxin/acid/fluacid, 280)
-
-	beakers += B1
-	beakers += B2
-
-
 /obj/item/grenade/chem_grenade/colorful
 	name = "colorful grenade"
 	desc = "Used for wide scale painting projects."
@@ -445,76 +424,3 @@
 	name = "white glitter bomb"
 	desc = "For that somnolent glittery look."
 	glitter_type = /datum/reagent/glitter/white
-
-/obj/item/grenade/chem_grenade/clf3
-	name = "clf3 grenade"
-	desc = "BURN!-brand foaming clf3. In a special applicator for rapid purging of wide areas."
-	stage = GRENADE_READY
-
-/obj/item/grenade/chem_grenade/clf3/Initialize()
-	. = ..()
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
-
-	B1.reagents.add_reagent(/datum/reagent/fluorosurfactant, 250)
-	B1.reagents.add_reagent(/datum/reagent/clf3, 50)
-	B2.reagents.add_reagent(/datum/reagent/water, 250)
-	B2.reagents.add_reagent(/datum/reagent/clf3, 50)
-
-	beakers += B1
-	beakers += B2
-
-/obj/item/grenade/chem_grenade/bioterrorfoam
-	name = "Bio terror foam grenade"
-	desc = "Tiger Cooperative chemical foam grenade. Causes temporary irration, blindness, confusion, mutism, and mutations to carbon based life forms. Contains additional spore toxin."
-	stage = GRENADE_READY
-
-/obj/item/grenade/chem_grenade/bioterrorfoam/Initialize()
-	. = ..()
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
-
-	B1.reagents.add_reagent(/datum/reagent/cryptobiolin, 75)
-	B1.reagents.add_reagent(/datum/reagent/water, 50)
-	B1.reagents.add_reagent(/datum/reagent/toxin/mutetoxin, 50)
-	B1.reagents.add_reagent(/datum/reagent/toxin/spore, 75)
-	B1.reagents.add_reagent(/datum/reagent/toxin/itching_powder, 50)
-	B2.reagents.add_reagent(/datum/reagent/fluorosurfactant, 150)
-	B2.reagents.add_reagent(/datum/reagent/toxin/mutagen, 150)
-	beakers += B1
-	beakers += B2
-
-/obj/item/grenade/chem_grenade/tuberculosis
-	name = "Fungal tuberculosis grenade"
-	desc = "WARNING: GRENADE WILL RELEASE DEADLY SPORES CONTAINING ACTIVE AGENTS. SEAL SUIT AND AIRFLOW BEFORE USE."
-	stage = GRENADE_READY
-
-/obj/item/grenade/chem_grenade/tuberculosis/Initialize()
-	. = ..()
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/bluespace/B2 = new(src)
-
-	B1.reagents.add_reagent(/datum/reagent/potassium, 50)
-	B1.reagents.add_reagent(/datum/reagent/phosphorus, 50)
-	B2.reagents.add_reagent(/datum/reagent/blood, 250)
-	B2.reagents.add_reagent(/datum/reagent/consumable/sugar, 50)
-
-	beakers += B1
-	beakers += B2
-
-/obj/item/grenade/chem_grenade/holy
-	name = "holy hand grenade"
-	desc = "A vessel of concentrated religious might."
-	icon_state = "holy_grenade"
-	stage = GRENADE_READY
-
-/obj/item/grenade/chem_grenade/holy/Initialize()
-	. = ..()
-	var/obj/item/reagent_containers/glass/beaker/meta/B1 = new(src)
-	var/obj/item/reagent_containers/glass/beaker/meta/B2 = new(src)
-
-	B1.reagents.add_reagent(/datum/reagent/potassium, 150)
-	B2.reagents.add_reagent(/datum/reagent/water/holywater, 150)
-
-	beakers += B1
-	beakers += B2

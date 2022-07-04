@@ -169,11 +169,6 @@
 	if(bin_pen)
 		. += pen_overlay
 
-/obj/item/paper_bin/construction
-	name = "construction paper bin"
-	desc = "Contains all the paper you'll never need, IN COLOR!"
-	papertype = /obj/item/paper/construction
-
 /obj/item/paper_bin/carbon
 	name = "carbon paper bin"
 	desc = "Contains all the paper you'll ever need, in duplicate!"

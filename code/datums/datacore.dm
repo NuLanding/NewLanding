@@ -195,16 +195,6 @@
 		if(!C)
 			C = H.client
 		var/image = get_id_photo(H, C, show_directions)
-		var/datum/picture/pf = new
-		var/datum/picture/ps = new
-		pf.picture_name = "[H]"
-		ps.picture_name = "[H]"
-		pf.picture_desc = "This is [H]."
-		ps.picture_desc = "This is [H]."
-		pf.picture_image = icon(image, dir = SOUTH)
-		ps.picture_image = icon(image, dir = WEST)
-		var/obj/item/photo/photo_front = new(null, pf)
-		var/obj/item/photo/photo_side = new(null, ps)
 
 		//These records should ~really~ be merged or something
 		//General Record
@@ -224,8 +214,6 @@
 			G.fields["gender"]  = "Female"
 		else
 			G.fields["gender"]  = "Other"
-		G.fields["photo_front"] = photo_front
-		G.fields["photo_side"] = photo_side
 		general += G
 
 		//Medical Record

@@ -173,7 +173,7 @@
 			if(prob(I.block_chance*2))
 				return
 
-/mob/living/get_photo_description(obj/item/camera/camera)
+/mob/living/get_photo_description()
 	var/list/mob_details = list()
 	var/list/holding = list()
 	var/len = length(held_items)

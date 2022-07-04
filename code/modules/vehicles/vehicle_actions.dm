@@ -121,35 +121,6 @@
 /datum/action/vehicle/sealed/remove_key/Trigger()
 	vehicle_entered_target.remove_key(owner)
 
-//CLOWN CAR ACTION DATUMS
-/datum/action/vehicle/sealed/horn
-	name = "Honk Horn"
-	desc = "Honk your classy horn."
-	button_icon_state = "car_horn"
-	var/hornsound = 'sound/items/carhorn.ogg'
-
-/datum/action/vehicle/sealed/horn/Trigger()
-	if(TIMER_COOLDOWN_CHECK(src, COOLDOWN_CAR_HONK))
-		return
-	TIMER_COOLDOWN_START(src, COOLDOWN_CAR_HONK, 2 SECONDS)
-	vehicle_entered_target.visible_message(SPAN_DANGER("[vehicle_entered_target] loudly honks!"))
-	to_chat(owner, SPAN_NOTICE("You press [vehicle_entered_target]'s horn."))
-	if(istype(vehicle_target.inserted_key, /obj/item/bikehorn))
-		vehicle_target.inserted_key.attack_self(owner) //The bikehorn plays a sound instead
-		return
-	playsound(vehicle_entered_target, hornsound, 75)
-
-/datum/action/vehicle/sealed/headlights
-	name = "Toggle Headlights"
-	desc = "Turn on your brights!"
-	button_icon_state = "car_headlights"
-
-/datum/action/vehicle/sealed/headlights/Trigger()
-	to_chat(owner, SPAN_NOTICE("You flip the switch for the vehicle's headlights."))
-	vehicle_entered_target.headlights_toggle = !vehicle_entered_target.headlights_toggle
-	vehicle_entered_target.set_light_on(vehicle_entered_target.headlights_toggle)
-	playsound(owner, vehicle_entered_target.headlights_toggle ? 'sound/weapons/magin.ogg' : 'sound/weapons/magout.ogg', 40, TRUE)
-
 /datum/action/vehicle/sealed/dump_kidnapped_mobs
 	name = "Dump Kidnapped Mobs"
 	desc = "Dump all objects and people in your car on the floor."
@@ -158,47 +129,3 @@
 /datum/action/vehicle/sealed/dump_kidnapped_mobs/Trigger()
 	vehicle_entered_target.visible_message(SPAN_DANGER("[vehicle_entered_target] starts dumping the people inside of it."))
 	vehicle_entered_target.dump_specific_mobs(VEHICLE_CONTROL_KIDNAPPED)
-
-
-/datum/action/vehicle/sealed/roll_the_dice
-	name = "Press Colorful Button"
-	desc = "Press one of those colorful buttons on your display panel!"
-	button_icon_state = "car_rtd"
-
-/datum/action/vehicle/sealed/roll_the_dice/Trigger()
-	if(!istype(vehicle_entered_target, /obj/vehicle/sealed/car/clowncar))
-		return
-	var/obj/vehicle/sealed/car/clowncar/C = vehicle_entered_target
-	C.roll_the_dice(owner)
-
-/datum/action/vehicle/sealed/cannon
-	name = "Toggle Siege Mode"
-	desc = "Destroy them with their own fodder!"
-	button_icon_state = "car_cannon"
-
-/datum/action/vehicle/sealed/cannon/Trigger()
-	if(!istype(vehicle_entered_target, /obj/vehicle/sealed/car/clowncar))
-		return
-	var/obj/vehicle/sealed/car/clowncar/C = vehicle_entered_target
-	C.toggle_cannon(owner)
-
-
-/datum/action/vehicle/sealed/thank
-	name = "Thank the Clown Car Driver"
-	desc = "They're just doing their job."
-	button_icon_state = "car_thanktheclown"
-	COOLDOWN_DECLARE(thank_time_cooldown)
-
-
-/datum/action/vehicle/sealed/thank/Trigger()
-	if(!istype(vehicle_entered_target, /obj/vehicle/sealed/car/clowncar))
-		return
-	if(!COOLDOWN_FINISHED(src, thank_time_cooldown))
-		return
-	COOLDOWN_START(src, thank_time_cooldown, 6 SECONDS)
-	var/obj/vehicle/sealed/car/clowncar/clown_car = vehicle_entered_target
-	var/mob/living/carbon/human/clown = pick(clown_car.return_drivers())
-	if(!clown)
-		return
-	owner.say("Thank you for the fun ride, [clown.name]!")
-	clown_car.increment_thanks_counter()

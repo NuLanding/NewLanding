@@ -108,13 +108,6 @@
 	result = /obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
 	category = CAT_DRINK
 
-/datum/crafting_recipe/smallcarton
-	name = "Small Carton"
-	result = /obj/item/reagent_containers/food/drinks/sillycup/smallcarton
-	time = 10
-	reqs = list(/obj/item/stack/sheet/cardboard = 1)
-	category = CAT_DRINK
-
 /datum/crafting_recipe/candycornliquor
 	name = "candy corn liquor"
 	result = /obj/item/reagent_containers/food/drinks/bottle/candycornliquor
@@ -142,14 +135,4 @@
 	            /obj/item/food/grown = 4,
 	            /obj/item/food/candy_corn = 2,
 	            /datum/reagent/water = 15)
-	category = CAT_DRINK
-
-/datum/crafting_recipe/lean
-	name = "lean"
-	result = /obj/item/reagent_containers/food/drinks/colocup/lean
-	time = 30
-	reqs = list(/obj/item/reagent_containers/food/drinks/colocup = 1,
-				/obj/item/food/gumball = 2,
-				/datum/reagent/medicine/morphine = 5,
-				/datum/reagent/consumable/space_up = 15)
 	category = CAT_DRINK

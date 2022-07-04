@@ -53,5 +53,5 @@
 	icon_living = "cool_sloth"
 	icon_dead = "cool_sloth_dead"
 	gender = FEMALE
-	butcher_results = list(/obj/item/toy/spinningtoy = 1)
+	butcher_results = list()
 	gold_core_spawnable = NO_SPAWN

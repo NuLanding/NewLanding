@@ -13,12 +13,6 @@
 	legacy_instrument_ext = "mid"
 	legacy_instrument_path = "accordion"
 
-/datum/instrument/hardcoded/bikehorn
-	name = "Bike Horn"
-	id = "bikehorn"
-	legacy_instrument_ext = "ogg"
-	legacy_instrument_path = "bikehorn"
-
 /datum/instrument/hardcoded/eguitar
 	name = "Electric Guitar"
 	id = "eguitar"

@@ -109,14 +109,3 @@
 	if(!.)
 		return
 	target.apply_status_effect(STATUS_EFFECT_LIGHTNINGORB)
-
-/obj/effect/powerup/mayhem
-	name = "Orb of Mayhem"
-	desc = "You feel angry just looking at it."
-	icon_state = "impact_laser"
-
-/obj/effect/powerup/mayhem/trigger(mob/living/target)
-	. = ..()
-	if(!.)
-		return
-	target.apply_status_effect(STATUS_EFFECT_MAYHEM)

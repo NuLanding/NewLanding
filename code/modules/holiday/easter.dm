@@ -111,16 +111,7 @@
 /obj/item/food/egg/proc/dispensePrize(turf/where)
 	var/prize_list = list(
 		/obj/item/food/grown/carrot,
-		/obj/item/toy/gun,
-		/obj/item/toy/sword,
-		/obj/item/toy/talking/owl,
-		/obj/item/toy/talking/griffin,
-		/obj/item/toy/minimeteor,
-		/obj/item/toy/toy_xeno,
-		/obj/item/toy/foamblade,
-		/obj/item/toy/plush/carpplushie,
-		/obj/item/toy/windup_toolbox,
-		) + subtypesof(/obj/item/toy/mecha)
+		)
 	var/won = pick(prize_list)
 	new won(where)
 	new/obj/item/food/chocolateegg(where)

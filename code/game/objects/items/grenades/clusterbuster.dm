@@ -118,10 +118,6 @@
 	name = "Oignon Grenade"
 	payload = /obj/item/grenade/chem_grenade/teargas
 
-/obj/item/grenade/clusterbuster/facid
-	name = "Aciding Rain"
-	payload = /obj/item/grenade/chem_grenade/facid
-
 /obj/item/grenade/clusterbuster/syndieminibomb
 	name = "SyndiWrath"
 	payload = /obj/item/grenade/syndieminibomb
@@ -129,10 +125,6 @@
 /obj/item/grenade/clusterbuster/spawner_spesscarp
 	name = "Invasion of the Space Carps"
 	payload = /obj/item/grenade/spawnergrenade/spesscarp
-
-/obj/item/grenade/clusterbuster/clf3
-	name = "WELCOME TO HELL"
-	payload = /obj/item/grenade/chem_grenade/clf3
 
 //random clusterbuster spawner
 /obj/item/grenade/clusterbuster/random

@@ -24,7 +24,6 @@
 	name = "add prosthetic"
 	implements = list(
 		/obj/item/bodypart = 100,
-		/obj/item/chainsaw = 100,
 		)
 	time = 32
 	var/organ_rejection_dam = 0

@@ -142,76 +142,6 @@
 	possible_transfer_amounts = list(5,10,15,20,25,30,50,100)
 	fill_icon_thresholds = list(0, 1, 20, 40, 60, 80, 100)
 
-/obj/item/reagent_containers/glass/beaker/plastic
-	name = "x-large beaker"
-	desc = "An extra-large beaker. Can hold up to 120 units."
-	icon_state = "beakerwhite"
-	custom_materials = list(/datum/material/glass=2500, /datum/material/plastic=3000)
-	volume = 120
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,20,25,30,60,120)
-	fill_icon_thresholds = list(0, 1, 10, 20, 40, 60, 80, 100)
-
-/obj/item/reagent_containers/glass/beaker/meta
-	name = "metamaterial beaker"
-	desc = "A large beaker. Can hold up to 180 units."
-	icon_state = "beakergold"
-	custom_materials = list(/datum/material/glass=2500, /datum/material/plastic=3000, /datum/material/gold=1000, /datum/material/titanium=1000)
-	volume = 180
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,20,25,30,60,120,180)
-	fill_icon_thresholds = list(0, 1, 10, 25, 35, 50, 60, 80, 100)
-
-/obj/item/reagent_containers/glass/beaker/noreact
-	name = "cryostasis beaker"
-	desc = "A cryostasis beaker that allows for chemical storage without \
-		reactions. Can hold up to 50 units."
-	icon_state = "beakernoreact"
-	custom_materials = list(/datum/material/iron=3000)
-	reagent_flags = OPENCONTAINER | NO_REACT
-	volume = 50
-	amount_per_transfer_from_this = 10
-
-/obj/item/reagent_containers/glass/beaker/bluespace
-	name = "bluespace beaker"
-	desc = "A bluespace beaker, powered by experimental bluespace technology \
-		and Element Cuban combined with the Compound Pete. Can hold up to \
-		300 units."
-	icon_state = "beakerbluespace"
-	custom_materials = list(/datum/material/glass = 5000, /datum/material/plasma = 3000, /datum/material/diamond = 1000, /datum/material/bluespace = 1000)
-	volume = 300
-	material_flags = MATERIAL_NO_EFFECTS
-	amount_per_transfer_from_this = 10
-	possible_transfer_amounts = list(5,10,15,20,25,30,50,100,300)
-
-/obj/item/reagent_containers/glass/beaker/cryoxadone
-	list_reagents = list(/datum/reagent/medicine/cryoxadone = 30)
-
-/obj/item/reagent_containers/glass/beaker/sulphuric
-	list_reagents = list(/datum/reagent/toxin/acid = 50)
-
-/obj/item/reagent_containers/glass/beaker/slime
-	list_reagents = list(/datum/reagent/toxin/slimejelly = 50)
-
-/obj/item/reagent_containers/glass/beaker/large/libital
-	name = "libital reserve tank (diluted)"
-	list_reagents = list(/datum/reagent/medicine/c2/libital = 10,/datum/reagent/medicine/granibitaluri = 40)
-
-/obj/item/reagent_containers/glass/beaker/large/aiuri
-	name = "aiuri reserve tank (diluted)"
-	list_reagents = list(/datum/reagent/medicine/c2/aiuri = 10, /datum/reagent/medicine/granibitaluri = 40)
-
-/obj/item/reagent_containers/glass/beaker/large/multiver
-	name = "multiver reserve tank (diluted)"
-	list_reagents = list(/datum/reagent/medicine/c2/multiver = 10, /datum/reagent/medicine/granibitaluri = 40)
-
-/obj/item/reagent_containers/glass/beaker/large/epinephrine
-	name = "epinephrine reserve tank (diluted)"
-	list_reagents = list(/datum/reagent/medicine/epinephrine = 50)
-
-/obj/item/reagent_containers/glass/beaker/synthflesh
-	list_reagents = list(/datum/reagent/medicine/c2/synthflesh = 50)
-
 /obj/item/reagent_containers/glass/bucket
 	name = "bucket"
 	desc = "It's a bucket."
@@ -342,8 +272,3 @@
 		grinded = I
 		return
 	to_chat(user, SPAN_WARNING("You can't grind this!"))
-
-/obj/item/reagent_containers/glass/saline
-	name = "saline canister"
-	volume = 5000
-	list_reagents = list(/datum/reagent/medicine/salglu_solution = 5000)

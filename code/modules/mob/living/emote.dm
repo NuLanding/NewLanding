@@ -247,9 +247,6 @@
 		return
 	var/kiss_type = /obj/item/kisser
 
-	if(HAS_TRAIT(user, TRAIT_KISS_OF_DEATH))
-		kiss_type = /obj/item/kisser/death
-
 	var/obj/item/kiss_blower = new kiss_type(user)
 	if(user.put_in_hands(kiss_blower))
 		to_chat(user, SPAN_NOTICE("You ready your kiss-blowing hand."))

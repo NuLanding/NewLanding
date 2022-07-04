@@ -178,32 +178,3 @@
 /obj/item/instrument/harmonica/dropped(mob/M)
 	. = ..()
 	UnregisterSignal(M, COMSIG_MOB_SAY)
-
-/obj/item/instrument/bikehorn
-	name = "gilded bike horn"
-	desc = "An exquisitely decorated bike horn, capable of honking in a variety of notes."
-	icon_state = "bike_horn"
-	inhand_icon_state = "bike_horn"
-	lefthand_file = 'icons/mob/inhands/equipment/horns_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/horns_righthand.dmi'
-	allowed_instrument_ids = list("bikehorn", "honk")
-	attack_verb_continuous = list("beautifully honks")
-	attack_verb_simple = list("beautifully honk")
-	w_class = WEIGHT_CLASS_TINY
-	force = 0
-	throw_speed = 3
-	throw_range = 15
-	hitsound = 'sound/items/bikehorn.ogg'
-
-/obj/item/instrument/musicalmoth
-	name = "musical moth"
-	desc = "Despite its popularity, this controversial musical toy was eventually banned due to its unethically sampled sounds of moths screaming in agony."
-	icon_state = "mothsician"
-	allowed_instrument_ids = "mothscream"
-	attack_verb_continuous = list("flutters", "flaps")
-	attack_verb_simple = list("flutter", "flap")
-	w_class = WEIGHT_CLASS_TINY
-	force = 0
-	hitsound = 'sound/voice/moth/scream_moth.ogg'
-	custom_price = PAYCHECK_HARD * 2.37
-	custom_premium_price = PAYCHECK_HARD * 2.37

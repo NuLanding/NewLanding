@@ -52,7 +52,6 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 
 /obj/item/a_gift/proc/get_gift_type()
 	var/gift_type_list = list(
-		/obj/item/storage/photo_album,
 		/obj/item/storage/crayons,
 		/obj/item/pickaxe/diamond,
 		/obj/item/pen/invisible,
@@ -61,8 +60,6 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 		/obj/item/grown/corncob,
 		/obj/item/book/manual/wiki/barman_recipes,
 		/obj/item/book/manual/chef_recipes,
-		/obj/item/bikehorn,
-		/obj/item/toy/beach_ball,
 		/obj/item/food/grown/ambrosia/deus,
 		/obj/item/food/grown/ambrosia/vulgaris,
 		/obj/item/instrument/violin,
@@ -71,7 +68,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 		/obj/item/stack/sheet/mineral/coal)
 
 	gift_type_list += list()
-	gift_type_list += subtypesof(/obj/item/toy) - (((typesof(/obj/item/toy/cards) - /obj/item/toy/cards/deck) + /obj/item/toy/figure + /obj/item/toy/ammo)) //All toys, except for abstract types and syndicate cards.
+	gift_type_list += subtypesof(/obj/item/toy) - (((typesof(/obj/item/toy/cards) - /obj/item/toy/cards/deck))) //All toys, except for abstract types and syndicate cards.
 
 	var/gift_type = pick(gift_type_list)
 

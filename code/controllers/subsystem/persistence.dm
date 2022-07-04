@@ -14,14 +14,12 @@ SUBSYSTEM_DEF(persistence)
 	var/list/blocked_maps = list()
 	var/list/saved_trophies = list()
 	var/list/picture_logging_information = list()
-	var/list/obj/item/storage/photo_album/photo_albums
 	var/list/paintings = list()
 
 /datum/controller/subsystem/persistence/Initialize()
 	LoadPoly()
 	LoadChiselMessages()
 	LoadRecentMaps()
-	LoadPhotoPersistence()
 	LoadRandomizedRecipes()
 	load_custom_outfits()
 	return ..()
@@ -101,53 +99,9 @@ SUBSYSTEM_DEF(persistence)
 	CollectChiselMessages()
 	CollectTrophies()
 	CollectMaps()
-	SavePhotoPersistence() //THIS IS PERSISTENCE, NOT THE LOGGING PORTION.
 	SaveRandomizedRecipes()
 	SaveScars()
 	save_custom_outfits()
-
-/datum/controller/subsystem/persistence/proc/GetPhotoAlbums()
-	var/album_path = file("data/photo_albums.json")
-	if(fexists(album_path))
-		return json_decode(file2text(album_path))
-
-/datum/controller/subsystem/persistence/proc/GetPhotoFrames()
-	var/frame_path = file("data/photo_frames.json")
-	if(fexists(frame_path))
-		return json_decode(file2text(frame_path))
-
-/datum/controller/subsystem/persistence/proc/LoadPhotoPersistence()
-	var/album_path = file("data/photo_albums.json")
-	if(fexists(album_path))
-		var/list/json = json_decode(file2text(album_path))
-		if(json.len)
-			for(var/i in photo_albums)
-				var/obj/item/storage/photo_album/A = i
-				if(!A.persistence_id)
-					continue
-				if(json[A.persistence_id])
-					A.populate_from_id_list(json[A.persistence_id])
-
-
-/datum/controller/subsystem/persistence/proc/SavePhotoPersistence()
-	var/album_path = file("data/photo_albums.json")
-
-	var/list/album_json = list()
-
-	if(fexists(album_path))
-		album_json = json_decode(file2text(album_path))
-		fdel(album_path)
-
-	for(var/i in photo_albums)
-		var/obj/item/storage/photo_album/A = i
-		if(!istype(A) || !A.persistence_id)
-			continue
-		var/list/L = A.get_picture_id_list()
-		album_json[A.persistence_id] = L
-
-	album_json = json_encode(album_json)
-
-	WRITE_FILE(album_path, album_json)
 
 /datum/controller/subsystem/persistence/proc/CollectChiselMessages()
 	var/json_file = file("data/npc_saves/ChiselMessages[SSmapping.config.map_name].json")

@@ -474,9 +474,7 @@
 #undef BRAINS_BLOWN_THROW_SPEED
 #undef BRAINS_BLOWN_THROW_RANGE
 
-GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
-	/obj/item/dualsaber
-	)))
+GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list()))
 
 ///Handles all the logic of sawing off guns,
 /obj/item/gun/ballistic/proc/sawoff(mob/user, obj/item/saw)

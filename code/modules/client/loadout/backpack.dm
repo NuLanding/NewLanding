@@ -63,26 +63,8 @@
 /datum/loadout_item/backpack/toy/dice
 	path = /obj/item/storage/dice
 
-/datum/loadout_item/backpack/toy/eightball
-	path = /obj/item/toy/eightball
-
 /datum/loadout_item/backpack/toy/cards
 	path = /obj/item/toy/cards/deck
-
-/datum/loadout_item/backpack/toy/plushcarp
-	path = /obj/item/toy/plush/carpplushie
-
-/datum/loadout_item/backpack/toy/plushliz
-	path = /obj/item/toy/plush/lizard_plushie
-
-/datum/loadout_item/backpack/toy/plushsnek
-	path = /obj/item/toy/plush/snakeplushie
-
-/datum/loadout_item/backpack/toy/plushslime
-	path = /obj/item/toy/plush/slimeplushie
-
-/datum/loadout_item/backpack/toy/plushborb
-	path = /obj/item/toy/plush/borbplushie
 
 /datum/loadout_item/backpack/toy/toykatana
 	path = /obj/item/toy/katana
