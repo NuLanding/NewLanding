@@ -8,20 +8,11 @@
 //gets assignment from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
 /mob/living/carbon/human/proc/get_assignment(if_no_id = "No id", if_no_job = "No job", hand_first = TRUE)
-	var/obj/item/card/id/id = get_idcard(hand_first)
-	if(id)
-		. = id.assignment
-	else
-		return if_no_id
-	if(!.)
-		return if_no_job
+	return if_no_id
 
 //gets name from ID or ID inside PDA or PDA itself
 //Useful when player do something with computers
 /mob/living/carbon/human/proc/get_authentification_name(if_no_id = "Unknown")
-	var/obj/item/card/id/id = get_idcard(FALSE)
-	if(id)
-		return id.registered_name
 	return if_no_id
 
 //repurposed proc. Now it combines get_id_name() and get_face_name() to determine a mob's name variable. Made into a separate proc as it'll be useful elsewhere
@@ -52,12 +43,7 @@
 //gets name from ID or PDA itself, ID inside PDA doesn't matter
 //Useful when player is being seen by other mobs
 /mob/living/carbon/human/proc/get_id_name(if_no_id = "Unknown")
-	var/obj/item/card/id/id = wear_id
-	if(istype(id))
-		. = id.registered_name
-	if(!.)
-		. = if_no_id //to prevent null-names making the mob unclickable
-	return
+	return if_no_id //to prevent null-names making the mob unclickable
 
 /mob/living/carbon/human/get_idcard(hand_first = TRUE)
 	. = ..()

@@ -81,27 +81,6 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	if(!SSticker.HasRoundStarted())
 		tgui_alert(usr,"Wait until the game starts")
 		return
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/worn = H.wear_id
-		var/obj/item/card/id/id = null
-
-		if(worn)
-			id = worn.GetID()
-		if(id)
-			if(id == worn)
-				worn = null
-			qdel(id)
-
-		id = new /obj/item/card/id/advanced/debug()
-
-		id.registered_name = H.real_name
-		id.update_label()
-		id.update_icon()
-
-		if(!worn)
-			H.equip_to_slot(id,ITEM_SLOT_ID)
-
 	else
 		tgui_alert(usr,"Invalid mob")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Grant Full Access") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!

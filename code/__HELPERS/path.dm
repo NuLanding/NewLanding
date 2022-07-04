@@ -41,7 +41,7 @@
  * Note that this can only be used inside the [datum/pathfind][pathfind datum] since it uses variables from said datum.
  * If you really want to optimize things, optimize this, cuz this gets called a lot.
  */
-#define CAN_STEP(cur_turf, next) (next && !next.density && cur_turf.Adjacent(next) && !(simulated_only && SSpathfinder.space_type_cache[next.type]) && !cur_turf.LinkBlockedWithAccess(next,caller, id) && (next != avoid))
+#define CAN_STEP(cur_turf, next) (next && !next.density && cur_turf.Adjacent(next) && !(simulated_only && SSpathfinder.space_type_cache[next.type]) && !cur_turf.LinkBlockedWithAccess(next,caller, null) && (next != avoid))
 /// Another helper macro for JPS, for telling when a node has forced neighbors that need expanding
 #define STEP_NOT_HERE_BUT_THERE(cur_turf, dirA, dirB) ((!CAN_STEP(cur_turf, get_step(cur_turf, dirA)) && CAN_STEP(cur_turf, get_step(cur_turf, dirB))))
 
@@ -107,8 +107,6 @@
 	var/list/path
 
 	// general pathfinding vars/args
-	/// An ID card representing what access we have and what doors we can open. Its location relative to the pathing atom is irrelevant
-	var/obj/item/card/id/id
 	/// How far away we have to get to the end target before we can call it quits
 	var/mintargetdist = 0
 	/// I don't know what this does vs , but they limit how far we can search before giving up on a path
@@ -123,7 +121,6 @@
 	end = get_turf(goal)
 	open = new /datum/heap(/proc/HeapPathWeightCompare)
 	sources = new()
-	src.id = id
 	src.max_distance = max_distance
 	src.mintargetdist = mintargetdist
 	src.simulated_only = simulated_only

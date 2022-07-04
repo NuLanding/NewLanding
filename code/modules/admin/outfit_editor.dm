@@ -173,7 +173,7 @@
 		if("belt")
 			options = typesof(/obj/item/storage/belt)
 		if("id")
-			options = typesof(/obj/item/card/id)
+			options = list()
 
 		if("l_hand")
 			choose_any_item(slot)

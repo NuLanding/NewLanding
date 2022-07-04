@@ -4,7 +4,6 @@
 	icon = 'icons/obj/structures/crates.dmi'
 	icon_state = "wood"
 	base_icon_state = "wood"
-	req_access = null
 	horizontal = TRUE
 	allow_objects = TRUE
 	allow_dense = TRUE

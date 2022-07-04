@@ -12,21 +12,7 @@
 	user.visible_message(SPAN_SUICIDE("[user] is pointing [src] at [user.p_them()]self. [user.p_theyre(TRUE)] going to label [user.p_them()]self as a suicide!"))
 	labels_left = max(labels_left - 1, 0)
 
-	var/old_real_name = user.real_name
 	user.real_name += " (suicide)"
-	// no conflicts with their identification card
-	for(var/atom/A in user.GetAllContents())
-		if(istype(A, /obj/item/card/id))
-			var/obj/item/card/id/their_card = A
-
-			// only renames their card, as opposed to tagging everyone's
-			if(their_card.registered_name != old_real_name)
-				continue
-
-			their_card.registered_name = user.real_name
-			their_card.update_label()
-			their_card.update_icon()
-
 	// NOT EVEN DEATH WILL TAKE AWAY THE STAIN
 	user.mind.name += " (suicide)"
 

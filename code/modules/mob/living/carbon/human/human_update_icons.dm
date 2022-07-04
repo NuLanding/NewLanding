@@ -132,24 +132,11 @@ There are several things that need to be remembered:
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ID) + 1]
 		inv.update_appearance()
 
-	var/mutable_appearance/id_overlay = overlays_standing[ID_LAYER]
-
 	if(wear_id)
 		wear_id.screen_loc = ui_id
 		if(client && hud_used?.hud_shown)
 			client.screen += wear_id
 		update_observer_view(wear_id)
-
-		//TODO: add an icon file for ID slot stuff, so it's less snowflakey
-		id_overlay = wear_id.build_worn_icon(default_layer = ID_LAYER, default_icon_file = 'icons/mob/clothing/id.dmi', wearer = src, slot = ITEM_SLOT_ID)
-		overlays_standing[ID_LAYER] = id_overlay
-
-		var/obj/item/card/id/shown_id = wear_id.GetID()
-		if(shown_id)
-			var/mutable_appearance/id_card_overlay = overlays_standing[ID_CARD_LAYER]
-			id_card_overlay = shown_id.build_worn_icon(default_layer = ID_CARD_LAYER, default_icon_file = 'icons/mob/clothing/id_card.dmi', wearer = src, slot = ITEM_SLOT_ID)
-
-			overlays_standing[ID_CARD_LAYER] = id_card_overlay
 
 	apply_overlay(ID_LAYER)
 	apply_overlay(ID_CARD_LAYER)

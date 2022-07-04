@@ -139,7 +139,6 @@
 GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	/datum/strippable_item/corgi_head,
 	/datum/strippable_item/corgi_back,
-	/datum/strippable_item/corgi_id,
 )))
 
 /datum/strippable_item/corgi_head
@@ -212,45 +211,6 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 
 	user.put_in_hands(corgi_source.inventory_back)
 	corgi_source.inventory_back = null
-	corgi_source.update_corgi_fluff()
-	corgi_source.regenerate_icons()
-
-/datum/strippable_item/corgi_id
-	key = STRIPPABLE_ITEM_ID
-
-/datum/strippable_item/corgi_id/get_item(atom/source)
-	var/mob/living/simple_animal/pet/dog/corgi/corgi_source = source
-	if (!istype(corgi_source))
-		return
-
-	return corgi_source.access_card
-
-/datum/strippable_item/corgi_id/try_equip(atom/source, obj/item/equipping, mob/user)
-	. = ..()
-	if (!.)
-		return FALSE
-
-	if (!istype(equipping, /obj/item/card/id))
-		to_chat(user, SPAN_WARNING("You can't pin [equipping] to [source]!"))
-		return FALSE
-
-	return TRUE
-
-/datum/strippable_item/corgi_id/finish_equip(atom/source, obj/item/equipping, mob/user)
-	var/mob/living/simple_animal/pet/dog/corgi/corgi_source = source
-	if (!istype(corgi_source))
-		return
-
-	equipping.forceMove(source)
-	corgi_source.access_card = equipping
-
-/datum/strippable_item/corgi_id/finish_unequip(atom/source, mob/user)
-	var/mob/living/simple_animal/pet/dog/corgi/corgi_source = source
-	if (!istype(corgi_source))
-		return
-
-	user.put_in_hands(corgi_source.access_card)
-	corgi_source.access_card = null
 	corgi_source.update_corgi_fluff()
 	corgi_source.regenerate_icons()
 

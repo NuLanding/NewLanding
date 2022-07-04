@@ -109,8 +109,6 @@
 	var/animal_species
 
 	///Simple_animal access.
-	///Innate access uses an internal ID card.
-	var/obj/item/card/id/access_card = null
 	///If the mob can be spawned with a gold slime core. HOSTILE_SPAWN are spawned with plasma, FRIENDLY_SPAWN are spawned with blood.
 	var/gold_core_spawnable = NO_SPAWN
 
@@ -217,8 +215,6 @@
 	. = ..()
 	if(stat == DEAD)
 		. += SPAN_DEADSAY("Upon closer examination, [p_they()] appear[p_s()] to be dead.")
-	if(access_card)
-		. += "There appears to be [icon2html(access_card, user)] \a [access_card] pinned to [p_them()]."
 	//Temporary flavor text addition:
 	if(temporary_flavor_text)
 		if(length_char(temporary_flavor_text) <= 40)
@@ -541,10 +537,6 @@
 		if(A.update_remote_sight(src)) //returns 1 if we override all other sight updates.
 			return
 	sync_lighting_plane_alpha()
-
-//Will always check hands first, because access_card is internal to the mob and can't be removed or swapped.
-/mob/living/simple_animal/get_idcard(hand_first)
-	return (..() || access_card)
 
 /mob/living/simple_animal/can_hold_items(obj/item/I)
 	return dextrous && ..()

@@ -25,11 +25,6 @@
 	var/current_skin //Has the item been reskinned?
 	var/list/unique_reskin //List of options to reskin.
 
-	// Access levels, used in modules\jobs\access.dm
-	var/list/req_access
-	var/req_access_txt = "0"
-	var/list/req_one_access
-	var/req_one_access_txt = "0"
 	/// Custom fire overlay icon
 	var/custom_fire_overlay
 
@@ -168,7 +163,7 @@
  * * to_dir- What direction we're trying to move in, relevant for things like directional windows that only block movement in certain directions
  * * caller- The movable we're checking pass flags for, if we're making any such checks
  **/
-/obj/proc/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller)
+/obj/proc/CanAStarPass(obj/item/ID, to_dir, atom/movable/caller)
 	if(istype(caller) && (caller.pass_flags & pass_flags_self))
 		return TRUE
 	. = !density

@@ -58,7 +58,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	null, \
 	new/datum/stack_recipe("grenade casing", /obj/item/grenade/chem_grenade), \
 	null, \
-	new/datum/stack_recipe("voting box", /obj/structure/votebox, 15, time = 50), \
 	new/datum/stack_recipe("pestle", /obj/item/pestle, 1, time = 50), \
 	null, \
 	new/datum/stack_recipe("key ring", /obj/item/storage/key_ring, 1, time = 2 SECONDS), \

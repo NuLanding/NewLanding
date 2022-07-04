@@ -49,11 +49,7 @@
 	return ..()
 
 /datum/ai_controller/dog/get_access()
-	var/mob/living/simple_animal/simple_pawn = pawn
-	if(!istype(simple_pawn))
-		return
-
-	return simple_pawn.access_card
+	return
 
 /datum/ai_controller/dog/SelectBehaviors(delta_time)
 	current_behaviors = list()

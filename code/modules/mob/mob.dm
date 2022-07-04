@@ -1089,20 +1089,7 @@
 
 ///update the ID name of this mob
 /mob/proc/replace_identification_name(oldname,newname)
-	var/list/searching = GetAllContents()
-	var/search_id = 1
-	var/search_pda = 1
-
-	for(var/A in searching)
-		if( search_id && istype(A, /obj/item/card/id) )
-			var/obj/item/card/id/ID = A
-			if(ID.registered_name == oldname)
-				ID.registered_name = newname
-				ID.update_label()
-				ID.update_icon()
-				if(!search_pda)
-					break
-				search_id = 0
+	return
 
 /mob/proc/update_stat()
 	return
