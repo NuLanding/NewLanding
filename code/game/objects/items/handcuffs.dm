@@ -120,134 +120,17 @@
 		qdel(src)
 	return
 
-/**
- *
- * # Fake handcuffs
- *
- * Fake handcuffs that can be removed near-instantly.
-*/
-/obj/item/restraints/handcuffs/fake
-	name = "fake handcuffs"
-	desc = "Fake handcuffs meant for gag purposes."
-	breakouttime = 1 SECONDS
+//TODO:
+/obj/item/restraints/handcuffs/rope
 
-/**
- * # Cable restraints
- *
- * Ghetto handcuffs. Removing those is faster.
-*/
-/obj/item/restraints/handcuffs/cable
-	name = "cable restraints"
-	desc = "Looks like some cables tied together. Could be used to tie something up."
-	icon_state = "cuff"
-	inhand_icon_state = "coil"
-	color = "#ff0000"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
-	custom_materials = list(/datum/material/iron=150, /datum/material/glass=75)
-	breakouttime = 30 SECONDS
-	cuffsound = 'sound/weapons/cablecuff.ogg'
-
-/**
- * # Sinew restraints
- *
- * Primal ghetto handcuffs
- *
- * Just cable restraints that look differently and can't be recycled.
-*/
-/obj/item/restraints/handcuffs/cable/sinew
-	name = "sinew restraints"
-	desc = "A pair of restraints fashioned from long strands of flesh."
-	icon = 'icons/obj/mining.dmi'
-	icon_state = "sinewcuff"
-	inhand_icon_state = "sinewcuff"
-	custom_materials = null
-	color = null
-
-/**
- * Red cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/red
-	color = "#ff0000"
-
-/**
- * Yellow cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/yellow
-	color = "#ffff00"
-
-/**
- * Blue cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/blue
-	color = "#1919c8"
-
-/**
- * Green cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/green
-	color = "#00aa00"
-
-/**
- * Pink cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/pink
-	color = "#ff3ccd"
-
-/**
- * Orange (the color) cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/orange
-	color = "#ff8000"
-
-/**
- * Cyan cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/cyan
-	color = "#00ffff"
-
-/**
- * White cable restraints
-*/
-/obj/item/restraints/handcuffs/cable/white
-	color = null
-
-/obj/item/restraints/handcuffs/cable/attackby(obj/item/I, mob/user, params) //Slapcrafting
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
-		if (R.use(1))
-			var/obj/item/wirerod/W = new /obj/item/wirerod
-			remove_item_from_storage(user)
-			user.put_in_hands(W)
-			to_chat(user, SPAN_NOTICE("You wrap [src] around the top of [I]."))
-			qdel(src)
-		else
-			to_chat(user, SPAN_WARNING("You need one rod to make a wired rod!"))
-			return
-	else if(istype(I, /obj/item/stack/sheet/iron))
-		var/obj/item/stack/sheet/iron/M = I
-		if(M.get_amount() < 6)
-			to_chat(user, SPAN_WARNING("You need at least six iron sheets to make good enough weights!"))
-			return
-		to_chat(user, SPAN_NOTICE("You begin to apply [I] to [src]..."))
-		if(do_after(user, 35, target = src))
-			if(M.get_amount() < 6 || !M)
-				return
-			var/obj/item/restraints/legcuffs/bola/S = new /obj/item/restraints/legcuffs/bola
-			M.use(6)
-			user.put_in_hands(S)
-			to_chat(user, SPAN_NOTICE("You make some weights out of [I] and tie them to [src]."))
-			remove_item_from_storage(user)
-			qdel(src)
-	else
-		return ..()
+/obj/item/restraints/handcuffs/sinew
 
 /**
  * # Zipties
  *
  * One-use handcuffs that take 45 seconds to resist out of instead of one minute. This turns into the used version when applied.
 */
-/obj/item/restraints/handcuffs/cable/zipties
+/obj/item/restraints/handcuffs/zipties
 	name = "zipties"
 	desc = "Plastic, disposable zipties that can be used to restrain temporarily but are destroyed after use."
 	icon_state = "cuff"
@@ -255,7 +138,7 @@
 	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 	custom_materials = null
 	breakouttime = 45 SECONDS
-	trashtype = /obj/item/restraints/handcuffs/cable/zipties/used
+	trashtype = /obj/item/restraints/handcuffs/zipties/used
 	color = null
 
 /**
@@ -263,12 +146,12 @@
  *
  * What zipties turn into when applied. These can't be used to cuff people.
 */
-/obj/item/restraints/handcuffs/cable/zipties/used
+/obj/item/restraints/handcuffs/zipties/used
 	desc = "A pair of broken zipties."
 	icon_state = "cuff_used"
 	inhand_icon_state = "cuff"
 
-/obj/item/restraints/handcuffs/cable/zipties/used/attack()
+/obj/item/restraints/handcuffs/zipties/used/attack()
 	return
 
 /**
@@ -458,57 +341,10 @@
  *
  * It knocks people down and is harder to remove.
  */
-/obj/item/restraints/legcuffs/bola/tactical
+/obj/item/restraints/legcuffs/bola/steel
 	name = "reinforced bola"
 	desc = "A strong bola, made with a long steel chain. It looks heavy, enough so that it could trip somebody."
 	icon_state = "bola_r"
 	inhand_icon_state = "bola_r"
 	breakouttime = 7 SECONDS
 	knockdown = 3.5 SECONDS
-
-/**
- * A security variant of the bola.
- *
- * It's harder to remove, smaller and has a defined price.
- */
-/obj/item/restraints/legcuffs/bola/energy
-	name = "energy bola"
-	desc = "A specialized hard-light bola designed to ensnare fleeing criminals and aid in arrests."
-	icon_state = "ebola"
-	inhand_icon_state = "ebola"
-	hitsound = 'sound/weapons/taserhit.ogg'
-	w_class = WEIGHT_CLASS_SMALL
-	breakouttime = 6 SECONDS
-	custom_price = PAYCHECK_HARD * 0.35
-
-/obj/item/restraints/legcuffs/bola/energy/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(iscarbon(hit_atom))
-		var/obj/item/restraints/legcuffs/beartrap/B = new /obj/item/restraints/legcuffs/beartrap/energy(get_turf(hit_atom))
-		B.spring_trap(null, hit_atom)
-		qdel(src)
-	. = ..()
-
-/**
- * A pacifying variant of the bola.
- *
- * It's much harder to remove, doesn't cause a slowdown and gives people STATUS_EFFECT_GONBOLAPACIFY.
- */
-/obj/item/restraints/legcuffs/bola/gonbola
-	name = "gonbola"
-	desc = "Hey, if you have to be hugged in the legs by anything, it might as well be this little guy."
-	icon_state = "gonbola"
-	inhand_icon_state = "bola_r"
-	breakouttime = 30 SECONDS
-	slowdown = 0
-	var/datum/status_effect/gonbola_pacify/effectReference
-
-/obj/item/restraints/legcuffs/bola/gonbola/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
-	if(iscarbon(hit_atom))
-		var/mob/living/carbon/C = hit_atom
-		effectReference = C.apply_status_effect(STATUS_EFFECT_GONBOLAPACIFY)
-
-/obj/item/restraints/legcuffs/bola/gonbola/dropped(mob/user)
-	. = ..()
-	if(effectReference)
-		QDEL_NULL(effectReference)

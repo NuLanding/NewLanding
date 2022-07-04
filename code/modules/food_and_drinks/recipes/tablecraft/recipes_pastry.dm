@@ -416,7 +416,6 @@
 		/datum/reagent/consumable/milk = 5,
 		/obj/item/food/pastrybase = 1,
 		/obj/item/food/grown/berries = 1,
-		/obj/item/ectoplasm = 1
 	)
 	result = /obj/item/food/muffin/booberry
 	subcategory = CAT_PASTRY

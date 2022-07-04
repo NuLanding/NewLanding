@@ -63,47 +63,10 @@
 /datum/crafting_recipe/bola
 	name = "Bola"
 	result = /obj/item/restraints/legcuffs/bola
-	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
+	reqs = list(/obj/item/restraints/handcuffs/rope = 1,
 				/obj/item/stack/sheet/iron = 6)
 	time = 20//15 faster than crafting them by hand!
 	category= CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/gonbola
-	name = "Gonbola"
-	result = /obj/item/restraints/legcuffs/bola/gonbola
-	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
-				/obj/item/stack/sheet/iron = 6,
-				/obj/item/stack/sheet/animalhide/gondola = 1)
-	time = 40
-	category= CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/tailclub
-	name = "Tail Club"
-	result = /obj/item/tailclub
-	reqs = list(/obj/item/organ/tail/lizard = 1,
-				/obj/item/stack/sheet/iron = 1)
-	blacklist = list(/obj/item/organ/tail/lizard/fake)
-	time = 40
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/tailwhip
-	name = "Liz O' Nine Tails"
-	result = /obj/item/melee/chainofcommand/tailwhip
-	reqs = list(/obj/item/organ/tail/lizard = 1)
-	blacklist = list(/obj/item/organ/tail/lizard/fake)
-	time = 40
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/catwhip
-	name = "Cat O' Nine Tails"
-	result = /obj/item/melee/chainofcommand/tailwhip/kitty
-	reqs = list(/obj/item/organ/tail/cat = 1)
-	time = 40
-	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/chainsaw
@@ -119,7 +82,7 @@
 /datum/crafting_recipe/spear
 	name = "Spear"
 	result = /obj/item/spear
-	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
+	reqs = list(/obj/item/restraints/handcuffs/rope = 1,
 				/obj/item/shard = 1,
 				/obj/item/stack/rods = 1)
 	parts = list(/obj/item/shard = 1)
@@ -160,23 +123,6 @@
 	reqs = list(/obj/item/camera = 1,
 				/datum/reagent/water/holywater = 10)
 	parts = list(/obj/item/camera = 1)
-	category = CAT_MISC
-
-
-/datum/crafting_recipe/skateboard
-	name = "Skateboard"
-	result = /obj/vehicle/ridden/scooter/skateboard/improvised
-	time = 60
-	reqs = list(/obj/item/stack/sheet/iron = 5,
-				/obj/item/stack/rods = 10)
-	category = CAT_MISC
-
-/datum/crafting_recipe/scooter
-	name = "Scooter"
-	result = /obj/vehicle/ridden/scooter
-	time = 65
-	reqs = list(/obj/item/stack/sheet/iron = 5,
-				/obj/item/stack/rods = 12)
 	category = CAT_MISC
 
 /datum/crafting_recipe/wheelchair

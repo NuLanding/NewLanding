@@ -8,31 +8,6 @@
 		user.Stun(40)
 		return TRUE
 
-
-/obj/item/melee/chainofcommand
-	name = "chain of command"
-	desc = "A tool used by great men to placate the frothing masses."
-	icon_state = "chain"
-	inhand_icon_state = "chain"
-	worn_icon_state = "whip"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	flags_1 = CONDUCT_1
-	slot_flags = ITEM_SLOT_BELT
-	force = 10
-	throwforce = 7
-	wound_bonus = 15
-	bare_wound_bonus = 10
-	w_class = WEIGHT_CLASS_NORMAL
-	attack_verb_continuous = list("flogs", "whips", "lashes", "disciplines")
-	attack_verb_simple = list("flog", "whip", "lash", "discipline")
-	hitsound = 'sound/weapons/chainhit.ogg'
-	custom_materials = list(/datum/material/iron = 1000)
-
-/obj/item/melee/chainofcommand/suicide_act(mob/user)
-	user.visible_message(SPAN_SUICIDE("[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
-	return (OXYLOSS)
-
 /obj/item/melee/sabre
 	name = "officer's sabre"
 	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease."
@@ -116,40 +91,6 @@
 		user.adjustBruteLoss(200)
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
-
-/obj/item/melee/beesword
-	name = "The Stinger"
-	desc = "Taken from a giant bee and folded over one thousand times in pure honey. Can sting through anything."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "beesword"
-	inhand_icon_state = "stinger"
-	worn_icon_state = "stinger"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	slot_flags = ITEM_SLOT_BELT
-	force = 5
-	w_class = WEIGHT_CLASS_BULKY
-	sharpness = SHARP_EDGED
-	throwforce = 10
-	block_chance = 20
-	armour_penetration = 65
-	attack_verb_continuous = list("slashes", "stings", "prickles", "pokes")
-	attack_verb_simple = list("slash", "sting", "prickle", "poke")
-	hitsound = 'sound/weapons/rapierhit.ogg'
-
-/obj/item/melee/beesword/afterattack(atom/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-	user.changeNext_move(CLICK_CD_RAPID)
-	if(iscarbon(target))
-		var/mob/living/carbon/H = target
-		H.reagents.add_reagent(/datum/reagent/toxin, 4)
-
-/obj/item/melee/beesword/suicide_act(mob/living/user)
-	user.visible_message(SPAN_SUICIDE("[user] is stabbing [user.p_them()]self in the throat with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
-	playsound(get_turf(src), hitsound, 75, TRUE, -1)
-	return TOXLOSS
 
 /obj/item/melee/classic_baton
 	name = "police baton"
@@ -282,114 +223,6 @@
 		target.LAssailant = WEAKREF(user)
 	cooldown_check = world.time + cooldown
 	return
-
-
-/obj/item/conversion_kit
-	name = "conversion kit"
-	desc = "A strange box containing wood working tools and an instruction paper to turn stun batons into something else."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "uk"
-	custom_price = PAYCHECK_HARD * 4.5
-
-/obj/item/melee/classic_baton/telescopic
-	name = "telescopic baton"
-	desc = "A compact yet robust personal defense weapon. Can be concealed when folded."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "telebaton_0"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	inhand_icon_state = null
-	worn_icon_state = "tele_baton"
-	slot_flags = ITEM_SLOT_BELT
-	w_class = WEIGHT_CLASS_SMALL
-	item_flags = NONE
-	force = 0
-	on = FALSE
-	on_sound = 'sound/weapons/batonextend.ogg'
-
-	on_icon_state = "telebaton_1"
-	off_icon_state = "telebaton_0"
-	on_inhand_icon_state = "nullrod"
-	force_on = 10
-	force_off = 0
-	weight_class_on = WEIGHT_CLASS_BULKY
-	bare_wound_bonus = 5
-
-/obj/item/melee/classic_baton/telescopic/suicide_act(mob/user)
-	var/mob/living/carbon/human/H = user
-	var/obj/item/organ/brain/B = H.getorgan(/obj/item/organ/brain)
-
-	user.visible_message(SPAN_SUICIDE("[user] stuffs [src] up [user.p_their()] nose and presses the 'extend' button! It looks like [user.p_theyre()] trying to clear [user.p_their()] mind."))
-	if(!on)
-		src.attack_self(user)
-	else
-		playsound(src, on_sound, 50, TRUE)
-		add_fingerprint(user)
-	sleep(3)
-	if (!QDELETED(H))
-		if(!QDELETED(B))
-			H.internal_organs -= B
-			qdel(B)
-		new /obj/effect/gibspawner/generic(H.drop_location(), H)
-		return (BRUTELOSS)
-
-/obj/item/melee/classic_baton/telescopic/attack_self(mob/user)
-	on = !on
-	var/list/desc = get_on_description()
-
-	if(on)
-		to_chat(user, desc["local_on"])
-		icon_state = on_icon_state
-		inhand_icon_state = on_inhand_icon_state
-		w_class = weight_class_on
-		force = force_on
-		attack_verb_continuous = list("smacks", "strikes", "cracks", "beats")
-		attack_verb_simple = list("smack", "strike", "crack", "beat")
-	else
-		to_chat(user, desc["local_off"])
-		icon_state = off_icon_state
-		inhand_icon_state = null //no sprite for concealment even when in hand
-		slot_flags = ITEM_SLOT_BELT
-		w_class = WEIGHT_CLASS_SMALL
-		force = force_off
-		attack_verb_continuous = list("hits", "pokes")
-		attack_verb_simple = list("hit", "poke")
-
-	playsound(src.loc, on_sound, 50, TRUE)
-	add_fingerprint(user)
-
-/obj/item/melee/classic_baton/telescopic/contractor_baton
-	name = "contractor baton"
-	desc = "A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "contractor_baton_0"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	inhand_icon_state = null
-	slot_flags = ITEM_SLOT_BELT
-	w_class = WEIGHT_CLASS_SMALL
-	item_flags = NONE
-	force = 5
-
-	cooldown = 25
-	stamina_damage = 85
-	affect_silicon = TRUE
-	on_sound = 'sound/weapons/contractorbatonextend.ogg'
-	on_stun_sound = 'sound/effects/contractorbatonhit.ogg'
-
-	on_icon_state = "contractor_baton_1"
-	off_icon_state = "contractor_baton_0"
-	on_inhand_icon_state = "contractor_baton"
-	force_on = 16
-	force_off = 5
-	weight_class_on = WEIGHT_CLASS_NORMAL
-
-/obj/item/melee/classic_baton/telescopic/contractor_baton/get_wait_description()
-	return SPAN_DANGER("The baton is still charging!")
-
-/obj/item/melee/classic_baton/telescopic/contractor_baton/additional_effects_carbon(mob/living/target, mob/living/user)
-	target.Jitter(20)
-	target.stuttering += 20
 
 /obj/item/melee/curator_whip
 	name = "curator's whip"

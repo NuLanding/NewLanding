@@ -817,7 +817,6 @@
 	speak_chance = 20
 	status_flags = GODMODE
 	incorporeal_move = INCORPOREAL_MOVE_BASIC
-	butcher_results = list(/obj/item/ectoplasm = 1)
 
 /mob/living/simple_animal/parrot/poly/ghost/Initialize()
 	memory_saved = TRUE //At this point nothing is saved

@@ -157,8 +157,6 @@
 			turfs += T
 			for(var/mob/M in T)
 				mobs += M
-			if(locate(/obj/item/areaeditor/blueprints) in T)
-				blueprints = TRUE
 	for(var/i in mobs)
 		var/mob/M = i
 		mobs_spotted += M

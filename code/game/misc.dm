@@ -368,3 +368,16 @@ GLOBAL_LIST_INIT(duplicate_forbidden_vars,list(
 
 		to_chat(user, jointext(render_list, ""), trailing_newline = FALSE) // we handled the last <br> so we don't need handholding
 	
+/proc/rename_area(a, new_name)
+	var/area/A = get_area(a)
+	var/prevname = "[A.name]"
+	set_area_machinery_title(A, new_name, prevname)
+	A.name = new_name
+	A.update_areasize()
+	return TRUE
+
+
+/proc/set_area_machinery_title(area/A, title, oldtitle)
+	if(!oldtitle) // or replacetext goes to infinite loop
+		return
+	//TODO: much much more. Unnamed airlocks, cameras, etc.

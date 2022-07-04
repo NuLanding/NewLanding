@@ -143,7 +143,7 @@ GLOBAL_LIST_INIT(leather_recipes, list ())
 	merge_type = /obj/item/stack/sheet/sinew/wolf
 
 GLOBAL_LIST_INIT(sinew_recipes, list ( \
-	new/datum/stack_recipe("sinew restraints", /obj/item/restraints/handcuffs/cable/sinew, 1), \
+	new/datum/stack_recipe("sinew restraints", /obj/item/restraints/handcuffs/sinew, 1), \
 ))
 
 /obj/item/stack/sheet/sinew/get_main_recipes()

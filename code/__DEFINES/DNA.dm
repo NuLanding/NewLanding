@@ -144,8 +144,6 @@
 #define ORGAN_SLOT_HUD "eye_hud"
 #define ORGAN_SLOT_LIVER "liver"
 #define ORGAN_SLOT_LUNGS "lungs"
-#define ORGAN_SLOT_PARASITE_EGG "parasite_egg"
-#define ORGAN_SLOT_REGENERATIVE_CORE "hivecore"
 #define ORGAN_SLOT_RIGHT_ARM_AUG "r_arm_device"
 #define ORGAN_SLOT_LEFT_ARM_AUG "l_arm_device" //This one ignores alphabetical order cause the arms should be together
 #define ORGAN_SLOT_STOMACH "stomach"
@@ -154,7 +152,6 @@
 #define ORGAN_SLOT_THRUSTERS "thrusters"
 #define ORGAN_SLOT_TONGUE "tongue"
 #define ORGAN_SLOT_VOICE "vocal_cords"
-#define ORGAN_SLOT_ZOMBIE "zombie_infection"
 #define ORGAN_SLOT_FRILLS "frills"
 #define ORGAN_SLOT_HORNS "horns"
 #define ORGAN_SLOT_ANTENNAS "antennas"
@@ -210,7 +207,6 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_EYES,
 	ORGAN_SLOT_LUNGS,
 	ORGAN_SLOT_HEART,
-	ORGAN_SLOT_ZOMBIE,
 	ORGAN_SLOT_THRUSTERS,
 	ORGAN_SLOT_HUD,
 	ORGAN_SLOT_LIVER,
@@ -221,8 +217,6 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_BRAIN_ANTIDROP,
 	ORGAN_SLOT_BRAIN_ANTISTUN,
 	ORGAN_SLOT_TAIL,
-	ORGAN_SLOT_PARASITE_EGG,
-	ORGAN_SLOT_REGENERATIVE_CORE,
 	ORGAN_SLOT_XENO_PLASMAVESSEL,
 	ORGAN_SLOT_XENO_HIVENODE,
 	ORGAN_SLOT_XENO_RESINSPINNER,

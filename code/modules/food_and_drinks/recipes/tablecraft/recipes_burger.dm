@@ -82,16 +82,6 @@
 	result = /obj/item/food/burger/tofu
 	subcategory = CAT_BURGER
 
-/datum/crafting_recipe/food/ghostburger
-	name = "Ghost burger"
-	reqs = list(
-		/obj/item/ectoplasm = 1,
-		/datum/reagent/consumable/salt = 2,
-		/obj/item/food/bun = 1
-	)
-	result = /obj/item/food/burger/ghost
-	subcategory = CAT_BURGER
-
 /datum/crafting_recipe/food/redburger
 	name = "Red burger"
 	reqs = list(
@@ -233,15 +223,6 @@
 			/obj/item/food/bun = 1
 	)
 	result = /obj/item/food/burger/rat
-	subcategory = CAT_BURGER
-
-/datum/crafting_recipe/food/baseballburger
-	name = "Home run baseball burger"
-	reqs = list(
-			/obj/item/melee/baseball_bat = 1,
-			/obj/item/food/bun = 1
-	)
-	result = /obj/item/food/burger/baseball
 	subcategory = CAT_BURGER
 
 /datum/crafting_recipe/food/baconburger

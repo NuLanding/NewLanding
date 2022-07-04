@@ -475,7 +475,6 @@
 #undef BRAINS_BLOWN_THROW_RANGE
 
 GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list(
-	/obj/item/melee/transforming/energy,
 	/obj/item/dualsaber
 	)))
 

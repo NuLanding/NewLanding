@@ -22,12 +22,7 @@
 	max_w_class = WEIGHT_CLASS_TINY
 	attack_hand_interact = FALSE
 
-/datum/component/storage/concrete/pockets/small/fedora/Initialize()
-	. = ..()
-	var/static/list/exception_cache = typecacheof(list(
-		/obj/item/katana, /obj/item/toy/katana
-		))
-	exception_hold = exception_cache
+/datum/component/storage/concrete/pockets/small/fedora
 
 /datum/component/storage/concrete/pockets/small/fedora/detective
 	attack_hand_interact = TRUE // so the detectives would discover pockets in their hats
@@ -60,7 +55,7 @@
 /datum/component/storage/concrete/pockets/shoes/Initialize()
 	. = ..()
 	set_holdable(list(
-		/obj/item/kitchen/knife, /obj/item/switchblade, /obj/item/pen,
+		/obj/item/kitchen/knife, /obj/item/pen,
 		/obj/item/scalpel, /obj/item/reagent_containers/syringe, /obj/item/dnainjector,
 		/obj/item/reagent_containers/hypospray/medipen, /obj/item/reagent_containers/dropper,
 		/obj/item/implanter, /obj/item/screwdriver, /obj/item/weldingtool/mini,
@@ -72,7 +67,7 @@
 /datum/component/storage/concrete/pockets/shoes/clown/Initialize()
 	. = ..()
 	set_holdable(list(
-		/obj/item/kitchen/knife, /obj/item/switchblade, /obj/item/pen,
+		/obj/item/kitchen/knife, /obj/item/pen,
 		/obj/item/scalpel, /obj/item/reagent_containers/syringe, /obj/item/dnainjector,
 		/obj/item/reagent_containers/hypospray/medipen, /obj/item/reagent_containers/dropper,
 		/obj/item/implanter, /obj/item/screwdriver, /obj/item/weldingtool/mini,

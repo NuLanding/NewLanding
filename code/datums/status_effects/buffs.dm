@@ -189,31 +189,6 @@
 		owner.set_confusion(max(0, owner.get_confusion() - 1))
 		SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "goodmusic", /datum/mood_event/goodmusic)
 
-/atom/movable/screen/alert/status_effect/regenerative_core
-	name = "Regenerative Core Tendrils"
-	desc = "You can move faster than your broken body could normally handle!"
-	icon_state = "regenerative_core"
-
-/datum/status_effect/regenerative_core
-	id = "Regenerative Core"
-	duration = 1 MINUTES
-	status_type = STATUS_EFFECT_REPLACE
-	alert_type = /atom/movable/screen/alert/status_effect/regenerative_core
-
-/datum/status_effect/regenerative_core/on_apply()
-	ADD_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, STATUS_EFFECT_TRAIT)
-	owner.adjustBruteLoss(-25)
-	owner.adjustFireLoss(-25)
-	owner.remove_CC()
-	owner.bodytemperature = owner.get_body_temp_normal()
-	if(istype(owner, /mob/living/carbon/human))
-		var/mob/living/carbon/human/humi = owner
-		humi.set_coretemperature(humi.get_body_temp_normal())
-	return TRUE
-
-/datum/status_effect/regenerative_core/on_remove()
-	REMOVE_TRAIT(owner, TRAIT_IGNOREDAMAGESLOWDOWN, STATUS_EFFECT_TRAIT)
-
 /datum/status_effect/antimagic
 	id = "antimagic"
 	duration = 10 SECONDS

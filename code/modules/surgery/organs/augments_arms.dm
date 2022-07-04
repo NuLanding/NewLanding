@@ -198,12 +198,3 @@
 		owner.adjustFireLoss(25)
 		organ_flags |= ORGAN_FAILING
 
-/obj/item/organ/cyberimp/arm/esword
-	name = "arm-mounted energy blade"
-	desc = "An illegal and highly dangerous cybernetic implant that can project a deadly blade of concentrated energy."
-	items_to_create = list(/obj/item/melee/transforming/energy/blade/hardlight)
-
-/obj/item/organ/cyberimp/arm/surgery
-	name = "surgical toolset implant"
-	desc = "A set of surgical tools hidden behind a concealed panel on the user's arm."
-	items_to_create = list(/obj/item/retractor/augment, /obj/item/hemostat/augment, /obj/item/cautery/augment, /obj/item/surgicaldrill/augment, /obj/item/scalpel/augment, /obj/item/circular_saw/augment, /obj/item/surgical_drapes)

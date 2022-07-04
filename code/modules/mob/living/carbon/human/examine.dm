@@ -77,8 +77,8 @@
 
 	//handcuffed?
 	if(handcuffed)
-		if(istype(handcuffed, /obj/item/restraints/handcuffs/cable))
-			. += SPAN_WARNING("[t_He] [t_is] [icon2html(handcuffed, user)] restrained with cable!")
+		if(istype(handcuffed, /obj/item/restraints/handcuffs/rope))
+			. += SPAN_WARNING("[t_He] [t_is] [icon2html(handcuffed, user)] restrained with rope!")
 		else
 			. += SPAN_WARNING("[t_He] [t_is] [icon2html(handcuffed, user)] handcuffed!")
 

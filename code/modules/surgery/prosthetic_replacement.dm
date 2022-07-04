@@ -90,8 +90,4 @@
 			SPAN_NOTICE("[user] finishes attaching [tool]!"),
 			SPAN_NOTICE("[user] finishes the attachment procedure!"))
 		qdel(tool)
-		if(istype(tool, /obj/item/chainsaw))
-			var/obj/item/mounted_chainsaw/new_arm = new(target)
-			target_zone == BODY_ZONE_R_ARM ? target.put_in_r_hand(new_arm) : target.put_in_l_hand(new_arm)
-			return
 	return ..() //if for some reason we fail everything we'll print out some text okay?
