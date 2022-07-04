@@ -991,7 +991,6 @@
 #include "code\game\objects\structures\life_candle.dm"
 #include "code\game\objects\structures\loom.dm"
 #include "code\game\objects\structures\low_wall.dm"
-#include "code\game\objects\structures\maintenance.dm"
 #include "code\game\objects\structures\mirror.dm"
 #include "code\game\objects\structures\noticeboard.dm"
 #include "code\game\objects\structures\railings.dm"

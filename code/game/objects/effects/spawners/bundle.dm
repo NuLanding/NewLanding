@@ -18,8 +18,3 @@
 	items = list(/obj/structure/bed/maint,
 				/obj/effect/spawner/scatter/grime,
 				/obj/effect/spawner/lootdrop/maint_drugs)
-
-/obj/effect/spawner/bundle/moisture_trap
-	name = "moisture trap spawner"
-	items = list(/obj/effect/spawner/scatter/moisture,
-				/obj/structure/moisture_trap)
