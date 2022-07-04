@@ -214,3 +214,4 @@
 	desc = "It opens and closes - nothing out of the ordinary."
 	icon_state = "cell"
 	base_icon_state = "cell"
+	opacity_when_closed = FALSE
