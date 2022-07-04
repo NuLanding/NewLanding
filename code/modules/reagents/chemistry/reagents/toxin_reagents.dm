@@ -305,9 +305,7 @@
 
 /datum/reagent/toxin/plantbgone/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
-	if(istype(exposed_obj, /obj/structure/glowshroom)) //even a small amount is enough to kill it
-		qdel(exposed_obj)
-	else if(istype(exposed_obj, /obj/structure/spacevine))
+	if(istype(exposed_obj, /obj/structure/spacevine))
 		var/obj/structure/spacevine/SV = exposed_obj
 		SV.on_chem_effect(src)
 
