@@ -13,24 +13,6 @@
 	max_integrity = 150
 	var/log_amount = 10
 
-/obj/structure/flora/tree/attackby(obj/item/W, mob/user, params)
-	if(log_amount && (!(flags_1 & NODECONSTRUCT_1)))
-		if(W.get_sharpness() && W.force > 0)
-			if(W.hitsound)
-				playsound(get_turf(src), W.hitsound, 100, FALSE, FALSE)
-			user.visible_message(SPAN_NOTICE("[user] begins to cut down [src] with [W]."),SPAN_NOTICE("You begin to cut down [src] with [W]."), SPAN_HEAR("You hear the sound of sawing."))
-			if(do_after(user, 1000/W.force, target = src)) //5 seconds with 20 force, 8 seconds with a hatchet, 20 seconds with a shard.
-				user.visible_message(SPAN_NOTICE("[user] fells [src] with the [W]."),SPAN_NOTICE("You fell [src] with the [W]."), SPAN_HEAR("You hear the sound of a tree falling."))
-				playsound(get_turf(src), 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
-				user.log_message("cut down [src] at [AREACOORD(src)]", LOG_ATTACK)
-				for(var/i=1 to log_amount)
-					new /obj/item/grown/log/tree(get_turf(src))
-				var/obj/structure/flora/stump/S = new(loc)
-				S.name = "[name] stump"
-				qdel(src)
-	else
-		return ..()
-
 /obj/structure/flora/stump
 	name = "stump"
 	desc = "This represents our promise to the crew, and the station itself, to cut down as many trees as possible." //running naked through the trees
@@ -51,47 +33,6 @@
 
 	if(islist(icon_states?.len))
 		icon_state = pick(icon_states)
-
-/obj/structure/flora/tree/pine/xmas
-	name = "xmas tree"
-	desc = "A wondrous decorated Christmas tree."
-	icon_state = "pine_c"
-	icon_states = null
-	flags_1 = NODECONSTRUCT_1 //protected by the christmas spirit
-
-/obj/structure/flora/tree/pine/xmas/presents
-	icon_state = "pinepresents"
-	desc = "A wondrous decorated Christmas tree. It has presents!"
-	var/gift_type = /obj/item/a_gift/anything
-	var/unlimited = FALSE
-	var/static/list/took_presents //shared between all xmas trees
-
-/obj/structure/flora/tree/pine/xmas/presents/Initialize()
-	. = ..()
-	if(!took_presents)
-		took_presents = list()
-
-/obj/structure/flora/tree/pine/xmas/presents/attack_hand(mob/living/user, list/modifiers)
-	. = ..()
-	if(.)
-		return
-	if(!user.ckey)
-		return
-
-	if(took_presents[user.ckey] && !unlimited)
-		to_chat(user, SPAN_WARNING("There are no presents with your name on."))
-		return
-	to_chat(user, SPAN_WARNING("After a bit of rummaging, you locate a gift with your name on it!"))
-
-	if(!unlimited)
-		took_presents[user.ckey] = TRUE
-
-	var/obj/item/G = new gift_type(src)
-	user.put_in_hands(G)
-
-/obj/structure/flora/tree/pine/xmas/presents/unlimited
-	desc = "A wonderous decorated Christmas tree. It has a seemly endless supply of presents!"
-	unlimited = TRUE
 
 /obj/structure/flora/tree/dead
 	icon = 'icons/obj/flora/deadtrees.dmi'
@@ -380,22 +321,10 @@
 	. = ..()
 	icon_state = "[icon_state][rand(1,3)]"
 
-/obj/structure/flora/rock/attackby(obj/item/W, mob/user, params)
-	if(!mineResult || W.tool_behaviour != TOOL_MINING)
-		return ..()
-	if(flags_1 & NODECONSTRUCT_1)
-		return ..()
-	to_chat(user, SPAN_NOTICE("You start mining..."))
-	if(W.use_tool(src, user, 40, volume=50))
-		to_chat(user, SPAN_NOTICE("You finish mining the rock."))
-		if(mineResult && mineAmount)
-			new mineResult(loc, mineAmount)
-		SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
-		qdel(src)
-
 /obj/structure/flora/rock/pile
 	icon_state = "lavarocks"
 	desc = "A pile of rocks."
+	density = FALSE
 
 //Jungle grass
 

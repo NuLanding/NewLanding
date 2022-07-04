@@ -1332,7 +1332,6 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 		/obj/item/food/grown/mushroom,
 		/obj/item/food/deepfryholder,
 		/obj/item/food/meat/slab/human/mutant,
-		/obj/item/food/grown/ash_flora,
 		/obj/item/food/grown/nettle,
 		/obj/item/food/grown/shell
 		)

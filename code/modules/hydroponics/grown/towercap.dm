@@ -49,7 +49,6 @@
 	var/plank_name = "wooden planks"
 	var/static/list/accepted = typecacheof(list(/obj/item/food/grown/tobacco,
 	/obj/item/food/grown/tea,
-	/obj/item/food/grown/ash_flora/mushroom_leaf,
 	/obj/item/food/grown/ambrosia/vulgaris,
 	/obj/item/food/grown/ambrosia/deus,
 	/obj/item/food/grown/wheat))
@@ -86,7 +85,7 @@
 	var/plank_amount = 1
 	if(seed)
 		plank_amount += round(seed.potency / 25)
-	return plank_amount 
+	return plank_amount
 
 /obj/item/grown/log/proc/CheckAccepted(obj/item/I)
 	return is_type_in_typecache(I, accepted)
