@@ -3,7 +3,6 @@
 							  /obj/item/stack/sheet/mineral,
 							  /obj/item/stack/ore,
 							  /obj/item/stack/spacecash,
-							  /obj/item/stack/license_plates,
 							  )
 
 	var/list/paths = subtypesof(/obj/item/stack) - blacklist

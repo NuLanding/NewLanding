@@ -25,8 +25,7 @@
 /datum/component/storage/concrete/pockets/small/fedora/Initialize()
 	. = ..()
 	var/static/list/exception_cache = typecacheof(list(
-		/obj/item/katana, /obj/item/toy/katana,
-		/obj/item/gun/ballistic/automatic/tommygun
+		/obj/item/katana, /obj/item/toy/katana
 		))
 	exception_hold = exception_cache
 
@@ -93,7 +92,6 @@
 		/obj/item/pen,
 		/obj/item/toy/crayon,
 		/obj/item/lipstick,
-		/obj/item/flashlight/pen,
 		))
 
 /datum/component/storage/concrete/pockets/pocketprotector/real_location()
@@ -108,5 +106,4 @@
 	. = ..()
 	set_holdable(list(/obj/item/reagent_containers/food/drinks/bottle/vodka,
 					  /obj/item/reagent_containers/food/drinks/bottle/molotov,
-					  /obj/item/reagent_containers/food/drinks/drinkingglass,
-					  /obj/item/ammo_box/a762))
+					  /obj/item/reagent_containers/food/drinks/drinkingglass))

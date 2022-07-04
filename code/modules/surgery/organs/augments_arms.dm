@@ -203,11 +203,6 @@
 	desc = "An illegal and highly dangerous cybernetic implant that can project a deadly blade of concentrated energy."
 	items_to_create = list(/obj/item/melee/transforming/energy/blade/hardlight)
 
-/obj/item/organ/cyberimp/arm/medibeam
-	name = "integrated medical beamgun"
-	desc = "A cybernetic implant that allows the user to project a healing beam from their hand."
-	items_to_create = list(/obj/item/gun/medbeam)
-
 /obj/item/organ/cyberimp/arm/surgery
 	name = "surgical toolset implant"
 	desc = "A set of surgical tools hidden behind a concealed panel on the user's arm."

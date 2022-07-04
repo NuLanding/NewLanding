@@ -29,7 +29,6 @@
 	time = 30
 	reqs = list(
 		/obj/item/reagent_containers/food/drinks/bottle = 1,
-		/obj/item/storage/box/papersack = 1,
 		/datum/reagent/consumable/ethanol/hooch = 100
 	)
 	result = /obj/item/reagent_containers/food/drinks/bottle/hooch

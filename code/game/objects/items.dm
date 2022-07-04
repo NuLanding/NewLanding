@@ -357,54 +357,6 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(!.)
 		return
 
-	if(href_list[VV_HK_ADD_FANTASY_AFFIX] && check_rights(R_FUN))
-
-		//gathering all affixes that make sense for this item
-		var/list/prefixes = list()
-		var/list/suffixes = list()
-		for(var/datum/fantasy_affix/affix_choice as anything in subtypesof(/datum/fantasy_affix))
-			affix_choice = new affix_choice()
-			if(!affix_choice.validate(src))
-				qdel(affix_choice)
-			else
-				if(affix_choice.placement & AFFIX_PREFIX)
-					prefixes[affix_choice.name] = affix_choice
-				else
-					suffixes[affix_choice.name] = affix_choice
-
-		//making it more presentable here
-		var/list/affixes = list("---PREFIXES---")
-		affixes.Add(prefixes)
-		affixes.Add("---SUFFIXES---")
-		affixes.Add(suffixes)
-
-		//admin picks, cleanup the ones we didn't do and handle chosen
-		var/picked_affix_name = input(usr, "Choose an affix to add to [src]...", "Enchant [src]") as null|anything in affixes
-		if(!affixes[picked_affix_name] || QDELETED(src))
-			return
-		var/datum/fantasy_affix/affix = affixes[picked_affix_name]
-		affixes.Remove(affix)
-		QDEL_LIST_ASSOC(affixes) //remove the rest, we didn't use them
-		var/fantasy_quality = 0
-		if(affix.alignment & AFFIX_GOOD)
-			fantasy_quality++
-		else
-			fantasy_quality--
-
-		//name gets changed by the component so i want to store it for feedback later
-		var/before_name = name
-		//naming these vars that i'm putting into the fantasy component to make it more readable
-		var/canFail = FALSE
-		var/announce = FALSE
-		//Apply fantasy with affix. failing this should never happen, but if it does it should not be silent.
-		if(AddComponent(/datum/component/fantasy, fantasy_quality, list(affix), canFail, announce) == COMPONENT_INCOMPATIBLE)
-			to_chat(usr, SPAN_WARNING("Fantasy component not compatible with [src]."))
-			CRASH("fantasy component incompatible with object of type: [type]")
-
-		to_chat(usr, SPAN_NOTICE("[before_name] now has [picked_affix_name]!"))
-		log_admin("[key_name(usr)] has added [picked_affix_name] fantasy affix to [before_name]")
-		message_admins(SPAN_NOTICE("[key_name(usr)] has added [picked_affix_name] fantasy affix to [before_name]"))
-
 /obj/item/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	if(.)

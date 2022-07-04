@@ -25,7 +25,7 @@
 	implements = list(
 		/obj/item/bodypart = 100,
 		/obj/item/chainsaw = 100,
-		/obj/item/melee/synthetic_arm_blade = 100)
+		)
 	time = 32
 	var/organ_rejection_dam = 0
 

@@ -282,21 +282,6 @@
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=10)
 	change_icons = FALSE
 
-/obj/item/weldingtool/abductor
-	name = "alien welding tool"
-	desc = "An alien welding tool. Whatever fuel it uses, it never runs out."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "welder"
-	toolspeed = 0.1
-	light_system = NO_LIGHT_SUPPORT
-	light_range = 0
-	change_icons = FALSE
-
-/obj/item/weldingtool/abductor/process()
-	if(get_fuel() <= max_fuel)
-		reagents.add_reagent(/datum/reagent/fuel, 1)
-	..()
-
 /obj/item/weldingtool/hugetank
 	name = "upgraded industrial welding tool"
 	desc = "An upgraded welder based of the industrial welder."

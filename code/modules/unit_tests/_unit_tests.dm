@@ -48,7 +48,6 @@
 #include "bespoke_id.dm"
 #include "binary_insert.dm"
 #include "bloody_footprints.dm"
-#include "card_mismatch.dm"
 #include "combat.dm"
 #include "component_tests.dm"
 #include "connect_loc.dm"

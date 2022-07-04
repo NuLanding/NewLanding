@@ -54,7 +54,6 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	var/gift_type_list = list(/obj/item/sord,
 		/obj/item/storage/wallet,
 		/obj/item/storage/photo_album,
-		/obj/item/storage/box/snappops,
 		/obj/item/storage/crayons,
 		/obj/item/storage/backpack/holding,
 		/obj/item/storage/belt/champion,

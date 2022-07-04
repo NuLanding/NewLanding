@@ -160,10 +160,7 @@
 /obj/structure/training_machine/proc/remove_attached_item(mob/user, throwing = FALSE)
 	if (!attached_item)
 		return
-	if (istype(attached_item, /obj/item/storage/toolbox/syndicate))
-		UnregisterSignal(attached_item, COMSIG_PARENT_QDELETING)
-		qdel(attached_item)
-	else if (user)
+	if (user)
 		user.put_in_hands(attached_item)
 	else
 		attached_item.forceMove(drop_location())

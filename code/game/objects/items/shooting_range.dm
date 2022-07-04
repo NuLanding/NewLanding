@@ -35,8 +35,6 @@
 	playsound(src.loc, 'sound/items/bikehorn.ogg', 50, TRUE)
 
 /obj/item/target/bullet_act(obj/projectile/P)
-	if(istype(P, /obj/projectile/bullet/reusable)) // If it's a foam dart, don't bother with any of this other shit
-		return P.on_hit(src, 0)
 	var/p_x = P.p_x + pick(0,0,0,0,0,-1,1) // really ugly way of coding "sometimes offset P.p_x!"
 	var/p_y = P.p_y + pick(0,0,0,0,0,-1,1)
 	var/decaltype = DECALTYPE_SCORCH
@@ -53,7 +51,7 @@
 		bullet_hole.pixel_y = p_y - 1
 		if(decaltype == DECALTYPE_SCORCH)
 			bullet_hole.setDir(pick(NORTH,SOUTH,EAST,WEST))// random scorch design
-			if(P.damage >= 20 || istype(P, /obj/projectile/beam/practice))
+			if(P.damage >= 20)
 				bullet_hole.setDir(pick(NORTH,SOUTH,EAST,WEST))
 			else
 				bullet_hole.icon_state = "light_scorch"

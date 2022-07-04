@@ -169,20 +169,6 @@
 		else
 			add_random_reagents(1, 1)
 
-
-
-/obj/item/seeds/bullet_act(obj/projectile/Proj) //Works with the Somatoray to modify plant variables.
-	if(istype(Proj, /obj/projectile/energy/florayield))
-		var/rating = 1
-
-		if(yield == 0)//Oh god don't divide by zero you'll doom us all.
-			adjust_yield(1 * rating)
-		else if(prob(1/(yield * yield) * 100))//This formula gives you diminishing returns based on yield. 100% with 1 yield, decreasing to 25%, 11%, 6, 4, 2...
-			adjust_yield(1 * rating)
-	else
-		return ..()
-
-
 // Harvest procs
 /obj/item/seeds/proc/getYield()
 	var/return_yield = yield

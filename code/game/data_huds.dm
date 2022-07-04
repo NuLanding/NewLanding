@@ -192,12 +192,7 @@ Security HUDs! Basic mode shows only the job.
 		holder = hud_list[i]
 		holder.icon_state = null
 	for(var/obj/item/implant/I in implants)
-		if(istype(I, /obj/item/implant/tracking))
-			holder = hud_list[IMPTRACK_HUD]
-			var/icon/IC = icon(icon, icon_state, dir)
-			holder.pixel_y = IC.Height() - world.icon_size
-			holder.icon_state = "hud_imp_tracking"
-		else if(istype(I, /obj/item/implant/chem))
+		if(istype(I, /obj/item/implant/chem))
 			holder = hud_list[IMPCHEM_HUD]
 			var/icon/IC = icon(icon, icon_state, dir)
 			holder.pixel_y = IC.Height() - world.icon_size

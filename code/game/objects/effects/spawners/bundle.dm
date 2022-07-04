@@ -12,9 +12,3 @@
 		for(var/path in items)
 			new path(loc)
 	return INITIALIZE_HINT_QDEL
-
-/obj/effect/spawner/bundle/hobo_squat
-	name = "hobo squat spawner"
-	items = list(/obj/structure/bed/maint,
-				/obj/effect/spawner/scatter/grime,
-				/obj/effect/spawner/lootdrop/maint_drugs)

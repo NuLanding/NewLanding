@@ -22,7 +22,6 @@
 	overdose_threshold = 35
 	reagent_state = SOLID
 	inverse_chem_val = 0.3
-	inverse_chem = /datum/reagent/inverse/helgrasp
 	failed_chem = null
 	var/helbent = FALSE
 	var/reaping = FALSE
@@ -32,7 +31,6 @@
 	. = TRUE
 	var/death_is_coming = (M.getToxLoss() + M.getOxyLoss() + M.getFireLoss() + M.getBruteLoss())*normalise_creation_purity()
 	var/thou_shall_heal = 0
-	var/good_kind_of_healing = FALSE
 	switch(M.stat)
 		if(CONSCIOUS) //bad
 			thou_shall_heal = death_is_coming/50
@@ -42,52 +40,10 @@
 			M.adjustOxyLoss(1 * REM * delta_time, TRUE)
 		else //no convert
 			thou_shall_heal = round(death_is_coming/45, 0.1)
-			good_kind_of_healing = TRUE
 	M.adjustBruteLoss(-thou_shall_heal * REM * delta_time, FALSE)
-
-	if(good_kind_of_healing && !reaping && DT_PROB(0.00005, delta_time)) //janken with the grim reaper!
-		reaping = TRUE
-		var/list/RockPaperScissors = list("rock" = "paper", "paper" = "scissors", "scissors" = "rock") //choice = loses to
-		if(M.apply_status_effect(/datum/status_effect/necropolis_curse,CURSE_BLINDING))
-			helbent = TRUE
-		to_chat(M, SPAN_HIEROPHANT("Malevolent spirits appear before you, bartering your life in a 'friendly' game of rock, paper, scissors. Which do you choose?"))
-		var/timeisticking = world.time
-		var/RPSchoice = input(M, "Janken Time! You have 60 Seconds to Choose!", "Rock Paper Scissors",null) as null|anything in RockPaperScissors
-		if(QDELETED(M) || (timeisticking+(1.1 MINUTES) < world.time))
-			reaping = FALSE
-			return //good job, you ruined it
-		if(!RPSchoice)
-			to_chat(M, SPAN_HIEROPHANT("You decide to not press your luck, but the spirits remain... hopefully they'll go away soon."))
-			reaping = FALSE
-			return
-		var/grim = pick(RockPaperScissors)
-		if(grim == RPSchoice) //You Tied!
-			to_chat(M, SPAN_HIEROPHANT("You tie, and the malevolent spirits disappear... for now."))
-			reaping = FALSE
-		else if(RockPaperScissors[RPSchoice] == grim) //You lost!
-			to_chat(M, SPAN_HIEROPHANT("You lose, and the malevolent spirits smirk eerily as they surround your body."))
-			M.dust()
-			return
-		else //VICTORY ROYALE
-			to_chat(M, SPAN_HIEROPHANT("You win, and the malevolent spirits fade away as well as your wounds."))
-			M.revive(full_heal = TRUE, admin_revive = FALSE)
-			holder.del_reagent(type)
-			return
 
 	..()
 	return
-
-/datum/reagent/medicine/c2/helbital/overdose_process(mob/living/carbon/M, delta_time, times_fired)
-	if(!helbent)
-		M.apply_necropolis_curse(CURSE_WASTING | CURSE_BLINDING)
-		helbent = TRUE
-	..()
-	return TRUE
-
-/datum/reagent/medicine/c2/helbital/on_mob_delete(mob/living/L)
-	if(helbent)
-		L.remove_status_effect(STATUS_EFFECT_NECROPOLIS_CURSE)
-	..()
 
 /datum/reagent/medicine/c2/libital //messes with your liber
 	name = "Libital"

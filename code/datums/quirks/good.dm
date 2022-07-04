@@ -132,18 +132,6 @@
 	mob_trait = TRAIT_SKITTISH
 	medical_record_text = "Patient demonstrates a high aversion to danger and has described hiding in containers out of fear."
 
-/datum/quirk/item_quirk/spiritual
-	name = "Spiritual"
-	desc = "You hold a spiritual belief, whether in God, nature or the arcane rules of the universe. You gain comfort from the presence of holy people, and believe that your prayers are more special than others. Being in the chapel makes you happy."
-	value = 4
-	mob_trait = TRAIT_SPIRITUAL
-	gain_text = SPAN_NOTICE("You have faith in a higher power.")
-	lose_text = SPAN_DANGER("You lose faith!")
-	medical_record_text = "Patient reports a belief in a higher power."
-
-/datum/quirk/item_quirk/spiritual/add_unique()
-	give_item_to_holder(/obj/item/storage/fancy/candle_box, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-
 /datum/quirk/item_quirk/tagger
 	name = "Tagger"
 	desc = "You're an experienced artist. People will actually be impressed by your graffiti, and you can get twice as many uses out of drawing supplies."

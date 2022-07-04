@@ -60,7 +60,6 @@
 			/obj/item/reagent_containers/food/drinks/bottle = 20,
 			/obj/item/reagent_containers/food/drinks/bottle/kong = 5,
 			/obj/item/switchblade/extended = 10,
-			/obj/item/gun/ballistic/automatic/pistol = 1,
 		)
 
 	RegisterSignal(SSatoms, COMSIG_SUBSYSTEM_POST_INITIALIZE, .proc/arm_monke)

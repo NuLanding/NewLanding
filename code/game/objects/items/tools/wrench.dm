@@ -27,15 +27,6 @@
 	playsound(loc, 'sound/weapons/genhit.ogg', 50, TRUE, -1)
 	return (BRUTELOSS)
 
-/obj/item/wrench/abductor
-	name = "alien wrench"
-	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "wrench"
-	usesound = 'sound/effects/empulse.ogg'
-	toolspeed = 0.1
-
-
 /obj/item/wrench/medical
 	name = "medical wrench"
 	desc = "A medical wrench with common(medical?) uses. Can be found in your hand."

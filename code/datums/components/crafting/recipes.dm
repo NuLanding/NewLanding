@@ -106,58 +106,6 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
-/datum/crafting_recipe/riflestock
-	name = "Wooden Rifle Stock"
-	tool_paths = list(/obj/item/hatchet)
-	result = /obj/item/weaponcrafting/stock
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 8,
-				/obj/item/stack/sticky_tape = 1)
-	time = 50
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
-/datum/crafting_recipe/dragonsbreath
-	name = "Dragonsbreath Shell"
-	result = /obj/item/ammo_casing/shotgun/dragonsbreath
-	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1, /datum/reagent/phosphorus = 5)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 5
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
-
-/datum/crafting_recipe/frag12
-	name = "FRAG-12 Shell"
-	result = /obj/item/ammo_casing/shotgun/frag12
-	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
-				/datum/reagent/glycerol = 5,
-				/datum/reagent/toxin/acid = 5,
-				/datum/reagent/toxin/acid/fluacid = 5)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 5
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
-
-/datum/crafting_recipe/improvisedslug
-	name = "Improvised Shotgun Shell"
-	result = /obj/item/ammo_casing/shotgun/improvised
-	reqs = list(/obj/item/stack/sheet/iron = 2,
-				/datum/reagent/fuel = 10)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 12
-	category = CAT_WEAPONRY
-	subcategory = CAT_AMMO
-
-/datum/crafting_recipe/pipegun
-	name = "Pipegun"
-	result = /obj/item/gun/ballistic/rifle/boltaction/pipegun
-	reqs = list(/obj/item/weaponcrafting/receiver = 1,
-				/obj/item/weaponcrafting/stock = 1,
-				/obj/item/stack/sticky_tape = 1)
-	tool_behaviors = list(TOOL_SCREWDRIVER)
-	time = 50
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/chainsaw
 	name = "Chainsaw"
 	result = /obj/item/chainsaw
@@ -237,13 +185,6 @@
 	reqs = list(/obj/item/stack/sheet/iron = 4,
 				/obj/item/stack/rods = 6)
 	time = 100
-	category = CAT_MISC
-
-/datum/crafting_recipe/papersack
-	name = "Paper Sack"
-	result = /obj/item/storage/box/papersack
-	time = 10
-	reqs = list(/obj/item/paper = 5)
 	category = CAT_MISC
 
 /datum/crafting_recipe/paperframes

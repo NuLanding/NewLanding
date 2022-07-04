@@ -20,7 +20,6 @@
 	exotic_bloodtype = "L"
 	disliked_food = GRAIN | DAIRY | CLOTH
 	liked_food = GROSS | MEAT
-	inert_mutation = FIREBREATH
 	deathsound = 'sound/voice/lizard/deathsound.ogg'
 	scream_sounds = list(
 		NEUTER = 'sound/voice/scream_lizard.ogg'

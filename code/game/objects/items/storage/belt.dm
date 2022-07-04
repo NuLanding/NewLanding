@@ -53,9 +53,6 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/multitool,
-		/obj/item/flashlight,
-		/obj/item/t_scanner,
-		/obj/item/geiger_counter,
 		/obj/item/extinguisher/mini,
 		))
 
@@ -103,7 +100,6 @@
 	new /obj/item/weldingtool(src)
 	new /obj/item/crowbar(src)
 	new /obj/item/wirecutters(src)
-	new /obj/item/t_scanner(src)
 	new /obj/item/extinguisher/mini(src)
 
 /obj/item/storage/belt/utility/syndicate/PopulateContents()
@@ -127,7 +123,6 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.max_combined_w_class = 21
 	STR.set_holdable(list(
-		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -137,7 +132,6 @@
 		/obj/item/reagent_containers/medigel,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
-		/obj/item/flashlight/pen,
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/lazarus_injector,
@@ -150,11 +144,9 @@
 		/obj/item/cautery,
 		/obj/item/hemostat,
 		/obj/item/blood_filter,
-		/obj/item/geiger_counter,
 		/obj/item/stamp,
 		/obj/item/wrench/medical,
 		/obj/item/reagent_containers/blood,
-		/obj/item/gun/syringe/syndicate,
 		/obj/item/implantcase,
 		/obj/item/implant,
 		/obj/item/implanter,
@@ -191,11 +183,9 @@
 		/obj/item/grenade,
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
-		/obj/item/ammo_casing/shotgun,
 		/obj/item/ammo_box,
 		/obj/item/food/donut,
 		/obj/item/kitchen/knife/combat,
-		/obj/item/flashlight/seclite,
 		/obj/item/melee/classic_baton/telescopic,
 		/obj/item/restraints/legcuffs/bola,
 		))
@@ -241,10 +231,8 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/multitool,
-		/obj/item/flashlight,
 		/obj/item/extinguisher/mini,
 		/obj/item/resonator,
-		/obj/item/mining_scanner,
 		/obj/item/pickaxe,
 		/obj/item/shovel,
 		/obj/item/stack/sheet/animalhide,
@@ -254,10 +242,7 @@
 		/obj/item/stack/medical,
 		/obj/item/kitchen/knife,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/gps,
 		/obj/item/storage/bag/ore,
-		/obj/item/survivalcapsule,
-		/obj/item/t_scanner/adv_mining_scanner,
 		/obj/item/reagent_containers/pill,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/ore,
@@ -266,10 +251,6 @@
 		/obj/item/wormhole_jaunter,
 		/obj/item/key/lasso
 		))
-
-
-/obj/item/storage/belt/mining/vendor
-	contents = newlist(/obj/item/survivalcapsule)
 
 /obj/item/storage/belt/mining/alt
 	icon_state = "explorer2"
@@ -414,7 +395,6 @@
 
 /obj/item/storage/belt/grenade/full/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/grenade/flashbang = 1,
 		/obj/item/grenade/smokebomb = 4,
 		/obj/item/grenade/empgrenade = 1,
 		/obj/item/grenade/empgrenade = 1,
@@ -441,7 +421,6 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL // Set to this so the  light replacer can fit.
 	STR.set_holdable(list(
 		/obj/item/grenade/chem_grenade,
-		/obj/item/flashlight,
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
 		/obj/item/key/janitor,
@@ -468,10 +447,7 @@
 	STR.max_items = 18
 	STR.max_combined_w_class = 18
 	STR.display_numerical_stacking = TRUE
-	STR.set_holdable(list(
-		/obj/item/ammo_casing/shotgun,
-		/obj/item/ammo_casing/a762
-		))
+	STR.set_holdable(list())
 
 /obj/item/storage/belt/fannypack
 	name = "fannypack"

@@ -13,7 +13,6 @@
 	var/static/list/delete_atoms = typecacheof(list(
 		/obj/effect,
 		)) - typecacheof(list(
-		/obj/effect/dummy/chameleon,
 		/obj/effect/immovablerod,
 		))
 	if(delete_atoms[teleatom.type])

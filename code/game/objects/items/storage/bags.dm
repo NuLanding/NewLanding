@@ -70,12 +70,6 @@
 
 /obj/item/storage/bag/trash/filled
 
-/obj/item/storage/bag/trash/filled/PopulateContents()
-	. = ..()
-	for(var/i in 1 to rand(1, 7))
-		new /obj/effect/spawner/lootdrop/garbage_spawner(src)
-	update_icon_state()
-
 /obj/item/storage/bag/trash/bluespace
 	name = "trash bag of holding"
 	desc = "The latest and greatest in custodial convenience, a trashbag that is capable of holding vast quantities of garbage."
@@ -281,7 +275,6 @@
 		/obj/item/reagent_containers/food,
 		/obj/item/reagent_containers/glass,
 		/obj/item/storage/fancy,
-		/obj/item/storage/box/gum,
 		/obj/item/food,
 		/obj/item/trash,
 		/obj/item/kitchen,
@@ -420,24 +413,3 @@
 		/obj/item/stack/ore/bluespace_crystal,
 		/obj/item/reagent_containers/glass/beaker,
 		))
-
-/obj/item/storage/bag/harpoon_quiver
-	name = "harpoon quiver"
-	desc = "A quiver for holding harpoons."
-	icon_state = "quiver"
-	inhand_icon_state = "quiver"
-	worn_icon_state = "harpoon_quiver"
-
-/obj/item/storage/bag/harpoon_quiver/ComponentInitialize()
-	. = ..()
-	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_w_class = WEIGHT_CLASS_TINY
-	STR.max_items = 40
-	STR.max_combined_w_class = 100
-	STR.set_holdable(list(
-		/obj/item/ammo_casing/caseless/harpoon
-		))
-
-/obj/item/storage/bag/harpoon_quiver/PopulateContents()
-	for(var/i in 1 to 40)
-		new /obj/item/ammo_casing/caseless/harpoon(src)

@@ -200,7 +200,6 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 
 GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 	new/datum/stack_recipe("punji sticks trap", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE), \
-	new/datum/stack_recipe("blow gun", /obj/item/gun/syringe/blowgun, 10, time = 70), \
 	))
 
 /obj/item/stack/sheet/mineral/bamboo
@@ -315,44 +314,8 @@ GLOBAL_LIST_INIT(durathread_recipes, list())
  */
 GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 	new/datum/stack_recipe("box", /obj/item/storage/box), \
-	new/datum/stack_recipe("cardboard cutout", /obj/item/cardboard_cutout, 5), \
 	null, \
-
-	new/datum/stack_recipe("pizza box", /obj/item/pizzabox), \
 	new/datum/stack_recipe("folder", /obj/item/folder), \
-	null, \
-	//TO-DO: Find a proper way to just change the illustration on the box. Code isn't the issue, input is.
-	new/datum/stack_recipe_list("fancy boxes", list(
-		new /datum/stack_recipe("donut box", /obj/item/storage/fancy/donut_box), \
-		new /datum/stack_recipe("egg box", /obj/item/storage/fancy/egg_box), \
-		new /datum/stack_recipe("donk-pockets box", /obj/item/storage/box/donkpockets), \
-		new /datum/stack_recipe("donk-pockets spicy box", /obj/item/storage/box/donkpockets/donkpocketspicy), \
-		new /datum/stack_recipe("donk-pockets teriyaki box", /obj/item/storage/box/donkpockets/donkpocketteriyaki), \
-		new /datum/stack_recipe("donk-pockets pizza box", /obj/item/storage/box/donkpockets/donkpocketpizza), \
-		new /datum/stack_recipe("donk-pockets berry box", /obj/item/storage/box/donkpockets/donkpocketberry), \
-		new /datum/stack_recipe("donk-pockets honk box", /obj/item/storage/box/donkpockets/donkpockethonk), \
-		new /datum/stack_recipe("monkey cube box", /obj/item/storage/box/monkeycubes),
-		new /datum/stack_recipe("nugget box", /obj/item/storage/fancy/nugget_box), \
-		null, \
-
-		new /datum/stack_recipe("lethal ammo box", /obj/item/storage/box/lethalshot), \
-		new /datum/stack_recipe("rubber shot ammo box", /obj/item/storage/box/rubbershot), \
-		new /datum/stack_recipe("bean bag ammo box", /obj/item/storage/box/beanbag), \
-		new /datum/stack_recipe("flashbang box", /obj/item/storage/box/flashbangs), \
-		new /datum/stack_recipe("handcuffs box", /obj/item/storage/box/handcuffs), \
-		new /datum/stack_recipe("ID card box", /obj/item/storage/box/ids), \
-		null, \
-
-		new /datum/stack_recipe("pillbottle box", /obj/item/storage/box/pillbottles), \
-		new /datum/stack_recipe("beaker box", /obj/item/storage/box/beakers), \
-		new /datum/stack_recipe("syringe box", /obj/item/storage/box/syringes), \
-		new /datum/stack_recipe("medipen box", /obj/item/storage/box/medipens), \
-		null, \
-
-		new /datum/stack_recipe("survival box", /obj/item/storage/box/survival), \
-		new /datum/stack_recipe("candle box", /obj/item/storage/fancy/candle_box)
-		)),
-
 	null, \
 ))
 
@@ -377,17 +340,6 @@ GLOBAL_LIST_INIT(cardboard_recipes, list ( \
 
 /obj/item/stack/sheet/cardboard/fifty
 	amount = 50
-
-/obj/item/stack/sheet/cardboard/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/stamp/clown) && !istype(loc, /obj/item/storage))
-		var/atom/droploc = drop_location()
-		if(use(1))
-			playsound(I, 'sound/items/bikehorn.ogg', 50, TRUE, -1)
-			to_chat(user, SPAN_NOTICE("You stamp the cardboard! It's a clown box! Honk!"))
-			if (amount >= 0)
-				new/obj/item/storage/box/clown(droploc) //bugfix
-	else
-		. = ..()
 
 /*
  * Bronze

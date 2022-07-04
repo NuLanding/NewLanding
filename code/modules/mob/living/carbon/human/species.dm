@@ -1237,14 +1237,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	return 1
 
 /datum/species/proc/on_hit(obj/projectile/P, mob/living/carbon/human/H)
-	// called when hit by a projectile
-	switch(P.type)
-		if(/obj/projectile/energy/floramut) // overwritten by plants/pods
-			H.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
-		if(/obj/projectile/energy/florayield)
-			H.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
-		if(/obj/projectile/energy/florarevolution)
-			H.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
+	return
 
 /datum/species/proc/bullet_act(obj/projectile/P, mob/living/carbon/human/H)
 	// called before a projectile hit

@@ -54,21 +54,6 @@
 	. = ..()
 	AddElement(/datum/element/eyestab)
 
-/obj/item/screwdriver/abductor
-	name = "alien screwdriver"
-	desc = "An ultrasonic screwdriver."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "screwdriver_a"
-	inhand_icon_state = "screwdriver_nuke"
-	usesound = 'sound/items/pshoom.ogg'
-	toolspeed = 0.1
-	random_color = FALSE
-	greyscale_config_inhand_left = null
-	greyscale_config_inhand_right = null
-
-/obj/item/screwdriver/abductor/get_belt_overlay()
-	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_nuke")
-
 /obj/item/screwdriver/power
 	name = "hand drill"
 	desc = "A simple powered hand drill."

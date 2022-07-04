@@ -66,12 +66,6 @@
 	if(imp)
 		reagents = imp.reagents
 
-
-/obj/item/implantcase/tracking
-	name = "implant case - 'Tracking'"
-	desc = "A glass case containing a tracking implant."
-	imp_type = /obj/item/implant/tracking
-
 /obj/item/implantcase/weapons_auth
 	name = "implant case - 'Firearms Authentication'"
 	desc = "A glass case containing a firearms authentication implant."

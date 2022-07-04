@@ -117,72 +117,6 @@
 		inhand_icon_state = "balloon-empty"
 	return ..()
 
-#define BALLOON_COLORS list("red", "blue", "green", "yellow")
-
-/obj/item/toy/balloon
-	name = "balloon"
-	desc = "No birthday is complete without it."
-	icon = 'icons/obj/balloons.dmi'
-	icon_state = "balloon"
-	inhand_icon_state = "balloon"
-	lefthand_file = 'icons/mob/inhands/balloons_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/balloons_righthand.dmi'
-	w_class = WEIGHT_CLASS_BULKY
-	throwforce = 0
-	throw_speed = 3
-	throw_range = 7
-	force = 0
-	var/random_color = TRUE
-
-/obj/item/toy/balloon/Initialize(mapload)
-	. = ..()
-	if(random_color)
-		var/chosen_balloon_color = pick(BALLOON_COLORS)
-		name = "[chosen_balloon_color] [name]"
-		icon_state = "[icon_state]_[chosen_balloon_color]"
-		inhand_icon_state = icon_state
-
-/obj/item/toy/balloon/corgi
-	name = "corgi balloon"
-	desc = "A balloon with a corgi face on it. For the all year good boys."
-	icon_state = "corgi"
-	inhand_icon_state = "corgi"
-	random_color = FALSE
-
-/obj/item/toy/balloon/syndicate
-	name = "syndicate balloon"
-	desc = "There is a tag on the back that reads \"FUK NT!11!\"."
-	icon_state = "syndballoon"
-	inhand_icon_state = "syndballoon"
-	random_color = FALSE
-
-/obj/item/toy/balloon/syndicate/pickup(mob/user)
-	. = ..()
-	if(user && user.mind && user.mind.has_antag_datum(/datum/antagonist, TRUE))
-		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "badass_antag", /datum/mood_event/badass_antag)
-
-/obj/item/toy/balloon/syndicate/dropped(mob/user)
-	if(user)
-		SEND_SIGNAL(user, COMSIG_CLEAR_MOOD_EVENT, "badass_antag", /datum/mood_event/badass_antag)
-	. = ..()
-
-
-/obj/item/toy/balloon/syndicate/Destroy()
-	if(ismob(loc))
-		var/mob/M = loc
-		SEND_SIGNAL(M, COMSIG_CLEAR_MOOD_EVENT, "badass_antag", /datum/mood_event/badass_antag)
-	. = ..()
-
-
-/obj/item/toy/balloon/arrest
-	name = "arreyst balloon"
-	desc = "A half inflated balloon about a boyband named Arreyst that was popular about ten years ago, famous for making fun of red jumpsuits as unfashionable."
-	icon_state = "arrestballoon"
-	inhand_icon_state = "arrestballoon"
-	random_color = FALSE
-
-#undef BALLOON_COLORS
-
 /*
  * Fake singularity
  */
@@ -1071,31 +1005,6 @@
 				shake_camera(M, 3, 1)
 
 /*
- * Toy big red button
- */
-/obj/item/toy/redbutton
-	name = "big red button"
-	desc = "A big, plastic red button. Reads 'From HonkCo Pranks!' on the back."
-	icon = 'icons/obj/assemblies.dmi'
-	icon_state = "bigred"
-	w_class = WEIGHT_CLASS_SMALL
-	var/cooldown = 0
-
-/obj/item/toy/redbutton/attack_self(mob/user)
-	if (cooldown < world.time)
-		cooldown = (world.time + 300) // Sets cooldown at 30 seconds
-		user.visible_message(SPAN_WARNING("[user] presses the big red button."), SPAN_NOTICE("You press the button, it plays a loud noise!"), SPAN_HEAR("The button clicks loudly."))
-		playsound(src, 'sound/effects/explosionfar.ogg', 50, FALSE)
-		for(var/mob/M in urange(10, src)) // Checks range
-			if(!M.stat) // Checks to make sure whoever's getting shaken is alive/not the AI
-				// Short delay to match up with the explosion sound
-				// Shakes player camera 2 squares for 1 second.
-				addtimer(CALLBACK(GLOBAL_PROC, .proc/shake_camera, M, 2, 1), 0.8 SECONDS)
-
-	else
-		to_chat(user, SPAN_ALERT("Nothing happens."))
-
-/*
  * Snowballs
  */
 
@@ -1130,32 +1039,6 @@
 /obj/item/toy/beach_ball/branded
 	name = "\improper Nanotrasen-brand beach ball"
 	desc = "The simple beach ball is one of Nanotrasen's most popular products. 'Why do we make beach balls? Because we can! (TM)' - Nanotrasen"
-
-/*
- * Clockwork Watch
- */
-
-/obj/item/toy/clockwork_watch
-	name = "steampunk watch"
-	desc = "A stylish steampunk watch made out of thousands of tiny cogwheels."
-	icon = 'icons/obj/clockwork_objects.dmi'
-	icon_state = "dread_ipad"
-	worn_icon_state = "dread_ipad"
-	slot_flags = ITEM_SLOT_BELT
-	w_class = WEIGHT_CLASS_SMALL
-	var/cooldown = 0
-
-/obj/item/toy/clockwork_watch/attack_self(mob/user)
-	if (cooldown < world.time)
-		cooldown = world.time + 1800 //3 minutes
-		user.visible_message(SPAN_WARNING("[user] rotates a cogwheel on [src]."), SPAN_NOTICE("You rotate a cogwheel on [src], it plays a loud noise!"), SPAN_HEAR("You hear cogwheels turning."))
-		playsound(src, 'sound/magic/clockwork/ark_activation.ogg', 50, FALSE)
-	else
-		to_chat(user, SPAN_ALERT("The cogwheels are already turning!"))
-
-/obj/item/toy/clockwork_watch/examine(mob/user)
-	. = ..()
-	. += SPAN_INFO("Station Time: [station_time_timestamp()]")
 
 /*
  * Toy Dagger

@@ -47,7 +47,6 @@
 	if(empty)
 		return
 	var/static/items_inside = list(
-		/obj/item/healthanalyzer/wound = 1,
 		/obj/item/stack/medical/gauze = 1,
 		/obj/item/stack/medical/splint = 1,
 		/obj/item/stack/medical/suture/emergency = 1,
@@ -69,7 +68,6 @@
 	STR.max_items = 12
 	STR.max_combined_w_class = 24
 	STR.set_holdable(list(
-		/obj/item/healthanalyzer,
 		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
@@ -80,7 +78,6 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
-		/obj/item/flashlight/pen,
 		/obj/item/extinguisher/mini,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/lazarus_injector,
@@ -94,11 +91,9 @@
 		/obj/item/hemostat,
 		/obj/item/blood_filter,
 		/obj/item/shears,
-		/obj/item/geiger_counter,
 		/obj/item/stamp,
 		/obj/item/wrench/medical,
 		/obj/item/reagent_containers/blood,
-		/obj/item/gun/syringe/syndicate,
 		/obj/item/implantcase,
 		/obj/item/implant,
 		/obj/item/implanter,
@@ -110,7 +105,6 @@
 	if(empty)
 		return
 	var/static/items_inside = list(
-		/obj/item/healthanalyzer = 1,
 		/obj/item/stack/medical/gauze/twelve = 1,
 		/obj/item/stack/medical/splint/twelve = 1,
 		/obj/item/stack/medical/suture = 2,

@@ -160,60 +160,6 @@
 /// The index of the entry in 'afk_thefts' with the time it happened
 #define AFK_THEFT_TIME 3
 
-//Allowed equipment lists for security vests and hardsuits.
-
-GLOBAL_LIST_INIT(advanced_hardsuit_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	)))
-
-GLOBAL_LIST_INIT(security_hardsuit_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun/ballistic,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	)))
-
-GLOBAL_LIST_INIT(detective_vest_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/detective_scanner,
-	/obj/item/flashlight,
-	/obj/item/gun/ballistic,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	/obj/item/taperecorder,
-	)))
-
-GLOBAL_LIST_INIT(security_vest_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/flashlight,
-	/obj/item/gun/ballistic,
-	/obj/item/kitchen/knife/combat,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	)))
-
-GLOBAL_LIST_INIT(security_wintercoat_allowed, typecacheof(list(
-	/obj/item/ammo_box,
-	/obj/item/ammo_casing,
-	/obj/item/gun/ballistic,
-	/obj/item/melee/classic_baton,
-	/obj/item/reagent_containers/spray/pepper,
-	/obj/item/restraints/handcuffs,
-	)))
-
 /// String for items placed into the left pocket.
 #define LOCATION_LPOCKET "in your left pocket"
 /// String for items placed into the right pocket

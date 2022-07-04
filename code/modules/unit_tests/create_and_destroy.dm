@@ -53,8 +53,6 @@
 	ignore += typesof(/obj/effect/mapping_helpers/component_injector/areabound)
 	//Expects a mob to holderize, we have nothing to give
 	ignore += typesof(/obj/item/clothing/head/mob_holder)
-	//Mold structures expect to be managed by a controller
-	ignore += typesof(/obj/structure/mold)
 	//Screen objects have all sorts of dependencies
 	ignore += typesof(/atom/movable/screen)
 	//Plane master controllers expect to be managed by huds

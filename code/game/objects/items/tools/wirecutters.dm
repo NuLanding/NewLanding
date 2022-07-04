@@ -63,11 +63,3 @@
 	user.visible_message(SPAN_SUICIDE("[user] is cutting at [user.p_their()] arteries with [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(loc, usesound, 50, TRUE, -1)
 	return (BRUTELOSS)
-
-/obj/item/wirecutters/abductor
-	name = "alien wirecutters"
-	desc = "Extremely sharp wirecutters, made out of a silvery-green metal."
-	icon = 'icons/obj/abductor.dmi'
-	icon_state = "cutters"
-	toolspeed = 0.1
-	random_color = FALSE

@@ -29,11 +29,6 @@
 /obj/item/wormhole_jaunter/proc/get_destinations(mob/user)
 	var/list/destinations = list()
 
-	for(var/obj/item/beacon/B in GLOB.teleportbeacons)
-		var/turf/T = get_turf(B)
-		if(is_station_level(T))
-			destinations += B
-
 	return destinations
 
 /obj/item/wormhole_jaunter/proc/activate(mob/user, adjacent)

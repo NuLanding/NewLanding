@@ -38,10 +38,6 @@
 /datum/loadout_item/backpack/fragrance/nectarine
 	path = /obj/item/perfume/nectarine
 
-/datum/loadout_item/backpack/ttsdevice
-	path = /obj/item/ttsdevice
-	cost = 7
-
 /datum/loadout_item/backpack/wallet
 	path = /obj/item/storage/wallet
 
@@ -58,26 +54,6 @@
 /datum/loadout_item/backpack/fountainpen
 	path = /obj/item/pen/fountain
 	cost = 2
-
-/datum/loadout_item/backpack/ringbox_gold
-	path = /obj/item/storage/fancy/ringbox
-	cost = 3
-
-/datum/loadout_item/backpack/ringbox_silver
-	name = "silver ring box"
-	path = /obj/item/storage/fancy/ringbox/silver
-	cost = 3
-
-/datum/loadout_item/backpack/ringbox_diamond
-	name = "diamond ring box"
-	path = /obj/item/storage/fancy/ringbox/diamond
-	cost = 5
-
-/datum/loadout_item/backpack/tapeplayer
-	path = /obj/item/taperecorder
-
-/datum/loadout_item/backpack/tape
-	path = /obj/item/tape/random
 
 /datum/loadout_item/backpack/coin
 	name = "iron coin"
