@@ -260,14 +260,6 @@
 		var/datum/language/L = new path ()
 		L.get_icon()
 
-/datum/asset/spritesheet/pipes
-	name = "pipes"
-
-/datum/asset/spritesheet/pipes/register()
-	for (var/each in list('icons/obj/atmospherics/pipes/pipe_item.dmi', 'icons/obj/atmospherics/pipes/disposal.dmi', 'icons/obj/atmospherics/pipes/transit_tube.dmi', 'icons/obj/plumbing/fluid_ducts.dmi'))
-		InsertAll("", each, GLOB.alldirs)
-	..()
-
 /datum/asset/simple/genetics
 	assets = list(
 		"dna_discovered.gif" = 'icons/ui_icons/dna/dna_discovered.gif',
