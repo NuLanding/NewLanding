@@ -59,7 +59,6 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/holosign_creator/atmos,
 		/obj/item/holosign_creator/engineering,
-		/obj/item/forcefield_projector,
 		/obj/item/plunger,
 		))
 
@@ -455,7 +454,6 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
 		/obj/item/holosign_creator,
-		/obj/item/forcefield_projector,
 		/obj/item/key/janitor,
 		/obj/item/melee/flyswatter,
 		/obj/item/paint_remover,

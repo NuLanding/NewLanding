@@ -619,9 +619,9 @@ this may seem bad, but you're atleast as close to the center of the atom as poss
 Checks if that loc and dir has an item on the wall
 */
 GLOBAL_LIST_INIT(WALLITEMS, typecacheof(list(
-	/obj/structure/extinguisher_cabinet, /obj/structure/reagent_dispensers/peppertank,
+	/obj/structure/reagent_dispensers/peppertank,
 	/obj/item/storage/secure/safe,
-	/obj/structure/mirror, /obj/structure/fireaxecabinet,
+	/obj/structure/mirror,
 	)))
 
 GLOBAL_LIST_INIT(WALLITEMS_EXTERNAL, typecacheof(list()))

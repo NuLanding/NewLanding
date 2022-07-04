@@ -21,8 +21,6 @@
 		/obj/effect/mapping_helpers/custom_icon,
 		//Is initialized with a trauma
 		/mob/camera/imaginary_friend,
-		//Created and managed by a projector
-		/obj/structure/projected_forcefield,
 		//Deepfrying logic manages this
 		/obj/item/food/deepfryholder,
 		//Isn't meant to be deleted

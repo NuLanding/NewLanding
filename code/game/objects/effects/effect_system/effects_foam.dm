@@ -62,23 +62,6 @@
 
 /obj/effect/particle_effect/foam/proc/kill_foam()
 	STOP_PROCESSING(SSfastprocess, src)
-	switch(metal)
-		if(ALUMINUM_FOAM)
-			new /obj/structure/foamedmetal(get_turf(src))
-		if(IRON_FOAM)
-			new /obj/structure/foamedmetal/iron(get_turf(src))
-	flick("[icon_state]-disolve", src)
-	QDEL_IN(src, 5)
-
-/obj/effect/particle_effect/foam/smart/kill_foam() //Smart foam adheres to area borders for walls
-	STOP_PROCESSING(SSfastprocess, src)
-	if(metal)
-		var/turf/T = get_turf(src)
-		for(var/direction in GLOB.cardinals)
-			var/turf/cardinal_turf = get_step(T, direction)
-			if(get_area(cardinal_turf) != get_area(T)) //We're at an area boundary, so let's block off this turf!
-				new/obj/structure/foamedmetal(T)
-				break
 	flick("[icon_state]-disolve", src)
 	QDEL_IN(src, 5)
 
@@ -153,10 +136,6 @@
 	effect_type = /obj/effect/particle_effect/foam/metal
 
 
-/datum/effect_system/foam_spread/metal/smart
-	effect_type = /obj/effect/particle_effect/foam/smart
-
-
 /datum/effect_system/foam_spread/long
 	effect_type = /obj/effect/particle_effect/foam/long_life
 
@@ -200,50 +179,6 @@
 	F.add_atom_colour(foamcolor, FIXED_COLOUR_PRIORITY)
 	F.amount = amount
 	F.metal = metal
-
-
-//////////////////////////////////////////////////////////
-// FOAM STRUCTURE. Formed by metal foams. Dense and opaque, but easy to break
-/obj/structure/foamedmetal
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "metalfoam"
-	density = TRUE
-	opacity = TRUE // changed in New()
-	anchored = TRUE
-	layer = EDGED_TURF_LAYER
-	resistance_flags = FIRE_PROOF | ACID_PROOF
-	name = "foamed metal"
-	desc = "A lightweight foamed metal wall."
-	gender = PLURAL
-	max_integrity = 20
-	CanAtmosPass = ATMOS_PASS_DENSITY
-
-/obj/structure/foamedmetal/Initialize()
-	. = ..()
-	air_update_turf(TRUE, TRUE)
-
-/obj/structure/foamedmetal/Destroy()
-	air_update_turf(TRUE, FALSE)
-	. = ..()
-
-/obj/structure/foamedmetal/attack_paw(mob/user, list/modifiers)
-	return attack_hand(user, modifiers)
-
-/obj/structure/foamedmetal/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
-	playsound(src.loc, 'sound/weapons/tap.ogg', 100, TRUE)
-
-/obj/structure/foamedmetal/attack_hand(mob/user, list/modifiers)
-	. = ..()
-	if(.)
-		return
-	user.changeNext_move(CLICK_CD_MELEE)
-	user.do_attack_animation(src, ATTACK_EFFECT_PUNCH)
-	to_chat(user, SPAN_WARNING("You hit [src] but bounce off it!"))
-	playsound(src.loc, 'sound/weapons/tap.ogg', 100, TRUE)
-
-/obj/structure/foamedmetal/iron
-	max_integrity = 50
-	icon_state = "ironfoam"
 
 #undef ALUMINUM_FOAM
 #undef IRON_FOAM

@@ -179,33 +179,6 @@
 	holder.create_foam(/datum/effect_system/foam_spread,2*created_volume,notification=SPAN_DANGER("The solution spews out foam!"))
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
 
-/datum/chemical_reaction/metalfoam
-	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
-	mob_react = FALSE
-	reaction_flags = REACTION_INSTANT
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
-
-/datum/chemical_reaction/metalfoam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,1,SPAN_DANGER("The solution spews out a metallic foam!"))
-
-/datum/chemical_reaction/smart_foam
-	required_reagents = list(/datum/reagent/aluminium = 3, /datum/reagent/smart_foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
-	mob_react = TRUE
-	reaction_flags = REACTION_INSTANT
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
-
-/datum/chemical_reaction/smart_foam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal/smart,5*created_volume,1,SPAN_DANGER("The solution spews out metallic foam!"))
-
-/datum/chemical_reaction/ironfoam
-	required_reagents = list(/datum/reagent/iron = 3, /datum/reagent/foaming_agent = 1, /datum/reagent/toxin/acid/fluacid = 1)
-	mob_react = FALSE
-	reaction_flags = REACTION_INSTANT
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_UNIQUE
-
-/datum/chemical_reaction/ironfoam/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	holder.create_foam(/datum/effect_system/foam_spread/metal,5*created_volume,2,SPAN_DANGER("The solution spews out a metallic foam!"))
-
 /datum/chemical_reaction/foaming_agent
 	results = list(/datum/reagent/foaming_agent = 1)
 	required_reagents = list(/datum/reagent/lithium = 1, /datum/reagent/hydrogen = 1)

@@ -97,32 +97,6 @@
 	. = ..()
 	AddElement(/datum/element/climbable)
 
-/obj/structure/barricade/security
-	name = "security barrier"
-	desc = "A deployable barrier. Provides good cover in fire fights."
-	icon = 'icons/obj/objects.dmi'
-	icon_state = "barrier0"
-	density = FALSE
-	anchored = FALSE
-	max_integrity = 180
-	proj_pass_rate = 20
-	armor = list(MELEE = 10, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 10, BIO = 100, RAD = 100, FIRE = 10, ACID = 0)
-
-	var/deploy_time = 40
-	var/deploy_message = TRUE
-
-
-/obj/structure/barricade/security/Initialize()
-	. = ..()
-	addtimer(CALLBACK(src, .proc/deploy), deploy_time)
-
-/obj/structure/barricade/security/proc/deploy()
-	icon_state = "barrier1"
-	set_density(TRUE)
-	set_anchored(TRUE)
-	if(deploy_message)
-		visible_message(SPAN_WARNING("[src] deploys!"))
-
 #undef SINGLE
 #undef VERTICAL
 #undef HORIZONTAL

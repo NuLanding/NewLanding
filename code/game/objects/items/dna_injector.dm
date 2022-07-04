@@ -393,14 +393,6 @@
 	name = "\improper DNA injector (Anti-Thermal Vision)"
 	remove_mutations = list(THERMAL)
 
-/obj/item/dnainjector/webbing
-	name = "\improper DNA injector (Webbing)"
-	add_mutations = list(SPIDER_WEB)
-
-/obj/item/dnainjector/antiwebbing
-	name = "\improper DNA injector (Anti-Webbing)"
-	remove_mutations = list(SPIDER_WEB)
-
 /obj/item/dnainjector/timed
 	var/duration = 600
 
