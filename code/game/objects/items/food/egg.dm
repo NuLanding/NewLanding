@@ -53,37 +53,8 @@
 
 		to_chat(usr, SPAN_NOTICE("You colour [src] with [W]."))
 		icon_state = "egg-[clr]"
-	else if(istype(W, /obj/item/stamp/clown))
-		var/clowntype = pick("grock", "grimaldi", "rainbow", "chaos", "joker", "sexy", "standard", "bobble", "krusty", "bozo", "pennywise", "ronald", "jacobs", "kelly", "popov", "cluwne")
-		icon_state = "egg-clown-[clowntype]"
-		desc = "An egg that has been decorated with the grotesque, robustable likeness of a clown's face. "
-		to_chat(usr, SPAN_NOTICE("You stamp [src] with [W], creating an artistic and not remotely horrifying likeness of clown makeup."))
 	else
 		..()
-
-/obj/item/food/egg/blue
-	icon_state = "egg-blue"
-
-/obj/item/food/egg/green
-	icon_state = "egg-green"
-
-/obj/item/food/egg/mime
-	icon_state = "egg-mime"
-
-/obj/item/food/egg/orange
-	icon_state = "egg-orange"
-
-/obj/item/food/egg/purple
-	icon_state = "egg-purple"
-
-/obj/item/food/egg/rainbow
-	icon_state = "egg-rainbow"
-
-/obj/item/food/egg/red
-	icon_state = "egg-red"
-
-/obj/item/food/egg/yellow
-	icon_state = "egg-yellow"
 
 /obj/item/food/friedegg
 	name = "fried egg"

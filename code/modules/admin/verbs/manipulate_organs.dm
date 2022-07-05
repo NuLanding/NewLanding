@@ -65,10 +65,4 @@
 
 			organ.forceMove(get_turf(C))
 
-			if(operation == "remove organ/implant")
-				qdel(organ)
-			else if(I) // Put the implant in case.
-				var/obj/item/implantcase/case = new(get_turf(C))
-				case.imp = I
-				I.forceMove(case)
-				case.update_appearance()
+			qdel(organ)

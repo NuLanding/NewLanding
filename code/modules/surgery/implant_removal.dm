@@ -40,21 +40,7 @@
 			SPAN_NOTICE("[user] successfully removes something from [target]'s [target_zone]!"))
 		implant.removed(target)
 
-		var/obj/item/implantcase/case
-		for(var/obj/item/implantcase/implant_case in user.held_items)
-			case = implant_case
-			break
-		if(!case)
-			case = locate(/obj/item/implantcase) in get_turf(target)
-		if(case && !case.imp)
-			case.imp = implant
-			implant.forceMove(case)
-			case.update_appearance()
-			display_results(user, target, SPAN_NOTICE("You place [implant] into [case]."),
-				SPAN_NOTICE("[user] places [implant] into [case]!"),
-				SPAN_NOTICE("[user] places it into [case]!"))
-		else
-			qdel(implant)
+		qdel(implant)
 
 	else
 		to_chat(user, SPAN_WARNING("You can't find anything in [target]'s [target_zone]!"))

@@ -61,7 +61,6 @@
 	implements = list(
 		TOOL_HEMOSTAT = 90,
 		TOOL_WIRECUTTER = 35,
-		/obj/item/stack/package_wrap = 15,
 		)
 	time = 90
 

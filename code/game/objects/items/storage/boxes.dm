@@ -70,11 +70,6 @@
 	qdel(src)
 	user.put_in_hands(I)
 
-/obj/item/storage/box/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/stack/package_wrap))
-		return FALSE
-	return ..()
-
 // Ordinary survival box
 /obj/item/storage/box/survival
 	name = "survival box"

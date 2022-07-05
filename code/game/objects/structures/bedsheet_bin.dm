@@ -204,6 +204,17 @@ LINEN BINS
 	worn_icon_state = "sheetblack"
 	bedsheet_type = BEDSHEET_DOUBLE
 
+/obj/item/bedsheet/red/double
+	icon_state = "double_sheetred"
+	worn_icon_state = "sheetred"
+	bedsheet_type = BEDSHEET_DOUBLE
+
+/obj/item/bedsheet/yellow/double
+	icon_state = "double_sheetyellow"
+	worn_icon_state = "sheetyellow"
+	dying_key = DYE_REGISTRY_DOUBLE_BEDSHEET
+	bedsheet_type = BEDSHEET_DOUBLE
+
 /obj/item/bedsheet/dorms_double
 	icon_state = "random_bedsheet"
 	bedsheet_type = BEDSHEET_ABSTRACT

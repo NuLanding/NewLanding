@@ -64,14 +64,6 @@
 			var/mob/buckled_to = M.buckled
 			if((!ismob(M.buckled) || (buckled_to.buckled != M)) && !droppable(M.buckled))
 				return FALSE
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
-			if(istype(H.belt, /obj/item/wormhole_jaunter))
-				var/obj/item/wormhole_jaunter/J = H.belt
-				//To freak out any bystanders
-				H.visible_message(SPAN_BOLDWARNING("[H] falls into [parent]!"))
-				J.chasm_react(H)
-				return FALSE
 	return TRUE
 
 /datum/component/chasm/proc/drop(atom/movable/AM)

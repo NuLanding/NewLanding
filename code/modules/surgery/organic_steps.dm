@@ -43,7 +43,6 @@
 	implements = list(
 		TOOL_HEMOSTAT = 100,
 		TOOL_WIRECUTTER = 60,
-		/obj/item/stack/package_wrap = 35,
 		)
 	time = 24
 
@@ -143,7 +142,6 @@
 	name = "drill bone"
 	implements = list(
 		TOOL_DRILL = 100,
-		/obj/item/pickaxe/drill = 60,
 		TOOL_SCREWDRIVER = 25,
 		/obj/item/kitchen/spoon = 20)
 	time = 30
