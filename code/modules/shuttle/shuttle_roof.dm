@@ -18,12 +18,12 @@
 		COMSIG_TURF_CHANGE = .proc/turf_updated,
 	)
 	AddElement(/datum/element/connect_loc, src, loc_connections)
-	SEND_SIGNAL(my_turf, COMSIG_TURF_UPDATE_TRANSPARENCY)
+	my_turf.update_turf_transparency()
 
 /obj/effect/abstract/shuttle_roof/Destroy()
 	var/turf/my_turf = loc
 	. = ..()
-	SEND_SIGNAL(my_turf, COMSIG_TURF_UPDATE_TRANSPARENCY)
+	my_turf.update_turf_transparency()
 
 /obj/effect/abstract/shuttle_roof/proc/turf_updated(datum/source, path, new_baseturfs, flags, post_change_callbacks)
 	SIGNAL_HANDLER

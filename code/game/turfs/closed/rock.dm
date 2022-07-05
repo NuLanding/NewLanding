@@ -1,7 +1,7 @@
 /turf/closed/rock
 	name = "rock"
 	icon = 'icons/turf/smoothrocks.dmi'
-	icon_state = "smoothrocks0"
+	icon_state = "smoothrocks-0"
 	base_icon_state = "smoothrocks"
 	color = "#707070"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER

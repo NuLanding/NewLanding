@@ -3,7 +3,18 @@
 	map_path = "map_files/testlanding"
 	map_file = "testlanding.dmm"
 
-	traits = null
+	traits = list(
+		list(
+			"Up" = 1,
+			),
+		list(
+			"Down" = -1,
+			"Up" = 1,
+			),
+		list(
+			"Down" = -1,
+			)
+		)
 
 	day_night_controller_type = /datum/day_night_controller
 

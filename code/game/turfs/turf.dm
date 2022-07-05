@@ -65,6 +65,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	var/list/ambience_list
 	/// Adjacent turfs which air can flow into
 	var/list/atmos_adjacent_turfs
+	var/slowdown = 0 //negative for faster, positive for slower
 
 /turf/vv_edit_var(var_name, new_value)
 	var/static/list/banned_edits = list("x", "y", "z")
@@ -584,3 +585,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		if(O.obj_flags & FULL_BLOCK_Z_BELOW)
 			return FALSE
 	return TRUE
+
+/turf/proc/update_turf_transparency()
+	SEND_SIGNAL(src, COMSIG_TURF_UPDATE_TRANSPARENCY)

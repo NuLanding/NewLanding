@@ -1,7 +1,6 @@
 /turf/open
 	plane = FLOOR_PLANE
 	CanAtmosPass = ATMOS_PASS_PROC
-	var/slowdown = 0 //negative for faster, positive for slower
 
 	var/footstep = null
 	var/barefootstep = null
