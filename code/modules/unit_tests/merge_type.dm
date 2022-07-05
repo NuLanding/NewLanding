@@ -2,7 +2,6 @@
 	var/list/blacklist = list(/obj/item/stack/sheet,
 							  /obj/item/stack/sheet/mineral,
 							  /obj/item/stack/ore,
-							  /obj/item/stack/spacecash,
 							  )
 
 	var/list/paths = subtypesof(/obj/item/stack) - blacklist

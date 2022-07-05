@@ -1417,8 +1417,6 @@
 			log_comment(log_text)
 		if(LOG_TELECOMMS)
 			log_telecomms(log_text)
-		if(LOG_ECON)
-			log_econ(log_text)
 		if(LOG_OOC)
 			log_ooc(log_text)
 		if(LOG_ADMIN)
@@ -1775,14 +1773,6 @@
 
 ///Called when something resists while this atom is its loc
 /atom/proc/container_resist_act(mob/living/user)
-
-/**
- * Used to attempt to charge an object with a payment component.
- *
- * Use this if an atom needs to attempt to charge another atom.
- */
-/atom/proc/attempt_charge(atom/sender, atom/target, extra_fees = 0)
-	return SEND_SIGNAL(sender, COMSIG_OBJ_ATTEMPT_CHARGE, target, extra_fees)
 
 ///Passes Stat Browser Panel clicks to the game and calls client click on an atom
 /atom/Topic(href, list/href_list)
