@@ -372,49 +372,6 @@
 	else
 		. += SPAN_WARNING("You're not too sure what's on top though...")
 
-////////////////////////////////////////////WAFFLES////////////////////////////////////////////
-
-/obj/item/food/waffles
-	name = "waffles"
-	desc = "Mmm, waffles."
-	icon_state = "waffles"
-	trash_type = /obj/item/trash/waffles
-	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/consumable/nutriment/vitamin = 2)
-	tastes = list("waffles" = 1)
-	foodtypes = GRAIN | SUGAR | BREAKFAST
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/food/soylentgreen
-	name = "\improper Soylent Green"
-	desc = "Not made of people. Honest." //Totally people.
-	icon_state = "soylent_green"
-	trash_type = /obj/item/trash/waffles
-	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 4)
-	tastes = list("waffles" = 7, "people" = 1)
-	foodtypes = GRAIN | MEAT
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/food/soylenviridians
-	name = "\improper Soylent Virdians"
-	desc = "Not made of people. Honest." //Actually honest for once.
-	icon_state = "soylent_yellow"
-	trash_type = /obj/item/trash/waffles
-	food_reagents = list(/datum/reagent/consumable/nutriment = 10, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/consumable/nutriment/protein = 2)
-	tastes = list("waffles" = 7, "the colour green" = 1)
-	foodtypes = GRAIN
-	w_class = WEIGHT_CLASS_SMALL
-
-/obj/item/food/rofflewaffles
-	name = "roffle waffles"
-	desc = "Waffles from Roffle. Co."
-	icon_state = "rofflewaffles"
-	trash_type = /obj/item/trash/waffles
-	bite_consumption = 4
-	food_reagents = list(/datum/reagent/consumable/nutriment = 8, /datum/reagent/drug/mushroomhallucinogen = 2, /datum/reagent/consumable/nutriment/vitamin = 4)
-	tastes = list("waffle" = 1, "mushrooms" = 1)
-	foodtypes = GRAIN | VEGETABLES | SUGAR | BREAKFAST
-	w_class = WEIGHT_CLASS_SMALL
-
 ////////////////////////////////////////////DONK POCKETS////////////////////////////////////////////
 
 /obj/item/food/donkpocket

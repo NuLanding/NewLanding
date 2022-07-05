@@ -255,16 +255,6 @@
 	result = /obj/item/food/burger/cheese
 	subcategory = CAT_BURGER
 
-/datum/crafting_recipe/food/soylentburger
-	name = "Soylent Burger"
-	reqs = list(
-			/obj/item/food/soylentgreen = 1, //two full meats worth.
-			/obj/item/food/bun = 1,
-			/obj/item/food/cheese = 2,
-	)
-	result = /obj/item/food/burger/soylent
-	subcategory = CAT_BURGER
-
 /datum/crafting_recipe/food/ribburger
 	name = "McRib"
 	reqs = list(

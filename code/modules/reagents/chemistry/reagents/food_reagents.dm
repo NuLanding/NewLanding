@@ -132,8 +132,7 @@ GLOBAL_LIST_INIT(oilfry_blacklisted_items, typecacheof(list(
 	/obj/item/reagent_containers/syringe,
 	/obj/item/reagent_containers/food/condiment,
 	/obj/item/storage,
-	/obj/item/small_delivery,
-	/obj/item/his_grace)))
+	)))
 
 /datum/reagent/consumable/cooking_oil
 	name = "Cooking Oil"

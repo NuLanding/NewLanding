@@ -47,8 +47,6 @@
 	ignore += typesof(/mob/camera/imaginary_friend)
 	//Our system doesn't support it without warning spam from unregister calls on things that never registered
 	ignore += typesof(/obj/docking_port)
-	//Asks for a shuttle that may not exist, let's leave it alone
-	ignore += typesof(/obj/item/pinpointer/shuttle)
 	//Leads to errors as a consequence of the logic behind moving back to a tile that's moving you somewhere else
 	ignore += typesof(/obj/effect/mapping_helpers/component_injector/areabound)
 	//Expects a mob to holderize, we have nothing to give

@@ -290,24 +290,4 @@
 	max_fuel = 80
 	custom_materials = list(/datum/material/iron=70, /datum/material/glass=120)
 
-/obj/item/weldingtool/experimental
-	name = "experimental welding tool"
-	desc = "An experimental welder capable of self-fuel generation and less harmful to the eyes."
-	icon_state = "exwelder"
-	inhand_icon_state = "exwelder"
-	max_fuel = 40
-	custom_materials = list(/datum/material/iron=70, /datum/material/glass=120)
-	change_icons = 0
-	can_off_process = 1
-	light_range = 1
-	toolspeed = 0.5
-	var/last_gen = 0
-	var/nextrefueltick = 0
-
-/obj/item/weldingtool/experimental/process()
-	..()
-	if(get_fuel() < max_fuel && nextrefueltick < world.time)
-		nextrefueltick = world.time + 10
-		reagents.add_reagent(/datum/reagent/fuel, 1)
-
 #undef WELDER_FUEL_BURN_INTERVAL

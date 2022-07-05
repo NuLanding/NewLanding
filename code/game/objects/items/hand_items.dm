@@ -280,12 +280,6 @@
 	blown_kiss.fire()
 	qdel(src)
 
-/obj/item/kisser/death
-	name = "kiss of death"
-	desc = "If looks could kill, they'd be this."
-	color = COLOR_BLACK
-	kiss_type = /obj/projectile/kiss/death
-
 /obj/projectile/kiss
 	name = "kiss"
 	icon = 'icons/mob/animal.dmi'
@@ -356,19 +350,3 @@
 	. = ..()
 	if(isliving(target))
 		try_fluster(target)
-
-/obj/projectile/kiss/death
-	name = "kiss of death"
-	nodamage = FALSE // okay i kinda lied about love not being able to hurt you
-	damage = 35
-	wound_bonus = 0
-	sharpness = SHARP_POINTY
-	color = COLOR_BLACK
-
-/obj/projectile/kiss/death/on_hit(atom/target, blocked, pierce_hit)
-	. = ..()
-	if(!iscarbon(target))
-		return
-	var/mob/living/carbon/heartbreakee = target
-	var/obj/item/organ/heart/dont_go_breakin_my_heart = heartbreakee.getorganslot(ORGAN_SLOT_HEART)
-	dont_go_breakin_my_heart.applyOrganDamage(999)

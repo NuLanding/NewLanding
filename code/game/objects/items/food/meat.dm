@@ -586,10 +586,6 @@
 	///Legacy code, handles the coloring of the overlay of the cutlets made from this.
 	var/slab_color = "#FF0000"
 
-/obj/item/food/meat/slab/Initialize()
-	. = ..()
-	AddElement(/datum/element/dryable,  /obj/item/food/sosjerky/healthy)
-
 /obj/item/food/meat/slab/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/plain, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat) //Add medium rare later maybe?
 

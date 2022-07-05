@@ -145,7 +145,6 @@
 	always_available = FALSE
 	reqs = list(
 		/obj/item/food/cake/plain = 1,
-		/obj/item/food/sundae = 2,
 		/obj/item/food/grown/banana = 5
 	)
 	result = /obj/item/food/cake/clown_cake

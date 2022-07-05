@@ -62,8 +62,6 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/proc/considered_escaped(datum/mind/M)
 	if(!considered_alive(M))
 		return FALSE
-	if(considered_exiled(M))
-		return FALSE
 	if(M.force_escaped)
 		return TRUE
 	if(SSticker.force_ending) // Just let them win.

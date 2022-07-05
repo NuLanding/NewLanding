@@ -223,17 +223,6 @@ GLOBAL_LIST_INIT(shove_disarming_types, typecacheof(list(
 #define REFLECT_NORMAL (1<<0)
 #define REFLECT_FAKEPROJECTILE (1<<1)
 
-//His Grace.
-#define HIS_GRACE_SATIATED 0 //He hungers not. If bloodthirst is set to this, His Grace is asleep.
-#define HIS_GRACE_PECKISH 20 //Slightly hungry.
-#define HIS_GRACE_HUNGRY 60 //Getting closer. Increases damage up to a minimum of 20.
-#define HIS_GRACE_FAMISHED 100 //Dangerous. Increases damage up to a minimum of 25 and cannot be dropped.
-#define HIS_GRACE_STARVING 120 //Incredibly close to breaking loose. Increases damage up to a minimum of 30.
-#define HIS_GRACE_CONSUME_OWNER 140 //His Grace consumes His owner at this point and becomes aggressive.
-#define HIS_GRACE_FALL_ASLEEP 160 //If it reaches this point, He falls asleep and resets.
-
-#define HIS_GRACE_FORCE_BONUS 4 //How much force is gained per kill.
-
 /// ex_act() with EXPLODE_DEVASTATE severity will gib mobs with less than this much bomb armor
 #define EXPLODE_GIB_THRESHOLD 50
 

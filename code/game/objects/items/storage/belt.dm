@@ -53,7 +53,6 @@
 		/obj/item/wirecutters,
 		/obj/item/wrench,
 		/obj/item/multitool,
-		/obj/item/extinguisher/mini,
 		))
 
 /obj/item/storage/belt/utility/full/PopulateContents()

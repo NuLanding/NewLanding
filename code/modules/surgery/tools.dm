@@ -233,12 +233,6 @@
 	. = ..()
 	if(!proximity)
 		return
-	if(istype(O, /obj/item/disk/surgery))
-		to_chat(user, SPAN_NOTICE("You load the surgery protocol from [O] into [src]."))
-		var/obj/item/disk/surgery/D = O
-		if(do_after(user, 10, target = O))
-			advanced_surgeries |= D.surgeries
-		return TRUE
 	return
 
 /obj/item/scalpel/advanced

@@ -56,23 +56,21 @@
 	. = ..()
 	set_holdable(list(
 		/obj/item/kitchen/knife, /obj/item/pen,
-		/obj/item/scalpel, /obj/item/reagent_containers/syringe, /obj/item/dnainjector,
+		/obj/item/scalpel, /obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/dropper,
-		/obj/item/implanter, /obj/item/screwdriver, /obj/item/weldingtool/mini,
+		/obj/item/screwdriver, /obj/item/weldingtool/mini,
 		/obj/item/firing_pin
-		),
-		list(/obj/item/screwdriver/power)
+		)
 		)
 
 /datum/component/storage/concrete/pockets/shoes/clown/Initialize()
 	. = ..()
 	set_holdable(list(
 		/obj/item/kitchen/knife, /obj/item/pen,
-		/obj/item/scalpel, /obj/item/reagent_containers/syringe, /obj/item/dnainjector,
+		/obj/item/scalpel, /obj/item/reagent_containers/syringe,
 		/obj/item/reagent_containers/dropper,
-		/obj/item/implanter, /obj/item/screwdriver, /obj/item/weldingtool/mini,
-		/obj/item/firing_pin),
-		list(/obj/item/screwdriver/power)
+		/obj/item/screwdriver, /obj/item/weldingtool/mini,
+		/obj/item/firing_pin)
 		)
 
 /datum/component/storage/concrete/pockets/pocketprotector

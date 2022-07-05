@@ -272,45 +272,6 @@
 	)
 	result = /obj/item/food/donut/jelly/slimejelly/laugh
 
-////////////////////////////////////////////////WAFFLES////////////////////////////////////////////////
-
-/datum/crafting_recipe/food/waffles
-	time = 15
-	name = "Waffles"
-	reqs = list(
-		/obj/item/food/pastrybase = 2
-	)
-	result = /obj/item/food/waffles
-	subcategory = CAT_PASTRY
-
-
-/datum/crafting_recipe/food/soylenviridians
-	name = "Soylent viridians"
-	reqs = list(
-		/obj/item/food/pastrybase = 2,
-		/obj/item/food/grown/soybeans = 1
-	)
-	result = /obj/item/food/soylenviridians
-	subcategory = CAT_PASTRY
-
-/datum/crafting_recipe/food/soylentgreen
-	name = "Soylent green"
-	reqs = list(
-		/obj/item/food/pastrybase = 2,
-		/obj/item/food/meat/slab/human = 2
-	)
-	result = /obj/item/food/soylentgreen
-	subcategory = CAT_PASTRY
-
-
-/datum/crafting_recipe/food/rofflewaffles
-	name = "Roffle waffles"
-	reqs = list(
-		/datum/reagent/drug/mushroomhallucinogen = 5,
-		/obj/item/food/pastrybase = 2
-	)
-	result = /obj/item/food/rofflewaffles
-	subcategory = CAT_PASTRY
 
 ////////////////////////////////////////////////DONKPOCCKETS////////////////////////////////////////////////
 
@@ -514,16 +475,6 @@
 		/obj/item/food/grown/oat = 1
 	)
 	result = /obj/item/food/cookie/oatmeal
-	subcategory = CAT_PASTRY
-
-/datum/crafting_recipe/food/raisincookie
-	name = "Raisin cookie"
-	reqs = list(
-		/obj/item/food/no_raisin = 1,
-		/obj/item/food/pastrybase = 1,
-		/obj/item/food/grown/oat = 1
-	)
-	result = /obj/item/food/cookie/raisin
 	subcategory = CAT_PASTRY
 
 /datum/crafting_recipe/food/cherrycupcake

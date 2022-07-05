@@ -625,7 +625,7 @@
 	var/randomSpan
 
 /datum/reagent/impurity/inacusiate/on_mob_metabolize(mob/living/owner, delta_time, times_fired)
-	randomSpan = pick(list("clown", "small", "big", "hypnophrase", "alien", "cult", "alert", "danger", "emote", "yell", "brass", "sans", "papyrus", "robot", "his_grace", "phobia"))
+	randomSpan = pick(list("clown", "small", "big", "hypnophrase", "alien", "cult", "alert", "danger", "emote", "yell", "brass", "sans", "papyrus", "robot", "phobia"))
 	RegisterSignal(owner, COMSIG_MOVABLE_HEAR, .proc/owner_hear)
 	to_chat(owner, "<span class='notice'>Your hearing seems to be a bit off...!</spans>")
 	..()

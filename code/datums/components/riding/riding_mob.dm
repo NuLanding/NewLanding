@@ -306,7 +306,7 @@
 	set_vehicle_dir_layer(WEST, OBJ_LAYER)
 
 /datum/component/riding/creature/goliath
-	keytype = /obj/item/key/lasso
+	keytype = /obj/item/key
 
 /datum/component/riding/creature/goliath/handle_specials()
 	. = ..()

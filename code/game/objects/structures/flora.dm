@@ -274,34 +274,6 @@
 		random_plant_states += "plant-[number]"
 	random_plant_states += "applebush"
 
-
-/obj/item/kirbyplants/dead
-	name = "RD's potted plant"
-	desc = "A gift from the botanical staff, presented after the RD's reassignment. There's a tag on it that says \"Y'all come back now, y'hear?\"\nIt doesn't look very healthy..."
-	icon_state = "plant-25"
-
-/obj/item/kirbyplants/photosynthetic
-	name = "photosynthetic potted plant"
-	desc = "A bioluminescent plant."
-	icon_state = "plant-09"
-	light_color = COLOR_BRIGHT_BLUE
-	light_range = 3
-
-/obj/item/kirbyplants/fullysynthetic
-	name = "plastic potted plant"
-	desc = "A fake, cheap looking, plastic tree. Perfect for people who kill every plant they touch."
-	icon_state = "plant-26"
-	custom_materials = (list(/datum/material/plastic = 8000))
-
-/obj/item/kirbyplants/fullysynthetic/Initialize()
-	. = ..()
-	icon_state = "plant-[rand(26, 29)]"
-
-/obj/item/kirbyplants/potty
-	name = "Potty the Potted Plant"
-	desc = "A secret agent staffed in the station's bar to protect the mystical cakehat."
-	icon_state = "potty"
-
 //a rock is flora according to where the icon file is
 //and now these defines
 

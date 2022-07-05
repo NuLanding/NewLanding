@@ -175,29 +175,6 @@
 	icon_state = "book-[clamp(amount, 0, 5)]"
 	return ..()
 
-
-/obj/structure/bookcase/manuals/engineering
-	name = "engineering manuals bookcase"
-
-/obj/structure/bookcase/manuals/engineering/Initialize()
-	. = ..()
-	new /obj/item/book/manual/wiki/engineering_construction(src)
-	new /obj/item/book/manual/wiki/engineering_hacking(src)
-	new /obj/item/book/manual/wiki/engineering_guide(src)
-	new /obj/item/book/manual/wiki/engineering_singulo_tesla(src)
-	new /obj/item/book/manual/wiki/robotics_cyborgs(src)
-	update_appearance()
-
-
-/obj/structure/bookcase/manuals/research_and_development
-	name = "\improper R&D manuals bookcase"
-
-/obj/structure/bookcase/manuals/research_and_development/Initialize()
-	. = ..()
-	new /obj/item/book/manual/wiki/research_and_development(src)
-	update_appearance()
-
-
 /*
  * Book
  */

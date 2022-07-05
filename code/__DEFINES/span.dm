@@ -52,7 +52,6 @@
 #define SPAN_HIEROPHANT(str) ("<span class='hierophant'>" + str + "</span>")
 #define SPAN_HIEROPHANT_WARNING(str) ("<span class='hierophant_warning'>" + str + "</span>")
 #define SPAN_HIGHLIGHT(str) ("<span class='highlight'>" + str + "</span>")
-#define SPAN_HIS_GRACE(str) ("<span class='his_grace'>" + str + "</span>")
 #define SPAN_HOLOPARASITE(str) ("<span class='holoparasite'>" + str + "</span>")
 #define SPAN_HYPNOPHRASE(str) ("<span class='hypnophrase'>" + str + "</span>")
 #define SPAN_ICON(str) ("<span class='icon'>" + str + "</span>")

@@ -515,7 +515,7 @@ GLOBAL_LIST_INIT(gun_saw_types, typecacheof(list()))
 		update_appearance()
 		return TRUE
 
-/obj/item/gun/ballistic/proc/guncleaning(mob/user, /obj/item/A)
+/obj/item/gun/ballistic/proc/guncleaning(mob/user, obj/item/A)
 	if(misfire_probability == 0)
 		to_chat(user, SPAN_NOTICE("\The [src] seems to be already clean of fouling."))
 		return

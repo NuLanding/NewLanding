@@ -62,7 +62,7 @@
 /obj/item/folder/attackby(obj/item/weapon, mob/user, params)
 	if(burn_paper_product_attackby_check(weapon, user))
 		return
-	if(istype(weapon, /obj/item/paper) || istype(weapon, /obj/item/documents))
+	if(istype(weapon, /obj/item/paper))
 		//Add paper, photo or documents into the folder
 		if(!user.transferItemToLoc(weapon, src))
 			return
@@ -84,8 +84,6 @@
 
 /obj/item/folder/ui_data(mob/user)
 	var/list/data = list()
-	if(istype(src, /obj/item/folder/syndicate))
-		data["theme"] = "syndicate"
 	data["bg_color"] = "[bg_color]"
 	data["folder_name"] = "[name]"
 

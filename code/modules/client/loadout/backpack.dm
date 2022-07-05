@@ -42,9 +42,6 @@
 	path = /obj/item/reagent_containers/food/drinks/flask
 	cost = 2
 
-/datum/loadout_item/backpack/skub
-	path = /obj/item/skub
-
 /datum/loadout_item/backpack/multipen
 	path = /obj/item/pen/fourcolor
 

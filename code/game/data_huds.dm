@@ -191,12 +191,6 @@ Security HUDs! Basic mode shows only the job.
 	for(var/i in list(IMPTRACK_HUD, IMPLOYAL_HUD, IMPCHEM_HUD))
 		holder = hud_list[i]
 		holder.icon_state = null
-	for(var/obj/item/implant/I in implants)
-		if(istype(I, /obj/item/implant/chem))
-			holder = hud_list[IMPCHEM_HUD]
-			var/icon/IC = icon(icon, icon_state, dir)
-			holder.pixel_y = IC.Height() - world.icon_size
-			holder.icon_state = "hud_imp_chem"
 	if(HAS_TRAIT(src, TRAIT_MINDSHIELD))
 		holder = hud_list[IMPLOYAL_HUD]
 		var/icon/IC = icon(icon, icon_state, dir)

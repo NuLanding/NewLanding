@@ -22,12 +22,6 @@
 		QDEL_NULL(mybag)
 	return ..()
 
-/obj/item/janiupgrade
-	name = "floor buffer upgrade"
-	desc = "An upgrade for mobile janicarts."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "upgrade"
-
 /obj/vehicle/ridden/janicart/examine(mob/user)
 	. = ..()
 	if(floorbuffer)
@@ -42,15 +36,6 @@
 			return
 		to_chat(user, SPAN_NOTICE("You hook the trashbag onto [src]."))
 		mybag = I
-		update_appearance()
-	else if(istype(I, /obj/item/janiupgrade))
-		if(floorbuffer)
-			to_chat(user, SPAN_WARNING("[src] already has a floor buffer!"))
-			return
-		floorbuffer = TRUE
-		qdel(I)
-		to_chat(user, SPAN_NOTICE("You upgrade [src] with the floor buffer."))
-		AddElement(/datum/element/cleaning)
 		update_appearance()
 	else if(mybag)
 		mybag.attackby(I, user)

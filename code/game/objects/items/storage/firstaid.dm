@@ -51,7 +51,6 @@
 	STR.max_items = 12
 	STR.max_combined_w_class = 24
 	STR.set_holdable(list(
-		/obj/item/dnainjector,
 		/obj/item/reagent_containers/dropper,
 		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/reagent_containers/glass/bottle,
@@ -61,7 +60,6 @@
 		/obj/item/reagent_containers/spray,
 		/obj/item/storage/pill_bottle,
 		/obj/item/stack/medical,
-		/obj/item/extinguisher/mini,
 		/obj/item/lazarus_injector,
 		/obj/item/surgical_drapes, //for true paramedics
 		/obj/item/scalpel,
@@ -76,10 +74,7 @@
 		/obj/item/stamp,
 		/obj/item/wrench/medical,
 		/obj/item/reagent_containers/blood,
-		/obj/item/implantcase,
 		/obj/item/implant,
-		/obj/item/implanter,
-		/obj/item/pinpointer/crew,
 		/obj/item/stack/sticky_tape //surgical tape
 		))
 

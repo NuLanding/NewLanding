@@ -83,7 +83,7 @@
 	return TRUE
 
 /datum/component/riding/vehicle/atv
-	keytype = /obj/item/key/atv
+	keytype = /obj/item/key
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 	vehicle_move_delay = 1.5
 
@@ -104,7 +104,7 @@
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(0, 4), TEXT_WEST = list( 0, 4)))
 
 /datum/component/riding/vehicle/janicart
-	keytype = /obj/item/key/janitor
+	keytype = /obj/item/key
 
 /datum/component/riding/vehicle/janicart/handle_specials()
 	. = ..()

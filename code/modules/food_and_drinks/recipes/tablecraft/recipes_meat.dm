@@ -309,7 +309,6 @@
 		/obj/item/food/meat/bacon = 1,
 		/obj/item/food/grown/mushroom = 1,
 		/obj/item/food/grown/tomato = 1,
-		/obj/item/food/canned/beans = 1,
 		/obj/item/food/butteredtoast = 1
 	)
 	result = /obj/item/food/full_english

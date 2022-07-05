@@ -128,14 +128,6 @@
 	reqs = list(/obj/item/stack/sheet/bone = 2)
 	category = CAT_PRIMAL
 
-/datum/crafting_recipe/boneaxe
-	name = "Bone Axe"
-	result = /obj/item/fireaxe/boneaxe
-	time = 50
-	reqs = list(/obj/item/stack/sheet/bone = 6,
-				/obj/item/stack/sheet/sinew = 3)
-	category = CAT_PRIMAL
-
 /datum/crafting_recipe/bonfire
 	name = "Bonfire"
 	time = 60
@@ -188,25 +180,6 @@
 	)
 	result = /obj/item/shovel/serrated
 	category = CAT_PRIMAL
-
-/datum/crafting_recipe/lasso
-	name = "Bone Lasso"
-	reqs = list(
-		/obj/item/stack/sheet/bone = 1,
-		/obj/item/stack/sheet/sinew = 5,
-	)
-	result = /obj/item/key/lasso
-	category = CAT_PRIMAL
-
-/datum/crafting_recipe/ipickaxe
-	name = "Improvised Pickaxe"
-	reqs = list(
-		/obj/item/crowbar = 1,
-		/obj/item/kitchen/knife = 1,
-		/obj/item/stack/sticky_tape = 1,
-	)
-	result = /obj/item/pickaxe/improvised
-	category = CAT_MISC
 
 /datum/crafting_recipe/basket
 	name = "Basket (Bamboo)"
@@ -293,16 +266,3 @@
 				/obj/item/stack/sheet/glass  = 1,
 				)
 	category = CAT_CHEMISTRY
-
-/datum/crafting_recipe/improvised_coolant
-	name = "Improvised cooling spray"
-	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	result = /obj/item/extinguisher/crafted
-	time = 10 SECONDS
-	reqs = list(
-			/obj/item/toy/crayon/spraycan = 1,
-			/datum/reagent/water = 20,
-			/datum/reagent/consumable/ice = 10
-			)
-	category = CAT_CHEMISTRY
-

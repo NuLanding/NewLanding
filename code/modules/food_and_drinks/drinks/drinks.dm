@@ -99,20 +99,6 @@
 	if(hotness && reagents)
 		reagents.expose_temperature(hotness)
 		to_chat(user, SPAN_NOTICE("You heat [name] with [I]!"))
-
-	//Cooling method
-	if(istype(I, /obj/item/extinguisher))
-		var/obj/item/extinguisher/extinguisher = I
-		if(extinguisher.safety)
-			return
-		if(extinguisher.reagents.total_volume < 1)
-			to_chat(user, SPAN_WARNING("\The [extinguisher] is empty!"))
-			return
-		var/cooling = (0 - reagents.chem_temp) * (extinguisher.cooling_power * 2)
-		reagents.expose_temperature(cooling)
-		to_chat(user, SPAN_NOTICE("You cool the [name] with the [I]!"))
-		playsound(loc, 'sound/effects/extinguish.ogg', 75, TRUE, -3)
-		extinguisher.reagents.remove_all(1)
 	..()
 
 /obj/item/reagent_containers/food/drinks/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)

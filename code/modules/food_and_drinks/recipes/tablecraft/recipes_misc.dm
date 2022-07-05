@@ -78,15 +78,6 @@
 	result = /obj/item/food/poutine
 	subcategory = CAT_MISCFOOD
 
-/datum/crafting_recipe/food/beans
-	name = "Beans"
-	time = 40
-	reqs = list(/datum/reagent/consumable/ketchup = 5,
-		/obj/item/food/grown/soybeans = 2
-	)
-	result = /obj/item/food/canned/beans
-	subcategory = CAT_MISCFOOD
-
 /datum/crafting_recipe/food/eggplantparm
 	name ="Eggplant parmigiana"
 	reqs = list(
@@ -114,15 +105,6 @@
 		/datum/reagent/consumable/honey = 5
 	)
 	result = /obj/item/food/honeybar
-	subcategory = CAT_MISCFOOD
-
-/datum/crafting_recipe/food/branrequests
-	name = "Bran Requests Cereal"
-	reqs = list(
-		/obj/item/food/grown/wheat = 1,
-		/obj/item/food/no_raisin = 1,
-	)
-	result = /obj/item/food/branrequests
 	subcategory = CAT_MISCFOOD
 
 /datum/crafting_recipe/food/ricepudding

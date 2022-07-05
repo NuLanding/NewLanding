@@ -261,41 +261,6 @@
 						SPAN_USERDANGER("You trigger \the [src]!"))
 				L.apply_damage(trap_damage, BRUTE, def_zone)
 
-/**
- * # Energy snare
- *
- * This closes on people's legs.
- *
- * A weaker version of the bear trap that can be resisted out of faster and disappears
- */
-/obj/item/restraints/legcuffs/beartrap/energy
-	name = "energy snare"
-	armed = 1
-	icon_state = "e_snare"
-	trap_damage = 0
-	breakouttime = 3 SECONDS
-	item_flags = DROPDEL
-	flags_1 = NONE
-
-/obj/item/restraints/legcuffs/beartrap/energy/Initialize()
-	. = ..()
-	addtimer(CALLBACK(src, .proc/dissipate), 100)
-
-/**
- * Handles energy snares disappearing
- *
- * If the snare isn't closed on anyone, it will disappear in a shower of sparks.
- * Arguments:
- */
-/obj/item/restraints/legcuffs/beartrap/energy/proc/dissipate()
-	if(!ismob(loc))
-		do_sparks(1, TRUE, src)
-		qdel(src)
-
-/obj/item/restraints/legcuffs/beartrap/energy/attack_hand(mob/user, list/modifiers)
-	spring_trap(null, user)
-	return ..()
-
 /obj/item/restraints/legcuffs/bola
 	name = "bola"
 	desc = "A restraining device designed to be thrown at the target. Upon connecting with said target, it will wrap around their legs, making it difficult for them to move quickly."

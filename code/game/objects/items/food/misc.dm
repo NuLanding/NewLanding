@@ -94,17 +94,6 @@
 	foodtypes = VEGETABLES
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/popcorn
-	name = "popcorn"
-	desc = "Now let's find some cinema."
-	icon_state = "popcorn"
-	trash_type = /obj/item/trash/popcorn
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	bite_consumption = 0.1 //this snack is supposed to be eating during looooong time. And this it not dinner food! --rastaf0
-	tastes = list("popcorn" = 3, "butter" = 1)
-	foodtypes = JUNKFOOD
-	eatverbs = list("bite","nibble","gnaw","gobble","chomp")
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/loadedbakedpotato
 	name = "loaded baked potato"
@@ -600,31 +589,6 @@
 		return FALSE
 	return ..()
 
-/obj/item/food/canned/beans
-	name = "tin of beans"
-	desc = "Musical fruit in a slightly less musical container."
-	icon_state = "beans"
-	trash_type = /obj/item/trash/can/food/beans
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/ketchup = 4)
-	tastes = list("beans" = 1)
-	foodtypes = VEGETABLES
-
-/obj/item/food/canned/peaches
-	name = "canned peaches"
-	desc = "Just a nice can of ripe peaches swimming in their own juices."
-	icon_state = "peachcan"
-	trash_type = /obj/item/trash/can/food/peaches
-	food_reagents = list(/datum/reagent/consumable/peachjuice = 20, /datum/reagent/consumable/sugar = 8, /datum/reagent/consumable/nutriment = 2)
-	tastes = list("peaches" = 7, "tin" = 1)
-	foodtypes = FRUIT | SUGAR
-
-/obj/item/food/canned/peaches/maint
-	name = "Maintenance Peaches"
-	desc = "I have a mouth and I must eat."
-	icon_state = "peachcanmaint"
-	trash_type = /obj/item/trash/can/food/peaches/maint
-	tastes = list("peaches" = 1, "tin" = 7)
-
 /obj/item/food/crab_rangoon
 	name = "Crab Rangoon"
 	desc = "Has many names, like crab puffs, cheese won'tons, crab dumplings? Whatever you call them, they're a fabulous blast of cream cheesy crab."
@@ -634,17 +598,6 @@
 	tastes = list("cream cheese" = 4, "crab" = 3, "crispiness" = 2)
 	foodtypes = MEAT | DAIRY | GRAIN
 
-/obj/item/food/cornchips
-	name = "boritos corn chips"
-	desc = "Triangular corn chips. They do seem a bit bland but would probably go well with some kind of dipping sauce."
-	icon_state = "boritos"
-	trash_type = /obj/item/trash/boritos
-	bite_consumption = 2
-	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/cooking_oil = 2, /datum/reagent/consumable/salt = 3)
-	junkiness = 20
-	tastes = list("fried corn" = 1)
-	foodtypes = JUNKFOOD | FRIED
-	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/food/cornchips/MakeLeaveTrash()
 	if(trash_type)

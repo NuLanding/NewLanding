@@ -19,8 +19,6 @@
 // BUFFS //
 ///////////
 
-#define STATUS_EFFECT_HISGRACE /datum/status_effect/his_grace //His Grace.
-
 #define STATUS_EFFECT_WISH_GRANTERS_GIFT /datum/status_effect/wish_granters_gift //If you're currently resurrecting with the Wish Granter
 
 #define STATUS_EFFECT_BLOODDRUNK /datum/status_effect/blooddrunk //Stun immunity and greatly reduced damage taken

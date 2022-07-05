@@ -23,45 +23,6 @@
 		next_key_id++
 		key_id = next_key_id
 
-/obj/item/key/atv
-	name = "ATV key"
-	desc = "A small grey key for starting and operating ATVs."
-	key_id = KEY_ID_ATV
-
-/obj/item/key/security
-	desc = "A keyring with a small steel key, and a rubber stun baton accessory."
-	icon_state = "keysec"
-	key_id = KEY_ID_SECWAY
-	keyring_overlay = "keyring_sec"
-
-/obj/item/key/janitor
-	desc = "A keyring with a small steel key, and a pink fob reading \"Pussy Wagon\"."
-	icon_state = "keyjanitor"
-	key_id = KEY_ID_JANICART
-	keyring_overlay = "keyring_jani"
-
-/obj/item/key/lasso
-	name = "bone lasso"
-	desc = "Perfect for taming all kinds of supernatural beasts! (Warning: only perfect for taming one kind of supernatural beast.)"
-	force = 12
-	icon_state = "lasso"
-	inhand_icon_state = "chain"
-	worn_icon_state = "whip"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
-	attack_verb_continuous = list("flogs", "whips", "lashes", "disciplines")
-	attack_verb_simple = list("flog", "whip", "lash", "discipline")
-	hitsound = 'sound/weapons/whip.ogg'
-	slot_flags = ITEM_SLOT_BELT
-	can_copy_id = FALSE
-	key_id = KEY_ID_BONE_LASSO
-	keyring_overlay = "keyring_lasso"
-
-/obj/item/key/collar
-	name = "collar key"
-	desc = "A key for a tiny lock on a collar."
-	key_id = KEY_ID_COLLAR
-
 /obj/item/lock
 	name = "lock"
 	desc = "Lock away the seven seas, or a crate or something."

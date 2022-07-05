@@ -147,23 +147,6 @@
 	new chosen_box(loc)
 	return INITIALIZE_HINT_QDEL
 
-/obj/item/skub
-	desc = "It's skub."
-	name = "skub"
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "skub"
-	w_class = WEIGHT_CLASS_BULKY
-	attack_verb_continuous = list("skubs")
-	attack_verb_simple = list("skub")
-
-/obj/item/skub/suicide_act(mob/living/user)
-	user.visible_message(SPAN_SUICIDE("[user] has declared themself as anti-skub! The skub tears them apart!"))
-
-	user.gib()
-	playsound(src, 'sound/items/eatfood.ogg', 50, TRUE, -1)
-	return MANUAL_SUICIDE
-
-
 // Bouquets
 /obj/item/bouquet
 	name = "mixed bouquet"
@@ -185,10 +168,3 @@
 	name = "rose bouquet"
 	desc = "A bouquet of roses. A bundle of love."
 	icon_state = "rosebouquet"
-
-/obj/item/gun_maintenance_supplies
-	name = "gun maintenance supplies"
-	desc = "plastic box containing gun maintenance supplies and spare parts. Use them on a Mosin Nagant to clean it."
-	icon = 'icons/obj/storage.dmi'
-	icon_state = "plasticbox"
-	w_class = WEIGHT_CLASS_SMALL
