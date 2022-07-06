@@ -59,18 +59,7 @@
 				//Merge can call qdel on us, so let's be safe yeah?
 				if(QDELETED(src))
 					return
-	var/list/temp_recipes = get_main_recipes()
-	recipes = temp_recipes.Copy()
-	if(material_type)
-		var/datum/material/M = GET_MATERIAL_REF(material_type) //First/main material
-		for(var/i in M.categories)
-			switch(i)
-				if(MAT_CATEGORY_BASE_RECIPES)
-					var/list/temp = SSmaterials.base_stack_recipes.Copy()
-					recipes += temp
-				if(MAT_CATEGORY_RIGID)
-					var/list/temp = SSmaterials.rigid_stack_recipes.Copy()
-					recipes += temp
+	recipes = get_main_recipes()
 	update_weight()
 	update_appearance()
 	var/static/list/loc_connections = list(
@@ -85,7 +74,7 @@
  * - multiplier: The amount to multiply the mats per unit by. Defaults to 1.
  */
 /obj/item/stack/proc/set_mats_per_unit(list/mats, multiplier=1)
-	mats_per_unit = SSmaterials.FindOrCreateMaterialCombo(mats, multiplier)
+	mats_per_unit = get_material_composition(mats)
 	update_custom_materials()
 
 /** Updates the custom materials list of this stack.

@@ -105,40 +105,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	return BRUTELOSS
 
 /*
- * Plasteel
- */
-GLOBAL_LIST_INIT(plasteel_recipes, list ())
-
-/obj/item/stack/sheet/plasteel
-	name = "plasteel"
-	singular_name = "plasteel sheet"
-	desc = "This sheet is an alloy of iron and plasma."
-	icon_state = "sheet-plasteel"
-	inhand_icon_state = "sheet-plasteel"
-	mats_per_unit = list(/datum/material/alloy/plasteel=MINERAL_MATERIAL_AMOUNT)
-	material_type = /datum/material/alloy/plasteel
-	throwforce = 10
-	flags_1 = CONDUCT_1
-	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 80)
-	resistance_flags = FIRE_PROOF
-	merge_type = /obj/item/stack/sheet/plasteel
-	grind_results = list(/datum/reagent/iron = 20, /datum/reagent/toxin/plasma = 20)
-	point_value = 23
-	tableVariant = /obj/structure/table/reinforced
-	material_flags = MATERIAL_NO_EFFECTS
-	matter_amount = 12
-
-/obj/item/stack/sheet/plasteel/get_main_recipes()
-	. = ..()
-	. += GLOB.plasteel_recipes
-
-/obj/item/stack/sheet/plasteel/twenty
-	amount = 20
-
-/obj/item/stack/sheet/plasteel/fifty
-	amount = 50
-
-/*
  * Wood
  */
 GLOBAL_LIST_INIT(wood_recipes, list ( \
@@ -169,7 +135,7 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	null, \
 	))
 
-/obj/item/stack/sheet/mineral/wood
+/obj/item/stack/sheet/wood
 	name = "wooden plank"
 	desc = "One can only guess that this is a bunch of wood."
 	singular_name = "wood plank"
@@ -180,16 +146,16 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	sheettype = "wood"
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 0)
 	resistance_flags = FLAMMABLE
-	merge_type = /obj/item/stack/sheet/mineral/wood
+	merge_type = /obj/item/stack/sheet/wood
 	novariants = TRUE
 	material_type = /datum/material/wood
 	grind_results = list(/datum/reagent/cellulose = 20) //no lignocellulose or lignin reagents yet,
 
-/obj/item/stack/sheet/mineral/wood/get_main_recipes()
+/obj/item/stack/sheet/wood/get_main_recipes()
 	. = ..()
 	. += GLOB.wood_recipes
 
-/obj/item/stack/sheet/mineral/wood/fifty
+/obj/item/stack/sheet/wood/fifty
 	amount = 50
 
 /*
@@ -200,7 +166,7 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 	new/datum/stack_recipe("punji sticks trap", /obj/structure/punji_sticks, 5, time = 30, one_per_turf = TRUE, on_floor = TRUE), \
 	))
 
-/obj/item/stack/sheet/mineral/bamboo
+/obj/item/stack/sheet/bamboo
 	name = "bamboo cuttings"
 	desc = "Finely cut bamboo sticks."
 	singular_name = "cut bamboo stick"
@@ -211,11 +177,11 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 	throwforce = 15
 	armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 50, ACID = 0)
 	resistance_flags = FLAMMABLE
-	merge_type = /obj/item/stack/sheet/mineral/bamboo
+	merge_type = /obj/item/stack/sheet/bamboo
 	grind_results = list(/datum/reagent/cellulose = 10)
 	material_type = /datum/material/bamboo
 
-/obj/item/stack/sheet/mineral/bamboo/get_main_recipes()
+/obj/item/stack/sheet/bamboo/get_main_recipes()
 	. = ..()
 	. += GLOB.bamboo_recipes
 
@@ -305,38 +271,6 @@ GLOBAL_LIST_INIT(durathread_recipes, list())
 	grind_results = list()
 
 /*
- * Cardboard
- */
-GLOBAL_LIST_INIT(cardboard_recipes, list ( \
-	new/datum/stack_recipe("box", /obj/item/storage/box), \
-	null, \
-	new/datum/stack_recipe("folder", /obj/item/folder), \
-	null, \
-))
-
-/obj/item/stack/sheet/cardboard //BubbleWrap //it's cardboard you fuck
-	name = "cardboard"
-	desc = "Large sheets of card, like boxes folded flat."
-	singular_name = "cardboard sheet"
-	icon_state = "sheet-card"
-	inhand_icon_state = "sheet-card"
-	mats_per_unit = list(/datum/material/cardboard = MINERAL_MATERIAL_AMOUNT)
-	resistance_flags = FLAMMABLE
-	force = 0
-	throwforce = 0
-	merge_type = /obj/item/stack/sheet/cardboard
-	novariants = TRUE
-	grind_results = list(/datum/reagent/cellulose = 10)
-	material_type = /datum/material/cardboard
-
-/obj/item/stack/sheet/cardboard/get_main_recipes()
-	. = ..()
-	. += GLOB.cardboard_recipes
-
-/obj/item/stack/sheet/cardboard/fifty
-	amount = 50
-
-/*
  * Bronze
  */
 
@@ -421,28 +355,6 @@ GLOBAL_LIST_INIT(bronze_recipes, list ())
 	merge_type = /obj/item/stack/sheet/bone
 	material_type = /datum/material/bone
 
-GLOBAL_LIST_INIT(plastic_recipes, list())
-
-/obj/item/stack/sheet/plastic
-	name = "plastic"
-	desc = "Compress dinosaur over millions of years, then refine, split and mold, and voila! You have plastic."
-	singular_name = "plastic sheet"
-	icon_state = "sheet-plastic"
-	inhand_icon_state = "sheet-plastic"
-	mats_per_unit = list(/datum/material/plastic=MINERAL_MATERIAL_AMOUNT)
-	throwforce = 7
-	material_type = /datum/material/plastic
-	merge_type = /obj/item/stack/sheet/plastic
-
-/obj/item/stack/sheet/plastic/fifty
-	amount = 50
-
-/obj/item/stack/sheet/plastic/five
-	amount = 5
-
-/obj/item/stack/sheet/plastic/get_main_recipes()
-	. = ..()
-	. += GLOB.plastic_recipes
 
 GLOBAL_LIST_INIT(paperframe_recipes, list(
 new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperframe, 2, one_per_turf = TRUE, on_floor = TRUE, time = 10)
@@ -470,41 +382,6 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 /obj/item/stack/sheet/paperframes/fifty
 	amount = 50
 
-/obj/item/stack/sheet/meat
-	name = "meat sheets"
-	desc = "Something's bloody meat compressed into a nice solid sheet."
-	singular_name = "meat sheet"
-	icon_state = "sheet-meat"
-	material_flags = MATERIAL_COLOR
-	mats_per_unit = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)
-	merge_type = /obj/item/stack/sheet/meat
-	material_type = /datum/material/meat
-	material_modifier = 1 //None of that wussy stuff
-
-/obj/item/stack/sheet/meat/fifty
-	amount = 50
-/obj/item/stack/sheet/meat/twenty
-	amount = 20
-/obj/item/stack/sheet/meat/five
-	amount = 5
-
-/obj/item/stack/sheet/pizza
-	name = "pepperoni sheetzzas"
-	desc = "It's a delicious pepperoni sheetzza!"
-	singular_name = "pepperoni sheetzza"
-	icon_state = "sheet-pizza"
-	mats_per_unit = list(/datum/material/pizza = MINERAL_MATERIAL_AMOUNT)
-	merge_type = /obj/item/stack/sheet/pizza
-	material_type = /datum/material/pizza
-	material_modifier = 1
-
-/obj/item/stack/sheet/pizza/fifty
-	amount = 50
-/obj/item/stack/sheet/pizza/twenty
-	amount = 20
-/obj/item/stack/sheet/pizza/five
-	amount = 5
-
 /obj/item/stack/sheet/sandblock
 	name = "blocks of sand"
 	desc = "You're too old to be playing with sandcastles. Now you build... sandstations."
@@ -522,21 +399,67 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 /obj/item/stack/sheet/sandblock/five
 	amount = 5
 
-
-/obj/item/stack/sheet/hauntium
-	name = "haunted sheets"
-	desc = "These sheets seem cursed."
-	singular_name = "haunted sheet"
+/obj/item/stack/sheet/meat
+	name = "meat sheets"
+	desc = "Something's bloody meat compressed into a nice solid sheet."
+	singular_name = "meat sheet"
 	icon_state = "sheet-meat"
-	material_flags = MATERIAL_COLOR
-	mats_per_unit = list(/datum/material/hauntium = MINERAL_MATERIAL_AMOUNT)
-	merge_type = /obj/item/stack/sheet/hauntium
-	material_type = /datum/material/hauntium
+	mats_per_unit = list(/datum/material/meat = MINERAL_MATERIAL_AMOUNT)
+	merge_type = /obj/item/stack/sheet/meat
+	material_type = /datum/material/meat
 	material_modifier = 1 //None of that wussy stuff
 
-/obj/item/stack/sheet/hauntium/fifty
+/obj/item/stack/sheet/meat/fifty
 	amount = 50
-/obj/item/stack/sheet/hauntium/twenty
+/obj/item/stack/sheet/meat/twenty
 	amount = 20
-/obj/item/stack/sheet/hauntium/five
+/obj/item/stack/sheet/meat/five
 	amount = 5
+
+/obj/item/stack/sheet/steel
+	name = "steel sheets"
+	singular_name = "steel sheet"
+	merge_type = /obj/item/stack/sheet/steel
+	material_type = /datum/material/steel
+
+/obj/item/stack/sheet/copper
+	name = "copper sheets"
+	singular_name = "copper sheet"
+	merge_type = /obj/item/stack/sheet/copper
+	material_type = /datum/material/copper
+
+/obj/item/stack/sheet/tin
+	name = "tin sheets"
+	singular_name = "tin sheet"
+	merge_type = /obj/item/stack/sheet/tin
+	material_type = /datum/material/tin
+
+/obj/item/stack/sheet/zinc
+	name = "zinc sheets"
+	singular_name = "zinc sheet"
+	merge_type = /obj/item/stack/sheet/zinc
+	material_type = /datum/material/zinc
+
+/obj/item/stack/sheet/brass
+	name = "brass sheets"
+	singular_name = "brass sheet"
+	merge_type = /obj/item/stack/sheet/brass
+	material_type = /datum/material/brass
+
+/obj/item/stack/sheet/brick
+	name = "brick sheets"
+	singular_name = "brick sheet"
+	merge_type = /obj/item/stack/sheet/brick
+	material_type = /datum/material/brick
+
+/obj/item/stack/sheet/clay
+	name = "clay sheets"
+	singular_name = "clay sheet"
+	merge_type = /obj/item/stack/sheet/clay
+	material_type = /datum/material/clay
+
+/obj/item/stack/sheet/stone
+	name = "stone sheets"
+	singular_name = "stone sheet"
+	merge_type = /obj/item/stack/sheet/stone
+	material_type = /datum/material/stone

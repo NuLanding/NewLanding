@@ -69,20 +69,6 @@
 			new refined_type(drop_location(),amountrefined)
 			qdel(src)
 
-/obj/item/stack/ore/uranium
-	name = "uranium ore"
-	icon_state = "Uranium ore"
-	inhand_icon_state = "Uranium ore"
-	singular_name = "uranium ore chunk"
-	points = 30
-	material_flags = MATERIAL_NO_EFFECTS
-	mats_per_unit = list(/datum/material/uranium=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/uranium
-	mine_experience = 6
-	scan_state = "rock_Uranium"
-	spreadChance = 5
-	merge_type = /obj/item/stack/ore/uranium
-
 /obj/item/stack/ore/iron
 	name = "iron ore"
 	icon_state = "Iron ore"
@@ -109,7 +95,7 @@
 	merge_type = /obj/item/stack/ore/glass
 
 GLOBAL_LIST_INIT(sand_recipes, list(\
-		new /datum/stack_recipe("sandstone", /obj/item/stack/sheet/mineral/sandstone, 1, 1, 50),\
+		new /datum/stack_recipe("sandstone", /obj/item/stack/sheet/sandstone, 1, 1, 50),\
 ))
 
 /obj/item/stack/ore/glass/get_main_recipes()
@@ -141,23 +127,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	mine_experience = 0
 	merge_type = /obj/item/stack/ore/glass/basalt
 
-/obj/item/stack/ore/plasma
-	name = "plasma ore"
-	icon_state = "Plasma ore"
-	inhand_icon_state = "Plasma ore"
-	singular_name = "plasma ore chunk"
-	points = 15
-	mats_per_unit = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/plasma
-	mine_experience = 5
-	scan_state = "rock_Plasma"
-	spreadChance = 8
-	merge_type = /obj/item/stack/ore/plasma
-
-/obj/item/stack/ore/plasma/welder_act(mob/living/user, obj/item/I)
-	to_chat(user, SPAN_WARNING("You can't hit a high enough temperature to smelt [src] properly!"))
-	return TRUE
-
 /obj/item/stack/ore/silver
 	name = "silver ore"
 	icon_state = "Silver ore"
@@ -166,7 +135,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	points = 16
 	mine_experience = 3
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/silver
+	refined_type = /obj/item/stack/sheet/silver
 	scan_state = "rock_Silver"
 	spreadChance = 5
 	merge_type = /obj/item/stack/ore/silver
@@ -179,7 +148,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	points = 18
 	mine_experience = 5
 	mats_per_unit = list(/datum/material/gold=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/gold
+	refined_type = /obj/item/stack/sheet/gold
 	scan_state = "rock_Gold"
 	spreadChance = 5
 	merge_type = /obj/item/stack/ore/gold
@@ -191,35 +160,10 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	singular_name = "diamond ore chunk"
 	points = 50
 	mats_per_unit = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/diamond
+	refined_type = /obj/item/stack/sheet/diamond
 	mine_experience = 10
 	scan_state = "rock_Diamond"
 	merge_type = /obj/item/stack/ore/diamond
-
-/obj/item/stack/ore/bananium
-	name = "bananium ore"
-	icon_state = "Bananium ore"
-	inhand_icon_state = "Bananium ore"
-	singular_name = "bananium ore chunk"
-	points = 60
-	mats_per_unit = list(/datum/material/bananium=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/bananium
-	mine_experience = 15
-	scan_state = "rock_Bananium"
-	merge_type = /obj/item/stack/ore/bananium
-
-/obj/item/stack/ore/titanium
-	name = "titanium ore"
-	icon_state = "Titanium ore"
-	inhand_icon_state = "Titanium ore"
-	singular_name = "titanium ore chunk"
-	points = 50
-	mats_per_unit = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/mineral/titanium
-	mine_experience = 3
-	scan_state = "rock_Titanium"
-	spreadChance = 5
-	merge_type = /obj/item/stack/ore/titanium
 
 /obj/item/stack/ore/slag
 	name = "slag"
@@ -264,13 +208,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	icon_state = "coin_[coinflip]"
 	pixel_x = base_pixel_x + rand(0, 16) - 8
 	pixel_y = base_pixel_y + rand(0, 8) - 8
-
-/obj/item/coin/set_custom_materials(list/materials, multiplier = 1)
-	. = ..()
-	value = 0
-	for(var/i in custom_materials)
-		var/datum/material/M = i
-		value += M.value_per_unit * custom_materials[M]
 
 /obj/item/coin/suicide_act(mob/living/user)
 	user.visible_message(SPAN_SUICIDE("[user] contemplates suicide with \the [src]!"))
@@ -318,30 +255,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 
 /obj/item/coin/diamond
 	custom_materials = list(/datum/material/diamond = 400)
-
-/obj/item/coin/plasma
-	custom_materials = list(/datum/material/plasma = 400)
-
-/obj/item/coin/uranium
-	custom_materials = list(/datum/material/uranium = 400)
-
-/obj/item/coin/titanium
-	custom_materials = list(/datum/material/titanium = 400)
-
-/obj/item/coin/bananium
-	custom_materials = list(/datum/material/bananium = 400)
-
-/obj/item/coin/adamantine
-	custom_materials = list(/datum/material/adamantine = 400)
-
-/obj/item/coin/mythril
-	custom_materials = list(/datum/material/mythril = 400)
-
-/obj/item/coin/plastic
-	custom_materials = list(/datum/material/plastic = 400)
-
-/obj/item/coin/runite
-	custom_materials = list(/datum/material/runite = 400)
 
 /obj/item/coin/iron
 

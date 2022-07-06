@@ -481,7 +481,7 @@
 	name = "Improvised Splint"
 	result = /obj/item/stack/medical/splint/improvised
 	time = 30
-	reqs = list(/obj/item/stack/sheet/mineral/wood = 2, /obj/item/stack/sheet/cloth = 2)
+	reqs = list(/obj/item/stack/sheet/wood = 2, /obj/item/stack/sheet/cloth = 2)
 	category = CAT_MISC
 
 /obj/item/stack/medical/splint/tribal
