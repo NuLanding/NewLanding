@@ -99,7 +99,6 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	mats_per_unit = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list(/datum/reagent/carbon = 20)
-	point_value = 25
 	merge_type = /obj/item/stack/sheet/diamond
 	material_type = /datum/material/diamond
 
@@ -120,7 +119,6 @@ GLOBAL_LIST_INIT(diamond_recipes, list ())
 	sheettype = "gold"
 	mats_per_unit = list(/datum/material/gold=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/gold = 20)
-	point_value = 20
 	merge_type = /obj/item/stack/sheet/gold
 	material_type = /datum/material/gold
 
@@ -141,7 +139,6 @@ GLOBAL_LIST_INIT(gold_recipes, list ())
 	sheettype = "silver"
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/silver = 20)
-	point_value = 20
 	merge_type = /obj/item/stack/sheet/silver
 	material_type = /datum/material/silver
 

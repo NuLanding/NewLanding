@@ -18,9 +18,6 @@
 	var/singular_name
 	var/amount = 1
 	var/max_amount = 50 //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
-	var/is_cyborg = FALSE // It's TRUE if module is used by a cyborg, and uses its storage
-	var/datum/robot_energy_storage/source
-	var/cost = 1 // How much energy from storage it costs
 	var/merge_type = null // This path and its children should merge with this stack, defaults to src.type
 	var/full_w_class = WEIGHT_CLASS_NORMAL //The weight class the stack should have at amount > 2/3rds max_amount
 	var/novariants = TRUE //Determines whether the item should update it's sprites based on amount.
@@ -29,9 +26,6 @@
 	var/material_type
 	//NOTE: When adding grind_results, the amounts should be for an INDIVIDUAL ITEM - these amounts will be multiplied by the stack size in on_grind()
 	var/obj/structure/table/tableVariant // we tables now (stores table variant to be built from this stack)
-
-	/// Amount of matter for RCD
-	var/matter_amount = 0
 	/// Does this stack require a unique girder in order to make a wall?
 	var/has_unique_girder = FALSE
 
@@ -120,12 +114,6 @@
 
 /obj/item/stack/examine(mob/user)
 	. = ..()
-	if(is_cyborg)
-		if(singular_name)
-			. += "There is enough energy for [get_amount()] [singular_name]\s."
-		else
-			. += "There is enough energy for [get_amount()]."
-		return
 	if(singular_name)
 		if(get_amount()>1)
 			. += "There are [get_amount()] [singular_name]\s in the stack."
@@ -214,7 +202,7 @@
 
 	switch(action)
 		if("make")
-			if(get_amount() < 1 && !is_cyborg)
+			if(get_amount() < 1)
 				qdel(src)
 				return
 			var/datum/stack_recipe/recipe = locate(params["ref"])
@@ -374,8 +362,7 @@
  * - _amount: The number of units to add to this stack.
  */
 /obj/item/stack/proc/add(_amount)
-	if(length(mats_per_unit))
-		update_custom_materials()
+	amount += _amount
 	update_appearance()
 	update_weight()
 
@@ -386,10 +373,6 @@
  */
 /obj/item/stack/proc/can_merge(obj/item/stack/check)
 	if(!istype(check, merge_type))
-		return FALSE
-	if(mats_per_unit != check.mats_per_unit)
-		return FALSE
-	if(is_cyborg) // No merging cyborg stacks into other stacks
 		return FALSE
 	return TRUE
 
@@ -426,7 +409,7 @@
 		. = ..()
 
 /obj/item/stack/attack_hand_secondary(mob/user, modifiers)
-	if(is_cyborg || !user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE) || zero_amount())
+	if(!user.canUseTopic(src, BE_CLOSE, NO_DEXTERITY, FALSE) || zero_amount())
 		return SECONDARY_ATTACK_CONTINUE_CHAIN
 	var/max = get_amount()
 	var/stackmaterial = round(input(user, "How many sheets do you wish to take out of this stack? (Maximum [max])", "Stack Split") as null|num)

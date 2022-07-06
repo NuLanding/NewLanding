@@ -26,10 +26,7 @@ GLOBAL_LIST_INIT(glass_recipes, list ( \
 	merge_type = /obj/item/stack/sheet/glass
 	grind_results = list(/datum/reagent/silicon = 20)
 	material_type = /datum/material/glass
-	point_value = 1
 	tableVariant = /obj/structure/table/glass
-	matter_amount = 4
-	cost = 500
 	window_type = /obj/structure/window/fulltile
 
 /obj/item/stack/sheet/glass/suicide_act(mob/living/carbon/user)
@@ -81,8 +78,6 @@ GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
 	resistance_flags = ACID_PROOF
 	merge_type = /obj/item/stack/sheet/rglass
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/iron = 10)
-	point_value = 4
-	matter_amount = 6
 	window_type = /obj/structure/window/reinforced/fulltile
 	tableVariant = /obj/structure/table/reinforced/rglass
 

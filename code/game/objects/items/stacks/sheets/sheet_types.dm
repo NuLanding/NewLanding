@@ -78,17 +78,8 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	resistance_flags = FIRE_PROOF
 	merge_type = /obj/item/stack/sheet/iron
 	grind_results = list(/datum/reagent/iron = 20)
-	point_value = 2
 	tableVariant = /obj/structure/table
 	material_type = /datum/material/iron
-	matter_amount = 4
-	cost = 500
-
-/obj/item/stack/sheet/iron/fifty
-	amount = 50
-
-/obj/item/stack/sheet/iron/twenty
-	amount = 20
 
 /obj/item/stack/sheet/iron/ten
 	amount = 10
@@ -155,8 +146,11 @@ GLOBAL_LIST_INIT(wood_recipes, list ( \
 	. = ..()
 	. += GLOB.wood_recipes
 
-/obj/item/stack/sheet/wood/fifty
-	amount = 50
+/obj/item/stack/sheet/wood/five
+	amount = 5
+
+/obj/item/stack/sheet/wood/ten
+	amount = 10
 
 /*
  * Bamboo
@@ -184,6 +178,12 @@ GLOBAL_LIST_INIT(bamboo_recipes, list ( \
 /obj/item/stack/sheet/bamboo/get_main_recipes()
 	. = ..()
 	. += GLOB.bamboo_recipes
+
+/obj/item/stack/sheet/bamboo/five
+	amount = 5
+
+/obj/item/stack/sheet/bamboo/ten
+	amount = 10
 
 /*
  * Cloth
@@ -310,8 +310,8 @@ GLOBAL_LIST_INIT(bronze_recipes, list ())
 	pixel_x = 0
 	pixel_y = 0
 
-/obj/item/stack/sheet/bronze/thirty
-	amount = 30
+/obj/item/stack/sheet/bronze/ten
+	amount = 10
 
 /*
  * Lesser and Greater gems - unused
@@ -377,10 +377,9 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 	. += GLOB.paperframe_recipes
 /obj/item/stack/sheet/paperframes/five
 	amount = 5
-/obj/item/stack/sheet/paperframes/twenty
-	amount = 20
-/obj/item/stack/sheet/paperframes/fifty
-	amount = 50
+
+/obj/item/stack/sheet/paperframes/ten
+	amount = 10
 
 /obj/item/stack/sheet/sandblock
 	name = "blocks of sand"
@@ -392,10 +391,9 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 	material_type = /datum/material/sand
 	material_modifier = 1
 
-/obj/item/stack/sheet/sandblock/fifty
-	amount = 50
-/obj/item/stack/sheet/sandblock/twenty
-	amount = 20
+/obj/item/stack/sheet/sandblock/ten
+	amount = 10
+
 /obj/item/stack/sheet/sandblock/five
 	amount = 5
 
@@ -409,10 +407,9 @@ new /datum/stack_recipe("paper frame separator", /obj/structure/window/paperfram
 	material_type = /datum/material/meat
 	material_modifier = 1 //None of that wussy stuff
 
-/obj/item/stack/sheet/meat/fifty
-	amount = 50
-/obj/item/stack/sheet/meat/twenty
+/obj/item/stack/sheet/meat/ten
 	amount = 20
+
 /obj/item/stack/sheet/meat/five
 	amount = 5
 

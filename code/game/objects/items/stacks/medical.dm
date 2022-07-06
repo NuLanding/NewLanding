@@ -12,7 +12,6 @@
 	max_integrity = 40
 	novariants = FALSE
 	item_flags = NOBLUDGEON
-	cost = 250
 	merge_type = /obj/item/stack/medical
 	/// How long it takes to apply it to yourself
 	var/self_delay = 5 SECONDS
