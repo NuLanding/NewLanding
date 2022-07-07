@@ -108,6 +108,18 @@
 /obj/item/stack/coin/silver/twenty
 	amount = 20
 
+/obj/item/stack/coin/copper
+	name = "copper coins"
+	singular_name = "copper coin"
+	color = "#9c5d2c"
+	merge_type = /obj/item/stack/coin/copper
+
+/obj/item/stack/coin/copper/five
+	amount = 5
+
+/obj/item/stack/coin/copper/twenty
+	amount = 20
+
 /obj/item/stack/coin/diamond
 	name = "diamond coins"
 	singular_name = "diamond coin"

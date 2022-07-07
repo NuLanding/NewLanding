@@ -40,8 +40,11 @@
 	return coin_amount
 
 /obj/item/storage/pouch/random_commoner/PopulateContents()
+	var/copper_amount = rand(10,20)
 	var/silver_amount = rand(10,20)
 	var/gold_amount = rand(4,10)
+	for(var/i in 1 to copper_amount)
+		new /obj/item/stack/coin/copper(src)
 	for(var/i in 1 to silver_amount)
 		new /obj/item/stack/coin/silver(src)
 	for(var/i in 1 to gold_amount)

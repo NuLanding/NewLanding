@@ -40,22 +40,28 @@
 			chunks_to_drop = rand(HEAVY_ORE_DROP_LOW, HEAVY_ORE_DROP_HIGH)
 	drop_ore_chunks(chunks_to_drop)
 
-#define MINE_PROGRESS_PER_TOOL_ATTACK 10
-
-/obj/structure/ore_vein/attackby(obj/item/weapon, mob/user, params)
-	if(weapon.tool_behaviour == TOOL_MINING)
-		user.visible_message(
-			SPAN_NOTICE("[user] strikes \the [src] with \the [weapon]."),
-			SPAN_NOTICE("You strike \the [src] with \the [weapon].")
-			)
-		weapon.play_tool_sound(src)
-		user.do_attack_animation(src)
-		user.changeNext_move(CLICK_CD_MELEE)
-		add_mine_progress((1/weapon.toolspeed) * MINE_PROGRESS_PER_TOOL_ATTACK)
+/obj/structure/ore_vein/attackby(obj/item/tool, mob/user, params)
+	if(tool.tool_behaviour == TOOL_MINING)
+		var/mining_loop = TRUE
+		to_chat(user, SPAN_NOTICE("You begin mining \the [src]."))
+		while(TRUE)
+			if(tool.use_tool(src, user, 2 SECONDS, volume = 30))
+				user.do_attack_animation(src)
+				user.visible_message(
+					SPAN_NOTICE("[user] strikes \the [src] with \the [tool]."),
+					SPAN_NOTICE("You strike \the [src] with \the [tool].")
+					)
+				add_mine_progress(rand(15,25))
+				if(QDELETED(src))
+					mining_loop = FALSE
+			else
+				mining_loop = FALSE
+			if(!mining_loop)
+				to_chat(user, SPAN_NOTICE("You finish mining."))
+				break
 		return TRUE
 	return ..()
 
-#undef MINE_PROGRESS_PER_TOOL_ATTACK
 
 #undef DEVASTATE_ORE_DROP_LOW
 #undef DEVASTATE_ORE_DROP_HIGH
