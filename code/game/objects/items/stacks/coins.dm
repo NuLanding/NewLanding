@@ -19,6 +19,12 @@
 	coin_face = face_list[1]
 	update_appearance()
 
+/obj/item/stack/coin/play_drop_sound()
+	if(amount >= 5)
+		playsound(src, 'sound/accursed/coins.ogg', 50, ignore_walls = FALSE, vary = TRUE)
+	else
+		return ..()
+
 /obj/item/stack/coin/attack_self(mob/user)
 	if(start_flip(user))
 		return TRUE

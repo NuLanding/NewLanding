@@ -14,12 +14,14 @@
 	STR.set_holdable(list(/obj/item/stack/coin))
 	update_appearance()
 
+/obj/item/storage/pouch/play_drop_sound()
+	if(get_coin_amount() >= 5)
+		playsound(src, 'sound/accursed/coins.ogg', 50, ignore_walls = FALSE, vary = TRUE)
+	else
+		return ..()
+
 /obj/item/storage/pouch/update_icon_state()
-	var/coin_amount = 0
-	// Only stack items are holdable.
-	for(var/obj/item/stack/coin_stack as anything in contents)
-		coin_amount += coin_stack.amount
-	switch(coin_amount)
+	switch(get_coin_amount())
 		if(0 to 19)
 			icon_state = "pouch1"
 		if(20 to 39)
@@ -29,6 +31,13 @@
 		if(60 to 100)
 			icon_state = "pouch4"
 	return ..()
+
+/obj/item/storage/pouch/proc/get_coin_amount()
+	var/coin_amount = 0
+	// Only stack items are holdable.
+	for(var/obj/item/stack/coin_stack as anything in contents)
+		coin_amount += coin_stack.amount
+	return coin_amount
 
 /obj/item/storage/pouch/random_commoner/PopulateContents()
 	var/silver_amount = rand(10,20)
