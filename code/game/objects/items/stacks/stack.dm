@@ -47,12 +47,9 @@
 
 	. = ..()
 	if(merge)
-		for(var/obj/item/stack/S in loc)
-			if(can_merge(S))
-				INVOKE_ASYNC(src, .proc/merge, S)
-				//Merge can call qdel on us, so let's be safe yeah?
-				if(QDELETED(src))
-					return
+		try_merge_in_loc()
+		if(QDELETED(src))
+			return
 	recipes = get_main_recipes()
 	update_weight()
 	update_appearance()
@@ -61,6 +58,18 @@
 	)
 	AddElement(/datum/element/connect_loc, src, loc_connections)
 
+/obj/item/stack/throw_landed(datum/thrownthing/throw_datum)
+	. = ..()
+	try_merge_in_loc()
+
+/obj/item/stack/proc/try_merge_in_loc()
+	for(var/obj/item/stack/stack in loc)
+		if(can_merge(stack))
+			INVOKE_ASYNC(src, .proc/merge, stack)
+			//Merge can call qdel on us, so let's be safe yeah?
+			if(QDELETED(src))
+				return
+
 /** Sets the amount of materials per unit for this stack.
  *
  * Arguments:
@@ -68,7 +77,7 @@
  * - multiplier: The amount to multiply the mats per unit by. Defaults to 1.
  */
 /obj/item/stack/proc/set_mats_per_unit(list/mats, multiplier=1)
-	mats_per_unit = get_material_composition(mats)
+	mats_per_unit = get_material_list_cache(mats)
 	update_custom_materials()
 
 /** Updates the custom materials list of this stack.
@@ -392,7 +401,7 @@
 /obj/item/stack/proc/on_entered(datum/source, atom/movable/crossing)
 	SIGNAL_HANDLER
 	if(!crossing.throwing && can_merge(crossing))
-		INVOKE_ASYNC(src, .proc/merge, crossing)
+		INVOKE_ASYNC(crossing, .proc/merge, src)
 
 /obj/item/stack/hitby(atom/movable/hitting, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(can_merge(hitting))

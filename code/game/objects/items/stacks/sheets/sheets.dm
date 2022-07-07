@@ -33,7 +33,8 @@
  */
 /obj/item/stack/sheet/proc/on_attack_floor(mob/user, params)
 	var/list/shards = list()
-	for(var/datum/material/mat in custom_materials)
+	for(var/mat_type in custom_materials)
+		var/datum/material/mat = GET_MATERIAL_REF(mat_type)
 		if(mat.shard_type)
 			var/obj/item/new_shard = new mat.shard_type(user.loc)
 			new_shard.add_fingerprint(user)

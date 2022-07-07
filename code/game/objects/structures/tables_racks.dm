@@ -225,7 +225,7 @@
 			new buildstack(T, buildstackamount)
 		else
 			for(var/i in custom_materials)
-				var/datum/material/M = i
+				var/datum/material/M = GET_MATERIAL_REF(i)
 				new M.sheet_type(T, FLOOR(custom_materials[M] / MINERAL_MATERIAL_AMOUNT, 1))
 		if(!wrench_disassembly)
 			new frame(T)

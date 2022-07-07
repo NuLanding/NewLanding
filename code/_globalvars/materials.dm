@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(material_comp_cache)
 		mat_list[type] = new type()
 	return mat_list
 
-/proc/get_material_composition(list/materials)
+/proc/get_material_list_cache(list/materials)
 	if(!materials)
 		return
 	var/list/string_list = list()

@@ -112,7 +112,7 @@
 
 /obj/structure/obstruction/proc/user_clear_action(mob/living/user, obj/item/item)
 	if(required_tool && item.tool_behaviour != required_tool)
-		to_chat(user, SPAN_WARNING("You can't quite figure out how to \the [src] with \the [item]."))
+		to_chat(user, SPAN_WARNING("You can't quite figure out how to clear \the [src] with \the [item]."))
 		return TRUE
 	user.visible_message(
 		SPAN_NOTICE("[user] starts clearing \the [src] with \the [item]."), 

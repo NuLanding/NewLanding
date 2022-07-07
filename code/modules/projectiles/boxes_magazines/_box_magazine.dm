@@ -36,8 +36,8 @@
 /obj/item/ammo_box/Initialize()
 	. = ..()
 	if(!bullet_cost)
-		base_cost = get_material_composition(custom_materials)
-		bullet_cost = get_material_composition(custom_materials)
+		base_cost = get_material_list_cache(custom_materials)
+		bullet_cost = get_material_list_cache(custom_materials)
 	if(!start_empty)
 		top_off(starting=TRUE)
 

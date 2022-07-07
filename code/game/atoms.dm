@@ -533,7 +533,7 @@
 	if(custom_materials)
 		var/list/materials_list = list()
 		for(var/i in custom_materials)
-			var/datum/material/M = i
+			var/datum/material/M = GET_MATERIAL_REF(i)
 			materials_list += "[M.name]"
 		. += "<u>It is made out of [english_list(materials_list)]</u>."
 	if(reagents)
@@ -1602,7 +1602,7 @@
 			var/datum/material/custom_material = GET_MATERIAL_REF(x)
 			custom_material.on_applied(src, materials[x] * multiplier * material_modifier, material_flags)
 
-	custom_materials = get_material_composition(materials)
+	custom_materials = get_material_list_cache(materials)
 
 /**
  * Returns the material composition of the atom.
