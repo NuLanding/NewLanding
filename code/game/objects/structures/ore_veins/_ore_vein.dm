@@ -101,3 +101,12 @@
 	if(!ores_remaining)
 		visible_message(SPAN_WARNING("\The [src] breaks down!"))
 		qdel(src)
+
+/// Large, opaque and more rich veins
+/obj/structure/ore_vein/large
+	name = "large ore vein"
+	abstract_type = /obj/structure/ore_vein/large
+	greyscale_config = /datum/greyscale_config/ore_vein_large
+	opacity = TRUE
+	ores_low = 30
+	ores_high = 45
