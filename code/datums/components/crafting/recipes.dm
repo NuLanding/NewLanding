@@ -141,7 +141,7 @@
 	name = "Rake"
 	time = 30
 	reqs = list(/obj/item/stack/sheet/wood = 5)
-	result = /obj/item/cultivator/rake
+	result = /obj/item/rake
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/woodbucket
