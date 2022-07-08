@@ -2,7 +2,7 @@
 	/// Types of the mobs the spawner will spawn
 	var/mob_types = list(/mob/living/simple_animal/hostile/carp)
 	/// Delay between a mob will emerge from the spawner
-	var/spawn_time = 5 MINUTES
+	var/spawn_time = 15 MINUTES
 	/// Internal list to keep track of spawned mobs with this spawner
 	var/list/spawned_mobs = list()
 	/// The next time we can spawn a mob
@@ -43,7 +43,6 @@
 	try_spawn_mob()
 
 /datum/component/spawner/proc/try_spawn_mob()
-	var/atom/P = parent
 	if(spawned_mobs.len >= max_mobs)
 		return
 	if(next_spawn > world.time)
@@ -74,5 +73,5 @@
 /datum/component/spawner/proc/unregister_mob(datum/source)
 	SIGNAL_HANDLER
 	spawned_mobs -= source
-	UnregisterSignal(spawned_mob, COMSIG_LIVING_DEATH)
-	UnregisterSignal(spawned_mob, COMSIG_PARENT_QDELETING)
+	UnregisterSignal(source, COMSIG_LIVING_DEATH)
+	UnregisterSignal(source, COMSIG_PARENT_QDELETING)

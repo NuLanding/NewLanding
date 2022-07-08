@@ -199,7 +199,7 @@
 	return dat
 
 /datum/preferences/proc/validate_loadouts()
-	SANITIZE_LIST(loadouts)
+	loadouts = SANITIZE_LIST(loadouts)
 	var/slot_index = 0
 	for(var/list/slot_list as anything in loadouts)
 		slot_index++
