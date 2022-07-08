@@ -1487,18 +1487,6 @@
 
 //Misc reagents
 
-/datum/reagent/magillitis
-	name = "Magillitis"
-	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
-	reagent_state = LIQUID
-	color = "#00f041"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/magillitis/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	..()
-	if((ishuman(M)) && current_cycle >= 10)
-		M.gorillize()
-
 /datum/reagent/growthserum
 	name = "Growth Serum"
 	description = "A commercial chemical designed to help older men in the bedroom."//not really it just makes you a giant
