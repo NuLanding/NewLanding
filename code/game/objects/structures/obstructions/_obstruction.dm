@@ -52,6 +52,12 @@
 	/// How long does it take to climb on the obstruction.
 	var/obstruction_climb_time = 2 SECONDS
 
+/obj/structure/obstruction/Initialize()
+	. = ..()
+	/// If it's climbable, it should allow things to pass through it
+	if(obstruction_climbable)
+		pass_flags_self = PASSTABLE | LETPASSTHROW
+
 /obj/structure/obstruction/ex_act(severity, target)
 	if(isnull(explosion_clear_severity) || severity < explosion_clear_severity)
 		return
