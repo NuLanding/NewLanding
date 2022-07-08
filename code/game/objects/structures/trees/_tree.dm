@@ -87,6 +87,7 @@
 	icon_state = "stump"
 	density = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 
 /obj/structure/tree_stump/Initialize()
 	. = ..()
@@ -120,6 +121,7 @@
 	icon_state = "log"
 	density = TRUE
 	anchored = TRUE
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	/// Progress towards chopping this down.
 	var/chop_progress = 0
 
