@@ -103,7 +103,7 @@
 					SPAN_NOTICE("[user] begins to dig out \the [src] with \the [tool]."),
 					SPAN_NOTICE("You begin to dig out \the [src] with \the [tool].")
 					)
-		if(tool.use_tool(src, user, 6 SECONDS, volume = 30))
+		if(tool.use_tool(src, user, 6 SECONDS, volume = 20))
 			user.visible_message(
 				SPAN_NOTICE("[user] digs out the \the [src] with \the [tool]."),
 				SPAN_NOTICE("You dig out the \the [src] with \the [tool].")
@@ -169,7 +169,7 @@
 		var/chopping_loop = TRUE
 		to_chat(user, SPAN_NOTICE("You start chopping \the [src] down."))
 		while(TRUE)
-			if(tool.use_tool(src, user, 2 SECONDS, volume = 30))
+			if(tool.use_tool(src, user, 2 SECONDS, volume = 20))
 				user.do_attack_animation(src)
 				user.visible_message(
 					SPAN_NOTICE("[user] chops \the [src] with \the [tool]."),
