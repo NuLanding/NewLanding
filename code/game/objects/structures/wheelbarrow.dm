@@ -9,7 +9,9 @@
 	pass_flags_self = PASSTABLE | LETPASSTHROW
 	layer = TABLE_LAYER
 	drag_slowdown = 2
+	/// The contained items of the wheelbarrow.
 	var/list/contained_items = list()
+	/// The contained mobs of the wheelbarrow.
 	var/list/contained_mobs = list()
 
 /obj/structure/wheelbarrow/Initialize()
