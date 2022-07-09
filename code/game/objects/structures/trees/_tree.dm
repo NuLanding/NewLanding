@@ -23,6 +23,7 @@
 	transform = new_matrix
 	pixel_x = 0
 	pixel_y = 0
+	icon_state = "tree[rand(1,6)]"
 
 /obj/structure/tree/ex_act(severity, target)
 	if(severity <= EXPLODE_LIGHT)
