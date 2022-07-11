@@ -105,6 +105,7 @@
 /// Large, opaque and more rich veins
 /obj/structure/ore_vein/large
 	name = "large ore vein"
+	icon = 'icons/obj/structures/ore_vein_gags.dmi'
 	abstract_type = /obj/structure/ore_vein/large
 	greyscale_config = /datum/greyscale_config/ore_vein_large
 	pixel_x = -16
