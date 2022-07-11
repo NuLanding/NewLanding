@@ -55,8 +55,6 @@
 
 	var/has_gravity = STANDARD_GRAVITY
 
-	var/parallax_movedir = 0
-
 	flags_1 = CAN_BE_DIRTY_1
 
 	var/list/firedoors
