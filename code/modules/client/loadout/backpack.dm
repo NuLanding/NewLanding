@@ -38,10 +38,6 @@
 /datum/loadout_item/backpack/fragrance/nectarine
 	path = /obj/item/perfume/nectarine
 
-/datum/loadout_item/backpack/flask
-	path = /obj/item/reagent_containers/food/drinks/flask
-	cost = 2
-
 /datum/loadout_item/backpack/multipen
 	path = /obj/item/pen/fourcolor
 
