@@ -63,6 +63,3 @@
 	path = /obj/item/toy/katana
 	cost = 3
 
-/datum/loadout_item/backpack/toy/crayons
-	path = /obj/item/storage/crayons
-
