@@ -120,39 +120,17 @@
 		qdel(src)
 	return
 
-//TODO:
 /obj/item/restraints/handcuffs/rope
+	name = "rope restraints"
+	desc = "Rope tied together to make a restraint. Could tie someone up with this."
+	gender = PLURAL
+	icon = 'icons/obj/items/restraints.dmi'
+	icon_state = "rope"
+	worn_icon_state = "rope"
+	cuffsound = 'sound/weapons/cablecuff.ogg'
 
 /obj/item/restraints/handcuffs/sinew
 
-/**
- * # Zipties
- *
- * One-use handcuffs that take 45 seconds to resist out of instead of one minute. This turns into the used version when applied.
-*/
-/obj/item/restraints/handcuffs/zipties
-	name = "zipties"
-	desc = "Plastic, disposable zipties that can be used to restrain temporarily but are destroyed after use."
-	icon_state = "cuff"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
-	custom_materials = null
-	breakouttime = 45 SECONDS
-	trashtype = /obj/item/restraints/handcuffs/zipties/used
-	color = null
-
-/**
- * # Used zipties
- *
- * What zipties turn into when applied. These can't be used to cuff people.
-*/
-/obj/item/restraints/handcuffs/zipties/used
-	desc = "A pair of broken zipties."
-	icon_state = "cuff_used"
-	inhand_icon_state = "cuff"
-
-/obj/item/restraints/handcuffs/zipties/used/attack()
-	return
 
 /**
  * # Generic leg cuffs

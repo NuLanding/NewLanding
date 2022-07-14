@@ -65,10 +65,23 @@
 /obj/structure/tree/big,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"kW" = (
+/obj/structure/table/wood,
+/obj/item/claymore,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"mh" = (
+/obj/structure/table/wood,
+/turf/open/floor/cobblestone,
+/area/outdoors/jungle)
 "mq" = (
 /obj/item/shovel,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"mJ" = (
+/obj/structure/table/wood,
+/turf/closed/wall/wood,
+/area/indoors/house)
 "mM" = (
 /obj/structure/slope/stone/directional/south,
 /turf/open/floor/rock,
@@ -80,6 +93,12 @@
 /area/outdoors/jungle)
 "ow" = (
 /obj/structure/obstruction/rock/large,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"oL" = (
+/obj/structure/table/wood,
+/obj/item/gun/bow,
+/obj/item/storage/quiver/half_full,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "pX" = (
@@ -103,6 +122,11 @@
 "tj" = (
 /turf/closed/rock,
 /area/outdoors/jungle)
+"tR" = (
+/obj/structure/table/wood,
+/obj/item/cutlass,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "uT" = (
 /obj/structure/door/wood,
 /turf/open/floor/wood,
@@ -115,8 +139,18 @@
 /obj/structure/cliff_side/side/west,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"vT" = (
+/obj/structure/flora/rock/pile,
+/turf/open/water/impassable,
+/area/outdoors/jungle)
 "vX" = (
 /obj/structure/cache/tree_stump,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"wg" = (
+/obj/structure/table/wood,
+/obj/item/restraints/handcuffs/rope,
+/obj/item/stack/rope/five,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "wi" = (
@@ -21426,18 +21460,21 @@ Sn
 Sn
 Sn
 Sn
-Sn
-Sn
-Sn
+qB
+qB
+qB
 qB
 qB
 qB
 Hl
+qB
 Sn
 Sn
 Sn
-Sn
-pX
+vT
+qB
+qB
+qB
 qB
 qB
 qB
@@ -21466,12 +21503,9 @@ Sn
 Sn
 Sn
 Sn
-Sn
-Sn
-Sn
-Sn
-Sn
-Sn
+qB
+qB
+qB
 qB
 qB
 qB
@@ -21487,8 +21521,8 @@ qB
 qB
 qB
 qB
-Sn
-Sn
+qB
+qB
 Sn
 Sn
 Sn
@@ -21572,8 +21606,8 @@ Sn
 Sn
 Sn
 Sn
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
@@ -21589,7 +21623,7 @@ qB
 qB
 qB
 qB
-Sn
+qB
 Sn
 Sn
 Sn
@@ -21675,7 +21709,7 @@ Sn
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -21691,7 +21725,7 @@ qB
 qB
 qB
 qB
-Sn
+qB
 Sn
 Sn
 Sn
@@ -21777,7 +21811,7 @@ Sn
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -21879,7 +21913,7 @@ Sn
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -24671,7 +24705,7 @@ LJ
 LJ
 NS
 NS
-LJ
+mh
 LJ
 LJ
 RU
@@ -24977,13 +25011,13 @@ hy
 uT
 hy
 hy
-hy
+mJ
 hy
 mV
 LJ
 LJ
 LJ
-dw
+kW
 hy
 Tr
 Tr
@@ -25085,7 +25119,7 @@ Jv
 dw
 LJ
 LJ
-dw
+tR
 hy
 Tr
 Tr
@@ -25489,7 +25523,7 @@ Tr
 Tr
 Tr
 hy
-dw
+oL
 dw
 LJ
 LJ
@@ -25591,7 +25625,7 @@ hy
 hy
 hy
 hy
-dw
+wg
 dw
 LJ
 LJ
@@ -27285,7 +27319,7 @@ yO
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -27387,7 +27421,7 @@ tj
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -27488,8 +27522,8 @@ tj
 tj
 tj
 tj
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
@@ -27590,8 +27624,8 @@ aq
 aq
 aq
 tj
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
@@ -28304,8 +28338,8 @@ aq
 aq
 aq
 tj
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
@@ -28406,8 +28440,8 @@ aq
 tj
 tj
 tj
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
@@ -28509,7 +28543,7 @@ tj
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -28611,7 +28645,7 @@ tj
 Sn
 Sn
 Sn
-Sn
+qB
 qB
 qB
 qB
@@ -30157,6 +30191,7 @@ qB
 qB
 qB
 qB
+qB
 Sn
 Sn
 Sn
@@ -30242,8 +30277,7 @@ Sn
 Sn
 Sn
 Sn
-Sn
-Sn
+qB
 qB
 qB
 qB
@@ -30259,6 +30293,8 @@ qB
 qB
 qB
 qB
+qB
+qB
 Sn
 Sn
 Sn
@@ -30342,10 +30378,8 @@ Sn
 Sn
 Sn
 Sn
-Sn
-Sn
-Sn
-Sn
+qB
+qB
 qB
 qB
 qB
