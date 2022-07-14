@@ -1,6 +1,8 @@
 /obj/item/gun/flintlock
 	abstract_type = /obj/item/gun/flintlock
-	icon = 'icons/obj/items/flintlock.dmi'
+	icon = 'icons/obj/items/gun/flintlock.dmi'
+	projectile_type = /obj/projectile/bullet/lead_ball
+	force = 6
 	var/powder_loaded = FALSE
 	var/ball_loaded = FALSE
 	var/rammed = FALSE

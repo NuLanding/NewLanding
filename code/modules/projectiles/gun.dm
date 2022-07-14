@@ -67,7 +67,8 @@
 
 /obj/item/gun/proc/fire_empty(atom/movable/target, mob/living/user, params)
 	to_chat(user, SPAN_DANGER("*click*"))
-	playsound(user, empty_fire_sound, empty_fire_sound_volume, empty_vary_fire_sound)
+	if(empty_fire_sound)
+		playsound(user, empty_fire_sound, empty_fire_sound_volume, empty_vary_fire_sound)
 
 /obj/item/gun/proc/fire_projectile(atom/movable/target, mob/living/user, params)
 	var/zone_selected = user.zone_selected
@@ -76,10 +77,12 @@
 	user.visible_message(SPAN_DANGER("[user] fires [src]!"), \
 		SPAN_DANGER("You fire [src]!"), \
 		SPAN_HEAR("You hear a gunshot!"), COMBAT_MESSAGE_RANGE)
-	playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
+	if(fire_sound)
+		playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
 	var/turf/start_loc = get_turf(src)
 	var/firing_dir = get_dir(user, target)
-	new firing_effect_type(start_loc, firing_dir)
+	if(firing_effect_type)
+		new firing_effect_type(start_loc, firing_dir)
 	var/obj/projectile/proj = new projectile_type(start_loc)
 	proj.starting = start_loc
 	proj.firer = user
