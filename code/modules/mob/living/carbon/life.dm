@@ -318,7 +318,7 @@ All effects don't start immediately, but rather get worse over time; the rate is
  * - times_fired: The number of times SSmobs has ticked
  */
 /mob/living/carbon/proc/natural_bodytemperature_stabilization(delta_time, times_fired)
-	var/areatemp = get_temperature()
+	var/areatemp = get_mob_temperature()
 	var/body_temperature_difference = get_body_temp_normal() - bodytemperature
 	var/natural_change = 0
 

@@ -1306,7 +1306,7 @@ GLOBAL_LIST_EMPTY(customizable_races)
 	humi.adjust_coretemperature(skin_core_change)
 
 	// Get the temperature of the environment for area
-	var/area_temp = humi.get_temperature()
+	var/area_temp = humi.get_mob_temperature()
 
 	// Get the insulation value based on the area's temp
 	var/thermal_protection = humi.get_insulation_protection(area_temp)

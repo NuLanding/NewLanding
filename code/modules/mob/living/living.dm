@@ -1021,7 +1021,7 @@
 	animate(src, pixel_x = pixel_x_diff, pixel_y = pixel_y_diff , time = 2, loop = 6, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
 	animate(pixel_x = -pixel_x_diff , pixel_y = -pixel_y_diff , time = 2, flags = ANIMATION_RELATIVE)
 
-/mob/living/proc/get_temperature()
+/mob/living/proc/get_mob_temperature()
 	return T20C
 
 /mob/living/cancel_camera()
@@ -1930,7 +1930,7 @@
 		cut_overlay(typing_indicator_overlay)
 		typing_indicator_overlay = null
 
-/// Used for making the mobs spend a stamina for certain actions. Returns TRUE if succeeded or FALSE if not. 
+/// Used for making the mobs spend a stamina for certain actions. Returns TRUE if succeeded or FALSE if not.
 /// The threshold argument controls how much the user needs to have after spending the stamina for the proc to succeed
 /mob/living/proc/use_stamina(amount = 0, threshold = 0)
 	return TRUE
