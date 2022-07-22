@@ -48,7 +48,7 @@
 		return FALSE
 	user.visible_message(SPAN_NOTICE("[user] begins lockpicking \the [src]."), SPAN_NOTICE("You begin lockpicking \the [src]."))
 	user.changeNext_move(CLICK_CD_MELEE)
-	playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+	playsound(user, 'sound/misc/knuckles.ogg', 50, TRUE)
 	if(do_after(user, LOCKPICK_TIME, target = installed))
 		if(QDELETED(src) || !locked)
 			return
@@ -62,7 +62,7 @@
 			locked = FALSE
 		else
 			to_chat(user, SPAN_WARNING("You fail to unlock \the [src]!"))
-		playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+		playsound(user, 'sound/misc/knuckles.ogg', 50, TRUE)
 	return TRUE
 
 /obj/item/lock/proc/attempt_key_toggle(mob/living/user, obj/item/key/key)
@@ -70,7 +70,7 @@
 		to_chat(user, SPAN_WARNING("\The [key] does not fit \the [src]!"))
 		return TRUE
 	set_locked_state(!locked)
-	playsound(src, 'sound/misc/knuckles.ogg', 50, TRUE)
+	playsound(user, 'sound/misc/knuckles.ogg', 50, TRUE)
 	var/atom/name_atom = installed ? installed : src
 	if(locked)
 		to_chat(user, SPAN_NOTICE("You lock \the [name_atom]."))

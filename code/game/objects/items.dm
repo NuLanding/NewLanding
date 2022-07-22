@@ -663,7 +663,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		owner.update_inv_neck()
 
 ///Returns the temperature of src. If you want to know if an item is hot use this proc.
-/obj/item/proc/get_temperature()
+/obj/item/get_temperature()
 	return heat
 
 ///Returns the sharpness of src. If you want to get the sharpness of an item use this.

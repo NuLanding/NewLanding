@@ -1847,3 +1847,6 @@
 	animate(pixel_x = pixel_x + offset * direction, time = 1, easing = QUAD_EASING | EASE_IN)
 
 #undef SHAKE_ANIMATION_OFFSET
+
+/atom/proc/get_temperature()
+	return FALSE

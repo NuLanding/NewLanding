@@ -22,6 +22,10 @@
 "dw" = (
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"ea" = (
+/obj/structure/campfire/brazier/full,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "ed" = (
 /obj/structure/slope/stone_brick/directional/north,
 /turf/open/floor/cobblestone,
@@ -51,11 +55,20 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/mud,
 /area/outdoors/caves)
+"iN" = (
+/obj/structure/torch_stand/torch,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "jo" = (
 /obj/item/key{
 	key_id = 100
 	},
 /turf/open/floor/cobblestone,
+/area/outdoors/jungle)
+"jr" = (
+/obj/structure/table/wood,
+/obj/item/firestarter/stone,
+/turf/open/floor/grass,
 /area/outdoors/jungle)
 "ki" = (
 /obj/structure/door/wood/sturdy,
@@ -72,16 +85,21 @@
 /area/outdoors/jungle)
 "mh" = (
 /obj/structure/table/wood,
-/turf/open/floor/cobblestone,
+/turf/open/floor/grass,
 /area/outdoors/jungle)
 "mq" = (
 /obj/item/shovel,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"mt" = (
+/obj/structure/campfire/full,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "mJ" = (
 /obj/structure/table/wood,
-/turf/closed/wall/wood,
-/area/indoors/house)
+/obj/item/lantern/full,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "mM" = (
 /obj/structure/slope/stone/directional/south,
 /turf/open/floor/rock,
@@ -111,6 +129,10 @@
 "rp" = (
 /turf/open/floor/stone,
 /area/indoors/house)
+"rC" = (
+/obj/structure/lantern_post/lantern,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "sP" = (
 /obj/structure/cliff_side/side/end_southeast/south,
 /turf/open/floor/dirt,
@@ -125,6 +147,14 @@
 "tR" = (
 /obj/structure/table/wood,
 /obj/item/cutlass,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"uH" = (
+/obj/structure/table/wood,
+/obj/item/firestarter/flint_and_steel,
+/obj/item/torch,
+/obj/item/torch,
+/obj/item/torch,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "uT" = (
@@ -215,7 +245,7 @@
 /turf/open/floor/rock,
 /area/outdoors/caves)
 "Dq" = (
-/obj/structure/obstruction/rock/hole,
+/obj/structure/obstruction/rock/normal,
 /turf/open/floor/rock,
 /area/outdoors/caves)
 "DV" = (
@@ -294,8 +324,8 @@
 /turf/open/floor/mud,
 /area/outdoors/caves)
 "NF" = (
-/obj/item/pickaxe,
-/turf/open/floor/cobblestone,
+/obj/item/firestarter/wood,
+/turf/open/floor/grass,
 /area/outdoors/jungle)
 "NS" = (
 /obj/effect/landmark/start/fallback,
@@ -390,6 +420,11 @@
 /area/outdoors/jungle)
 "YK" = (
 /obj/structure/obstruction/rock/massive,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"YM" = (
+/obj/structure/table/wood,
+/obj/item/pickaxe,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "Zh" = (
@@ -17042,8 +17077,8 @@ aq
 aq
 aq
 aq
-Gy
-Gy
+aq
+wQ
 Gy
 Gy
 mM
@@ -17072,7 +17107,7 @@ aq
 aq
 aq
 aq
-Gy
+wQ
 Gy
 Gy
 Gy
@@ -17181,7 +17216,7 @@ Gy
 Gy
 Gy
 Gy
-Gy
+wQ
 aq
 aq
 aq
@@ -17245,41 +17280,41 @@ aq
 aq
 aq
 aq
-aq
-Gy
-Gy
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+UQ
 Gy
 Gy
 Gy
 aq
 aq
 aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
+aq
 Gy
 Gy
 Gy
+aq
+aq
+aq
 Gy
+Gy
+Gy
+wQ
 Gy
 Gy
 Gy
@@ -17347,7 +17382,7 @@ aq
 aq
 aq
 aq
-aq
+Gy
 Gy
 Gy
 aq
@@ -17382,7 +17417,7 @@ Gy
 Gy
 Gy
 Gy
-Gy
+UQ
 Gy
 Gy
 Gy
@@ -17449,7 +17484,7 @@ aq
 aq
 aq
 aq
-aq
+Gy
 Gy
 Gy
 aq
@@ -17479,7 +17514,7 @@ aq
 aq
 aq
 aq
-Gy
+wQ
 Gy
 Gy
 Gy
@@ -17550,11 +17585,11 @@ aq
 aq
 aq
 aq
-aq
-aq
 Gy
 Gy
-aq
+Gy
+Gy
+Gy
 aq
 aq
 aq
@@ -17651,13 +17686,13 @@ aq
 aq
 aq
 aq
-aq
-aq
-aq
+wQ
 Gy
 Gy
-aq
-aq
+Gy
+Gy
+Gy
+Gy
 aq
 aq
 aq
@@ -17689,9 +17724,9 @@ Wq
 Wq
 Gy
 Gy
+wQ
 Gy
-Gy
-Gy
+UQ
 aq
 aq
 aq
@@ -17755,7 +17790,8 @@ aq
 aq
 aq
 aq
-aq
+Gy
+Gy
 Gy
 Gy
 aq
@@ -17772,8 +17808,7 @@ aq
 aq
 aq
 aq
-aq
-Gy
+wQ
 Gy
 Gy
 Dq
@@ -17866,18 +17901,18 @@ aq
 aq
 aq
 aq
-aq
-aq
-aq
-aq
-aq
+UQ
+Gy
+Gy
+Gy
+wQ
 aq
 aq
 aq
 Gy
 Gy
 Gy
-aq
+Gy
 aq
 aq
 aq
@@ -17962,6 +17997,7 @@ aq
 aq
 Gy
 Gy
+wQ
 Gy
 Gy
 Gy
@@ -17978,7 +18014,6 @@ Gy
 Gy
 Gy
 Gy
-aq
 aq
 aq
 aq
@@ -18062,26 +18097,26 @@ aq
 aq
 aq
 aq
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
-Gy
 aq
-aq
-aq
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+Gy
+wQ
 aq
 aq
 aq
@@ -18167,6 +18202,10 @@ aq
 aq
 aq
 aq
+Gy
+Gy
+Gy
+Gy
 aq
 aq
 aq
@@ -18176,13 +18215,9 @@ aq
 aq
 aq
 aq
-aq
-aq
-aq
-aq
-aq
-aq
-aq
+UQ
+Gy
+Gy
 aq
 aq
 aq
@@ -24298,7 +24333,7 @@ dw
 dw
 dw
 dw
-dw
+mt
 dw
 LJ
 LJ
@@ -24400,7 +24435,7 @@ dw
 sW
 sW
 dw
-dw
+NF
 dw
 LJ
 LJ
@@ -24705,7 +24740,7 @@ LJ
 LJ
 NS
 NS
-mh
+LJ
 LJ
 LJ
 RU
@@ -24911,7 +24946,7 @@ dw
 dw
 dw
 dw
-dw
+rC
 LJ
 LJ
 LJ
@@ -25011,7 +25046,7 @@ hy
 uT
 hy
 hy
-mJ
+hy
 hy
 mV
 LJ
@@ -25221,7 +25256,7 @@ Mv
 dw
 LJ
 LJ
-dw
+ea
 hy
 Tr
 Tr
@@ -25323,7 +25358,7 @@ Xe
 dw
 LJ
 LJ
-dw
+jr
 hy
 Tr
 Tr
@@ -25421,11 +25456,11 @@ Tr
 Tr
 Tr
 hy
-dw
+iN
 dw
 LJ
 LJ
-dw
+mJ
 hy
 Tr
 Tr
@@ -25527,7 +25562,7 @@ oL
 dw
 LJ
 LJ
-dw
+mh
 hy
 Tr
 Tr
@@ -25629,7 +25664,7 @@ wg
 dw
 LJ
 LJ
-dw
+mh
 hy
 hy
 hy
@@ -25933,10 +25968,10 @@ dw
 dw
 tj
 tj
-NF
 LJ
-dw
-dw
+LJ
+YM
+uH
 dw
 tj
 tj
