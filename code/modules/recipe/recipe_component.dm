@@ -12,13 +12,13 @@
 	atoms -= item
 
 /// Returns whether the component of a recipe passes.
-/datum/recipe_component/proc/check_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state, list/used)
+/datum/recipe_component/proc/check_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state, datum/recipe_state/recipe_state, list/used)
 	return TRUE
 
 /// Applies the component to the results of the recipe.
-/datum/recipe_component/proc/apply_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state, list/results)
+/datum/recipe_component/proc/apply_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state, datum/recipe_state/recipe_state, list/results)
 	return
 
 /// Uses up whatever the component was requiring, if anything. Called after the recipe's result is finished.
-/datum/recipe_component/proc/use_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state)
+/datum/recipe_component/proc/use_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/state, datum/recipe_state/recipe_state)
 	return

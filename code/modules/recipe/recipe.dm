@@ -21,8 +21,14 @@
 		CRASH("Recipe of type [type] has no recipe components.")
 	..()
 
+/datum/recipe/proc/try_perform(atom/movable/source, list/atoms, list/conditions, list/return_list)
+	return recipe_process(source, atoms, conditions, return_list, TRUE)
+
+/datum/recipe/proc/check_perform(atom/movable/source, list/atoms, list/conditions)
+	return recipe_process(source, atoms, conditions, null, FALSE)
+
 // Tries to perform the recipe and returns TRUE if passed, FALSE if not.
-/datum/recipe/proc/try_perform(atom/movable/source, list/atoms, list/conditions)
+/datum/recipe/proc/recipe_process(atom/movable/source, list/atoms, list/conditions, list/return_list, craft_process)
 	var/turf/location = get_turf(source)
 
 	// Create those two lists to allow components to "reserve" atoms to block other components
@@ -40,8 +46,12 @@
 		if(!comp.check_component(source, location, atoms_available, conditions, component_states[component_type], used))
 			return FALSE
 	// All components have passed, see if the recipe can be performed.
-	if(!check_recipe(source, location, used, conditions))
+	if(!check_recipe(source, location, used, conditions, recipe_state))
 		return FALSE
+
+	/// If we are not trying to craft the recipe, but only checking if it's able to be performed.
+	if(!craft_process)
+		return TRUE
 
 	var/list/results = list()
 
@@ -51,17 +61,21 @@
 	// "Apply" the checked components to the result.
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
-		comp.apply_component(source, location, used, conditions, component_states[component_type], results)
+		comp.apply_component(source, location, used, conditions, component_states[component_type], recipe_state, results)
 
 	// Use the checked components.
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
-		comp.use_component(source, location, used, conditions, component_states[component_type])
+		comp.use_component(source, location, used, conditions, component_states[component_type], recipe_state)
 
+	// If we want to register what stuff is being returned, add it to this list.
+	if(return_list)
+		for(var/obj_ref in results)
+			return_list += obj_ref
 	return TRUE
 
 // Called after all components have been checked, checks if the recipe can be performed.
-/datum/recipe/proc/check_recipe(atom/movable/source, turf/location, list/atoms, list/conditions)
+/datum/recipe/proc/check_recipe(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_state/recipe_state)
 	return TRUE
 
 // Creates a result of the recipe, this could be anything from making an item to creation an explosion.

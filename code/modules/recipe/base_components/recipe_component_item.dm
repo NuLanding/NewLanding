@@ -35,7 +35,7 @@
 		if(blacklist_types)
 			blacklist_typecache = typecacheof(blacklist_types)
 
-/datum/recipe_component/item/check_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/item/state, list/used)
+/datum/recipe_component/item/check_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/item/state, datum/recipe_state/recipe_state, list/used)
 	var/items_so_far = 0
 	for(var/atom/movable/item as anything in atoms)
 		// Check item type
@@ -60,7 +60,7 @@
 		return TRUE
 	return FALSE
 
-/datum/recipe_component/item/use_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/item/state)
+/datum/recipe_component/item/use_component(atom/movable/source, turf/location, list/atoms, list/conditions, datum/recipe_component_state/item/state, datum/recipe_state/recipe_state)
 	for(var/atom/movable/item as anything in state.used_items)
 		dispose_item(item)
 
