@@ -43,7 +43,7 @@
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
 		component_states[component_type] = new comp.component_state()
-		if(!comp.check_component(source, location, atoms_available, conditions, component_states[component_type], used))
+		if(!comp.check_component(source, location, atoms_available, conditions, component_states[component_type], recipe_state, used))
 			return FALSE
 	// All components have passed, see if the recipe can be performed.
 	if(!check_recipe(source, location, used, conditions, recipe_state))

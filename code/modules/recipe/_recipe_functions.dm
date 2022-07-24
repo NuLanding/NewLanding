@@ -26,7 +26,7 @@
 			available_recipe_types += recipe.type
 	return available_recipe_types
 
-/proc/is_available_recipes(recipe_type, atom/source, list/atoms, list/conditions)
+/proc/is_available_recipe(recipe_type, atom/source, list/atoms, list/conditions)
 	var/datum/recipe/recipe = GLOB.recipes[recipe_type]
 	if(recipe.check_perform(source, atoms, conditions))
 		return TRUE

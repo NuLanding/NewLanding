@@ -13,6 +13,7 @@
 	var/obj/structure/torch_stand/stand
 
 /obj/item/torch/Moved(atom/OldLoc, Dir)
+	. = ..()
 	if(stand && loc != stand)
 		stand.remove_torch()
 

@@ -23,6 +23,7 @@
 		icon_state = base_icon_state
 
 /obj/item/lantern/Moved(atom/OldLoc, Dir)
+	. = ..()
 	if(post && loc != post)
 		post.remove_lantern()
 
