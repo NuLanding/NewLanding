@@ -10,6 +10,15 @@
 	var/start_with_lantern = FALSE
 	var/started_lantern_on = FALSE
 
+/obj/structure/lantern_post/examine(mob/user)
+	. = ..()
+	if(lantern)
+		. += SPAN_NOTICE("There is a lantern hanging from the post.")
+		. += SPAN_NOTICE("Remove the lantern with left click.")
+		. += SPAN_NOTICE("Toggle the lantern on/off with right click.")
+	else
+		. += SPAN_NOTICE("A lantern could be hanged from it.")
+
 /obj/structure/lantern_post/update_overlays()
 	. = ..()
 	if(lantern)
@@ -49,14 +58,17 @@
 
 /obj/structure/lantern_post/attack_hand(mob/user, list/modifiers)
 	if(lantern)
-		var/obj/item/lantern/lamp = lantern
-		user.visible_message(
-			SPAN_NOTICE("[user] removes \the [lamp] from \the [src]."),
-			SPAN_NOTICE("You remove \the [lamp] from \the [src].")
-			)
-		remove_lantern()
-		lamp.forceMove(loc)
-		user.put_in_hands(lamp)
+		if(LAZYACCESS(modifiers, RIGHT_CLICK))
+			lantern.user_toggle(user)
+		else
+			var/obj/item/lantern/lamp = lantern
+			user.visible_message(
+				SPAN_NOTICE("[user] removes \the [lamp] from \the [src]."),
+				SPAN_NOTICE("You remove \the [lamp] from \the [src].")
+				)
+			remove_lantern()
+			lamp.forceMove(loc)
+			user.put_in_hands(lamp)
 		return TRUE
 	return ..()
 

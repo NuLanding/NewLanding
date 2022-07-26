@@ -453,6 +453,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
 
 	ambience_controller = new(src)
+	crafting_menu = new()
 
 	//This is down here because of the browse() calls in tooltip/New()
 	if(!tooltips)
@@ -507,6 +508,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		movingmob = null
 	active_mousedown_item = null
 	QDEL_NULL(ambience_controller)
+	crafting_menu = null
 	QDEL_NULL(view_size)
 	QDEL_NULL(void)
 	QDEL_NULL(tooltips)

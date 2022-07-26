@@ -79,8 +79,10 @@
 	screen_loc = ui_crafting
 
 /atom/movable/screen/craft/Click()
-	if(usr.incapacitated() || !ishuman(usr))
-		return TRUE
+	var/mob/user = usr
+	if(!user.client)
+		return
+	user.client.crafting_menu.show_menu(user)
 
 /atom/movable/screen/area_creator
 	name = "create new area"

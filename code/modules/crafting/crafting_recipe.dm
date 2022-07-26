@@ -8,3 +8,5 @@
 	var/requirements
 	/// Type of the /datum/recipe this crafting table recipe will try and perform.
 	var/recipe_type
+	/// Type of the craft this crafting recipe is performed as.
+	var/craft_type = /datum/craft_type/personal

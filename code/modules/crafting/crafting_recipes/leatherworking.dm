@@ -3,6 +3,7 @@
 	desc = "An ordinary shirt and a pair of leather pants."
 	requirements = "2x leather"
 	recipe_type = /datum/recipe/commoners_clothes
+	craft_type = /datum/craft_type/crafting_table
 
 /datum/recipe/commoners_clothes
 	recipe_components = list(
