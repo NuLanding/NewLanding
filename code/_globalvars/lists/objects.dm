@@ -22,7 +22,6 @@ GLOBAL_LIST(chemical_reactions_results_lookup_list) //List of all reactions with
 GLOBAL_LIST(fake_reagent_blacklist) //List of all reagents that are parent types used to define a bunch of children - but aren't used themselves as anything.
 GLOBAL_LIST_EMPTY(tech_list) //list of all /datum/tech datums indexed by id.
 GLOBAL_LIST_EMPTY(surgeries_list) //list of all surgeries by name, associated with their path.
-GLOBAL_LIST_EMPTY(crafting_recipes) //list of all table craft recipes
 GLOBAL_LIST_EMPTY(tracked_implants) //list of all current implants that are tracked to work out what sort of trek everyone is on. Sadly not on lavaworld not implemented...
 GLOBAL_LIST_EMPTY(tracked_chem_implants) //list of implants the prisoner console can track and send inject commands too
 GLOBAL_LIST_EMPTY(poi_list) //list of points of interest for observe/follow

@@ -1,4 +1,4 @@
-/datum/crafting_table_recipe/commoners_clothes
+/datum/crafting_recipe/commoners_clothes
 	name = "commoner's outfit"
 	desc = "An ordinary shirt and a pair of leather pants."
 	requirements = "2x leather"

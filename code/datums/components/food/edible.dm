@@ -66,7 +66,6 @@ Behavior that's still missing from this component that original food items had t
 
 	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, .proc/examine)
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_ANIMAL, .proc/UseByAnimal)
-	RegisterSignal(parent, COMSIG_ATOM_CHECKPARTS, .proc/OnCraft)
 	RegisterSignal(parent, COMSIG_ATOM_CREATEDBY_PROCESSING, .proc/OnProcessed)
 	RegisterSignal(parent, COMSIG_EDIBLE_INGREDIENT_ADDED, .proc/edible_ingredient_added)
 
@@ -196,19 +195,6 @@ Behavior that's still missing from this component that original food items had t
 		this_food.name = "slice of [original_atom.name]"
 	if(original_atom.desc != initial(original_atom.desc))
 		this_food.desc = "[original_atom.desc]"
-
-///Called when food is crafted through a crafting recipe datum.
-/datum/component/edible/proc/OnCraft(datum/source, list/parts_list, datum/crafting_recipe/food/recipe)
-	SIGNAL_HANDLER
-
-	var/atom/this_food = parent
-
-	this_food.reagents.multiply_reagents(CRAFTED_FOOD_BASE_REAGENT_MODIFIER)
-
-	for(var/obj/item/food/crafted_part in parts_list)
-		crafted_part.reagents?.trans_to(this_food.reagents, crafted_part.reagents.maximum_volume, CRAFTED_FOOD_INGREDIENT_REAGENT_MODIFIER)
-
-	SSblackbox.record_feedback("tally", "food_made", 1, type)
 
 ///Makes sure the thing hasn't been destroyed or fully eaten to prevent eating phantom edibles
 /datum/component/edible/proc/IsFoodGone(atom/owner, mob/living/feeder)

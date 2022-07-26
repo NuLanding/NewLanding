@@ -25,10 +25,10 @@
 /obj/structure/crafting_table/proc/show_ui(mob/user)
 	var/list/dat = list()
 	var/list/items = loc.contents
-	var/list/all_recipes = GLOB.crafting_table_recipes
+	var/list/all_recipes = GLOB.crafting_recipes
 	var/list/available_recipes = list()
 	for(var/path in all_recipes)
-		var/datum/crafting_table_recipe/table_recipe = CRAFTING_TABLE_RECIPE(path)
+		var/datum/crafting_recipe/table_recipe = CRAFTING_RECIPE(path)
 		if(is_available_recipe(table_recipe.recipe_type, src, items))
 			available_recipes += path
 
@@ -38,7 +38,7 @@
 	dat += "<div class='column' style='width:30%;'>"
 	var/first = TRUE
 	for(var/path in all_recipes)
-		var/datum/crafting_table_recipe/table_recipe = CRAFTING_TABLE_RECIPE(path)
+		var/datum/crafting_recipe/table_recipe = CRAFTING_RECIPE(path)
 		var/button_class
 		if(path == chosen_recipe)
 			button_class = "class='linkOn'"
@@ -54,14 +54,14 @@
 	// The panel of the selected recipe
 	dat += "<div class='column' style='width:70%;background-color:#241f18'>"
 	if(chosen_recipe)
-		var/datum/crafting_table_recipe/table_recipe = CRAFTING_TABLE_RECIPE(chosen_recipe)
-		dat += "<center><b>[table_recipe.name]</b></center>"
+		var/datum/crafting_recipe/table_recipe = CRAFTING_RECIPE(chosen_recipe)
+		dat += "<center><b><font size='3'>[table_recipe.name]</font></b></center>"
 		dat += "<br>[table_recipe.desc]"
 		dat += "<br><br>Requirements:<br>[table_recipe.requirements]"
 		var/button_class
 		if(!(chosen_recipe in available_recipes))
 			button_class = "class='linkOff'"
-		dat += "<br><center><a href='?src=[REF(src)];action=craft_recipe;path=[chosen_recipe]' [button_class]>Craft</a></center>"
+		dat += "<br><center><a href='?src=[REF(src)];action=craft_recipe;path=[chosen_recipe]' [button_class]><font size='3'>Craft</font></a></center>"
 	dat += "</div>"
 
 	dat += "</div>"
@@ -74,6 +74,8 @@
 /obj/structure/crafting_table/Topic(href, href_list)
 	. = ..()
 	var/mob/user = usr
+	if(!user.canUseTopic(src, BE_CLOSE, FALSE, NO_TK))
+		return
 	if(href_list["action"])
 		switch(href_list["action"])
 			if("set_recipe")
@@ -90,8 +92,8 @@
 
 		show_ui(user)
 
-/obj/structure/crafting_table/proc/user_try_craft_recipe(mob/living/user, crafting_table_recipe_path)
-	var/datum/crafting_table_recipe/table_recipe = CRAFTING_TABLE_RECIPE(crafting_table_recipe_path)
+/obj/structure/crafting_table/proc/user_try_craft_recipe(mob/living/user, crafting_recipe_path)
+	var/datum/crafting_recipe/table_recipe = CRAFTING_RECIPE(crafting_recipe_path)
 	var/recipe_type = table_recipe.recipe_type
 	var/list/items = loc.contents
 	if(!is_available_recipe(recipe_type, src, items))

@@ -1,5 +1,5 @@
-/datum/crafting_table_recipe
-	abstract_type = /datum/crafting_table_recipe
+/datum/crafting_recipe
+	abstract_type = /datum/crafting_recipe
 	/// Name of the recipe
 	var/name
 	/// Description of the recipe

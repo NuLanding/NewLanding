@@ -78,6 +78,10 @@
 	icon_state = "craft"
 	screen_loc = ui_crafting
 
+/atom/movable/screen/craft/Click()
+	if(usr.incapacitated() || !ishuman(usr))
+		return TRUE
+
 /atom/movable/screen/area_creator
 	name = "create new area"
 	icon = 'icons/hud/screen_midnight.dmi'
