@@ -86,10 +86,6 @@
 	update_lantern()
 
 /obj/structure/lantern_post/proc/update_lantern()
-	if(lantern && lantern.lit)
-		set_light(lantern.light_range, lantern.light_power, lantern.light_color)
-	else
-		set_light(0)
 	update_appearance()
 
 /obj/structure/lantern_post/lantern

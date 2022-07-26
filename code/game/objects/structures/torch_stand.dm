@@ -76,10 +76,6 @@
 	update_torch()
 
 /obj/structure/torch_stand/proc/update_torch()
-	if(torch && torch.lit)
-		set_light(torch.light_range, torch.light_power, torch.light_color)
-	else
-		set_light(0)
 	update_appearance()
 
 /obj/structure/torch_stand/torch

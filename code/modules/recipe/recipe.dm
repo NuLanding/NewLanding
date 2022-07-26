@@ -40,10 +40,12 @@
 	// List of component states for components to save.
 	var/list/component_states = list()
 
+	var/component_state_index = 0 //component state index, so we can avoid using association
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
-		component_states[component_type] = new comp.component_state()
-		if(!comp.check_component(source, location, atoms_available, conditions, component_states[component_type], recipe_state, used))
+		component_states += new comp.component_state()
+		component_state_index++
+		if(!comp.check_component(source, location, atoms_available, conditions, component_states[component_state_index], recipe_state, used))
 			return FALSE
 	// All components have passed, see if the recipe can be performed.
 	if(!check_recipe(source, location, used, conditions, recipe_state))
@@ -59,14 +61,18 @@
 	create_result(source, location, used, conditions, results)
 
 	// "Apply" the checked components to the result.
+	component_state_index = 0
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
-		comp.apply_component(source, location, used, conditions, component_states[component_type], recipe_state, results)
+		component_state_index++
+		comp.apply_component(source, location, used, conditions, component_states[component_state_index], recipe_state, results)
 
 	// Use the checked components.
+	component_state_index = 0
 	for(var/component_type in recipe_components)
 		var/datum/recipe_component/comp = RECIPE_COMPONENT(component_type)
-		comp.use_component(source, location, used, conditions, component_states[component_type], recipe_state)
+		component_state_index++
+		comp.use_component(source, location, used, conditions, component_states[component_state_index], recipe_state)
 
 	// If we want to register what stuff is being returned, add it to this list.
 	if(return_list)

@@ -12,6 +12,10 @@
 "bf" = (
 /turf/open/water,
 /area/indoors/house)
+"bi" = (
+/obj/structure/flora/rock,
+/turf/open/floor/mud,
+/area/outdoors/caves)
 "bM" = (
 /obj/structure/mob_spawner/skeleton,
 /turf/open/floor/mud,
@@ -41,6 +45,10 @@
 /obj/structure/obstruction/cobweb/thick,
 /turf/open/floor/rock,
 /area/outdoors/caves)
+"fI" = (
+/obj/item/flint,
+/turf/open/floor/sand,
+/area/outdoors/jungle)
 "gZ" = (
 /obj/structure/tree/small,
 /turf/open/floor/grass,
@@ -58,6 +66,10 @@
 "iN" = (
 /obj/structure/torch_stand/torch,
 /turf/open/floor/grass,
+/area/outdoors/jungle)
+"iS" = (
+/obj/item/stone,
+/turf/open/floor/sand,
 /area/outdoors/jungle)
 "jo" = (
 /obj/item/key{
@@ -87,6 +99,10 @@
 /obj/structure/table/wood,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"mi" = (
+/obj/item/stone,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "mq" = (
 /obj/item/shovel,
 /turf/open/floor/grass,
@@ -109,6 +125,19 @@
 /obj/structure/table/wood,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
+"nh" = (
+/obj/item/stack/sheet/steel,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"om" = (
+/obj/item/claymore/gold,
+/turf/open/floor/rock,
+/area/outdoors/caves)
+"ov" = (
+/obj/item/flint,
+/obj/item/stone,
+/turf/open/floor/sand,
+/area/outdoors/jungle)
 "ow" = (
 /obj/structure/obstruction/rock/large,
 /turf/open/floor/grass,
@@ -117,6 +146,10 @@
 /obj/structure/table/wood,
 /obj/item/gun/bow,
 /obj/item/storage/quiver/half_full,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
+"pC" = (
+/obj/structure/crafting_table,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "pX" = (
@@ -195,6 +228,13 @@
 /obj/structure/flora/rock/pile,
 /turf/open/floor/rock,
 /area/outdoors/caves)
+"xw" = (
+/obj/structure/table/wood,
+/obj/item/stack/sheet/leather,
+/obj/item/stack/sheet/leather,
+/obj/item/stack/sheet/leather,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "xO" = (
 /obj/effect/landmark/start/native,
 /turf/open/floor/grass,
@@ -228,6 +268,10 @@
 "Bf" = (
 /turf/open/openspace,
 /area/outdoors/caves)
+"Cx" = (
+/obj/item/branch,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "Cy" = (
 /obj/structure/cache/wall_crack,
 /turf/closed/rock,
@@ -260,8 +304,16 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/rock,
 /area/outdoors/caves)
+"EW" = (
+/obj/item/lantern/full,
+/turf/open/floor/grass,
+/area/outdoors/jungle)
 "Fg" = (
 /turf/open/openspace,
+/area/outdoors/jungle)
+"Fp" = (
+/obj/item/flint,
+/turf/open/floor/grass,
 /area/outdoors/jungle)
 "FL" = (
 /obj/structure/slope/stone_brick/directional/west,
@@ -334,6 +386,10 @@
 "Ph" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/rock,
+/area/outdoors/caves)
+"Pl" = (
+/obj/item/stone,
+/turf/open/floor/sand,
 /area/outdoors/caves)
 "Qw" = (
 /obj/structure/cache/shipwreck,
@@ -21981,7 +22037,7 @@ yO
 yO
 yO
 yO
-yO
+ov
 yO
 yO
 yO
@@ -22136,7 +22192,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 yO
 yO
@@ -22207,7 +22263,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 yO
 yO
@@ -22404,7 +22460,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 yO
 yO
@@ -22554,7 +22610,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 Sn
 Sn
@@ -22608,7 +22664,7 @@ yO
 yO
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -22748,7 +22804,7 @@ yO
 yO
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -22888,7 +22944,7 @@ Sn
 yO
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -23347,8 +23403,8 @@ dw
 dw
 dw
 dw
-dw
-dw
+mi
+mi
 dw
 dw
 dw
@@ -23749,7 +23805,7 @@ zQ
 zQ
 dw
 dw
-dw
+Cx
 dw
 dw
 dw
@@ -23768,14 +23824,14 @@ dw
 dw
 dw
 dw
+mi
 dw
 dw
-dw
 yO
 yO
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -23841,6 +23897,24 @@ dw
 dw
 dw
 dw
+mi
+dw
+Wr
+dw
+dw
+zQ
+zQ
+zQ
+dw
+dw
+dw
+mi
+dw
+dw
+dw
+dw
+mi
+dw
 dw
 dw
 Wr
@@ -23848,25 +23922,7 @@ dw
 dw
 zQ
 zQ
-zQ
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-dw
-Wr
-dw
-dw
-zQ
-zQ
-dw
+Cx
 dw
 dw
 dw
@@ -23928,7 +23984,7 @@ dw
 dw
 dw
 dw
-dw
+Cx
 hy
 hy
 hy
@@ -24083,7 +24139,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 yO
 yO
@@ -24131,7 +24187,7 @@ xO
 dw
 Te
 Te
-dw
+Cx
 dw
 dw
 LJ
@@ -24228,11 +24284,11 @@ dw
 dw
 dw
 dw
+mi
 dw
 dw
 dw
-dw
-dw
+Fp
 dw
 LJ
 LJ
@@ -24331,10 +24387,10 @@ dw
 dw
 dw
 dw
-dw
+Cx
 dw
 mt
-dw
+nh
 LJ
 LJ
 LJ
@@ -24356,7 +24412,7 @@ dw
 dw
 dw
 dw
-dw
+Cx
 dw
 zQ
 zQ
@@ -24416,7 +24472,7 @@ Sn
 Sn
 Sn
 yO
-yO
+iS
 yO
 yO
 yO
@@ -24434,7 +24490,7 @@ dw
 dw
 sW
 sW
-dw
+mi
 NF
 dw
 LJ
@@ -24532,7 +24588,7 @@ dw
 dw
 dw
 dw
-dw
+Fp
 dw
 sW
 sW
@@ -24657,7 +24713,7 @@ dw
 dw
 gZ
 dw
-dw
+Cx
 dw
 dw
 Tm
@@ -24674,12 +24730,12 @@ Wj
 Wj
 Wj
 dw
+Cx
 dw
 dw
 dw
 dw
-dw
-dw
+mi
 zQ
 zQ
 dw
@@ -24762,8 +24818,8 @@ dw
 dw
 dw
 dw
-dw
-dw
+Cx
+mi
 dw
 dw
 dw
@@ -24943,8 +24999,8 @@ dw
 dw
 LJ
 dw
-dw
-dw
+xw
+pC
 dw
 rC
 LJ
@@ -24974,7 +25030,7 @@ dw
 dw
 zQ
 dw
-dw
+Cx
 dw
 Wj
 Wj
@@ -25303,7 +25359,7 @@ tj
 tj
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -25595,8 +25651,8 @@ dw
 dw
 dw
 dw
-dw
-dw
+mi
+Cx
 dw
 dw
 dw
@@ -25613,7 +25669,7 @@ yO
 yO
 yO
 yO
-yO
+iS
 yO
 yO
 Sn
@@ -25684,7 +25740,7 @@ dw
 dw
 dw
 dw
-dw
+Cx
 dw
 dw
 dw
@@ -25788,7 +25844,7 @@ mq
 dw
 dw
 dw
-dw
+mi
 dw
 dw
 dw
@@ -26226,7 +26282,7 @@ yO
 yO
 yO
 yO
-yO
+fI
 yO
 Sn
 Sn
@@ -26295,11 +26351,11 @@ My
 My
 zS
 RO
+EW
 dw
 dw
 dw
-dw
-dw
+mi
 dw
 dw
 dw
@@ -26514,7 +26570,7 @@ dw
 dw
 gZ
 dw
-dw
+mi
 dw
 dw
 dw
@@ -26616,7 +26672,7 @@ dw
 dw
 dw
 dw
-dw
+mi
 dw
 dw
 dw
@@ -26692,7 +26748,7 @@ aq
 aq
 aq
 Gy
-Gy
+om
 Gy
 Gy
 Gy
@@ -26715,7 +26771,7 @@ dw
 dw
 yN
 dw
-dw
+Cx
 dw
 dw
 dw
@@ -27243,7 +27299,7 @@ aq
 tj
 yO
 yO
-yO
+iS
 yO
 yO
 yO
@@ -27809,7 +27865,7 @@ aq
 aq
 aq
 aq
-bM
+bi
 Nq
 Gy
 Gy
@@ -28979,7 +29035,7 @@ Kx
 Kx
 CO
 CO
-CO
+Pl
 CO
 yO
 yO
@@ -29592,7 +29648,7 @@ CO
 CO
 CO
 CO
-yO
+fI
 yO
 Sn
 Sn

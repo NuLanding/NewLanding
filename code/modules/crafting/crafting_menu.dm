@@ -75,6 +75,8 @@
 
 
 /datum/crafting_menu/proc/select_craft_type(new_craft_type)
+	if(selected_craft_type == new_craft_type)
+		return
 	selected_craft_type = new_craft_type
 	selected_recipe = null
 
