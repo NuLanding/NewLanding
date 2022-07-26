@@ -8,7 +8,12 @@
 	if(!isnull(new_craft_type))
 		select_craft_type(new_craft_type)
 
-	var/list/items //AZTODO
+	var/datum/craft_type/craft = CRAFT_TYPE(selected_craft_type)
+	var/obj/structure/crafting_table/table
+	var/needs_table = craft.needs_crafting_table
+	if(needs_table)
+		table = get_nearby_crafting_table(user, selected_craft_type)
+	var/list/items = get_component_items(user, table, needs_table)
 	
 	var/list/dat = list()
 	var/list/all_recipes = CRAFTING_RECIPES_BY_CRAFT(selected_craft_type)
@@ -19,7 +24,6 @@
 			if(is_available_recipe(table_recipe.recipe_type, src, items))
 				available_recipes += path
 
-	var/datum/craft_type/craft = CRAFT_TYPE(selected_craft_type)
 	for(var/iterated_type in GLOB.craft_types)
 		var/datum/craft_type/iterated_craft = CRAFT_TYPE(iterated_type)
 		var/button_class
@@ -107,24 +111,44 @@
 /datum/crafting_menu/proc/user_try_craft_recipe(mob/living/user, crafting_recipe_path)
 	var/datum/crafting_recipe/table_recipe = CRAFTING_RECIPE(crafting_recipe_path)
 	var/recipe_type = table_recipe.recipe_type
-	var/list/items //AZTODO
-	/*
-	if(!is_available_recipe(recipe_type, src, items))
+	var/datum/craft_type/craft = CRAFT_TYPE(table_recipe.craft_type)
+	var/obj/structure/crafting_table/table
+	var/needs_table = craft.needs_crafting_table
+	if(needs_table)
+		table = get_nearby_crafting_table(user, table_recipe.craft_type)
+		if(!table)
+			to_chat(user, SPAN_WARNING("You need a crafting table nearby!"))
+			return
+		user.face_atom(table)
+	var/list/items = get_component_items(user, table, needs_table)
+	var/atom/movable/craft_source = table || user
+
+	if(!is_available_recipe(recipe_type, craft_source, items))
 		to_chat(user, SPAN_WARNING("You don't have all the components for this!"))
 		return
 	items = null
-	if(!do_after(user, 2 SECONDS, target = src))
+	if(!do_after(user, 2 SECONDS, target = craft_source))
 		return
-	items = null //AZTODO
-	if(!perform_recipe(recipe_type, src, items))
+	items = get_component_items(user, table, needs_table)
+	if(!perform_recipe(recipe_type, craft_source, items))
 		to_chat(user, SPAN_WARNING("You don't have all the components for this!"))
 		return
 	to_chat(user, SPAN_NOTICE("You successfully craft \the [table_recipe.name]."))
 	show_menu(user)
-	*/
 
 /datum/crafting_menu/proc/get_nearby_crafting_table(mob/living/user, craft_type)
-	return
+	for(var/obj/structure/crafting_table/table in oview(1, user))
+		if(table.craft_type == craft_type)
+			return table
+	return null
 
 /datum/crafting_menu/proc/get_component_items(mob/living/user, obj/structure/crafting_table/table, table_recipe)
-	return
+	if(table_recipe)
+		if(!table)
+			return null
+		if(table)
+			return table.loc.contents
+	else
+		var/list/component_items = oview(1, user)
+		component_items += user.get_held_items()
+		return component_items

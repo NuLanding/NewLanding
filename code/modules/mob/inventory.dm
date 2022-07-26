@@ -71,6 +71,13 @@
 			holding_items += I
 	return holding_items
 
+/mob/proc/get_held_items()
+	var/list/holding_items = list()
+	for(var/i in 1 to held_items.len)
+		var/obj/item = held_items[i]
+		if(!isnull(item))
+			holding_items += item
+	return holding_items
 
 /mob/proc/get_empty_held_indexes()
 	var/list/L
