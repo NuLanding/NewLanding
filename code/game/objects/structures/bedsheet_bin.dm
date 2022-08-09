@@ -12,8 +12,7 @@ LINEN BINS
 	name = "bedsheet"
 	desc = "A surprisingly soft linen bedsheet."
 	icon = 'icons/obj/bedsheets.dmi'
-	lefthand_file = 'icons/mob/inhands/misc/bedsheet_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/bedsheet_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/bedsheet_inhand.dmi'
 	icon_state = "sheetwhite"
 	inhand_icon_state = "sheetwhite"
 	slot_flags = ITEM_SLOT_NECK
@@ -247,7 +246,7 @@ LINEN BINS
 	max_integrity = 70
 	var/amount = 10
 	var/spawned_sheet = /obj/item/bedsheet
-	var/list/allowed_sheets = list(/obj/item/bedsheet, /obj/item/reagent_containers/rag/towel)
+	var/list/allowed_sheets = list(/obj/item/bedsheet)
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 

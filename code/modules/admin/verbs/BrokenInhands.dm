@@ -4,9 +4,9 @@
 		var/obj/item/O = new A( locate(1,1,1) )
 		if(!O)
 			continue
-		var/icon/IL = new(O.lefthand_file)
+		var/icon/IL = new(O.inhand_icon)
 		var/list/Lstates = IL.IconStates()
-		var/icon/IR = new(O.righthand_file)
+		var/icon/IR = new(O.inhand_icon)
 		var/list/Rstates = IR.IconStates()
 		var/icon/J = new(O.icon)
 		var/list/istates = J.IconStates()

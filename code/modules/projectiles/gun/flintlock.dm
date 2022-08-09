@@ -114,12 +114,13 @@
 	icon_state = "musket"
 	inhand_icon_state = "musket"
 	worn_icon_state = "musket"
-	lefthand_file = 'icons/mob/inhands/weapons/64x_guns_left.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/64x_guns_right.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/64x_guns_inhand.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
+	fire_sound = 'sound/weapons/gun/rifle/lead_shot.ogg'
+	fire_sound_volume = 60
 
 /obj/item/gun/flintlock/musket/regal
 	name = "regal musket"

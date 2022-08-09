@@ -5,8 +5,7 @@
 	icon_state = "medigel"
 	inhand_icon_state = "spraycan"
 	worn_icon_state = "spraycan"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	item_flags = NOBLUDGEON
 	obj_flags = UNIQUE_RENAME
 	reagent_flags = OPENCONTAINER

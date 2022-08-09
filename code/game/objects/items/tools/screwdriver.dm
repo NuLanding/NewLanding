@@ -6,8 +6,7 @@
 	inhand_icon_state = "screwdriver"
 	worn_icon_state = "screwdriver"
 	belt_icon_state = "screwdriver"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/tools_inhand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 5
@@ -27,8 +26,8 @@
 	pickup_sound =  'sound/items/handling/screwdriver_pickup.ogg'
 	sharpness = SHARP_POINTY
 	greyscale_config = /datum/greyscale_config/screwdriver
-	greyscale_config_inhand_left = /datum/greyscale_config/screwdriver_inhand_left
-	greyscale_config_inhand_right = /datum/greyscale_config/screwdriver_inhand_right
+	greyscale_config_inhand_left = /datum/greyscale_config/screwdriver_inhand
+	greyscale_config_inhand_right = /datum/greyscale_config/screwdriver_inhand
 	greyscale_config_belt = /datum/greyscale_config/screwdriver_belt
 	/// If the item should be assigned a random color
 	var/random_color = TRUE

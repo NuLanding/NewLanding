@@ -103,8 +103,7 @@
 	singular_name = "bruise pack"
 	desc = "A therapeutic gel pack and bandages designed to treat blunt-force trauma."
 	icon_state = "brutepack"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	heal_brute = 40
 	self_delay = 4 SECONDS
 	other_delay = 2 SECONDS
@@ -237,8 +236,7 @@
 	gender = PLURAL
 	singular_name = "ointment"
 	icon_state = "ointment"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	amount = 8
 	max_amount = 8
 	self_delay = 4 SECONDS
@@ -353,9 +351,7 @@
 
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "bone-gel"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
-
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	amount = 1
 	self_delay = 20
 	grind_results = list(/datum/reagent/bone_dust = 10, /datum/reagent/carbon = 10)

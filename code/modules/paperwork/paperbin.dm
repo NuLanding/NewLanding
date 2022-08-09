@@ -6,8 +6,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "paper_bin0"
 	inhand_icon_state = "sheet-metal"
-	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/sheets_inhand.dmi'
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 3

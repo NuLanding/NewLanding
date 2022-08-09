@@ -6,8 +6,7 @@
 	icon_state = "grenade"
 	inhand_icon_state = "flashbang"
 	worn_icon_state = "grenade"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	throw_speed = 3
 	throw_range = 7
 	flags_1 = CONDUCT_1

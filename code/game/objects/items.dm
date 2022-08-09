@@ -16,11 +16,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!! */
 
 	///icon state for inhand overlays, if null the normal icon_state will be used.
-	var/inhand_icon_state = null
-	///Icon file for left hand inhand overlays
-	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
-	///Icon file for right inhand overlays
-	var/righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	var/inhand_icon_state
+	///Icon file for both right and left hand inhand overlays
+	var/inhand_icon = 'icons/mob/inhands/items_inhand.dmi'
 
 	///Icon file for mob worn overlays.
 	var/icon/worn_icon
@@ -54,9 +52,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/worn_x_dimension = 32
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_y_dimension = 32
-	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the lefthand_ and righthand_ file vars
+	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the inhand_ and righthand_ file vars
 	var/inhand_x_dimension = 32
-	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the lefthand_ and righthand_ file vars
+	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the inhand_ and righthand_ file vars
 	var/inhand_y_dimension = 32
 	/// Worn overlay will be shifted by this along y axis
 	var/worn_y_offset = 0
@@ -301,9 +299,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
 	if(greyscale_config_inhand_left)
-		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
+		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
 	if(greyscale_config_inhand_right)
-		righthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
+		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"

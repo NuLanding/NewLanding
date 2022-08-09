@@ -15,9 +15,9 @@
 	if(worn_state)
 		inhand_icon_state = worn_state
 	if(lh_icon)
-		lefthand_file = lh_icon
+		inhand_icon = lh_icon
 	if(rh_icon)
-		righthand_file = rh_icon
+		inhand_icon = rh_icon
 	if(worn_slot_flags)
 		slot_flags = worn_slot_flags
 	deposit(M)

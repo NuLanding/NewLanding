@@ -7,8 +7,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "broom0"
 	base_icon_state = "broom"
-	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/custodial_inhand.dmi'
 	force = 8
 	throwforce = 10
 	throw_speed = 3

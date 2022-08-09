@@ -492,7 +492,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	STOP_PROCESSING(SSfastprocess, src)
 
 /datum/hallucination/items_other
-
+/*
 /datum/hallucination/items_other/New(mob/living/carbon/C, forced = TRUE, item_type)
 	set waitfor = FALSE
 	..()
@@ -530,52 +530,52 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				if(side == "right")
 					image_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+					image_file = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 				target.playsound_local(H, 'sound/weapons/saberon.ogg',35,1)
 				A = image(image_file,H,"swordred", layer=ABOVE_MOB_LAYER)
 			if("dual_esword")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+					image_file = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 				target.playsound_local(H, 'sound/weapons/saberon.ogg',35,1)
 				A = image(image_file,H,"dualsaberred1", layer=ABOVE_MOB_LAYER)
 			if("taser")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+					image_file = 'icons/mob/inhands/weapons/guns_inhand.dmi'
 				A = image(image_file,H,"advtaserstun4", layer=ABOVE_MOB_LAYER)
 			if("ebow")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
+					image_file = 'icons/mob/inhands/weapons/guns_inhand.dmi'
 				A = image(image_file,H,"crossbow", layer=ABOVE_MOB_LAYER)
 			if("baton")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+					image_file = 'icons/mob/inhands/equipment/security_inhand.dmi'
 				target.playsound_local(H, "sparks",75,1,-1)
 				A = image(image_file,H,"baton", layer=ABOVE_MOB_LAYER)
 			if("ttv")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
+					image_file = 'icons/mob/inhands/weapons/bombs_inhand.dmi'
 				A = image(image_file,H,"ttv", layer=ABOVE_MOB_LAYER)
 			if("flash")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
+					image_file = 'icons/mob/inhands/equipment/security_inhand.dmi'
 				A = image(image_file,H,"flashtool", layer=ABOVE_MOB_LAYER)
 			if("armblade")
 				if(side == "right")
 					image_file = 'icons/mob/inhands/antag/changeling_righthand.dmi'
 				else
-					image_file = 'icons/mob/inhands/antag/changeling_lefthand.dmi'
+					image_file = 'icons/mob/inhands/antag/changeling_inhand.dmi'
 				target.playsound_local(H, 'sound/effects/blobattack.ogg',30,1)
 				A = image(image_file,H,"arm_blade", layer=ABOVE_MOB_LAYER)
 		if(target.client)
@@ -583,7 +583,7 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 			addtimer(CALLBACK(src, .proc/cleanup, item, A, H), rand(15 SECONDS, 25 SECONDS))
 			return
 	qdel(src)
-
+*/
 /datum/hallucination/items_other/proc/cleanup(item, atom/image_used, has_the_item)
 	if (isnull(target))
 		qdel(src)

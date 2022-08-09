@@ -6,8 +6,7 @@
 	icon_state = "hydro"
 	inhand_icon_state = "analyzer"
 	worn_icon_state = "plantanalyzer"
-	lefthand_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/tools_inhand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	slot_flags = ITEM_SLOT_BELT
 	custom_materials = list(/datum/material/iron=30, /datum/material/glass=20)
@@ -287,8 +286,7 @@
 	icon_state = "weedspray"
 	inhand_icon_state = "spraycan"
 	worn_icon_state = "spraycan"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	volume = 100
 	list_reagents = list(/datum/reagent/toxin/plantbgone/weedkiller = 100)
 
@@ -303,8 +301,7 @@
 	icon_state = "pestspray"
 	inhand_icon_state = "plantbgone"
 	worn_icon_state = "spraycan"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	volume = 100
 	list_reagents = list(/datum/reagent/toxin/pestkiller = 100)
 
@@ -319,8 +316,7 @@
 	icon_state = "secateurs"
 	inhand_icon_state = "secateurs"
 	worn_icon_state = "cutters"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	flags_1 = CONDUCT_1
 	force = 5
 	throwforce = 6
@@ -338,8 +334,7 @@
 	icon_state = "genesheers"
 	inhand_icon_state = "secateurs"
 	worn_icon_state = "cutters"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	flags_1 = CONDUCT_1
 	force = 10
 	throwforce = 8

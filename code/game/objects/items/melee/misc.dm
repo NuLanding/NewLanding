@@ -13,8 +13,7 @@
 	desc = "An elegant weapon, its monomolecular edge is capable of cutting through flesh and bone with ease."
 	icon_state = "sabre"
 	inhand_icon_state = "sabre"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	flags_1 = CONDUCT_1
 	obj_flags = UNIQUE_RENAME
 	force = 15
@@ -91,7 +90,7 @@
 		user.adjustBruteLoss(200)
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
-
+/*
 /obj/item/melee/classic_baton
 	name = "police baton"
 	desc = "A wooden truncheon for beating criminal scum. Left click to stun, right click to harm."
@@ -99,20 +98,19 @@
 	icon_state = "classic_baton"
 	inhand_icon_state = "classic_baton"
 	worn_icon_state = "classic_baton"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/security_inhand.dmi'
+
 	slot_flags = ITEM_SLOT_BELT
 	force = 12 //9 hit crit
 	w_class = WEIGHT_CLASS_NORMAL
 	wound_bonus = 5
-
+*/
 /obj/item/melee/curator_whip
 	name = "curator's whip"
 	desc = "Somewhat eccentric and outdated, it still stings like hell to be hit by."
 	icon_state = "whip"
 	inhand_icon_state = "chain"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/melee_inhand.dmi'
 	worn_icon_state = "whip"
 	slot_flags = ITEM_SLOT_BELT
 	force = 15
@@ -127,7 +125,7 @@
 		var/mob/living/carbon/human/H = target
 		H.drop_all_held_items()
 		H.visible_message(SPAN_DANGER("[user] disarms [H]!"), SPAN_USERDANGER("[user] disarmed you!"))
-
+/*
 /obj/item/melee/cleric_mace
 	name = "cleric mace"
 	desc = "The grandson of the club, yet the grandfather of the baseball bat. Most notably used by holy orders in days past."
@@ -137,8 +135,7 @@
 	worn_icon_state = "default_worn"
 
 	greyscale_config = /datum/greyscale_config/cleric_mace
-	greyscale_config_inhand_left = /datum/greyscale_config/cleric_mace_lefthand
-	greyscale_config_inhand_right = /datum/greyscale_config/cleric_mace_righthand
+	greyscale_config_inhand = /datum/greyscale_config/cleric_mace_inhand
 	greyscale_config_worn = /datum/greyscale_config/cleric_mace_worn
 	greyscale_colors = "#FFFFFF"
 
@@ -151,4 +148,4 @@
 	block_chance = 10
 	armour_penetration = 50
 	attack_verb_continuous = list("smacks", "strikes", "cracks", "beats")
-	attack_verb_simple = list("smack", "strike", "crack", "beat")
+	attack_verb_simple = list("smack", "strike", "crack", "beat")*/

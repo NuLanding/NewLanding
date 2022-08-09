@@ -4,8 +4,7 @@
 	icon_state = "plastic-explosive0"
 	inhand_icon_state = "plastic-explosive"
 	worn_icon_state = "c4"
-	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	item_flags = NOBLUDGEON
 	flags_1 = NONE
 	det_time = 10

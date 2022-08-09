@@ -5,8 +5,7 @@
 	icon_state = "sprayer_large"
 	inhand_icon_state = "cleaner"
 	worn_icon_state = "spraybottle"
-	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/custodial_inhand.dmi'
 	item_flags = NOBLUDGEON
 	reagent_flags = OPENCONTAINER
 	slot_flags = ITEM_SLOT_BELT
@@ -229,8 +228,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "pepperspray"
 	inhand_icon_state = "pepperspray"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	volume = 50
 	stream_range = 4
 	amount_per_transfer_from_this = 5
@@ -279,8 +277,7 @@
 	icon = 'icons/obj/guns/ballistic.dmi'
 	icon_state = "chemsprayer"
 	inhand_icon_state = "chemsprayer"
-	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/guns_inhand.dmi'
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
 	stream_mode = 1
@@ -317,8 +314,7 @@
 	desc = "A utility used to spray large amounts of cleaning reagents in a given area. It regenerates space cleaner by itself but it's unable to be fueled by normal means."
 	icon_state = "chemsprayer_janitor"
 	inhand_icon_state = "chemsprayer_janitor"
-	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/guns_inhand.dmi'
 	reagent_flags = NONE
 	list_reagents = list(/datum/reagent/space_cleaner = 1000)
 	volume = 1000
@@ -349,8 +345,7 @@
 	icon = 'icons/obj/hydroponics/equipment.dmi'
 	icon_state = "plantbgone"
 	inhand_icon_state = "plantbgone"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	volume = 100
 	list_reagents = list(/datum/reagent/toxin/plantbgone = 100)
 
@@ -360,8 +355,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "sprayer_sus_8"
 	inhand_icon_state = "sprayer_sus"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	spray_range = 4
 	stream_range = 2
 	volume = 100
@@ -376,8 +370,7 @@
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "sprayer_med_red"
 	inhand_icon_state = "sprayer_med_red"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	volume = 100
 	unique_reskin = list("Red" = "sprayer_med_red",
 						"Yellow" = "sprayer_med_yellow",

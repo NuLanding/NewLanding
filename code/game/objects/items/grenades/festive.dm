@@ -64,8 +64,7 @@
 	desc = "Outlawed in most of the sector. Doubles as an excellent finger remover."
 	icon = 'icons/obj/holiday_misc.dmi'
 	icon_state = "firecracker"
-	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	inhand_icon_state = "flare"
 	throw_speed = 3

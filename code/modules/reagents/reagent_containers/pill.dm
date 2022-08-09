@@ -5,8 +5,7 @@
 	icon_state = "pill"
 	inhand_icon_state = "pill"
 	worn_icon_state = "pen"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	possible_transfer_amounts = list()
 	volume = 50
 	grind_results = list()

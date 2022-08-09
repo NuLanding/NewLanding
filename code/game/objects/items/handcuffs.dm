@@ -42,8 +42,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
 	worn_icon_state = "handcuff"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/items/restraints.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	throwforce = 0
@@ -143,8 +142,7 @@
 	gender = PLURAL
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "handcuff"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/items/restraints.dmi'
 	flags_1 = CONDUCT_1
 	throwforce = 0
 	w_class = WEIGHT_CLASS_NORMAL
@@ -244,8 +242,7 @@
 	desc = "A restraining device designed to be thrown at the target. Upon connecting with said target, it will wrap around their legs, making it difficult for them to move quickly."
 	icon_state = "bola"
 	inhand_icon_state = "bola"
-	lefthand_file = 'icons/mob/inhands/weapons/thrown_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/thrown_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/thrown_inhand.dmi'
 	breakouttime = 3.5 SECONDS//easy to apply, easy to break out of
 	gender = NEUTER
 	///Amount of time to knock the target down for once it's hit in deciseconds.

@@ -38,8 +38,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "nettle"
 	bite_consumption_mod = 2
-	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/plants_inhand.dmi'
 	damtype = BURN
 	force = 15
 	hitsound = 'sound/weapons/bladeslice.ogg'

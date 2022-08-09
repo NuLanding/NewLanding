@@ -175,8 +175,7 @@
 	name = "sunflower"
 	desc = "It's beautiful! A certain person might beat you to death if you trample these."
 	icon_state = "sunflower"
-	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/plants_inhand.dmi'
 	damtype = BURN
 	force = 0
 	slot_flags = ITEM_SLOT_HEAD
@@ -190,8 +189,7 @@
 	name = "pack of moonflower seeds"
 	desc = "These seeds grow into moonflowers."
 	icon_state = "seed-moonflower"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/food_inhand.dmi'
 	species = "moonflower"
 	plantname = "Moonflowers"
 	icon_grow = "moonflower-grow"
@@ -231,8 +229,7 @@
 	name = "\improper novaflower"
 	desc = "These beautiful flowers have a crisp smokey scent, like a summer bonfire."
 	icon_state = "novaflower"
-	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/plants_inhand.dmi'
 	damtype = BURN
 	force = 0
 	slot_flags = ITEM_SLOT_HEAD
@@ -270,8 +267,7 @@
 	name = "\improper rose"
 	desc = "The classic fleur d'amour - flower of love. Watch for its thorns!"
 	icon_state = "rose"
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/food_inhand.dmi'
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	bite_consumption_mod = 2
 	foodtypes = VEGETABLES | GROSS
@@ -302,8 +298,7 @@
 	name = "carbon rose"
 	desc = "The all new fleur d'amour gris - the flower of love, modernized, with no harsh thorns."
 	icon_state = "carbonrose"
-	lefthand_file = 'icons/mob/inhands/weapons/plants_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/plants_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/plants_inhand.dmi'
 	force = 0
 	throwforce = 0
 	slot_flags = ITEM_SLOT_HEAD

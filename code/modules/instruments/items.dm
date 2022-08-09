@@ -5,8 +5,7 @@
 	max_integrity = 100
 	resistance_flags = FLAMMABLE
 	icon = 'icons/obj/musician.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/instruments_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/instruments_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/instruments_inhand.dmi'
 	/// Our song datum.
 	var/datum/song/handheld/song
 	/// Our allowed list of instrument ids. This is nulled on initialize.

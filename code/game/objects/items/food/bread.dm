@@ -256,8 +256,7 @@
 	appearance = fried.appearance
 	layer = initial(layer)
 	plane = initial(plane)
-	lefthand_file = fried.lefthand_file
-	righthand_file = fried.righthand_file
+	inhand_icon = fried.inhand_icon
 	inhand_icon_state = fried.inhand_icon_state
 	desc = fried.desc
 	w_class = fried.w_class

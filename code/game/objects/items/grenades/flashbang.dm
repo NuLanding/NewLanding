@@ -2,8 +2,7 @@
 	name = "flashbang"
 	icon_state = "flashbang"
 	inhand_icon_state = "flashbang"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	var/flashbang_range = 7 //how many tiles away the mob will be stunned.
 
 /obj/item/grenade/flashbang/detonate(mob/living/lanced_by)

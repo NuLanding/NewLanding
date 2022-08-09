@@ -235,8 +235,7 @@
 	icon = 'icons/obj/chairs.dmi'
 	icon_state = "chair_toppled"
 	inhand_icon_state = "chair"
-	lefthand_file = 'icons/mob/inhands/misc/chairs_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/chairs_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/chairs_inhand.dmi'
 	w_class = WEIGHT_CLASS_HUGE
 	force = 8
 	throwforce = 10

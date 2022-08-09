@@ -14,8 +14,7 @@
 	desc = "You wear this on your back and put items into it."
 	icon_state = "backpack"
 	inhand_icon_state = "backpack"
-	lefthand_file = 'icons/mob/inhands/equipment/backpack_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/backpack_inhand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK //ERROOOOO
 	resistance_flags = NONE

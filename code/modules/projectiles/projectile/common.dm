@@ -15,6 +15,7 @@
 
 /obj/projectile/bullet/lead_ball
 	name = "lead ball"
+	icon_state = "lead_ball"
 	shrapnel_type = /obj/item/stack/lead_ball
 
 /obj/projectile/arrow

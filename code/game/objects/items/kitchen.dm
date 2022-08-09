@@ -11,8 +11,7 @@
 
 /obj/item/kitchen
 	icon = 'icons/obj/kitchen.dmi'
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 
 /obj/item/kitchen/Initialize()
 	. = ..()
@@ -107,8 +106,7 @@
 	icon_state = "bone_blade"
 	inhand_icon_state = "bone_blade"
 	worn_icon_state = "bone_blade"
-	lefthand_file = 'icons/mob/inhands/64x64_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/64x64_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/64x64_inhand.dmi'
 	inhand_x_dimension = 64
 	inhand_y_dimension = 64
 	w_class = WEIGHT_CLASS_NORMAL
@@ -161,8 +159,7 @@
 	inhand_icon_state = "bone_dagger"
 	icon_state = "bone_dagger"
 	worn_icon_state = "bone_dagger"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	desc = "A sharpened bone. The bare minimum in survival."
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	force = 15
@@ -174,8 +171,7 @@
 	icon = 'icons/obj/shards.dmi'
 	icon_state = "shiv"
 	inhand_icon_state = "shiv"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	desc = "A makeshift glass shiv."
 	force = 8
 	throwforce = 12

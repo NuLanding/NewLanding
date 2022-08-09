@@ -3,8 +3,7 @@
 	desc = "What are you standing around staring at this for? Get to killing!"
 	icon_state = "claymore"
 	inhand_icon_state = "claymore"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
@@ -31,8 +30,7 @@
 	icon_state = "cutlass"
 	inhand_icon_state = "cutlass"
 	worn_icon_state = "cutlass"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	slot_flags = ITEM_SLOT_BELT
 	force = 20
@@ -55,8 +53,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "cane"
 	inhand_icon_state = "stick"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/melee_inhand.dmi'
 	force = 5
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL

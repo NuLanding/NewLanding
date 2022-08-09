@@ -12,8 +12,7 @@
 	name = "riot shield"
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
 	icon_state = "riot"
-	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/shields_inhand.dmi'
 	slot_flags = ITEM_SLOT_BACK
 	force = 10
 	throwforce = 5
@@ -70,8 +69,8 @@
 	desc = "Bears an inscription on the inside: <i>\"Romanes venio domus\"</i>."
 	icon_state = "roman_shield"
 	inhand_icon_state = "roman_shield"
-	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/shields_inhand.dmi'
+
 	transparent = FALSE
 	custom_materials = list(/datum/material/iron=8500)
 	max_integrity = 65
@@ -91,8 +90,8 @@
 	desc = "A medieval wooden buckler."
 	icon_state = "buckler"
 	inhand_icon_state = "buckler"
-	lefthand_file = 'icons/mob/inhands/equipment/shields_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/shields_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/shields_inhand.dmi'
+
 	custom_materials = list(/datum/material/wood = MINERAL_MATERIAL_AMOUNT * 10)
 	resistance_flags = FLAMMABLE
 	block_chance = 30

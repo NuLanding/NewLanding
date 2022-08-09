@@ -1,8 +1,7 @@
 //spears
 /obj/item/spear
 	icon_state = "spearglass0"
-	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/polearms_inhand.dmi'
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 10

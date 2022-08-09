@@ -539,8 +539,7 @@
 	paint_color = null
 
 	inhand_icon_state = "spraycan"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	desc = "A metallic container containing tasty paint."
 
 	instant = TRUE

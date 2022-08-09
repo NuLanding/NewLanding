@@ -1,7 +1,6 @@
 /obj/item/scythe
 	icon_state = "scythe0"
-	lefthand_file = 'icons/mob/inhands/weapons/polearms_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/polearms_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/polearms_inhand.dmi'
 	name = "scythe"
 	desc = "A sharp and curved blade on a long fibremetal handle, this tool makes it easy to reap what you sow."
 	force = 13
