@@ -52,7 +52,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/worn_x_dimension = 32
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_y_dimension = 32
-	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the inhand_ and righthand_ file vars
+	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the `inhand_icon` file var
 	var/inhand_x_dimension = 32
 	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the inhand_ and righthand_ file vars
 	var/inhand_y_dimension = 32
