@@ -196,11 +196,12 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 	null, \
 	new/datum/stack_recipe("improvised gauze", /obj/item/stack/medical/gauze/improvised, 1, 2, 6), \
 	new/datum/stack_recipe("rag", /obj/item/reagent_containers/rag, 1), \
-	new/datum/stack_recipe("towel", /obj/item/reagent_containers/rag/towel, 2), \
 	new/datum/stack_recipe("bedsheet", /obj/item/bedsheet, 3), \
 	new/datum/stack_recipe("double bedsheet", /obj/item/bedsheet/double, 6), \
 	new/datum/stack_recipe("empty sandbag", /obj/item/emptysandbag, 4), \
 	))
+
+//	new/datum/stack_recipe("towel", /obj/item/reagent_containers/rag/towel, 2),
 
 /obj/item/stack/sheet/cloth
 	name = "cloth"
@@ -281,8 +282,7 @@ GLOBAL_LIST_INIT(bronze_recipes, list ())
 	inhand_icon_state = "sheet-brass"
 	icon = 'icons/obj/stack_objects.dmi'
 	mats_per_unit = list(/datum/material/bronze = MINERAL_MATERIAL_AMOUNT)
-	lefthand_file = 'icons/mob/inhands/misc/sheets_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/sheets_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/sheets_inhand.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	sheettype = "bronze"
 	force = 5

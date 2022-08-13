@@ -96,8 +96,7 @@
 	worn_icon_state = "towel"
 	worn_icon = 'icons/obj/items/towel/towel_worn.dmi'
 	inhand_icon_state = "towel"
-	lefthand_file = 'icons/obj/items/towel/towel_lefthand.dmi'
-	righthand_file = 'icons/obj/items/towel/towel_righthand.dmi'
+	inhand_icon = 'icons/obj/items/towel/towel_inhand.dmi'
 	hitsound = 'sound/items/towelwhip.ogg'
 	wipe_sound = 'sound/items/towelwipe.ogg'
 	attack_verb_continuous = list("whipped", "flogged")

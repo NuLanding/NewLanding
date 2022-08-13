@@ -6,8 +6,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = null
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/food_inhand.dmi'
 	obj_flags = UNIQUE_RENAME
 	grind_results = list()
 	///List of reagents this food gets on creation

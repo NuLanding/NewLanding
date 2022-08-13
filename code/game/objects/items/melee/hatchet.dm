@@ -4,8 +4,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "woodhatchet"
 	inhand_icon_state = "hatchet"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	force = 12
 	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 15

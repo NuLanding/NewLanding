@@ -9,8 +9,7 @@
 	base_icon_state = "pet_carrier"
 	icon_state = "pet_carrier_open"
 	inhand_icon_state = "pet_carrier"
-	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/items_inhand.dmi'
 	force = 5
 	attack_verb_continuous = list("bashes", "carries")
 	attack_verb_simple = list("bash", "carry")

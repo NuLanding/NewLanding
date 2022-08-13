@@ -3,8 +3,7 @@
 	desc = "A modified flashbang which uses hypnotic flashes and mind-altering soundwaves to induce an instant trance upon detonation."
 	icon_state = "flashbang"
 	inhand_icon_state = "flashbang"
-	lefthand_file = 'icons/mob/inhands/equipment/security_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/security_righthand.dmi'
+	inhand_icon = 'icons/obj/objects.dmi'
 	var/flashbang_range = 7
 
 /obj/item/grenade/hypnotic/detonate(mob/living/lanced_by)

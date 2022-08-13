@@ -16,8 +16,7 @@
 	force = 15 //Smashing bottles over someone's head hurts.
 	throwforce = 15
 	inhand_icon_state = "broken_beer" //Generic held-item sprite until unique ones are made.
-	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/misc/food_inhand.dmi'
 	isGlass = TRUE
 	foodtype = ALCOHOL
 	age_restricted = TRUE // wrryy can't set an init value to see if foodtype contains ALCOHOL so here we go
@@ -392,8 +391,8 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "orangejuice"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
+
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/orangejuice = 100)
 	foodtype = FRUIT | BREAKFAST
@@ -405,8 +404,7 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "cream"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/cream = 100)
 	foodtype = DAIRY
@@ -418,8 +416,7 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "tomatojuice"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/tomatojuice = 100)
 	foodtype = VEGETABLES
@@ -431,8 +428,7 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "limejuice"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/limejuice = 100)
 	foodtype = FRUIT
@@ -444,8 +440,7 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "pineapplejuice"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/pineapplejuice = 100)
 	foodtype = FRUIT | PINEAPPLE
@@ -457,8 +452,7 @@
 	custom_price = PAYCHECK_ASSISTANT
 	icon_state = "mentholbox"
 	inhand_icon_state = "carton"
-	lefthand_file = 'icons/mob/inhands/equipment/kitchen_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/kitchen_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/kitchen_inhand.dmi'
 	isGlass = FALSE
 	list_reagents = list(/datum/reagent/consumable/menthol = 100)
 

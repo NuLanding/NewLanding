@@ -98,8 +98,7 @@ GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
 	force = 5
 	throwforce = 10
 	inhand_icon_state = "shard-glass"
-	lefthand_file = 'icons/mob/inhands/weapons/melee_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/melee_inhand.dmi'
 	custom_materials = list(/datum/material/glass=MINERAL_MATERIAL_AMOUNT)
 	attack_verb_continuous = list("stabs", "slashes", "slices", "cuts")
 	attack_verb_simple = list("stab", "slash", "slice", "cut")

@@ -9,8 +9,7 @@
 	throwforce = 10
 	inhand_icon_state = "pickaxe"
 	worn_icon_state = "pickaxe"
-	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/mining_inhand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	custom_materials = list(/datum/material/iron=2000) //one sheet, but where can you make them?
 	tool_behaviour = TOOL_MINING
@@ -58,8 +57,7 @@
 	icon = 'icons/obj/mining.dmi'
 	icon_state = "shovel"
 	worn_icon_state = "shovel"
-	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/mining_inhand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	force = 8
@@ -91,8 +89,7 @@
 	icon_state = "shovel_bone"
 	inhand_icon_state = "shovel_bone"
 	worn_icon_state = "shovel_serr"
-	lefthand_file = 'icons/mob/inhands/equipment/mining_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/mining_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/mining_inhand.dmi'
 	force = 15
 	throwforce = 12
 	w_class = WEIGHT_CLASS_NORMAL

@@ -16,11 +16,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		!!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!! */
 
 	///icon state for inhand overlays, if null the normal icon_state will be used.
-	var/inhand_icon_state = null
-	///Icon file for left hand inhand overlays
-	var/lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
-	///Icon file for right inhand overlays
-	var/righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	var/inhand_icon_state
+	///Icon file for both right and left hand inhand overlays
+	var/inhand_icon = 'icons/mob/inhands/items_inhand.dmi'
 
 	///Icon file for mob worn overlays.
 	var/icon/worn_icon
@@ -35,9 +33,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	///The config type to use for greyscaled worn sprites. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn
 	///The config type to use for greyscaled left inhand sprites. Both this and greyscale_colors must be assigned to work.
-	var/greyscale_config_inhand_left
-	///The config type to use for greyscaled right inhand sprites. Both this and greyscale_colors must be assigned to work.
-	var/greyscale_config_inhand_right
+	var/greyscale_config_inhand
 	///The config type to use for greyscaled belt overlays. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_belt
 
@@ -54,9 +50,9 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	var/worn_x_dimension = 32
 	///Dimensions of the icon file used when this item is worn, eg: hats.dmi (32x32 sprite, 64x64 sprite, etc.). Allows inhands/worn sprites to be of any size, but still centered on a mob properly
 	var/worn_y_dimension = 32
-	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the lefthand_ and righthand_ file vars
+	///Same as for [worn_x_dimension][/obj/item/var/worn_x_dimension] but for inhands, uses the `inhand_icon` file var
 	var/inhand_x_dimension = 32
-	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the lefthand_ and righthand_ file vars
+	///Same as for [worn_y_dimension][/obj/item/var/worn_y_dimension] but for inhands, uses the `inhand_icon` file var
 	var/inhand_y_dimension = 32
 	/// Worn overlay will be shifted by this along y axis
 	var/worn_y_offset = 0
@@ -284,13 +280,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/suicide_act(mob/user)
 	return
 
-/obj/item/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+/obj/item/set_greyscale(list/colors, new_config, new_worn_config, new_inhand)
 	if(new_worn_config)
 		greyscale_config_worn = new_worn_config
-	if(new_inhand_left)
-		greyscale_config_inhand_left = new_inhand_left
-	if(new_inhand_right)
-		greyscale_config_inhand_right = new_inhand_right
+	if(new_inhand)
+		greyscale_config_inhand = new_inhand
 	return ..()
 
 /// Checks if this atom uses the GAGS system and if so updates the worn and inhand icons
@@ -300,10 +294,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
-	if(greyscale_config_inhand_left)
-		lefthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
-	if(greyscale_config_inhand_right)
-		righthand_file = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
+	if(greyscale_config_inhand)
+		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand, greyscale_colors)
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"

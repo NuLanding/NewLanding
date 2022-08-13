@@ -17,14 +17,9 @@
 	icon_file = 'icons/obj/tools.dmi'
 	json_config = 'code/datums/greyscale/json_configs/screwdriver.json'
 
-/datum/greyscale_config/screwdriver_inhand_left
-	name = "Held Screwdriver, Left"
-	icon_file = 'icons/mob/inhands/equipment/tools_lefthand.dmi'
-	json_config = 'code/datums/greyscale/json_configs/screwdriver_worn.json'
-
-/datum/greyscale_config/screwdriver_inhand_right
-	name = "Held Screwdriver, Right"
-	icon_file = 'icons/mob/inhands/equipment/tools_righthand.dmi'
+/datum/greyscale_config/screwdriver_inhand
+	name = "Held Screwdriver, In Hand"
+	icon_file = 'icons/mob/inhands/equipment/tools_inhand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/screwdriver_worn.json'
 
 /datum/greyscale_config/screwdriver_belt
@@ -90,15 +85,10 @@
 	icon_file = 'icons/obj/items/cleric_mace.dmi'
 	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace.json'
 
-/datum/greyscale_config/cleric_mace_lefthand
-	name = "Base Held Cleric Mace, Left"
+/datum/greyscale_config/cleric_mace_inhand
+	name = "Base Held Cleric Mace, In Hand"
 	icon_file = 'icons/obj/items/cleric_mace.dmi'
-	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_lefthand.json'
-
-/datum/greyscale_config/cleric_mace_righthand
-	name = "Base Held Cleric Mace, Right"
-	icon_file = 'icons/obj/items/cleric_mace.dmi'
-	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_righthand.json'
+	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_inhand.json'
 
 /datum/greyscale_config/cleric_mace_worn
 	name = "Base Worn Cleric Mace"
@@ -110,20 +100,15 @@
 	material_skin = /datum/material/gold
 	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_gold.json'
 
-/datum/greyscale_config/cleric_mace_lefthand/gold
-	name = "Gold Held Cleric Mace, Left"
+/datum/greyscale_config/cleric_mace_inhand/gold
+	name = "Gold Held Cleric Mace, In Hand"
 	material_skin = /datum/material/gold
-	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_lefthand_gold.json'
-
-/datum/greyscale_config/cleric_mace_righthand/gold
-	name = "Gold Held Cleric Mace, Right"
-	material_skin = /datum/material/gold
-	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_righthand_gold.json'
+	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_gold_inhand.json'
 
 /datum/greyscale_config/cleric_mace_worn/gold
 	name = "Gold Worn Cleric Mace"
 	icon_file = 'icons/obj/items/cleric_mace.dmi'
-	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_worn_gold.json'
+	json_config = 'code/datums/greyscale/json_configs/items/cleric_mace_gold_worn.json'
 
 /datum/greyscale_config/wrap_paper
 	name = "Wrapping Paper"

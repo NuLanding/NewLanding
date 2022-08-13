@@ -41,8 +41,7 @@
 	icon_state = "katana"
 	inhand_icon_state = "katana"
 	worn_icon_state = "katana"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 5
@@ -431,8 +430,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "render"
 	inhand_icon_state = "cultdagger"
-	lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/weapons/swords_inhand.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 
 // TOY MOUSEYS :3 :3 :3

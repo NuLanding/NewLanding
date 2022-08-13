@@ -3,8 +3,7 @@
 	desc = "A syringe that can hold up to 15 units."
 	icon = 'icons/obj/syringe.dmi'
 	base_icon_state = "syringe"
-	lefthand_file = 'icons/mob/inhands/equipment/medical_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/medical_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/medical_inhand.dmi'
 	icon_state = "syringe_0"
 	worn_icon_state = "pen"
 	amount_per_transfer_from_this = 5

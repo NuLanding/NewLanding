@@ -4,8 +4,7 @@
 	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "rake"
 	inhand_icon_state = "cultivator"
-	lefthand_file = 'icons/mob/inhands/equipment/hydroponics_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/hydroponics_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/hydroponics_inhand.dmi'
 	flags_1 = NONE
 	force = 5
 	throwforce = 7

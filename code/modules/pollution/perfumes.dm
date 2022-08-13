@@ -4,8 +4,7 @@
 	icon_state = "perfume"
 	inhand_icon_state = "cleaner"
 	worn_icon_state = "spraybottle"
-	lefthand_file = 'icons/mob/inhands/equipment/custodial_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/custodial_righthand.dmi'
+	inhand_icon = 'icons/mob/inhands/equipment/custodial_inhand.dmi'
 	w_class = WEIGHT_CLASS_TINY
 	item_flags = NOBLUDGEON
 	/// What type of the pollutant will this perfume be using
