@@ -9,15 +9,13 @@
 	var/mob/living/held_mob
 	var/destroying = FALSE
 
-/obj/item/clothing/head/mob_holder/Initialize(mapload, mob/living/M, worn_state, head_icon, lh_icon, rh_icon, worn_slot_flags = NONE)
+/obj/item/clothing/head/mob_holder/Initialize(mapload, mob/living/M, worn_state, head_icon, ih_icon, worn_slot_flags = NONE)
 	if(head_icon)
 		worn_icon = head_icon
 	if(worn_state)
 		inhand_icon_state = worn_state
-	if(lh_icon)
-		inhand_icon = lh_icon
-	if(rh_icon)
-		inhand_icon = rh_icon
+	if(ih_icon)
+		inhand_icon = ih_icon
 	if(worn_slot_flags)
 		slot_flags = worn_slot_flags
 	deposit(M)

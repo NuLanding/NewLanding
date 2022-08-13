@@ -90,21 +90,7 @@
 		user.adjustBruteLoss(200)
 		user.death(FALSE)
 	REMOVE_TRAIT(src, TRAIT_NODROP, SABRE_SUICIDE_TRAIT)
-/*
-/obj/item/melee/classic_baton
-	name = "police baton"
-	desc = "A wooden truncheon for beating criminal scum. Left click to stun, right click to harm."
-	icon = 'icons/obj/items_and_weapons.dmi'
-	icon_state = "classic_baton"
-	inhand_icon_state = "classic_baton"
-	worn_icon_state = "classic_baton"
-	inhand_icon = 'icons/mob/inhands/equipment/security_inhand.dmi'
 
-	slot_flags = ITEM_SLOT_BELT
-	force = 12 //9 hit crit
-	w_class = WEIGHT_CLASS_NORMAL
-	wound_bonus = 5
-*/
 /obj/item/melee/curator_whip
 	name = "curator's whip"
 	desc = "Somewhat eccentric and outdated, it still stings like hell to be hit by."
@@ -125,7 +111,7 @@
 		var/mob/living/carbon/human/H = target
 		H.drop_all_held_items()
 		H.visible_message(SPAN_DANGER("[user] disarms [H]!"), SPAN_USERDANGER("[user] disarmed you!"))
-/*
+
 /obj/item/melee/cleric_mace
 	name = "cleric mace"
 	desc = "The grandson of the club, yet the grandfather of the baseball bat. Most notably used by holy orders in days past."
@@ -148,4 +134,4 @@
 	block_chance = 10
 	armour_penetration = 50
 	attack_verb_continuous = list("smacks", "strikes", "cracks", "beats")
-	attack_verb_simple = list("smack", "strike", "crack", "beat")*/
+	attack_verb_simple = list("smack", "strike", "crack", "beat")

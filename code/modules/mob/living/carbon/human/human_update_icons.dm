@@ -422,7 +422,7 @@ default_layer: The layer to draw this on if no other layer is specified
 default_icon_file: The icon file to draw states from if no other icon file is specified
 
 isinhands: If true then alternate_worn_icon is skipped so that default_icon_file is used,
-in this situation default_icon_file is expected to match either the lefthand_ or righthand_ file var
+in this situation default_icon_file is expected to match the inhand file var
 
 femalueuniform: A value matching a uniform item's fitted var, if this is anything but NO_FEMALE_UNIFORM, we
 generate/load female uniform sprites matching all previously decided variables

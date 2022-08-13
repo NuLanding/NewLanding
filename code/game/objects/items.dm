@@ -33,9 +33,7 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 	///The config type to use for greyscaled worn sprites. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_worn
 	///The config type to use for greyscaled left inhand sprites. Both this and greyscale_colors must be assigned to work.
-	var/greyscale_config_inhand_left
-	///The config type to use for greyscaled right inhand sprites. Both this and greyscale_colors must be assigned to work.
-	var/greyscale_config_inhand_right
+	var/greyscale_config_inhand
 	///The config type to use for greyscaled belt overlays. Both this and greyscale_colors must be assigned to work.
 	var/greyscale_config_belt
 
@@ -282,13 +280,11 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 /obj/item/proc/suicide_act(mob/user)
 	return
 
-/obj/item/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+/obj/item/set_greyscale(list/colors, new_config, new_worn_config, new_inhand)
 	if(new_worn_config)
 		greyscale_config_worn = new_worn_config
-	if(new_inhand_left)
-		greyscale_config_inhand_left = new_inhand_left
-	if(new_inhand_right)
-		greyscale_config_inhand_right = new_inhand_right
+	if(new_inhand)
+		greyscale_config_inhand = new_inhand
 	return ..()
 
 /// Checks if this atom uses the GAGS system and if so updates the worn and inhand icons
@@ -298,10 +294,8 @@ GLOBAL_DATUM_INIT(fire_overlay, /mutable_appearance, mutable_appearance('icons/e
 		return
 	if(greyscale_config_worn)
 		worn_icon = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
-	if(greyscale_config_inhand_left)
-		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_left, greyscale_colors)
-	if(greyscale_config_inhand_right)
-		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand_right, greyscale_colors)
+	if(greyscale_config_inhand)
+		inhand_icon = SSgreyscale.GetColoredIconByType(greyscale_config_inhand, greyscale_colors)
 
 /obj/item/verb/move_to_top()
 	set name = "Move To Top"

@@ -9,7 +9,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	firing_effect_type = null
-	fire_sound = null
+	fire_sound = "sound/weapons/gun/general/bowshoot.ogg"
 	var/drawn_state = "bow_drawn"
 	var/arrow_state = "arrow"
 	var/arrow_drawn_state = "arrow_drawn"
@@ -56,6 +56,7 @@
 			SPAN_NOTICE("[user] begins drawing an arrow on \the [src]."),
 			SPAN_NOTICE("You begin to draw an arrow on \the [src].")
 			)
+		playsound(src, 'sound/weapons/gun/general/bowstretch.ogg', 50)
 		if(do_after(user, 3 SECONDS, target = user))
 			if(QDELETED(src) || drawn || !arrow_loaded)
 				return FALSE
@@ -63,7 +64,9 @@
 				SPAN_NOTICE("[user] draws an arrow on \the [src]."),
 				SPAN_NOTICE("You draws an arrow on \the [src].")
 				)
-			set_drawn_state(TRUE)
+		set_drawn_state(TRUE)
+		playsound(user, 'sound/weapons/magin.ogg', 40, TRUE)
+
 	return TRUE
 
 /obj/item/gun/bow/attackby(obj/item/item, mob/living/user, params)

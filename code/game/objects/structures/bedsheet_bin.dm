@@ -246,7 +246,7 @@ LINEN BINS
 	max_integrity = 70
 	var/amount = 10
 	var/spawned_sheet = /obj/item/bedsheet
-	var/list/allowed_sheets = list(/obj/item/bedsheet)
+	var/list/allowed_sheets = list(/obj/item/bedsheet, /obj/item/reagent_containers/rag/towel)
 	var/list/sheets = list()
 	var/obj/item/hidden = null
 
