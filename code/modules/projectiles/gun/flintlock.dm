@@ -26,6 +26,8 @@
 	powder_loaded = FALSE
 	ball_loaded = FALSE
 	rammed = FALSE
+	. = ..()
+	new /obj/effect/particle_effect/smoke/quick(get_turf(src))
 
 /obj/item/gun/flintlock/is_loaded()
 	if(!is_flintlock_loaded())
