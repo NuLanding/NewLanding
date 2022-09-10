@@ -226,25 +226,6 @@ GLOBAL_LIST_INIT(cloth_recipes, list ( \
 /obj/item/stack/sheet/cloth/five
 	amount = 5
 
-GLOBAL_LIST_INIT(durathread_recipes, list())
-
-/obj/item/stack/sheet/durathread
-	name = "durathread"
-	desc = "A fabric sown from incredibly durable threads, known for its usefulness in armor production."
-	singular_name = "durathread roll"
-	icon_state = "sheet-durathread"
-	inhand_icon_state = "sheet-cloth"
-	resistance_flags = FLAMMABLE
-	force = 0
-	throwforce = 0
-	merge_type = /obj/item/stack/sheet/durathread
-	drop_sound = 'sound/items/handling/cloth_drop.ogg'
-	pickup_sound =  'sound/items/handling/cloth_pickup.ogg'
-
-/obj/item/stack/sheet/durathread/get_main_recipes()
-	. = ..()
-	. += GLOB.durathread_recipes
-
 /obj/item/stack/sheet/cotton
 	name = "raw cotton bundle"
 	desc = "A bundle of raw cotton ready to be spun on the loom."
@@ -257,15 +238,6 @@ GLOBAL_LIST_INIT(durathread_recipes, list())
 	var/pull_effort = 10
 	var/loom_result = /obj/item/stack/sheet/cloth
 	grind_results = list(/datum/reagent/cellulose = 20)
-
-/obj/item/stack/sheet/cotton/durathread
-	name = "raw durathread bundle"
-	desc = "A bundle of raw durathread ready to be spun on the loom."
-	singular_name = "raw durathread ball"
-	icon_state = "sheet-durathreadraw"
-	merge_type = /obj/item/stack/sheet/cotton/durathread
-	loom_result = /obj/item/stack/sheet/durathread
-	grind_results = list()
 
 /*
  * Bronze

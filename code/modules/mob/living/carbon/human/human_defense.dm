@@ -558,29 +558,6 @@
 		inventory_item.acid_act(acidpwr, acid_volume)
 	return TRUE
 
-/mob/living/carbon/human/help_shake_act(mob/living/carbon/M)
-	if(!istype(M))
-		return
-
-	if(src == M)
-		if(has_status_effect(STATUS_EFFECT_CHOKINGSTRAND))
-			to_chat(src, SPAN_NOTICE("You attempt to remove the durathread strand from around your neck."))
-			if(do_after(src, 3.5 SECONDS, src))
-				to_chat(src, SPAN_NOTICE("You succesfuly remove the durathread strand."))
-				remove_status_effect(STATUS_EFFECT_CHOKINGSTRAND)
-			return
-		check_self_for_injuries()
-
-
-	else
-		if(wear_suit)
-			wear_suit.add_fingerprint(M)
-		else if(w_uniform)
-			w_uniform.add_fingerprint(M)
-
-		..()
-
-
 /mob/living/carbon/human/check_self_for_injuries()
 	if(stat >= UNCONSCIOUS)
 		return

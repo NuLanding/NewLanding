@@ -18,3 +18,5 @@
 	icon_state = "garlic"
 	tastes = list("garlic" = 1)
 	wine_power = 10
+
+

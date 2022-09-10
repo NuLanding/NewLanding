@@ -1,8 +1,8 @@
 // Berries
-/obj/item/seeds/berry
-	name = "pack of berry seeds"
-	desc = "These seeds grow into berry bushes."
-	icon_state = "seed-berry"
+/obj/item/seeds/berries
+	name = "seeds"
+	desc = "These seeds are brown and have round and oblong shapes, and resemble small pebbles."
+	icon_state = "seed-blueberry"
 	species = "berry"
 	plantname = "Berry Bush"
 	product = /obj/item/food/grown/berries
@@ -14,96 +14,118 @@
 	growing_icon = 'icons/obj/hydroponics/growing_fruits.dmi'
 	icon_grow = "berry-grow" // Uses one growth icons set for all the subtypes
 	icon_dead = "berry-dead" // Same for the dead icon
-	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list(/obj/item/seeds/berry/glow, /obj/item/seeds/berry/poison)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
+// Blueberries
+
 /obj/item/food/grown/berries
-	seed = /obj/item/seeds/berry
-	name = "bunch of berries"
-	desc = "Nutritious!"
-	icon_state = "berrypile"
+	seed = /obj/item/seeds/berries
+	name = "berries"
+	desc = "Pea sized round berries that range from blue to purple. They appear to have some kind of powdery coat around them."
+	icon_state = "blueberry"
 	gender = PLURAL
 	foodtypes = FRUIT
 	juice_results = list(/datum/reagent/consumable/berryjuice = 0)
 	tastes = list("berry" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/gin
 
-// Poison Berries
-/obj/item/seeds/berry/poison
-	name = "pack of poison-berry seeds"
-	desc = "These seeds grow into poison-berry bushes."
-	icon_state = "seed-poisonberry"
-	species = "poisonberry"
-	plantname = "Poison-Berry Bush"
-	product = /obj/item/food/grown/berries/poison
-	mutatelist = list(/obj/item/seeds/berry/death)
-	reagents_add = list(/datum/reagent/toxin/cyanide = 0.15, /datum/reagent/toxin/staminatoxin = 0.2, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-	rarity = 10 // Mildly poisonous berries are common in reality
+// Elder Berries
 
-/obj/item/food/grown/berries/poison
-	seed = /obj/item/seeds/berry/poison
-	name = "bunch of poison-berries"
-	desc = "Taste so good, you might die!"
-	icon_state = "poisonberrypile"
-	bite_consumption_mod = 3
-	foodtypes = FRUIT | TOXIC
-	juice_results = list(/datum/reagent/consumable/poisonberryjuice = 0)
-	tastes = list("poison-berry" = 1)
-	distill_reagent = null
-	wine_power = 35
+/obj/item/seeds/berries/elder
+	name = "seeds"
+	desc = "These pebble sized seeds have a tapered almond shape and have a light indigo shade to them."
+	icon_state = "seed-elder"
+	product = /obj/item/food/grown/berries/elder
+	reagents_add = list(/datum/reagent/toxin/staminatoxin = 0.8, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
-// Death Berries
-/obj/item/seeds/berry/death
-	name = "pack of death-berry seeds"
+/obj/item/food/grown/berries/elder
+	seed = /obj/item/seeds/berries/elder
+	name = "berries"
+	desc = "Dark purple-blue berries that resemble small grapes, that are almost perfectly round."
+	icon_state = "elder"
+
+// Myrtle Berries
+
+/obj/item/seeds/berries/myrtle
+	name = "seeds"
+	desc = "Tiny brown half-circle crescent like seeds that appear to have come from a pod."
+	icon_state = "seed-myrtle"
+	product = /obj/item/food/grown/berries/myrtle
+	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.1, /datum/reagent/consumable/nutriment = 0.4)
+
+/obj/item/food/grown/berries/myrtle
+	seed = /obj/item/seeds/berries/myrtle
+	name = "berries"
+	desc = "Dusty looking oblong shaped berries with small protrusions of filament where they were detached from."
+	icon_state = "myrtle"
+	gender = PLURAL
+	foodtypes = FRUIT
+	juice_results = list(/datum/reagent/consumable/berryjuice = 0)
+	tastes = list("berry" = 1)
+	distill_reagent = /datum/reagent/consumable/ethanol/gin
+
+// Raspberry
+
+/obj/item/seeds/berries/raspberry
+	name = "seeds"
+	desc = "These pebble sized seeds have a tapered almond shape and have a light indigo shade to them."
+	icon_state = "seed-raspberry"
+	product = /obj/item/food/grown/berries/raspberry
+
+/obj/item/food/grown/berries/raspberry
+	seed = /obj/item/seeds/berries/raspberry
+	name = "berries"
+	desc = "Dark purple-blue berries that resemble small grapes, that are almost perfectly round."
+	icon_state = "raspberry"
+
+// Strawberry
+
+/obj/item/seeds/berries/strawberry
+	name = "seeds"
+	desc = "These pebble sized seeds have a tapered almond shape and have a light indigo shade to them."
+	icon_state = "seed-strawberry"
+	product = /obj/item/food/grown/berries/strawberry
+
+/obj/item/food/grown/berries/strawberry
+	seed = /obj/item/seeds/berries/strawberry
+	name = "berries"
+	desc = "Dark purple-blue berries that resemble small grapes, that are almost perfectly round."
+	icon_state = "strawberry"
+
+
+// Red Currant
+
+/obj/item/seeds/berries/redcurrant
+	name = "seeds"
+	desc = "These pebble sized seeds have a tapered almond shape and have a light indigo shade to them."
+	icon_state = "seed-redcurrant"
+	product = /obj/item/food/grown/berries/redcurrant
+
+/obj/item/food/grown/berries/redcurrant
+	seed = /obj/item/seeds/berries/redcurrant
+	name = "berries"
+	desc = "Dark purple-blue berries that resemble small grapes, that are almost perfectly round."
+	icon_state = "redcurrant"
+
+// Pokeberry
+/obj/item/seeds/berries/pokeberry
+	name = "pack of pokeberry seeds"
 	desc = "These seeds grow into death berries."
-	icon_state = "seed-deathberry"
-	species = "deathberry"
-	plantname = "Death Berry Bush"
-	product = /obj/item/food/grown/berries/death
-	lifespan = 30
-	potency = 50
-	mutatelist = list()
+	icon_state = "seed-pokeberry"
+	species = "pokeberry"
+	product = /obj/item/food/grown/berries/pokeberry
 	reagents_add = list(/datum/reagent/toxin/coniine = 0.08, /datum/reagent/toxin/staminatoxin = 0.1, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-	rarity = 30
 
-/obj/item/food/grown/berries/death
-	seed = /obj/item/seeds/berry/death
-	name = "bunch of death-berries"
+/obj/item/food/grown/berries/pokeberry
+	seed = /obj/item/seeds/berries/pokeberry
+	name = "pokeberry"
 	desc = "Taste so good, you will die!"
-	icon_state = "deathberrypile"
+	icon_state = "pokeberry"
 	bite_consumption_mod = 3
 	foodtypes = FRUIT | TOXIC
-	tastes = list("death-berry" = 1)
+	tastes = list("death" = 1)
 	distill_reagent = null
 	wine_power = 50
-
-// Glow Berries
-/obj/item/seeds/berry/glow
-	name = "pack of glow-berry seeds"
-	desc = "These seeds grow into glow-berry bushes."
-	icon_state = "seed-glowberry"
-	species = "glowberry"
-	plantname = "Glow-Berry Bush"
-	product = /obj/item/food/grown/berries/glow
-	lifespan = 30
-	endurance = 25
-	mutatelist = list()
-	genes = list(/datum/plant_gene/trait/glow/white, /datum/plant_gene/trait/repeated_harvest)
-	reagents_add = list(/datum/reagent/uranium = 0.25, /datum/reagent/iodine = 0.2, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
-	rarity = 20
-	graft_gene = /datum/plant_gene/trait/glow/white
-
-/obj/item/food/grown/berries/glow
-	seed = /obj/item/seeds/berry/glow
-	name = "bunch of glow-berries"
-	desc = "Nutritious!"
-	bite_consumption_mod = 3
-	icon_state = "glowberrypile"
-	foodtypes = FRUIT
-	tastes = list("glow-berry" = 1)
-	distill_reagent = null
-	wine_power = 60
 
 // Cherries
 /obj/item/seeds/cherry
@@ -124,7 +146,7 @@
 	icon_dead = "cherry-dead"
 	icon_harvest = "cherry-harvest"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list(/obj/item/seeds/cherry/blue, /obj/item/seeds/cherry/bulb)
+	mutatelist = list(/obj/item/seeds/cherry/blue)
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
 
 /obj/item/food/grown/cherries
@@ -160,31 +182,6 @@
 	foodtypes = FRUIT
 	grind_results = list(/datum/reagent/consumable/bluecherryjelly = 0)
 	tastes = list("blue cherry" = 1)
-	wine_power = 50
-
-//Cherry Bulbs
-/obj/item/seeds/cherry/bulb
-	name = "pack of cherry bulb pits"
-	desc = "The glowy kind of cherries."
-	icon_state = "seed-cherrybulb"
-	species = "cherrybulb"
-	plantname = "Cherry Bulb Tree"
-	product = /obj/item/food/grown/cherrybulbs
-	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/glow/pink)
-	mutatelist = list()
-	reagents_add = list(/datum/reagent/consumable/nutriment = 0.07, /datum/reagent/consumable/sugar = 0.07)
-	rarity = 10
-	graft_gene = /datum/plant_gene/trait/glow/pink
-
-/obj/item/food/grown/cherrybulbs
-	seed = /obj/item/seeds/cherry/bulb
-	name = "cherry bulbs"
-	desc = "They're like little Space Christmas lights!"
-	icon_state = "cherry_bulb"
-	bite_consumption_mod = 2
-	foodtypes = FRUIT
-	grind_results = list(/datum/reagent/consumable/cherryjelly = 0)
-	tastes = list("cherry" = 1)
 	wine_power = 50
 
 // Grapes

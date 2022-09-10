@@ -191,14 +191,6 @@
 	icon_state = "tequilabottle"
 	list_reagents = list(/datum/reagent/consumable/ethanol/tequila = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing
-	name = "bottle of nothing"
-	desc = "A bottle filled with nothing."
-	icon_state = "bottleofnothing"
-	list_reagents = list(/datum/reagent/consumable/nothing = 100)
-	foodtype = NONE
-	age_restricted = FALSE
-
 /obj/item/reagent_containers/food/drinks/bottle/patron
 	name = "Wrapp Artiste Patron"
 	desc = "Silver laced tequila, served in space night clubs across the galaxy."

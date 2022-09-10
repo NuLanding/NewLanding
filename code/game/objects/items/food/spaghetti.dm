@@ -61,15 +61,6 @@
 	tastes = list("pasta" = 1, "meat" = 1)
 	foodtypes = GRAIN | MEAT
 
-/obj/item/food/spaghetti/spesslaw
-	name = "spesslaw"
-	desc = "A lawyers favourite."
-	icon_state = "spesslaw"
-
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 20, /datum/reagent/consumable/nutriment/vitamin = 3)
-	microwaved_type = null
-	tastes = list("pasta" = 1, "meat" = 1)
-
 /obj/item/food/spaghetti/chowmein
 	name = "chow mein"
 	desc = "A nice mix of noodles and fried vegetables."

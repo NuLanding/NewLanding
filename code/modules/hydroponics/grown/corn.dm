@@ -13,7 +13,6 @@
 	growing_icon = 'icons/obj/hydroponics/growing_vegetables.dmi'
 	icon_grow = "corn-grow" // Uses one growth icons set for all the subtypes
 	icon_dead = "corn-dead" // Same for the dead icon
-	mutatelist = list(/obj/item/seeds/corn/snapcorn)
 	reagents_add = list(/datum/reagent/consumable/cornoil = 0.2, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 
 /obj/item/food/grown/corn
@@ -38,25 +37,3 @@
 	throw_speed = 3
 	throw_range = 7
 	grind_results = list(/datum/reagent/cellulose = 10) //really partially hemicellulose
-
-// Snapcorn
-/obj/item/seeds/corn/snapcorn
-	name = "pack of snapcorn seeds"
-	desc = "Oh snap!"
-	icon_state = "seed-snapcorn"
-	species = "snapcorn"
-	plantname = "Snapcorn Stalks"
-	product = /obj/item/grown/snapcorn
-	mutatelist = list()
-	rarity = 10
-
-/obj/item/grown/snapcorn
-	seed = /obj/item/seeds/corn/snapcorn
-	name = "snap corn"
-	desc = "A cob with snap pops."
-	icon_state = "snapcorn"
-	inhand_icon_state = "corncob"
-	w_class = WEIGHT_CLASS_TINY
-	throwforce = 0
-	throw_speed = 3
-	throw_range = 7

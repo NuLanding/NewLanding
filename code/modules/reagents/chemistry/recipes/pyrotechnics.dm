@@ -471,12 +471,6 @@
 	required_temp = 400
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_EXPLOSIVE
 
-/datum/chemical_reaction/energized_jelly
-	results = list(/datum/reagent/teslium/energized_jelly = 2)
-	required_reagents = list(/datum/reagent/toxin/slimejelly = 1, /datum/reagent/teslium = 1)
-	mix_message = SPAN_DANGER("The slime jelly starts glowing intermittently.")
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DANGEROUS | REACTION_TAG_HEALING | REACTION_TAG_OTHER
-
 /datum/chemical_reaction/reagent_explosion/teslium_lightning
 	required_reagents = list(/datum/reagent/teslium = 1, /datum/reagent/water = 1)
 	strengthdiv = 100

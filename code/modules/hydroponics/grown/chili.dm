@@ -16,7 +16,7 @@
 	icon_grow = "chili-grow" // Uses one growth icons set for all the subtypes
 	icon_dead = "chili-dead" // Same for the dead icon
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list(/obj/item/seeds/chili/ice, /obj/item/seeds/chili/ghost)
+	mutatelist = list(/obj/item/seeds/chili/ghost)
 	reagents_add = list(/datum/reagent/consumable/capsaicin = 0.25, /datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.04)
 
 /obj/item/food/grown/chili
@@ -27,32 +27,6 @@
 	bite_consumption_mod = 2
 	foodtypes = FRUIT
 	wine_power = 20
-
-// Ice Chili
-/obj/item/seeds/chili/ice
-	name = "pack of chilly pepper seeds"
-	desc = "These seeds grow into chilly pepper plants."
-	icon_state = "seed-icepepper"
-	species = "chiliice"
-	plantname = "Chilly Pepper Plants"
-	product = /obj/item/food/grown/icepepper
-	lifespan = 25
-	maturation = 4
-	production = 4
-	rarity = 20
-	genes = list(/datum/plant_gene/trait/chem_cooling)
-	mutatelist = list()
-	reagents_add = list(/datum/reagent/consumable/frostoil = 0.25, /datum/reagent/consumable/nutriment/vitamin = 0.02, /datum/reagent/consumable/nutriment = 0.02)
-	graft_gene = /datum/plant_gene/trait/chem_cooling
-
-/obj/item/food/grown/icepepper
-	seed = /obj/item/seeds/chili/ice
-	name = "chilly pepper"
-	desc = "It's a mutant strain of chili."
-	icon_state = "icepepper"
-	bite_consumption_mod = 5
-	foodtypes = FRUIT
-	wine_power = 30
 
 // Ghost Chili
 /obj/item/seeds/chili/ghost

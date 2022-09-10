@@ -11,7 +11,7 @@
 	potency = 15
 	instability = 20
 	icon_dead = "wheat-dead"
-	mutatelist = list(/obj/item/seeds/wheat/oat, /obj/item/seeds/wheat/meat)
+	mutatelist = list(/obj/item/seeds/wheat/oat)
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.04)
 
 /obj/item/food/grown/wheat
@@ -71,33 +71,3 @@
 	grind_results = list(/datum/reagent/consumable/rice = 0)
 	tastes = list("rice" = 1)
 	distill_reagent = /datum/reagent/consumable/ethanol/sake
-
-//Meatwheat - grows into synthetic meat
-/obj/item/seeds/wheat/meat
-	name = "pack of meatwheat seeds"
-	desc = "If you ever wanted to drive a vegetarian to insanity, here's how."
-	icon_state = "seed-meatwheat"
-	species = "meatwheat"
-	plantname = "Meatwheat"
-	product = /obj/item/food/grown/meatwheat
-	mutatelist = list()
-
-/obj/item/food/grown/meatwheat
-	name = "meatwheat"
-	desc = "Some blood-drenched wheat stalks. You can crush them into what passes for meat if you squint hard enough."
-	icon_state = "meatwheat"
-	gender = PLURAL
-	bite_consumption_mod = 0.5
-	seed = /obj/item/seeds/wheat/meat
-	foodtypes = MEAT | GRAIN
-	grind_results = list(/datum/reagent/consumable/flour = 0, /datum/reagent/blood = 0)
-	tastes = list("meatwheat" = 1)
-	can_distill = FALSE
-
-/obj/item/food/grown/meatwheat/attack_self(mob/living/user)
-	user.visible_message(SPAN_NOTICE("[user] crushes [src] into meat."), SPAN_NOTICE("You crush [src] into something that resembles meat."))
-	playsound(user, 'sound/effects/blobattack.ogg', 50, TRUE)
-	var/obj/item/food/meat/slab/meatwheat/M = new
-	qdel(src)
-	user.put_in_hands(M)
-	return 1

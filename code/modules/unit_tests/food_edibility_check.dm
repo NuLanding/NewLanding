@@ -6,8 +6,7 @@
 		/obj/item/food/grown,
 		/obj/item/food/grown/mushroom,
 		/obj/item/food/deepfryholder,
-		/obj/item/food/meat/slab/human/mutant,
-		/obj/item/food/grown/shell)
+		/obj/item/food/meat/slab/human/mutant)
 
 	var/list/food_paths = subtypesof(/obj/item/food) - not_food
 

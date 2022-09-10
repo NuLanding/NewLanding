@@ -433,11 +433,6 @@
 	name = "Dank Vesicles"
 	new_capcity = 420
 
-/// Cherry Bomb's increased max volume gene
-/datum/plant_gene/trait/modified_volume/cherry_bomb
-	name = "Powder-Filled Bulbs"
-	new_capcity = 125
-
 /// Plants that explode when used (based on their reagent contents)
 /datum/plant_gene/trait/bomb_plant
 	name = "Explosive Contents"

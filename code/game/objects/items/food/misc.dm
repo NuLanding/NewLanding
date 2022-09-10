@@ -316,16 +316,6 @@
 	foodtypes = FRUIT
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/melonkeg
-	name = "melon keg"
-	desc = "Who knew vodka was a fruit?"
-	icon_state = "melonkeg"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/ethanol/vodka = 15, /datum/reagent/consumable/nutriment/vitamin = 4)
-	max_volume = 80
-	bite_consumption = 5
-	tastes = list("grain alcohol" = 1, "fruit" = 1)
-	foodtypes = FRUIT | ALCOHOL
-
 /obj/item/food/honeybar
 	name = "honey nut bar"
 	desc = "Oats and nuts compressed together into a bar, held together with a honey glaze."
@@ -415,47 +405,6 @@
 	food_reagents = list(/datum/reagent/drug/happiness = 15)
 	tastes = list("paint thinner" = 1)
 	color = "#EE35FF"
-
-/obj/item/food/bubblegum/bubblegum
-	name = "bubblegum gum"
-	desc = "A rubbery strip of gum. You don't feel like eating it is a good idea."
-	color = "#913D3D"
-	food_reagents = list(/datum/reagent/blood = 15)
-	tastes = list("hell" = 1)
-	metabolization_amount = REAGENTS_METABOLISM
-
-/obj/item/food/bubblegum/bubblegum/process()
-	. = ..()
-	if(iscarbon(loc))
-		hallucinate(loc)
-
-/obj/item/food/bubblegum/bubblegum/MakeEdible()
-	AddComponent(/datum/component/edible,\
-				initial_reagents = food_reagents,\
-				food_flags = food_flags,\
-				foodtypes = foodtypes,\
-				volume = max_volume,\
-				eat_time = eat_time,\
-				tastes = tastes,\
-				eatverbs = eatverbs,\
-				bite_consumption = bite_consumption,\
-				microwaved_type = microwaved_type,\
-				junkiness = junkiness,\
-				on_consume = CALLBACK(src, .proc/OnConsume))
-
-/obj/item/food/bubblegum/bubblegum/proc/OnConsume(mob/living/eater, mob/living/feeder)
-	if(iscarbon(eater))
-		hallucinate(eater)
-
-///This proc has a 5% chance to have a bubblegum line appear, with an 85% chance for just text and 15% for a bubblegum hallucination and scarier text.
-/obj/item/food/bubblegum/bubblegum/proc/hallucinate(mob/living/carbon/victim)
-	if(!prob(5)) //cursed by bubblegum
-		return
-	if(prob(15))
-		new /datum/hallucination/oh_yeah(victim)
-		to_chat(victim, SPAN_COLOSSUS("<b>[pick("I AM IMMORTAL.","I SHALL TAKE YOUR WORLD.","I SEE YOU.","YOU CANNOT ESCAPE ME FOREVER.","NOTHING CAN HOLD ME.")]</b>"))
-	else
-		to_chat(victim, SPAN_WARNING("[pick("You hear faint whispers.","You smell ash.","You feel hot.","You hear a roar in the distance.")]"))
 
 /obj/item/food/gumball
 	name = "gumball"

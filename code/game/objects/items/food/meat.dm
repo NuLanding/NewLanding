@@ -597,13 +597,6 @@
 /obj/item/food/meat/slab/human/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE,  /obj/item/food/meat/rawcutlet/plain/human, 3, 30)
 
-/obj/item/food/meat/slab/human/mutant/slime
-	icon_state = "slimemeat"
-	desc = "Because jello wasn't offensive enough to vegans."
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/toxin/slimejelly = 3)
-	tastes = list("slime" = 1, "jelly" = 1)
-	foodtypes = MEAT | RAW | TOXIC
-
 /obj/item/food/meat/slab/human/mutant/golem
 	icon_state = "golemmeat"
 	desc = "Edible rocks, welcome to the future."
@@ -650,34 +643,11 @@
 	tastes = list("dust" = 1, "powder" = 1, "meat" = 2)
 	foodtypes = MEAT | RAW
 
-/obj/item/food/meat/slab/human/mutant/skeleton
-	name = "bone"
-	icon_state = "skeletonmeat"
-	desc = "There's a point where this needs to stop, and clearly we have passed it."
-	tastes = list("bone" = 1)
-	foodtypes = GROSS
-
 /obj/item/food/meat/slab/human/mutant/skeleton/MakeProcessable()
 	return //skeletons dont have cutlets
 
-/obj/item/food/meat/slab/human/mutant/zombie
-	name = " meat (rotten)"
-	icon_state = "rottenmeat"
-	desc = "Halfway to becoming fertilizer for your garden."
-	tastes = list("brains" = 1, "meat" = 1)
-	foodtypes = RAW | MEAT | TOXIC
-
 ////////////////////////////////////// OTHER MEATS ////////////////////////////////////////////////////////
 
-
-/obj/item/food/meat/slab/synthmeat
-	name = "synthmeat"
-	icon_state = "meat_old"
-	desc = "A synthetic slab of meat."
-	foodtypes = RAW | MEAT //hurr durr chemicals we're harmed in the production of this meat thus its non-vegan.
-
-/obj/item/food/meat/slab/synthmeat/MakeGrillable()
-	AddComponent(/datum/component/grillable,/obj/item/food/meat/steak/plain/synth, rand(30 SECONDS, 90 SECONDS), TRUE, TRUE)
 /obj/item/food/meat/slab/meatproduct
 	name = "meat product"
 	icon_state = "meatproduct"
@@ -708,20 +678,6 @@
 	desc = "Tastes like... well you know..."
 	foodtypes = RAW | MEAT | GROSS
 
-/obj/item/food/meat/slab/killertomato
-	name = "killer tomato meat"
-	desc = "A slice from a huge tomato."
-	icon_state = "tomatomeat"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("tomato" = 1)
-	foodtypes = FRUIT
-
-/obj/item/food/meat/slab/killertomato/MakeGrillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/killertomato, rand(70 SECONDS, 85 SECONDS), TRUE, TRUE)
-
-/obj/item/food/meat/slab/killertomato/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/killertomato, 3, 30)
-
 /obj/item/food/meat/slab/bear
 	name = "bear meat"
 	desc = "A very manly slab of meat."
@@ -736,21 +692,6 @@
 /obj/item/food/meat/slab/bear/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/bear, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
 
-/obj/item/food/meat/slab/xeno
-	name = "xeno meat"
-	desc = "A slab of meat."
-	icon_state = "xenomeat"
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 8, /datum/reagent/consumable/nutriment/vitamin = 3)
-	bite_consumption = 4
-	tastes = list("meat" = 1, "acid" = 1)
-	foodtypes = RAW | MEAT
-
-/obj/item/food/meat/slab/xeno/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/meat/rawcutlet/xeno, 3, 30)
-
-/obj/item/food/meat/slab/xeno/MakeGrillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/xeno, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
-
 /obj/item/food/meat/slab/spider
 	name = "spider meat"
 	desc = "A slab of spider meat. That is so Kafkaesque."
@@ -764,28 +705,6 @@
 
 /obj/item/food/meat/slab/spider/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/steak/spider, rand(40 SECONDS, 70 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
-
-/obj/item/food/meat/slab/goliath
-	name = "goliath meat"
-	desc = "A slab of goliath meat. It's not very edible now, but it cooks great in lava."
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/toxin = 5, /datum/reagent/consumable/cooking_oil = 3)
-	icon_state = "goliathmeat"
-	tastes = list("meat" = 1)
-	foodtypes = RAW | MEAT | TOXIC
-
-/obj/item/food/meat/slab/goliath/burn()
-	visible_message(SPAN_NOTICE("[src] finishes cooking!"))
-	new /obj/item/food/meat/steak/goliath(loc)
-	qdel(src)
-
-/obj/item/food/meat/slab/meatwheat
-	name = "meatwheat clump"
-	desc = "This doesn't look like meat, but your standards aren't <i>that</i> high to begin with."
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 2, /datum/reagent/blood = 5, /datum/reagent/consumable/cooking_oil = 1)
-	icon_state = "meatwheat_clump"
-	bite_consumption = 4
-	tastes = list("meat" = 1, "wheat" = 1)
-	foodtypes = GRAIN
 
 /obj/item/food/meat/slab/gorilla
 	name = "gorilla meat"
@@ -902,36 +821,13 @@
 		else if(subjectjob)
 			name = "[origin_meat.subjectjob] meatsteak"
 
-
-/obj/item/food/meat/steak/killertomato
-	name = "killer tomato steak"
-	tastes = list("tomato" = 1)
-	foodtypes = FRUIT
-
 /obj/item/food/meat/steak/bear
 	name = "bear steak"
 	tastes = list("meat" = 1, "salmon" = 1)
 
-/obj/item/food/meat/steak/xeno
-	name = "xeno steak"
-	tastes = list("meat" = 1, "acid" = 1)
-
 /obj/item/food/meat/steak/spider
 	name = "spider steak"
 	tastes = list("cobwebs" = 1)
-
-/obj/item/food/meat/steak/goliath
-	name = "goliath steak"
-	desc = "A delicious, lava cooked steak."
-	resistance_flags = LAVA_PROOF | FIRE_PROOF
-	icon_state = "goliathsteak"
-	trash_type = null
-	tastes = list("meat" = 1, "rock" = 1)
-	foodtypes = MEAT
-
-/obj/item/food/meat/steak/gondola
-	name = "gondola steak"
-	tastes = list("meat" = 1, "tranquility" = 1)
 
 /obj/item/food/meat/steak/penguin
 	name = "penguin steak"
@@ -953,12 +849,6 @@
 	name = "thermally processed meat product"
 	icon_state = "meatproductsteak"
 	tastes = list("enhanced char" = 2, "suspicious tenderness" = 2, "natural & artificial dyes" = 2, "emulsifying agents" = 1)
-
-/obj/item/food/meat/steak/plain/synth
-	name = "synthsteak"
-	desc = "A synthetic meat steak. It doesn't look quite right, now does it?"
-	icon_state = "meatsteak_old"
-	tastes = list("meat" = 4, "cryoxandone" = 1)
 
 //////////////////////////////// MEAT CUTLETS ///////////////////////////////////////////////////////
 
@@ -1010,26 +900,12 @@
 		else if(subjectjob)
 			name = "raw [origin_meat.subjectjob] cutlet"
 
-/obj/item/food/meat/rawcutlet/killertomato
-	name = "raw killer tomato cutlet"
-	tastes = list("tomato" = 1)
-	foodtypes = FRUIT
-
-/obj/item/food/meat/rawcutlet/killertomato/MakeGrillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/killertomato, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE)
-
 /obj/item/food/meat/rawcutlet/bear
 	name = "raw bear cutlet"
 	tastes = list("meat" = 1, "salmon" = 1)
 
 /obj/item/food/meat/rawcutlet/bear/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/bear, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
-/obj/item/food/meat/rawcutlet/xeno
-	name = "raw xeno cutlet"
-	tastes = list("meat" = 1, "acid" = 1)
-
-/obj/item/food/meat/rawcutlet/xeno/MakeGrillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/xeno, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
 
 /obj/item/food/meat/rawcutlet/spider
 	name = "raw spider cutlet"
@@ -1037,12 +913,7 @@
 
 /obj/item/food/meat/rawcutlet/spider/MakeGrillable()
 	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/spider, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
-/obj/item/food/meat/rawcutlet/gondola
-	name = "raw gondola cutlet"
-	tastes = list("meat" = 1, "tranquility" = 1)
 
-/obj/item/food/meat/rawcutlet/gondola/MakeGrillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/meat/cutlet/gondola, rand(35 SECONDS, 50 SECONDS), TRUE, TRUE, /datum/pollutant/food/fried_meat)
 /obj/item/food/meat/rawcutlet/penguin
 	name = "raw penguin cutlet"
 	tastes = list("beef" = 1, "cod fish" = 1)
@@ -1095,26 +966,13 @@
 		else if(subjectjob)
 			name = "[origin_meat.subjectjob] [initial(name)]"
 
-/obj/item/food/meat/cutlet/killertomato
-	name = "killer tomato cutlet"
-	tastes = list("tomato" = 1)
-	foodtypes = FRUIT
-
 /obj/item/food/meat/cutlet/bear
 	name = "bear cutlet"
 	tastes = list("meat" = 1, "salmon" = 1)
 
-/obj/item/food/meat/cutlet/xeno
-	name = "xeno cutlet"
-	tastes = list("meat" = 1, "acid" = 1)
-
 /obj/item/food/meat/cutlet/spider
 	name = "spider cutlet"
 	tastes = list("cobwebs" = 1)
-
-/obj/item/food/meat/cutlet/gondola
-	name = "gondola cutlet"
-	tastes = list("meat" = 1, "tranquility" = 1)
 
 /obj/item/food/meat/cutlet/penguin
 	name = "penguin cutlet"

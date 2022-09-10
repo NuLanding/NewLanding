@@ -297,7 +297,7 @@
 /turf/open/floor/dirt,
 /area/outdoors/jungle)
 "El" = (
-/obj/structure/forage/shrub,
+/obj/structure/cache/forage/shrub,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "EJ" = (
@@ -406,7 +406,7 @@
 /turf/open/floor/cobblestone,
 /area/outdoors/jungle)
 "RD" = (
-/obj/structure/forage/berry_bush,
+/obj/structure/cache/forage/berry_bush,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "RO" = (
@@ -465,7 +465,7 @@
 /turf/open/floor/rock,
 /area/outdoors/caves)
 "Wr" = (
-/obj/structure/forage/tea_herbs,
+/obj/structure/cache/forage/tea_herbs,
 /turf/open/floor/grass,
 /area/outdoors/jungle)
 "Xe" = (

@@ -366,26 +366,6 @@
 	reaction_flags = REACTION_PH_VOL_CONSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DAMAGING | REACTION_TAG_TOXIN | REACTION_TAG_OTHER
 
-/datum/chemical_reaction/mimesbane
-	results = list(/datum/reagent/toxin/mimesbane = 3)
-	required_reagents = list(/datum/reagent/uranium/radium = 1, /datum/reagent/toxin/mutetoxin = 1, /datum/reagent/consumable/nothing = 1)
-	mix_message = "The mixture turns into an indescribable white."
-	is_cold_recipe = FALSE
-	required_temp = 100
-	optimal_temp = 450
-	overheat_temp = 900
-	optimal_ph_min = 0
-	optimal_ph_max = 8
-	determin_ph_range = 4
-	temp_exponent_factor = 1.5
-	ph_exponent_factor = 3
-	thermic_constant = -400
-	H_ion_release = -2
-	rate_up_lim = 15
-	purity_min = 0.5
-	reaction_flags = REACTION_PH_VOL_CONSTANT
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DAMAGING | REACTION_TAG_OTHER
-
 /datum/chemical_reaction/bonehurtingjuice
 	results = list(/datum/reagent/toxin/bonehurtingjuice = 5)
 	required_reagents = list(/datum/reagent/toxin/mutagen = 1, /datum/reagent/toxin/itching_powder = 3, /datum/reagent/consumable/milk = 1)

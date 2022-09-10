@@ -5,6 +5,21 @@
 	wine_power = 40
 
 // Reishi
+/obj/item/seeds/whiteshroom
+	name = "pack of whiteshroom"
+	desc = "This mycelium grows into something medicinal and relaxing."
+	icon_state = "whiteshroom"
+	species = "whiteshroom"
+	plantname = "whiteshroom"
+	product = /obj/item/food/grown/mushroom/whiteshroom
+
+/obj/item/food/grown/mushroom/whiteshroom
+	seed = /obj/item/seeds/whiteshroom
+	name = "whiteshroom"
+	desc = "<I>Amanita Muscaria</I>: Learn poisonous mushrooms by heart. Only pick mushrooms you know."
+	icon_state = "whiteshroom"
+
+// Reishi
 /obj/item/seeds/reishi
 	name = "pack of reishi mycelium"
 	desc = "This mycelium grows into something medicinal and relaxing."
@@ -127,7 +142,6 @@
 	growthstages = 3
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
-	mutatelist = list(/obj/item/seeds/plump/walkingmushroom)
 	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.04, /datum/reagent/consumable/nutriment = 0.1)
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
@@ -137,32 +151,6 @@
 	desc = "<I>Plumus Hellmus</I>: Plump, soft and s-so inviting~"
 	icon_state = "plumphelmet"
 	distill_reagent = /datum/reagent/consumable/ethanol/manly_dorf
-
-// Walking Mushroom
-/obj/item/seeds/plump/walkingmushroom
-	name = "pack of walking mushroom mycelium"
-	desc = "This mycelium will grow into huge stuff!"
-	icon_state = "mycelium-walkingmushroom"
-	species = "walkingmushroom"
-	plantname = "Walking Mushrooms"
-	product = /obj/item/food/grown/mushroom/walkingmushroom
-	lifespan = 30
-	endurance = 30
-	maturation = 5
-	yield = 1
-	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
-	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
-	mutatelist = list()
-	reagents_add = list(/datum/reagent/consumable/nutriment/vitamin = 0.05, /datum/reagent/consumable/nutriment = 0.15)
-	rarity = 30
-	graft_gene = /datum/plant_gene/trait/eyes
-
-/obj/item/food/grown/mushroom/walkingmushroom
-	seed = /obj/item/seeds/plump/walkingmushroom
-	name = "walking mushroom"
-	desc = "<I>Plumus Locomotus</I>: The beginning of the great walk."
-	icon_state = "walkingmushroom"
-	can_distill = FALSE
 
 // Chanterelle
 /obj/item/seeds/chanter
@@ -183,7 +171,6 @@
 	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism)
 	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1)
-	mutatelist = list(/obj/item/seeds/chanter/jupitercup)
 	graft_gene = /datum/plant_gene/trait/plant_type/fungal_metabolism
 
 /obj/item/food/grown/mushroom/chanterelle
@@ -191,114 +178,3 @@
 	name = "chanterelle cluster"
 	desc = "<I>Cantharellus Cibarius</I>: These jolly yellow little shrooms sure look tasty!"
 	icon_state = "chanterelle"
-
-//Jupiter Cup
-/obj/item/seeds/chanter/jupitercup
-	name = "pack of jupiter cup mycelium"
-	desc = "This mycelium grows into jupiter cups. Zeus would be envious at the power at your fingertips."
-	icon_state = "mycelium-jupitercup"
-	species = "jupitercup"
-	plantname = "Jupiter Cups"
-	product = /obj/item/food/grown/mushroom/jupitercup
-	lifespan = 40
-	production = 4
-	endurance = 8
-	yield = 4
-	growthstages = 2
-	genes = list(/datum/plant_gene/trait/plant_type/fungal_metabolism, /datum/plant_gene/trait/plant_type/carnivory)
-	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
-	reagents_add = list(/datum/reagent/consumable/nutriment = 0.1)
-	graft_gene = /datum/plant_gene/trait/plant_type/carnivory
-
-/obj/item/seeds/chanter/jupitercup/Initialize(mapload,nogenes)
-	. = ..()
-	if(!nogenes)
-		unset_mutability(/datum/plant_gene/trait/plant_type/carnivory, PLANT_GENE_REMOVABLE)
-
-/obj/item/food/grown/mushroom/jupitercup
-	seed = /obj/item/seeds/chanter/jupitercup
-	name = "jupiter cup"
-	desc = "A strange red mushroom, its surface is moist and slick. You wonder how many tiny worms have met their fate inside."
-	icon_state = "jupitercup"
-
-// Glowshroom
-/obj/item/seeds/glowshroom
-	name = "pack of glowshroom mycelium"
-	desc = "This mycelium -glows- into mushrooms!"
-	icon_state = "mycelium-glowshroom"
-	species = "glowshroom"
-	plantname = "Glowshrooms"
-	product = /obj/item/food/grown/mushroom/glowshroom
-	lifespan = 100 //ten times that is the delay
-	endurance = 30
-	maturation = 15
-	production = 1
-	yield = 3 //-> spread
-	potency = 30 //-> brightness
-	instability = 20
-	growthstages = 4
-	rarity = 20
-	genes = list(/datum/plant_gene/trait/glow, /datum/plant_gene/trait/plant_type/fungal_metabolism)
-	growing_icon = 'icons/obj/hydroponics/growing_mushrooms.dmi'
-	mutatelist = list(/obj/item/seeds/glowshroom/glowcap, /obj/item/seeds/glowshroom/shadowshroom)
-	reagents_add = list(/datum/reagent/uranium/radium = 0.1, /datum/reagent/phosphorus = 0.1, /datum/reagent/consumable/nutriment = 0.04)
-	graft_gene = /datum/plant_gene/trait/glow
-
-/obj/item/food/grown/mushroom/glowshroom
-	seed = /obj/item/seeds/glowshroom
-	name = "glowshroom cluster"
-	desc = "<I>Mycena Bregprox</I>: This species of mushroom glows in the dark."
-	icon_state = "glowshroom"
-	wine_power = 50
-
-
-// Glowcap
-/obj/item/seeds/glowshroom/glowcap
-	name = "pack of glowcap mycelium"
-	desc = "This mycelium -powers- into mushrooms!"
-	icon_state = "mycelium-glowcap"
-	species = "glowcap"
-	icon_harvest = "glowcap-harvest"
-	plantname = "Glowcaps"
-	product = /obj/item/food/grown/mushroom/glowshroom/glowcap
-	genes = list(/datum/plant_gene/trait/glow/red, /datum/plant_gene/trait/plant_type/fungal_metabolism)
-	mutatelist = list()
-	reagents_add = list(/datum/reagent/teslium = 0.1, /datum/reagent/consumable/nutriment = 0.04)
-	rarity = 30
-
-/obj/item/food/grown/mushroom/glowshroom/glowcap
-	seed = /obj/item/seeds/glowshroom/glowcap
-	name = "glowcap cluster"
-	desc = "<I>Mycena Ruthenia</I>: This species of mushroom glows in the dark, but isn't actually bioluminescent. They're warm to the touch..."
-	icon_state = "glowcap"
-	tastes = list("glowcap" = 1)
-
-
-//Shadowshroom
-/obj/item/seeds/glowshroom/shadowshroom
-	name = "pack of shadowshroom mycelium"
-	desc = "This mycelium will grow into something shadowy."
-	icon_state = "mycelium-shadowshroom"
-	species = "shadowshroom"
-	icon_grow = "shadowshroom-grow"
-	icon_dead = "shadowshroom-dead"
-	plantname = "Shadowshrooms"
-	product = /obj/item/food/grown/mushroom/glowshroom/shadowshroom
-	genes = list(/datum/plant_gene/trait/glow/shadow, /datum/plant_gene/trait/plant_type/fungal_metabolism)
-	mutatelist = list()
-	reagents_add = list(/datum/reagent/uranium/radium = 0.2, /datum/reagent/consumable/nutriment = 0.04)
-	rarity = 30
-	graft_gene = /datum/plant_gene/trait/glow/shadow
-
-/obj/item/food/grown/mushroom/glowshroom/shadowshroom
-	seed = /obj/item/seeds/glowshroom/shadowshroom
-	name = "shadowshroom cluster"
-	desc = "<I>Mycena Umbra</I>: This species of mushroom emits shadow instead of light."
-	icon_state = "shadowshroom"
-	tastes = list("shadow" = 1, "mushroom" = 1)
-	wine_power = 60
-
-/obj/item/food/grown/mushroom/glowshroom/shadowshroom/attack_self(mob/user)
-	. = ..()
-	if(.)
-		investigate_log("was planted by [key_name(user)] at [AREACOORD(user)]", INVESTIGATE_BOTANY)
