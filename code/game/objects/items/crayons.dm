@@ -693,21 +693,6 @@
 /obj/item/toy/crayon/spraycan/lubecan/isValidSurface(surface)
 	return istype(surface, /turf/open/floor)
 
-/obj/item/toy/crayon/spraycan/mimecan
-	name = "silent spraycan"
-	desc = "Art is best seen, not heard."
-	icon_state = "mimecan_cap"
-	icon_capped = "mimecan_cap"
-	icon_uncapped = "mimecan"
-	use_overlays = FALSE
-
-	can_change_colour = FALSE
-	paint_color = "#FFFFFF" //RGB
-
-	pre_noise = FALSE
-	post_noise = FALSE
-	reagent_contents = list(/datum/reagent/consumable/nothing = 1, /datum/reagent/toxin/mutetoxin = 1)
-
 /obj/item/toy/crayon/spraycan/infinite
 	name = "infinite spraycan"
 	charges = -1

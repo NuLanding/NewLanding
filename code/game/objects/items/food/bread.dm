@@ -174,24 +174,6 @@
 /obj/item/food/bread/empty/MakeProcessable()
 	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/empty, 5, 30)
 
-/obj/item/food/bread/mimana
-	name = "mimana bread"
-	desc = "Best eaten in silence."
-	icon_state = "mimanabread"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/toxin/mutetoxin = 5, /datum/reagent/consumable/nothing = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
-	tastes = list("bread" = 10, "silence" = 10)
-	foodtypes = GRAIN | FRUIT
-
-/obj/item/food/bread/mimana/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/breadslice/mimana, 5, 30)
-
-/obj/item/food/breadslice/mimana
-	name = "mimana bread slice"
-	desc = "A slice of silence!"
-	icon_state = "mimanabreadslice"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/toxin/mutetoxin = 1, /datum/reagent/consumable/nothing = 1, /datum/reagent/consumable/nutriment/vitamin = 2)
-	foodtypes = GRAIN | FRUIT
-
 // What you get from cutting a custom bread. Different from custom sliced bread.
 /obj/item/food/breadslice/empty
 	name = "bread slice"

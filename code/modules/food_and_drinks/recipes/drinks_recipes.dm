@@ -348,15 +348,6 @@
 	required_reagents = list(/datum/reagent/consumable/laughter = 1, /datum/reagent/consumable/cream = 1)
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
 
-/datum/chemical_reaction/drink/silencer
-	results = list(/datum/reagent/consumable/ethanol/silencer = 3)
-	required_reagents = list(/datum/reagent/consumable/nothing = 1, /datum/reagent/consumable/cream = 1, /datum/reagent/consumable/sugar = 1)
-	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
-
-/datum/chemical_reaction/drink/driestmartini
-	results = list(/datum/reagent/consumable/ethanol/driestmartini = 2)
-	required_reagents = list(/datum/reagent/consumable/nothing = 1, /datum/reagent/consumable/ethanol/gin = 1)
-
 /datum/chemical_reaction/drink/thirteenloko
 	results = list(/datum/reagent/consumable/ethanol/thirteenloko = 3)
 	required_reagents = list(/datum/reagent/consumable/ethanol/vodka = 1, /datum/reagent/consumable/coffee = 1, /datum/reagent/consumable/limejuice = 1)
@@ -369,10 +360,6 @@
 /datum/chemical_reaction/drink/bluecherryshake
 	results = list(/datum/reagent/consumable/bluecherryshake = 3)
 	required_reagents = list(/datum/reagent/consumable/bluecherryjelly = 1, /datum/reagent/consumable/ice = 1, /datum/reagent/consumable/cream = 1)
-
-/datum/chemical_reaction/drink/drunkenblumpkin
-	results = list(/datum/reagent/consumable/ethanol/drunkenblumpkin = 4)
-	required_reagents = list(/datum/reagent/consumable/blumpkinjuice = 1, /datum/reagent/consumable/ethanol/irish_cream = 2, /datum/reagent/consumable/ice = 1)
 
 /datum/chemical_reaction/drink/pumpkin_latte
 	results = list(/datum/reagent/consumable/pumpkin_latte = 15)
@@ -569,18 +556,12 @@
 	results = list(/datum/reagent/consumable/ethanol/branca_menta = 3)
 	required_reagents = list(/datum/reagent/consumable/ethanol/fernet = 1, /datum/reagent/consumable/ethanol/creme_de_menthe = 1, /datum/reagent/consumable/ice = 1)
 
-/datum/chemical_reaction/drink/blank_paper
-	results = list(/datum/reagent/consumable/ethanol/blank_paper = 3)
-	required_reagents = list(/datum/reagent/consumable/ethanol/silencer = 1, /datum/reagent/consumable/nothing = 1, /datum/reagent/consumable/nuka_cola = 1)
-
-
 /datum/chemical_reaction/drink/wizz_fizz
 	results = list(/datum/reagent/consumable/ethanol/wizz_fizz = 3)
 	required_reagents = list(/datum/reagent/consumable/ethanol/triple_sec = 1, /datum/reagent/consumable/sodawater = 1, /datum/reagent/consumable/ethanol/champagne = 1)
 	mix_message = "The beverage starts to froth with an almost mystical zeal!"
 	mix_sound = 'sound/effects/bubbles2.ogg'
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
-
 
 /datum/chemical_reaction/drink/bug_spray
 	results = list(/datum/reagent/consumable/ethanol/bug_spray = 5)

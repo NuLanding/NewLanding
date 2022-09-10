@@ -16,7 +16,6 @@
 	icon_grow = "grass-grow"
 	icon_dead = "grass-dead"
 	genes = list(/datum/plant_gene/trait/repeated_harvest)
-	mutatelist = list(/obj/item/seeds/grass/carpet, /obj/item/seeds/grass/fairy)
 	reagents_add = list(/datum/reagent/consumable/nutriment = 0.02, /datum/reagent/hydrogen = 0.05)
 
 /obj/item/food/grown/grass
@@ -26,27 +25,6 @@
 	icon_state = "grassclump"
 	bite_consumption_mod = 0.5 // Grazing on grass
 	wine_power = 15
-
-//Fairygrass
-/obj/item/seeds/grass/fairy
-	name = "pack of fairygrass seeds"
-	desc = "These seeds grow into a more mystical grass."
-	icon_state = "seed-fairygrass"
-	species = "fairygrass"
-	plantname = "Fairygrass"
-	product = /obj/item/food/grown/grass/fairy
-	icon_grow = "fairygrass-grow"
-	icon_dead = "fairygrass-dead"
-	genes = list(/datum/plant_gene/trait/repeated_harvest, /datum/plant_gene/trait/glow/blue)
-	reagents_add = list(/datum/reagent/consumable/nutriment = 0.02, /datum/reagent/hydrogen = 0.05, /datum/reagent/drug/space_drugs = 0.15)
-	graft_gene = /datum/plant_gene/trait/glow/blue
-
-/obj/item/food/grown/grass/fairy
-	seed = /obj/item/seeds/grass/fairy
-	name = "fairygrass"
-	desc = "Blue, glowing, and smells fainly of mushrooms."
-	icon_state = "fairygrassclump"
-	bite_consumption_mod = 1
 
 // Carpet
 /obj/item/seeds/grass/carpet

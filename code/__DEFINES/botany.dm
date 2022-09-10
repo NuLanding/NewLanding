@@ -64,3 +64,18 @@
 #define REAGENT_TRANSFER_ID (1<<5)
 /// Plants that have a unique effect on attack_self.
 #define ATTACK_SELF_ID (1<<6)
+
+// /obj/structure/cache/forage/var/plant_status defines
+
+#define NO_PLANT "missing"
+#define PLANT_DEAD "dead"
+#define PLANT_GROWING "growing"
+#define PLANT_HARVESTABLE "harvestable"
+
+///from base of /obj/machinery/hydroponics/set_seed() : (obj/item/new_seed)
+#define COMSIG_SET_SEED "set_seed"
+///from base of /obj/machinery/hydroponics/set_plant_status() : (new_value)
+#define COMSIG_SET_PLANT_STATUS "set_plant_status"
+///from base of /obj/machinery/hydroponics/update_tray() : (mob/user, product_count)
+#define COMSIG_ON_HARVEST "on_harvest"
+

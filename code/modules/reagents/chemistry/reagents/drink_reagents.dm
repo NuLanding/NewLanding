@@ -141,23 +141,6 @@
 	glass_desc = "The raw essence of a banana. HONK."
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
-/datum/reagent/consumable/nothing
-	name = "Nothing"
-	description = "Absolutely nothing."
-	taste_description = "nothing"
-	glass_icon_state = "nothing"
-	glass_name = "nothing"
-	glass_desc = "Absolutely nothing."
-	shot_glass_icon_state = "shotglass"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/consumable/nothing/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	if(ishuman(M) && M.mind?.miming)
-		M.silent = max(M.silent, MIMEDRINK_SILENCE_DURATION)
-		M.heal_bodypart_damage(1 * REM * delta_time, 1 * REM * delta_time)
-		. = TRUE
-	..()
-
 /datum/reagent/consumable/laughter
 	name = "Laughter"
 	description = "Some say that this is the best medicine, but recent studies have proven that to be untrue."
@@ -764,13 +747,6 @@
 	description = "Juiced from real pumpkin."
 	color = "#FFA500"
 	taste_description = "pumpkin"
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/consumable/blumpkinjuice
-	name = "Blumpkin Juice"
-	description = "Juiced from real blumpkin."
-	color = "#00BFFF"
-	taste_description = "a mouthful of pool water"
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 
 /datum/reagent/consumable/triple_citrus

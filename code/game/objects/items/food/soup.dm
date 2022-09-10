@@ -32,14 +32,6 @@
 	tastes = list("meat" = 1)
 	foodtypes = MEAT
 
-/obj/item/food/soup/slime
-	name = "slime soup"
-	desc = "If no water is available, you may substitute tears."
-	icon_state = "slimesoup"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/toxin/slimejelly = 10, /datum/reagent/consumable/nutriment/vitamin = 9, /datum/reagent/water = 5)
-	tastes = list("slime" = 1)
-	foodtypes = TOXIC | SUGAR
-
 /obj/item/food/soup/blood
 	name = "tomato soup"
 	desc = "Smells like copper."
@@ -47,23 +39,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/blood = 10, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 10)
 	tastes = list("iron" = 1)
 	foodtypes = GROSS
-
-/obj/item/food/soup/wingfangchu
-	name = "wing fang chu"
-	desc = "A savory dish of alien wing wang in soy."
-	icon_state = "wingfangchu"
-	trash_type = /obj/item/reagent_containers/glass/bowl
-	food_reagents = list(/datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/soysauce = 10, /datum/reagent/consumable/nutriment/vitamin = 7)
-	tastes = list("soy" = 1)
-	foodtypes = MEAT
-
-/obj/item/food/soup/clownstears
-	name = "clown's tears"
-	desc = "Not very funny."
-	icon_state = "clownstears"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/banana = 10, /datum/reagent/water = 5, /datum/reagent/consumable/nutriment/vitamin = 16, /datum/reagent/consumable/clownstears = 10)
-	tastes = list("a bad joke" = 1)
-	foodtypes = FRUIT | SUGAR
 
 /obj/item/food/soup/vegetable
 	name = "vegetable soup"
@@ -100,7 +75,6 @@
 		/datum/reagent/medicine/oculine,
 		/datum/reagent/medicine/omnizine,
 		/datum/reagent/toxin,
-		/datum/reagent/toxin/slimejelly,
 		)
 	reagents.add_reagent(extra_reagent, 5)
 	reagents.add_reagent(/datum/reagent/consumable/nutriment, 6)
@@ -112,20 +86,13 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/capsaicin = 3, /datum/reagent/consumable/tomatojuice = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("hot peppers" = 1)
 	foodtypes = VEGETABLES | MEAT
+
 /obj/item/food/soup/coldchili
 	name = "cold chili"
 	desc = "This slush is barely a liquid!"
 	icon_state = "coldchili"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/frostoil = 3, /datum/reagent/consumable/tomatojuice = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("tomato" = 1, "mint" = 1)
-	foodtypes = VEGETABLES | MEAT
-
-/obj/item/food/soup/clownchili
-	name = "chili con carnival"
-	desc = "A delicious stew of meat, chiles, and salty, salty clown tears."
-	icon_state = "clownchili"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/capsaicin = 1, /datum/reagent/consumable/tomatojuice = 4, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/banana = 1, /datum/reagent/consumable/laughter = 1)
-	tastes = list("tomato" = 1, "hot peppers" = 2, "clown feet" = 2, "kind of funny" = 2, "someone's parents" = 2)
 	foodtypes = VEGETABLES | MEAT
 
 /obj/item/food/soup/monkeysdelight
@@ -179,16 +146,6 @@
 	. = ..()
 	name = pick("borsch","bortsch","borstch","borsh","borshch","borscht")
 	tastes = list(name = 1)
-
-
-/obj/item/food/soup/spacylibertyduff
-	name = "spacy liberty duff"
-	desc = "Jello gelatin, from Alfred Hubbard's cookbook."
-	icon_state = "spacylibertyduff"
-	bite_consumption = 3
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/drug/mushroomhallucinogen = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("jelly" = 1, "mushroom" = 1)
-	foodtypes = VEGETABLES
 
 /obj/item/food/soup/amanitajelly
 	name = "amanita jelly"

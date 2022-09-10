@@ -35,15 +35,6 @@
 	foodtypes = GRAIN | MEAT
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/food/fuegoburrito
-	name = "fuego plasma burrito"
-	desc = "A super spicy burrito."
-	icon_state = "fuegoburrito"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 2, /datum/reagent/consumable/capsaicin = 5, /datum/reagent/consumable/nutriment/vitamin = 3)
-	tastes = list("torilla" = 2, "meat" = 3, "hot peppers" = 1)
-	foodtypes = GRAIN
-	w_class = WEIGHT_CLASS_SMALL
-
 /obj/item/food/nachos
 	name = "nachos"
 	desc = "Chips from Space Mexico."

@@ -117,14 +117,6 @@
 		food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/medicine/omnizine = 5, /datum/reagent/consumable/nutriment/vitamin = 4)
 	. = ..()
 
-/obj/item/food/pie/xemeatpie
-	name = "xeno-pie"
-	icon_state = "xenomeatpie"
-	desc = "A delicious meatpie. Probably heretical."
-	food_reagents = list(/datum/reagent/consumable/nutriment = 11, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("pie" = 1, "meat" = 1, "acid" = 1)
-	foodtypes = GRAIN | MEAT
-
 /obj/item/food/pie/applepie
 	name = "apple pie"
 	desc = "A pie containing sweet sweet love...or apple."
@@ -176,14 +168,6 @@
 	tastes = list("pie" = 1, "grape" = 1)
 	foodtypes = GRAIN | FRUIT | SUGAR
 
-/obj/item/food/pie/mimetart
-	name = "mime tart"
-	desc = "..."
-	icon_state = "mimetart"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/nothing = 10)
-	tastes = list("nothing" = 3)
-	foodtypes = GRAIN
-
 /obj/item/food/pie/berrytart
 	name = "berry tart"
 	desc = "A tasty dessert of many different small barries on a thin pie crust."
@@ -199,25 +183,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 4)
 	tastes = list("pie" = 1, "dark chocolate" = 3)
 	foodtypes = GRAIN | SUGAR
-
-/obj/item/food/pie/blumpkinpie
-	name = "blumpkin pie"
-	desc = "An odd blue pie made with toxic blumpkin."
-	icon_state = "blumpkinpie"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 13, /datum/reagent/consumable/nutriment/vitamin = 6)
-	tastes = list("pie" = 1, "a mouthful of pool water" = 1)
-	foodtypes = GRAIN | VEGETABLES
-
-/obj/item/food/pie/blumpkinpie/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/pieslice/blumpkin, 5, 20)
-
-/obj/item/food/pieslice/blumpkin
-	name = "blumpkin pie slice"
-	desc = "A slice of blumpkin pie, with whipped cream on top. Is this edible?"
-	icon_state = "blumpkinpieslice"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2)
-	tastes = list("pie" = 1, "a mouthful of pool water" = 1)
-	foodtypes = GRAIN | VEGETABLES
 
 /obj/item/food/pie/dulcedebatata
 	name = "dulce de batata"

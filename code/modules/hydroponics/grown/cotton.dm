@@ -16,7 +16,6 @@
 	growthstages = 3
 	growing_icon = 'icons/obj/hydroponics/growing.dmi'
 	icon_dead = "cotton-dead"
-	mutatelist = list(/obj/item/seeds/cotton/durathread)
 
 /obj/item/grown/cotton
 	seed = /obj/item/seeds/cotton
@@ -46,37 +45,3 @@
 	if(cotton.amount > old_cotton_amount)
 		to_chat(user, SPAN_NOTICE("You add the newly-formed [cotton_name] to the stack. It now contains [cotton.amount] [cotton_name]."))
 	qdel(src)
-
-//reinforced mutated variant
-/obj/item/seeds/cotton/durathread
-	name = "pack of durathread seeds"
-	desc = "A pack of seeds that'll grow into an extremely durable thread that could easily rival plasteel if woven properly."
-	icon_state = "seed-durathread"
-	species = "durathread"
-	plantname = "Durathread"
-	icon_harvest = "durathread-harvest"
-	product = /obj/item/grown/cotton/durathread
-	lifespan = 80
-	endurance = 50
-	maturation = 15
-	production = 1
-	yield = 2
-	potency = 50
-	growthstages = 3
-	growing_icon = 'icons/obj/hydroponics/growing.dmi'
-	icon_dead = "cotton-dead"
-
-/obj/item/grown/cotton/durathread
-	seed = /obj/item/seeds/cotton/durathread
-	name = "durathread bundle"
-	desc = "A tough bundle of durathread, good luck unraveling this."
-	icon_state = "durathread"
-	force = 5
-	throwforce = 5
-	w_class = WEIGHT_CLASS_NORMAL
-	throw_speed = 2
-	throw_range = 3
-	attack_verb_continuous = list("bashes", "batters", "bludgeons", "whacks")
-	attack_verb_simple = list("bash", "batter", "bludgeon", "whack")
-	cotton_type = /obj/item/stack/sheet/cotton/durathread
-	cotton_name = "raw durathread"

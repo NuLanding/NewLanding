@@ -99,11 +99,6 @@
 	mob_react = FALSE
 	reaction_flags = REACTION_INSTANT
 
-/datum/chemical_reaction/food/synthmeat/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
-	var/location = get_turf(holder.my_atom)
-	for(var/i = 1, i <= created_volume, i++)
-		new /obj/item/food/meat/slab/synthmeat(location)
-
 /datum/chemical_reaction/food/hot_ramen
 	results = list(/datum/reagent/consumable/hot_ramen = 3)
 	required_reagents = list(/datum/reagent/water = 1, /datum/reagent/consumable/dry_ramen = 3)

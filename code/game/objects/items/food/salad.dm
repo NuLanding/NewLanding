@@ -111,7 +111,7 @@
 	name = "\improper Salad of Eden"
 	desc = "A salad brimming with untapped potential."
 	icon_state = "edensalad"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/medicine/earthsblood = 3, /datum/reagent/medicine/omnizine = 5, /datum/reagent/drug/happiness = 2)
+	food_reagents = list(/datum/reagent/consumable/nutriment = 7, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/medicine/omnizine = 5, /datum/reagent/drug/happiness = 2)
 	tastes = list("extreme bitterness" = 3, "hope" = 1)
 	foodtypes = VEGETABLES
 
@@ -122,7 +122,6 @@
 	food_reagents = list(/datum/reagent/consumable/capsaicin = 2, /datum/reagent/consumable/nutriment/vitamin = 3, /datum/reagent/consumable/nutriment = 5)
 	tastes = list("building heat" = 2, "savory meat and vegtables" = 1)
 	foodtypes = GRAIN | MEAT | VEGETABLES
-
 
 /obj/item/reagent_containers/glass/bowl
 	name = "bowl"

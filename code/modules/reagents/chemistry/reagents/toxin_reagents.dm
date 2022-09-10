@@ -152,26 +152,6 @@
 			C.emote("gasp")
 	..()
 
-/datum/reagent/toxin/slimejelly
-	name = "Slime Jelly"
-	description = "A gooey semi-liquid produced from one of the deadliest lifeforms in existence. SO REAL."
-	color = "#801E28" // rgb: 128, 30, 40
-	toxpwr = 0
-	taste_description = "slime"
-	taste_mult = 1.3
-	ph = 10
-	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
-/datum/reagent/toxin/slimejelly/on_mob_life(mob/living/carbon/M, delta_time, times_fired)
-	if(DT_PROB(5, delta_time))
-		to_chat(M, SPAN_DANGER("Your insides are burning!"))
-		M.adjustToxLoss(rand(20, 60), 0)
-		. = TRUE
-	else if(DT_PROB(23, delta_time))
-		M.heal_bodypart_damage(5)
-		. = TRUE
-	..()
-
 /datum/reagent/toxin/minttoxin
 	name = "Mint Toxin"
 	description = "Useful for dealing with undesirable customers."

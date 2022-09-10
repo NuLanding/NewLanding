@@ -15,31 +15,12 @@
 	foodtypes = GRAIN | MEAT
 	custom_price = PAYCHECK_ASSISTANT * 0.8
 
-/obj/item/food/burger/plain/Initialize()
-	. = ..()
-	if(prob(1))
-		new/obj/effect/particle_effect/smoke(get_turf(src))
-		playsound(src, 'sound/effects/smoke.ogg', 50, TRUE)
-		visible_message(SPAN_WARNING("Oh, ye gods! [src] is ruined! But what if...?"))
-		name = "steamed ham"
-		desc = pick("Ahh, Head of Personnel, welcome. I hope you're prepared for an unforgettable luncheon!",
-		"And you call these steamed hams despite the fact that they are obviously microwaved?",
-		"Aurora Station 13? At this time of shift, in this time of year, in this sector of space, localized entirely within your freezer?",
-		"You know, these hamburgers taste quite similar to the ones they have at the Maltese Falcon.")
-
 /obj/item/food/burger/human
 	name = "human burger"
 	desc = "A bloody burger."
 	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	tastes = list("bun" = 2, "long pig" = 4)
 	foodtypes = MEAT | GRAIN | GROSS
-
-/obj/item/food/burger/corgi
-	name = "corgi burger"
-	desc = "You monster."
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
-	foodtypes = GRAIN | MEAT | GROSS
-
 
 /obj/item/food/burger/appendix
 	name = "appendix burger"
@@ -72,20 +53,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 5)
 	foodtypes = GRAIN | MEAT
 
-/obj/item/food/burger/clown
-	name = "clown burger"
-	desc = "This tastes funny..."
-	icon_state = "clownburger"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/medicine/mannitol = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
-	foodtypes = GRAIN | FRUIT
-
-/obj/item/food/burger/mime
-	name = "mime burger"
-	desc = "Its taste defies language."
-	icon_state = "mimeburger"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/nutriment/protein = 9, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/consumable/nothing = 6)
-	foodtypes = GRAIN
-
 /obj/item/food/burger/brain
 	name = "brainburger"
 	desc = "A strange looking burger. It looks almost sentient."
@@ -93,113 +60,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/medicine/mannitol = 6, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/nutriment/protein = 6)
 	tastes = list("bun" = 4, "brains" = 2)
 	foodtypes = GRAIN | MEAT | GROSS
-
-/obj/item/food/burger/ghost
-	name = "ghost burger"
-	desc = "Too Spooky!"
-	icon_state = "ghostburger"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/nutriment/protein = 4, /datum/reagent/consumable/nutriment/vitamin = 12, /datum/reagent/consumable/salt = 5)
-	tastes = list("bun" = 2, "ectoplasm" = 4)
-	foodtypes = GRAIN
-	alpha = 170
-	verb_say = "moans"
-	verb_yell = "wails"
-
-/obj/item/food/burger/ghost/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/item/food/burger/ghost/process()
-	if(!isturf(loc)) //no floating out of bags
-		return
-	var/paranormal_activity = rand(100)
-	switch(paranormal_activity)
-		if(97 to 100)
-			audible_message("[src] rattles a length of chain.")
-			playsound(loc,'sound/spookoween/chain_rattling.ogg', 300, TRUE)
-		if(91 to 96)
-			say(pick("OoOoOoo.", "OoooOOooOoo!!"))
-		if(84 to 90)
-			dir = pick(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
-			step(src, dir)
-		if(71 to 83)
-			step(src, dir)
-		if(62 to 64)
-			playsound(loc,pick('sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg'), 50, TRUE, ignore_walls = FALSE)
-		if(61)
-			visible_message("[src] spews out a glob of ectoplasm!")
-			new /obj/effect/decal/cleanable/greenglow/ecto(loc)
-			playsound(loc,'sound/effects/splat.ogg', 200, TRUE)
-
-		//If i was less lazy i would make the burger forcefeed itself to a nearby mob here.
-
-/obj/item/food/burger/ghost/Destroy()
-	STOP_PROCESSING(SSobj, src)
-	. = ..()
-
-/obj/item/food/burger/red
-	name = "red burger"
-	desc = "Perfect for hiding the fact it's burnt to a crisp."
-	icon_state = "cburger"
-	color = COLOR_RED
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/red = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/orange
-	name = "orange burger"
-	desc = "Contains 0% juice."
-	icon_state = "cburger"
-	color = COLOR_ORANGE
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/orange = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/yellow
-	name = "yellow burger"
-	desc = "Bright to the last bite."
-	icon_state = "cburger"
-	color = COLOR_YELLOW
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/yellow = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/green
-	name = "green burger"
-	desc = "It's not tainted meat, it's painted meat!"
-	icon_state = "cburger"
-	color = COLOR_GREEN
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/green = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/blue
-	name = "blue burger"
-	desc = "Is this blue rare?"
-	icon_state = "cburger"
-	color = COLOR_BLUE
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/blue = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/purple
-	name = "purple burger"
-	desc = "Regal and low class at the same time."
-	icon_state = "cburger"
-	color = COLOR_PURPLE
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/purple = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/black
-	name = "black burger"
-	desc = "This is overcooked."
-	icon_state = "cburger"
-	color = COLOR_ALMOST_BLACK
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/black = 10)
-	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/white
-	name = "white burger"
-	desc = "Delicous Titanium!"
-	icon_state = "cburger"
-	color = COLOR_WHITE
-	food_reagents = list(/datum/reagent/consumable/nutriment = 2, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 4, /datum/reagent/colorful_reagent/powder/white = 10)
-	foodtypes = GRAIN | MEAT
 
 /obj/item/food/burger/spell
 	name = "spell burger"
@@ -223,10 +83,6 @@
 	icon_state = "jellyburger"
 	tastes = list("bun" = 4, "jelly" = 2)
 	foodtypes = GRAIN | MEAT
-
-/obj/item/food/burger/jelly/slime
-	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/toxin/slimejelly = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
-	foodtypes = GRAIN | TOXIC
 
 /obj/item/food/burger/jelly/cherry
 	food_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/consumable/cherryjelly = 6, /datum/reagent/consumable/nutriment/vitamin = 6)
@@ -256,14 +112,6 @@
 	icon_state = "ratburger"
 	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/nutriment/vitamin = 2)
 	foodtypes = GRAIN | MEAT | GROSS
-
-/obj/item/food/burger/baseball
-	name = "home run baseball burger"
-	desc = "It's still warm. The steam coming off of it looks like baseball."
-	icon_state = "baseball"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 3, /datum/reagent/consumable/nutriment/protein = 5, /datum/reagent/consumable/nutriment/vitamin = 2)
-	foodtypes = GRAIN | GROSS
-	custom_price = PAYCHECK_ASSISTANT * 0.8
 
 /obj/item/food/burger/baconburger
 	name = "bacon burger"
@@ -326,24 +174,6 @@
 	. = ..()
 	if(prob(33))
 		icon_state = "cheeseburgeralt"
-
-/obj/item/food/burger/crazy
-	name = "crazy hamburger"
-	desc = "This looks like the sort of food that a demented clown in a trenchcoat would make."
-	icon_state = "crazyburger"
-	tastes = list("bun" = 2, "beef patty" = 4, "cheese" = 2, "beef soaked in chili" = 3, "a smoking flare" = 2)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/protein = 6, /datum/reagent/consumable/capsaicin = 3, /datum/reagent/consumable/condensedcapsaicin = 3, /datum/reagent/consumable/nutriment/vitamin = 6)
-	foodtypes = GRAIN | MEAT | DAIRY
-
-/obj/item/food/burger/crazy/Initialize()
-	. = ..()
-	START_PROCESSING(SSobj, src)
-
-/obj/item/food/burger/crazy/process(delta_time) // DIT EES HORRIBLE
-	if(DT_PROB(2.5, delta_time))
-		var/datum/effect_system/smoke_spread/bad/green/smoke = new
-		smoke.set_up(0, src)
-		smoke.start()
 
 // empty burger you can customize
 /obj/item/food/burger/empty

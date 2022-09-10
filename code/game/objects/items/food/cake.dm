@@ -204,24 +204,6 @@
 	tastes = list("cake" = 5, "sweetness" = 1, "apple" = 1)
 	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 
-/obj/item/food/cake/slimecake
-	name = "Slime cake"
-	desc = "A cake made of slimes. Probably not electrified."
-	icon_state = "slimecake"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5)
-	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
-	foodtypes = GRAIN | DAIRY | SUGAR
-
-/obj/item/food/cake/slimecake/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/slimecake, 5, 30)
-
-/obj/item/food/cakeslice/slimecake
-	name = "slime cake slice"
-	desc = "A slice of slime cake."
-	icon_state = "slimecake_slice"
-	tastes = list("cake" = 5, "sweetness" = 1, "slime" = 1)
-	foodtypes = GRAIN | DAIRY | SUGAR
-
 /obj/item/food/cake/pumpkinspice
 	name = "pumpkin spice cake"
 	desc = "A hollow cake with real pumpkin."
@@ -313,25 +295,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 9, /datum/reagent/consumable/nutriment/vitamin = 0.5)
 	foodtypes = GRAIN | DAIRY | SUGAR | JUNKFOOD
 
-/obj/item/food/cake/hardware_cake
-	name = "hardware cake"
-	desc = "A quote on quote cake that is made with electronic boards and leaks acid..."
-	icon_state = "hardware_cake"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/toxin/acid = 15, /datum/reagent/fuel/oil = 15)
-	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
-	foodtypes = GRAIN | GROSS
-
-/obj/item/food/cake/hardware_cake/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/hardware_cake_slice, 5, 30)
-
-/obj/item/food/cakeslice/hardware_cake_slice
-	name = "hardware cake slice"
-	desc = "A slice of electronic boards and some acid."
-	icon_state = "hardware_cake_slice"
-	tastes = list("acid" = 3, "metal" = 4, "glass" = 5)
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/toxin/acid = 3, /datum/reagent/fuel/oil = 3)
-	foodtypes = GRAIN | GROSS
-
 /obj/item/food/cake/vanilla_cake
 	name = "vanilla cake"
 	desc = "A vanilla frosted cake."
@@ -350,44 +313,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 3, /datum/reagent/consumable/vanilla = 3)
 	tastes = list("cake" = 1, "sugar" = 1, "vanilla" = 10)
 	foodtypes = GRAIN | SUGAR | DAIRY
-
-/obj/item/food/cake/clown_cake
-	name = "clown cake"
-	desc = "A funny cake with a clown face on it."
-	icon_state = "clowncake"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/sugar = 15)
-	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
-	foodtypes = GRAIN | SUGAR | DAIRY
-
-/obj/item/food/cake/clown_cake/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/clown_slice, 5, 30)
-
-/obj/item/food/cakeslice/clown_slice
-	name = "clown cake slice"
-	desc = "A slice of bad jokes, and silly props."
-	icon_state = "clowncake_slice"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/sugar = 3)
-	tastes = list("cake" = 1, "sugar" = 1, "joy" = 10)
-	foodtypes = GRAIN | SUGAR | DAIRY
-
-/obj/item/food/cake/trumpet
-	name = "spaceman's cake"
-	desc = "A spaceman's trumpet frosted cake."
-	icon_state = "trumpetcake"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 20, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/medicine/polypyr = 15, /datum/reagent/consumable/cream = 5, /datum/reagent/consumable/nutriment/vitamin = 5, /datum/reagent/consumable/berryjuice = 5)
-	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
-	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
-
-/obj/item/food/cake/trumpet/MakeProcessable()
-	AddElement(/datum/element/processable, TOOL_KNIFE, /obj/item/food/cakeslice/trumpet, 5, 30)
-
-/obj/item/food/cakeslice/trumpet
-	name = "spaceman's cake"
-	desc = "A spaceman's trumpet frosted cake."
-	icon_state = "trumpetcakeslice"
-	food_reagents = list(/datum/reagent/consumable/nutriment = 4, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/medicine/polypyr = 3, /datum/reagent/consumable/cream = 1, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/berryjuice = 1)
-	tastes = list("cake" = 4, "violets" = 2, "jam" = 2)
-	foodtypes = GRAIN | DAIRY | FRUIT | SUGAR
 
 /obj/item/food/cake/brioche
 	name = "brioche cake"

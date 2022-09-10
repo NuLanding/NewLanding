@@ -523,8 +523,6 @@
 /// Allows a plant to be harvested multiple times.
 /datum/plant_gene/trait/repeated_harvest
 	name = "Perennial Growth"
-	/// Don't allow replica pods to be multi harvested, please.
-	seed_blacklist = list(/obj/item/seeds/replicapod)
 	mutability_flags = PLANT_GENE_REMOVABLE | PLANT_GENE_MUTATABLE | PLANT_GENE_GRAFTABLE
 
 /*

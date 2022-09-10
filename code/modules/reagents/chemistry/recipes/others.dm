@@ -344,14 +344,6 @@
 	required_container = /obj/item/food/deadmouse
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_FOOD | REACTION_TAG_DAMAGING
 
-
-/datum/chemical_reaction/slimejelly
-	results = list(/datum/reagent/toxin/slimejelly = 5)
-	required_reagents = list(/datum/reagent/fuel/oil = 3, /datum/reagent/uranium/radium = 2, /datum/reagent/consumable/tinlux =1)
-	required_container = /obj/item/food/grown/mushroom/glowshroom
-	mix_message = "The mushroom's insides bubble and pop and it becomes very limp."
-	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_PLANT | REACTION_TAG_DAMAGING | REACTION_TAG_TOXIN | REACTION_TAG_SLIME
-
 /datum/chemical_reaction/gravitum
 	required_reagents = list(/datum/reagent/wittel = 1, /datum/reagent/sorium = 10)
 	results = list(/datum/reagent/gravitum = 10)
